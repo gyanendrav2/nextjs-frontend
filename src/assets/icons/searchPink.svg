@@ -1,0 +1,21 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+ <mask height="25" width="25" y="-1" x="0" maskUnits="userSpaceOnUse" id="mask0">
+  <rect id="svg_1" fill="white" height="25" width="25" y="-1"/>
+  <rect id="svg_2" fill="url(#paint0_linear)" height="25" width="25" y="-1"/>
+ </mask>
+ <defs>
+  <linearGradient y2="1" x2="0.5" y1="0" x1="0.5" id="paint0_linear">
+   <stop stop-color="white"/>
+   <stop stop-opacity="0" stop-color="white" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_4" fill="#ff8da1" d="m9,15c3.3137,0 6,-2.6863 6,-6c0,-3.31371 -2.6863,-6 -6,-6c-3.31371,0 -6,2.68629 -6,6c0,3.3137 2.68629,6 6,6zm0,2c4.4183,0 8,-3.5817 8,-8c0,-4.41828 -3.5817,-8 -8,-8c-4.41828,0 -8,3.58172 -8,8c0,4.4183 3.58172,8 8,8z" clip-rule="evenodd" fill-rule="evenodd"/>
+  <path id="svg_5" fill="#ff8da1" d="m13.0911,14.5054c-0.0781,-0.0781 -0.0781,-0.2047 0,-0.2828l1.1314,-1.1314c0.0781,-0.0781 0.2047,-0.0781 0.2828,0l7.4954,7.4954c0.0781,0.0781 0.0781,0.2047 0,0.2828l-1.1314,1.1314c-0.0781,0.0781 -0.2047,0.0781 -0.2828,0l-7.4954,-7.4954z"/>
+ </g>
+</svg>
