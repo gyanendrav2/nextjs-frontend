@@ -172,7 +172,7 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                             />
                         </li>
                         <li className={classes.listStyle}>
-                            <CustomButton className={classes.button} label="Upload work" type="file" />
+                            <CustomButton wantFile={true} allowMultiple={true} onFileChange={(e)=>console.log(e.target.files)} className={classes.button} label="Upload work" type="file" />
                         </li>
                     </ul>
                 </Box>

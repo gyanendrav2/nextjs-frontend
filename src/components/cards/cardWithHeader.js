@@ -1,8 +1,7 @@
 import React from "react";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../theme/colors";
+import { colors } from "../../theme/colors";
 import PropTypes from "prop-types";
-import CardWithHeader from "../../../components/cards/cardWithHeader";
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -16,9 +15,9 @@ const useStyles = makeStyles({
         height: "100%",
     },
     CreatorsAuthor: {
-        display: " flex;",
-        alignItems: " center;",
-        border: "1px solid rgba(0, 0, 0, 0.05);",
+        display: " flex",
+        alignItems: " center",
+        border: "1px solid rgba(0, 0, 0, 0.05)",
         padding: "0.5rem",
         height: "100%",
     },
@@ -57,39 +56,40 @@ const useStyles = makeStyles({
         height: "100%",
         objectFit: "cover",
     },
+    // container: {
+    //     boxShadow: `0px 1px 1px ${colors.lightGray}`,
+    //     display: "flex",
+    //     flexDirection: "column",
+    //     height: "100%",
+    // },
 });
 
-const CreationCard = ({ curatedCreators }) => {
+const CardWithHeader = ({ image, title, subTitle, buttonText }) => {
     const classes = useStyles();
+
     return (
-        <Box className={classes.CuratorCard}>
-            <Grid container spacing={2}>
-                {curatedCreators &&
-                    curatedCreators.map((data, i) => {
-                        return (
-                            <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
-                                <CardWithHeader
-                                    image={data.image}
-                                    title={data.name}
-                                    subTitle={data.subTitle}
-                                    buttonText="Follow"
-                                />
-                            </Grid>
-                        );
-                    })}
-            </Grid>
+        <Box className={classes.Container}>
+            <Box className={classes.CreatorsAuthor}>
+                <Box>
+                    <img className={classes.image} src={image} alt={title} />
+                </Box>
+                <Box>
+                    <Typography className={classes.CreatorsAuthorName}>{title}</Typography>
+                    <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
+                    <button className={classes.CreatorsButton}>{buttonText}</button>
+                </Box>
+            </Box>
+            <Box className={classes.image_container}>
+                <img className={classes.image_} src={image} alt={title} />
+            </Box>
         </Box>
     );
 };
 
-CreationCard.propTypes = {
-    curatedCreators: PropTypes.arrayOf(
-        PropTypes.shape({
-            image: PropTypes.string,
-            name: PropTypes.string,
-            jobTitle: PropTypes.string,
-        })
-    ),
+CardWithHeader.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    subTitle: PropTypes.string,
+    buttonText: PropTypes.string,
 };
-
-export default CreationCard;
+export default CardWithHeader;

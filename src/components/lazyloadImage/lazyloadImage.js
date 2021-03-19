@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Blurhash } from "react-blurhash";
 
-const BlurImage = ({ image, externalClass }) => {
+const LazyloadImage = ({ image, externalClass }) => {
     const [showImage, setShowImage] = useState(false);
     return (
         <>
@@ -23,9 +23,9 @@ const BlurImage = ({ image, externalClass }) => {
     );
 };
 
-BlurImage.propTypes = {
+LazyloadImage.propTypes = {
     image: PropTypes.string,
     externalClass: PropTypes.string,
 };
 
-export default BlurImage;
+export default LazyloadImage;

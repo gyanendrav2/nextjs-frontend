@@ -161,12 +161,18 @@ const useStyles = makeStyles({
         },
     },
     resultsContainer: {
-        width: "100%",
+        maxWidth: "100%",
         height: "4rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.white,
+        "@media (max-width: 767px)": {
+            transform: "translateY(-36px)",
+            position: 'absolute',
+            display: "block",
+            maxWidth: '10rem'
+        },
     },
     results: {
         fontFamily: "Helvetica",

@@ -3,7 +3,7 @@ import { colors } from "../../../theme/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Grid, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
-import BlurImage from "./blurImage";
+import CardWithFooter from "../../../components/cards/CardWithFooter";
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
@@ -92,34 +92,12 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
                 {featuredCardsDetails.map((newData, idx) => {
                     return (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-                            <Box key={idx} className={classes.projectContainer}>
-                                <Box className={classes.projectImageContainer} onMouseLeave={handleMouseOut}>
-                                    <Box
-                                        className={classes.projectImage}
-                                        onMouseEnter={() => {
-                                            setnewIdx(idx);
-                                            handleMouseHover(idx);
-                                        }}>
-                                        <BlurImage image={newData.image} externalClass={classes.image} />
-                                    </Box>
-                                    {idx === newIdx && isHovering && (
-                                        <Typography className={classes.ProjectTitle}>{newData.title}</Typography>
-                                    )}
-                                </Box>
-                                <Box className={classes.projectAuthor_}>
-                                    <Box>
-                                        <img className={classes.roundImage} src={newData.image} alt={newData.title} />
-                                    </Box>
-                                    <Box>
-                                        <Typography className={classes.projectAuthorName}>
-                                            {newData.author.name}
-                                        </Typography>
-                                        <Typography className={classes.projectAuthorJobTitle}>
-                                            {newData.author.jobTitle}
-                                        </Typography>
-                                    </Box>
-                                </Box>
-                            </Box>
+                            <CardWithFooter
+                                image={newData.image}
+                                title={newData.title}
+                                footerTitle={newData.author.name}
+                                footerSubitle={newData.author.jobTitle}
+                            />
                         </Grid>
                     );
                 })}

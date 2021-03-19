@@ -9,7 +9,6 @@ import HeaderWrapper from "../../components/header/headerWrapper";
 const useStyles = makeStyles({
     searchWrapper: {
         padding: "5rem 2rem 0rem 2rem",
-        // paddingTop: "5rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

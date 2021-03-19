@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import { colors } from "../../../theme/colors";
+import { colors } from "../../theme/colors";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box, Grid, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
-import BlurImage from "./blurImage";
+import LazyloadImage from "../lazyloadImage/lazyloadImage";
 
 const useStyles = makeStyles({
-    FeaturedProjectContainer: {
-        display: "flex",
-        flexDirection: "row",
-    },
-    projectContainer: {
+    cardWrapper: {
         boxShadow: `0px 1px 1px ${colors.lightGray}`,
         flex: "1",
         display: "flex",
         flexDirection: "column",
         height: "100%",
+        cursor: 'pointer'
     },
-    projectImageContainer: {
+    cardImageContainer: {
         position: "relative",
     },
     projectImage: {
@@ -55,7 +52,7 @@ const useStyles = makeStyles({
         width: "2.625rem",
         height: "2.625rem",
     },
-    projectAuthor_: {
+    cardFooter: {
         border: "1px solid rgba(0, 0, 0, 0.05)",
         display: "flex",
         padding: "0.75rem",
@@ -74,9 +71,8 @@ const useStyles = makeStyles({
         background: "red",
     },
 });
-const FeaturedCard = ({ featuredCardsDetails }) => {
+const CardWithFooter = ({ image, title, footerTitle, footerSubitle }) => {
     const classes = useStyles();
-    const [newIdx, setnewIdx] = useState(0);
     const [isHovering, setisHovering] = useState(false);
 
     const handleMouseHover = () => {
@@ -87,46 +83,32 @@ const FeaturedCard = ({ featuredCardsDetails }) => {
     };
 
     return (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-            <Box key={idx} className={classes.projectContainer}>
-                <Box className={classes.projectImageContainer} onMouseLeave={handleMouseOut}>
-                    <Box
-                        className={classes.projectImage}
-                        onMouseEnter={() => {
-                            setnewIdx(idx);
-                            handleMouseHover(idx);
-                        }}>
-                        <BlurImage image={newData.image} externalClass={classes.image} />
-                    </Box>
-                    {idx === newIdx && isHovering && (
-                        <Typography className={classes.ProjectTitle}>{newData.title}</Typography>
-                    )}
+        <Box className={classes.cardWrapper}>
+            <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
+                <Box
+                    className={classes.projectImage}
+                    onMouseEnter={handleMouseHover}>
+                    <LazyloadImage image={image} externalClass={classes.image} />
                 </Box>
-                <Box className={classes.projectAuthor_}>
-                    <Box>
-                        <img className={classes.roundImage} src={newData.image} alt={newData.title} />
-                    </Box>
-                    <Box>
-                        <Typography className={classes.projectAuthorName}>{newData.author.name}</Typography>
-                        <Typography className={classes.projectAuthorJobTitle}>{newData.author.jobTitle}</Typography>
-                    </Box>
+                {isHovering && <Typography className={classes.ProjectTitle}>{title}</Typography>}
+            </Box>
+            <Box className={classes.cardFooter}>
+                <Box>
+                    <img className={classes.roundImage} src={image} alt={title} />
+                </Box>
+                <Box>
+                    <Typography className={classes.projectAuthorName}>{footerTitle}</Typography>
+                    <Typography className={classes.projectAuthorJobTitle}>{footerSubitle}</Typography>
                 </Box>
             </Box>
-        </Grid>
+        </Box>
     );
 };
 
-FeaturedCard.propTypes = {
-    featuredCardsDetails: PropTypes.arrayOf(
-        PropTypes.shape({
-            image: PropTypes.string,
-            title: PropTypes.string,
-            category: PropTypes.string,
-            author: PropTypes.shape({
-                jobTitle: PropTypes.string,
-                name: PropTypes.string,
-            }),
-        })
-    ),
+CardWithFooter.propTypes = {
+    image: PropTypes.string,
+    title: PropTypes.string,
+    footerTitle: PropTypes.string,
+    footerSubitle: PropTypes.string,
 };
-export default FeaturedCard;
+export default CardWithFooter;
