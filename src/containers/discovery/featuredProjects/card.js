@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box, Grid, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import CardWithFooter from "../../../components/cards/CardWithFooter";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
@@ -78,6 +79,7 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
     const classes = useStyles();
     const [newIdx, setnewIdx] = useState(0);
     const [isHovering, setisHovering] = useState(false);
+    const routes = useRouter()
 
     const handleMouseHover = () => {
         setisHovering(true);
@@ -97,6 +99,7 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
                                 title={newData.title}
                                 footerTitle={newData.author.name}
                                 footerSubitle={newData.author.jobTitle}
+                                handleClick={()=>{routes.push('/project')}}
                             />
                         </Grid>
                     );

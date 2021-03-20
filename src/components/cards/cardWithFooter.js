@@ -71,7 +71,7 @@ const useStyles = makeStyles({
         background: "red",
     },
 });
-const CardWithFooter = ({ image, title, footerTitle, footerSubitle }) => {
+const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick }) => {
     const classes = useStyles();
     const [isHovering, setisHovering] = useState(false);
 
@@ -83,7 +83,7 @@ const CardWithFooter = ({ image, title, footerTitle, footerSubitle }) => {
     };
 
     return (
-        <Box className={classes.cardWrapper}>
+        <Box className={classes.cardWrapper} onClick={handleClick}>
             <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
                 <Box
                     className={classes.projectImage}
@@ -110,5 +110,6 @@ CardWithFooter.propTypes = {
     title: PropTypes.string,
     footerTitle: PropTypes.string,
     footerSubitle: PropTypes.string,
+    handleClick: PropTypes.func
 };
 export default CardWithFooter;
