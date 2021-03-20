@@ -92,6 +92,27 @@ const useStyles = makeStyles({
     },
     filterWrapper: {
         padding: "2rem",
+        backgroundColor: colors.white,
+    },
+    resultsContainer: {
+        maxWidth: "100%",
+        height: "4rem",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: colors.white,
+        "@media (max-width: 767px)": {
+            transform: "translateY(-36px)",
+            position: "absolute",
+            display: "block",
+            maxWidth: "10rem",
+        },
+    },
+    results: {
+        fontFamily: "Helvetica",
+        fontSize: "0.9rem",
+        lineHeight: "1rem",
+        color: colors.lighterGray,
     },
 });
 
@@ -111,7 +132,11 @@ const Search = () => {
                     <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
                         <Box className={classes.col1}>
                             <Box className={classes.inputCol1}>
-                                <input type="text" className={classes.input} />
+                                <input
+                                    type="text"
+                                    placeholder="Insert project name or a username"
+                                    className={classes.input}
+                                />
                             </Box>
                             <Box className={classes.inputCol2}>
                                 <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
@@ -137,6 +162,9 @@ const Search = () => {
                 </Grid>
             </Grid>
             <Box className={classes.filterWrapper}>{showFilter && <Filter />}</Box>
+            <Box className={classes.resultsContainer}>
+                <Typography className={classes.results}>4 results </Typography>
+            </Box>
         </Box>
     );
 };
