@@ -14,6 +14,7 @@ import MobileFooter from "../../components/footer/mobileFooter";
 import HeaderWrapper from "../../components/header/headerWrapper";
 import HeaderCategory from "../../components/header/headerCategory";
 import Link from "next/link";
+import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 
 const useStyles = makeStyles({
     wrapper: {
@@ -286,7 +287,7 @@ export const Discovery = ({ details }) => {
                             })}
                     </Slider>
                 )}
-                <Box className={classes.contentWrapper}>
+                <ContentWrapper>
                     <SelectingCategories
                         category={activeCategory}
                         categories={totalCategories}
@@ -307,9 +308,9 @@ export const Discovery = ({ details }) => {
                             <CreationCard curatedCreators={curatedCreators} />{" "}
                         </>
                     )}
-                </Box>
+                </ContentWrapper>
                 <Footer />
-                <MobileFooter />
+                {/* <MobileFooter /> */}
             </Box>
         </>
     );

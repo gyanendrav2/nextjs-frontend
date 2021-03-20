@@ -5,6 +5,7 @@ import { Box, Grid, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import CardWithFooter from "../../../components/cards/CardWithFooter";
 import { useRouter } from "next/router";
+import QuickViewDailog from "../../project/quickViewDailog";
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
@@ -79,7 +80,8 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
     const classes = useStyles();
     const [newIdx, setnewIdx] = useState(0);
     const [isHovering, setisHovering] = useState(false);
-    const routes = useRouter()
+    const [openModal, setOpenModal] = useState(false);
+    const routes = useRouter();
 
     const handleMouseHover = () => {
         setisHovering(true);
@@ -90,6 +92,7 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
 
     return (
         <Box>
+            {openModal && <QuickViewDailog closeModal={() => setOpenModal(false)} />}
             <Grid container className={classes.FeaturedProjectContainer} spacing={2}>
                 {featuredCardsDetails.map((newData, idx) => {
                     return (
@@ -99,7 +102,9 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
                                 title={newData.title}
                                 footerTitle={newData.author.name}
                                 footerSubitle={newData.author.jobTitle}
-                                handleClick={()=>{routes.push('/project')}}
+                                handleClick={() => {
+                                    setOpenModal(true);
+                                }}
                             />
                         </Grid>
                     );

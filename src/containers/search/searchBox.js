@@ -3,13 +3,6 @@ import React, { useState } from "react";
 import { colors } from "../../theme/colors";
 import CustomButton from "../../components/buttons/CustomButton";
 import FilterIcon from "../../components/icons/filterIcon";
-import Filter from "../../components/filter";
-import HeaderWrapper from "../../components/header/headerWrapper";
-import Footer from "../../components/footer";
-import SearchBox from "../../containers/search/searchBox";
-import CardWithHeader from "../../components/cards/cardWithHeader";
-import { images } from "../../assets/images";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -39,6 +32,9 @@ const useStyles = makeStyles({
         alignItems: "center",
         backgroundColor: colors.lighterPrimary,
         padding: "2rem",
+        "@media (max-width: 990px)": {
+            marginBottom: "2rem",
+        },
     },
     searchInput: {
         // width: "calc(100%-10rem)",
@@ -50,10 +46,21 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
+        position: "absolute",
+        right: "2rem",
+        "@media (max-width: 990px)": {
+            transform: "translateY(6.875rem)",
+        },
     },
     filterText: {
         marginRight: "1rem",
         color: colors.black,
+    },
+    inputBoxSize: {
+        maxWidth: "44rem",
+        "@media (max-width: 990px)": {
+            maxWidth: "100%",
+        },
     },
     col1: {
         width: "calc(100% - 6.437rem)",
@@ -95,66 +102,48 @@ const useStyles = makeStyles({
             borderRight: "none",
         },
     },
-    filterWrapper: {
-        padding: "2rem",
-        backgroundColor: colors.white,
-    },
-    resultsContainer: {
-        maxWidth: "100%",
-        height: "4rem",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: colors.white,
-        // "@media (max-width: 767px)": {
-        //     transform: "translateY(-36px)",
-        //     position: "absolute",
-        //     display: "block",
-        //     maxWidth: "10rem",
-        // },
-    },
-    results: {
-        fontFamily: "Helvetica",
-        fontSize: "0.9rem",
-        lineHeight: "1rem",
-        color: colors.lighterGray,
-    },
 });
 
-const Search = () => {
+const SearchBox = () => {
     const classes = useStyles();
-    const [showFilter, setShowFilter] = useState(false);
 
+    const [showFilter, setShowFilter] = useState(false);
     return (
-        <Box>
-            <HeaderWrapper isScrollDetect={false} />
-            <Box className={classes.searchWrapper}>
-                <Typography className={classes.title}>Search the markets</Typography>
-            </Box>
-            <SearchBox />
-            <Box className={classes.filterWrapper}>{showFilter && <Filter />}</Box>
-            <Box className={classes.resultsContainer}>
-                <Typography className={classes.results}>4 results</Typography>
-            </Box>
-            <ContentWrapper>
-                <Grid container spacing={2}>
-                    {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => (
-                        <Grid key={item} item xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <CardWithHeader
-                                image={images.maskGroup}
-                                title="Brandon Landing"
-                                subTitle="Director assistant"
-                                buttonText="Follow"
-                            />
+        <Grid container alignItems="center" justify="center" className={classes.searchContainer}>
+            {/* <Grid item sm={12} md={3} lg={2}></Grid>
+                <Grid item sm={12} md={6} lg={8}> */}
+            <Grid
+                container
+                alignItems="center"
+                justifyContent="flex-start"
+                wrap="nowrap"
+                className={classes.inputBoxSize}>
+                <Box className={classes.col1}>
+                    <Box className={classes.inputCol1}>
+                        <input type="text" placeholder="Insert project name or a username" className={classes.input} />
+                    </Box>
+                    <Box className={classes.inputCol2}>
+                        <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
+                            <CustomButton externalClass={classes.buttonGroupItem} label="Work" />
+                            <CustomButton externalClass={classes.buttonGroupItem} label="People" />
                         </Grid>
-                    ))}
-                </Grid>
-            </ContentWrapper>
-            <Footer />
-        </Box>
+                    </Box>
+                </Box>
+                <Box className={classes.col2}>
+                    <CustomButton label="Search" type="submit" externalClass={classes.confirmButton} />
+                </Box>
+            </Grid>
+            {/* </Grid> */}
+            {/* <Grid item sm={12} md={3} lg={2}> */}
+            <Box className={classes.filterContainer}>
+                <Typography className={classes.filterText}>Filter</Typography>
+                <CustomButton variant="iconButton" icon={<FilterIcon />} onClick={() => setShowFilter(!showFilter)} />
+            </Box>
+            {/* </Grid> */}
+        </Grid>
     );
 };
 
-Search.propTypes = {};
+SearchBox.propTypes = {};
 
-export default Search;
+export default SearchBox;

@@ -13,6 +13,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         height: "100%",
+        marginBottom: '1rem'
     },
     CreatorsAuthor: {
         display: " flex",
@@ -56,12 +57,6 @@ const useStyles = makeStyles({
         height: "100%",
         objectFit: "cover",
     },
-    // container: {
-    //     boxShadow: `0px 1px 1px ${colors.lightGray}`,
-    //     display: "flex",
-    //     flexDirection: "column",
-    //     height: "100%",
-    // },
 });
 
 const CardWithHeader = ({ image, title, subTitle, buttonText }) => {

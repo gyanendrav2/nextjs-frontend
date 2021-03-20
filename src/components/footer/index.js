@@ -4,6 +4,7 @@ import { Box, makeStyles, Typography, Grid } from "@material-ui/core";
 import { colors } from "../../theme/colors";
 import CopyrightIcon from "@material-ui/icons/Copyright";
 import Link from "next/link";
+import MobileFooter from "./mobileFooter";
 
 const useStyles = makeStyles({
     footer: {
@@ -36,6 +37,7 @@ const useStyles = makeStyles({
     spec: {
         marginRight: " 2.5rem",
         cursor: "pointer",
+        color: colors.white,
         "@media (min-width:768px) and (max-width:967px)": {
             marginLeft: "3.5rem",
         },
@@ -43,6 +45,7 @@ const useStyles = makeStyles({
     name: {
         margin: "0 1.25rem",
         cursor: "pointer",
+        color: colors.white,
     },
     Images: {
         margin: "0 0.625rem 0 0.625rem",
@@ -98,46 +101,49 @@ const useStyles = makeStyles({
         marginRight: "0.5rem",
     },
 });
-const Index = () => {
+const Footer = () => {
     const classes = useStyles();
     return (
-        <Box contaier className={classes.footer}>
-            <Grid item sm={6} md={10} lg={10}>
-                <Grid container className={classes.copyRightcontainer}>
-                    <Link href="/">
-                        <Grid item md={3} lg={3} className={classes.copyRightcontainer}>
-                            <Typography className={classes.copyright}>
-                                <CopyrightIcon className={classes.copyrightIcon} />
-                                Copyright PXL
-                            </Typography>
+        <>
+            <Box contaier className={classes.footer}>
+                <Grid item sm={6} md={10} lg={10}>
+                    <Grid container className={classes.copyRightcontainer}>
+                        <Link href="/">
+                            <Grid item md={3} lg={3} className={classes.copyRightcontainer}>
+                                <Typography className={classes.copyright}>
+                                    <CopyrightIcon className={classes.copyrightIcon} />
+                                    Copyright PXL
+                                </Typography>
+                            </Grid>
+                        </Link>
+                        <Grid item md={9} lg={9} className={classes.aboutusContainer}>
+                            <Link href="/">
+                                <Typography className={classes.name}>About us</Typography>
+                            </Link>
+                            <Link href="/">
+                                <Typography className={classes.spec}>Privacy and cookie policy</Typography>
+                            </Link>
                         </Grid>
-                    </Link>
-                    <Grid item md={9} lg={9} className={classes.aboutusContainer}>
-                        <Link href="/">
-                            <Typography className={classes.name}>About us</Typography>
-                        </Link>
-                        <Link href="/">
-                            <Typography className={classes.spec}>Privacy and cookie policy</Typography>
-                        </Link>
                     </Grid>
                 </Grid>
-            </Grid>
 
-            <Grid item sm={6} md={2} lg={2} className={classes.titles}>
-                <Box className={classes.Images_}>
-                    <Link href="/">
-                        <img className={classes.Images} alt="fb" src={icons.Fb}></img>
-                    </Link>
-                    <Link href="/">
-                        <img className={classes.Images} alt="Insta" src={icons.Insta}></img>
-                    </Link>
-                    <Link href="/">
-                        <img className={classes.Images} alt="Linked In" src={icons.Linkedin}></img>
-                    </Link>
-                </Box>
-            </Grid>
-        </Box>
+                <Grid item sm={6} md={2} lg={2} className={classes.titles}>
+                    <Box className={classes.Images_}>
+                        <Link href="/">
+                            <img className={classes.Images} alt="fb" src={icons.Fb}></img>
+                        </Link>
+                        <Link href="/">
+                            <img className={classes.Images} alt="Insta" src={icons.Insta}></img>
+                        </Link>
+                        <Link href="/">
+                            <img className={classes.Images} alt="Linked In" src={icons.Linkedin}></img>
+                        </Link>
+                    </Box>
+                </Grid>
+            </Box>
+            <MobileFooter />
+        </>
     );
 };
 
-export default Index;
+export default Footer;
