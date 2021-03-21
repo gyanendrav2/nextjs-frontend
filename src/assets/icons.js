@@ -14,6 +14,10 @@ import LogoBlack from "./icons/LogoBlack.svg";
 import loginPink from "./icons/loginPink.svg";
 import searchPink from "./icons/searchPink.svg";
 import categoryIcon from "./icons/categoryIcon.svg";
+import markspamIcon from "./icons/mark-spam.svg";
+import reportContentIcon from "./icons/report-content.svg";
+import requestParticipationIcon from "./icons/request-participation.svg";
+
 export const icons = {
     Fb,
     Insta,
@@ -31,4 +35,7 @@ export const icons = {
     loginPink,
     searchPink,
     categoryIcon,
+    markspamIcon,
+    reportContentIcon,
+    requestParticipationIcon,
 };

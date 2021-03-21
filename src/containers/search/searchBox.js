@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { colors } from "../../theme/colors";
 import CustomButton from "../../components/buttons/CustomButton";
 import FilterIcon from "../../components/icons/filterIcon";
+import Filter from "../../components/filter";
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -32,10 +33,15 @@ const useStyles = makeStyles({
         alignItems: "center",
         backgroundColor: colors.lighterPrimary,
         padding: "2rem",
-        "@media (max-width: 990px)": {
-            marginBottom: "2rem",
-        },
+        // "@media (max-width: 990px)": {
+        //     // marginBottom: "2rem",
+        // },
     },
+    filterWrapper: {
+        // padding: "2rem",
+        // backgroundColor: colors.white,
+    },
+
     searchInput: {
         // width: "calc(100%-10rem)",
     },
@@ -48,9 +54,9 @@ const useStyles = makeStyles({
         justifyContent: "flex-end",
         position: "absolute",
         right: "2rem",
-        "@media (max-width: 990px)": {
-            transform: "translateY(6.875rem)",
-        },
+        // "@media (max-width: 990px)": {
+        //     transform: "translateY(6.875rem)",
+        // },
     },
     filterText: {
         marginRight: "1rem",
@@ -118,28 +124,29 @@ const SearchBox = () => {
                 justifyContent="flex-start"
                 wrap="nowrap"
                 className={classes.inputBoxSize}>
-                <Box className={classes.col1}>
-                    <Box className={classes.inputCol1}>
+                <Grid container className={classes.col1}>
+                    <Grid item className={classes.inputCol1}>
                         <input type="text" placeholder="Insert project name or a username" className={classes.input} />
-                    </Box>
-                    <Box className={classes.inputCol2}>
+                    </Grid>
+                    <Grid item className={classes.inputCol2}>
                         <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
                             <CustomButton externalClass={classes.buttonGroupItem} label="Work" />
                             <CustomButton externalClass={classes.buttonGroupItem} label="People" />
                         </Grid>
-                    </Box>
-                </Box>
-                <Box className={classes.col2}>
+                    </Grid>
+                </Grid>
+                <Grid container className={classes.col2}>
                     <CustomButton label="Search" type="submit" externalClass={classes.confirmButton} />
-                </Box>
+                </Grid>
             </Grid>
             {/* </Grid> */}
             {/* <Grid item sm={12} md={3} lg={2}> */}
-            <Box className={classes.filterContainer}>
+            <Grid className={classes.filterContainer}>
                 <Typography className={classes.filterText}>Filter</Typography>
                 <CustomButton variant="iconButton" icon={<FilterIcon />} onClick={() => setShowFilter(!showFilter)} />
-            </Box>
-            {/* </Grid> */}
+            </Grid>
+
+            <Box className={classes.filterWrapper}>{showFilter && <Filter />}</Box>
         </Grid>
     );
 };

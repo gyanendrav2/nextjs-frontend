@@ -32,73 +32,6 @@ const useStyles = makeStyles({
             lineHeight: "4.75rem",
         },
     },
-    searchContainer: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: colors.lighterPrimary,
-        padding: "2rem",
-    },
-    searchInput: {
-        // width: "calc(100%-10rem)",
-    },
-    confirmButton: {
-        // width: "10rem",
-    },
-    filterContainer: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-end",
-    },
-    filterText: {
-        marginRight: "1rem",
-        color: colors.black,
-    },
-    col1: {
-        width: "calc(100% - 6.437rem)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        border: `1px solid ${colors.lightGray}`,
-        backgroundColor: colors.white,
-    },
-    col2: {
-        width: "6.437rem",
-    },
-    inputCol1: {
-        width: "calc(100% - 13.3rem)",
-    },
-    inputCol2: {
-        width: "10rem",
-    },
-    input: {
-        width: "100%",
-        border: "none",
-        fontSize: "1rem",
-        padding: "1.1rem",
-        "&:focus": {
-            outline: "none",
-        },
-    },
-    buttonGroupItem: {
-        width: "5rem",
-        height: "2.5rem",
-        border: `1px solid ${colors.lightGray}`,
-        color: colors.black,
-        textTransform: "capitalize",
-        backgroundColor: colors.white,
-        "&:hover": {
-            backgroundColor: colors.lightGray,
-        },
-        "&:nth-child(1)": {
-            borderRight: "none",
-        },
-    },
-    filterWrapper: {
-        padding: "2rem",
-        backgroundColor: colors.white,
-    },
     resultsContainer: {
         maxWidth: "100%",
         height: "4rem",
@@ -132,7 +65,6 @@ const Search = () => {
                 <Typography className={classes.title}>Search the markets</Typography>
             </Box>
             <SearchBox />
-            <Box className={classes.filterWrapper}>{showFilter && <Filter />}</Box>
             <Box className={classes.resultsContainer}>
                 <Typography className={classes.results}>4 results</Typography>
             </Box>

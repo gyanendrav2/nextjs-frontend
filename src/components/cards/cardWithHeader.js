@@ -13,7 +13,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        marginBottom: '1rem'
+        marginBottom: "1rem",
     },
     CreatorsAuthor: {
         display: " flex",
@@ -59,7 +59,7 @@ const useStyles = makeStyles({
     },
 });
 
-const CardWithHeader = ({ image, title, subTitle, buttonText }) => {
+const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) => {
     const classes = useStyles();
 
     return (
@@ -74,9 +74,11 @@ const CardWithHeader = ({ image, title, subTitle, buttonText }) => {
                     <button className={classes.CreatorsButton}>{buttonText}</button>
                 </Box>
             </Box>
-            <Box className={classes.image_container}>
-                <img className={classes.image_} src={image} alt={title} />
-            </Box>
+            {isProjectPage ? null : (
+                <Box className={classes.image_container}>
+                    <img className={classes.image_} src={image} alt={title} />
+                </Box>
+            )}
         </Box>
     );
 };
@@ -86,5 +88,6 @@ CardWithHeader.propTypes = {
     title: PropTypes.string,
     subTitle: PropTypes.string,
     buttonText: PropTypes.string,
+    isProjectPage: PropTypes.bool,
 };
 export default CardWithHeader;
