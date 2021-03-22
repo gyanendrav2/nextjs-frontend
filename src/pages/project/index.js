@@ -10,6 +10,7 @@ import { teamMemberData } from "../../data/project";
 import UserProfileRow from "../../components/cards/userProfileRow";
 import MoreMemberModel from "../../containers/project/moreMemberModel";
 import Slider from "../../containers/project/slider";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles({
     projectwrapper: {
@@ -105,6 +106,9 @@ const useStyles = makeStyles({
         flexDirection: "column",
         position: "relative",
     },
+    activeMember: {
+        cursor: "pointer",
+    },
     positionText: {
         color: colors.lighterGray,
     },
@@ -152,6 +156,7 @@ const useStyles = makeStyles({
 const Project = () => {
     const classes = useStyles();
     const [maxShow, setMaxShow] = useState(false);
+    const routes = useRouter();
 
     return (
         <Box className={classes.projectwrapper}>
@@ -166,7 +171,9 @@ const Project = () => {
                     <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
                 </Box>
                 <Box>
-                    <Typography className={classes.CreatorsAuthorName}>Brandon Landing</Typography>
+                    <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/profile")}>
+                        Brandon Landing
+                    </Typography>
                     <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>
                     <button className={classes.CreatorsButton}>follow</button>
                 </Box>
@@ -281,7 +288,7 @@ const Project = () => {
                     </Box>
                 </Grid>
             </Grid>
-            <Slider/>
+            <Slider />
         </Box>
     );
 };

@@ -100,6 +100,7 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
                             <CardWithFooter
                                 image={newData.image}
                                 title={newData.title}
+                                hideFooter={false}
                                 footerTitle={newData.author.name}
                                 footerSubitle={newData.author.jobTitle}
                                 handleClick={() => {

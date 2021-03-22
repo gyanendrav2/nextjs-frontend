@@ -9,6 +9,7 @@ import classnames from "classnames";
 import { icons } from "../../assets/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ReactPlayer from "react-player";
 
 const useStyles = makeStyles({
     wrapper: {
@@ -163,7 +164,16 @@ const QuickViewDailog = ({ closeModal }) => {
                     <Close onClick={closeModal} className={classes.closeIcon} />
                 </Grid>
             </Grid>
-            <img style={{ width: "100%", height: "30rem", objectFit: "cover" }} src={images.maskGroup} alt="" />
+            <Grid>
+                <ReactPlayer
+                    width="100%"
+                    height="30rem"
+                    controls
+                    // style={{ width: "100%", height: "30rem" }}
+                    url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                />
+            </Grid>
+            {/* <img  objectFit: "cover"  src={images.maskGroup} alt="" /> */}
             <Grid container className={classes.infoContainer}>
                 <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Category:</Typography>

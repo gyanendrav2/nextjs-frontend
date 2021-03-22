@@ -1,13 +1,26 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
-const SliderButton = ({ buttonIcon, buttonName, flexDirection }) => {
+const useStyles = makeStyles({
+    wrapper: {
+        cursor: "pointer",
+    },
+});
+
+const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick }) => {
+    const classes = useStyles();
     return (
-        <Grid container alignItems="center" justify="space-between" direction={flexDirection}>
+        <Grid
+            container
+            alignItems="center"
+            justify="space-between"
+            direction={flexDirection}
+            onClick={onClick}
+            className={classes.wrapper}>
+            {buttonName}
             {buttonIcon}
-            {ArrowBackIcon}
         </Grid>
     );
 };
@@ -16,6 +29,7 @@ SliderButton.propTypes = {
     buttonIcon: PropTypes.element,
     buttonName: PropTypes.string,
     flexDirection: PropTypes.string,
+    onClick: PropTypes.func,
 };
 
 export default SliderButton;

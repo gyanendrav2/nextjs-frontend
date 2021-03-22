@@ -138,7 +138,7 @@ const allButtons = ({ handleClick, variant, label, icon, externalClass, ...props
         case "iconLargeButton": {
             return (
                 <Button className={classnames(classes.iconLargeButton, externalClass)} onClick={handleClick} {...props}>
-                    {label}
+                    {icon}
                 </Button>
             );
         }

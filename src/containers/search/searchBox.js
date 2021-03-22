@@ -1,9 +1,11 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { colors } from "../../theme/colors";
 import CustomButton from "../../components/buttons/CustomButton";
 import FilterIcon from "../../components/icons/filterIcon";
 import Filter from "../../components/filter";
+import classnames from "classnames";
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -33,9 +35,10 @@ const useStyles = makeStyles({
         alignItems: "center",
         backgroundColor: colors.lighterPrimary,
         padding: "2rem",
-        // "@media (max-width: 990px)": {
-        //     // marginBottom: "2rem",
-        // },
+        position: "relative",
+        "@media (max-width: 767px)": {
+            padding: "1rem",
+        },
     },
     filterWrapper: {
         // padding: "2rem",
@@ -48,15 +51,33 @@ const useStyles = makeStyles({
     confirmButton: {
         // width: "10rem",
     },
+    mobileFilterWrapper: {
+        padding: "2rem 0",
+        backgroundColor: colors.white,
+        "@media (min-width: 991px)": {
+            display: "none",
+        },
+    },
+    showFilterMobile: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        position: "absolute",
+        right: "2rem",
+        position: "relative",
+        "@media (max-width: 767px)": {
+            right: "1rem",
+        },
+    },
     filterContainer: {
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
         position: "absolute",
         right: "2rem",
-        // "@media (max-width: 990px)": {
-        //     transform: "translateY(6.875rem)",
-        // },
+        "@media (max-width: 990px)": {
+            display: "none",
+        },
     },
     filterText: {
         marginRight: "1rem",
@@ -64,7 +85,10 @@ const useStyles = makeStyles({
     },
     inputBoxSize: {
         maxWidth: "44rem",
-        "@media (max-width: 990px)": {
+        "@media (max-width: 600px)": {
+            display: "block",
+        },
+        "@media (min-width: 600px) and (max-width: 990px)": {
             maxWidth: "100%",
         },
     },
@@ -75,15 +99,38 @@ const useStyles = makeStyles({
         justifyContent: "flex-start",
         border: `1px solid ${colors.lightGray}`,
         backgroundColor: colors.white,
+        "@media (max-width:600px)": {
+            width: "100%",
+            position: "relative",
+        },
     },
     col2: {
         width: "6.437rem",
+        "@media (max-width:600px)": {
+            width: "100%",
+            "& button": {
+                width: "100%",
+                marginTop: "4.5rem",
+            },
+        },
     },
     inputCol1: {
         width: "calc(100% - 13.3rem)",
+        "@media (max-width:600px)": {
+            width: "100%",
+        },
     },
     inputCol2: {
         width: "10rem",
+        "@media (max-width:600px)": {
+            width: "100%",
+            position: "absolute",
+            zIndex: 1,
+            bottom: "-3.5rem",
+            "& button": {
+                width: "50%",
+            },
+        },
     },
     input: {
         width: "100%",
@@ -108,49 +155,74 @@ const useStyles = makeStyles({
             borderRight: "none",
         },
     },
+    search: {
+        transform: "none!important",
+        width: "100%!important",
+    },
 });
 
-const SearchBox = () => {
+const SearchBox = ({ externalClass }) => {
     const classes = useStyles();
 
     const [showFilter, setShowFilter] = useState(false);
     return (
-        <Grid container alignItems="center" justify="center" className={classes.searchContainer}>
-            {/* <Grid item sm={12} md={3} lg={2}></Grid>
+        <>
+            <Grid container alignItems="center" justify="center" className={classes.searchContainer}>
+                {/* <Grid item sm={12} md={3} lg={2}></Grid>
                 <Grid item sm={12} md={6} lg={8}> */}
-            <Grid
-                container
-                alignItems="center"
-                justifyContent="flex-start"
-                wrap="nowrap"
-                className={classes.inputBoxSize}>
-                <Grid container className={classes.col1}>
-                    <Grid item className={classes.inputCol1}>
-                        <input type="text" placeholder="Insert project name or a username" className={classes.input} />
-                    </Grid>
-                    <Grid item className={classes.inputCol2}>
-                        <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
-                            <CustomButton externalClass={classes.buttonGroupItem} label="Work" />
-                            <CustomButton externalClass={classes.buttonGroupItem} label="People" />
+                <Grid
+                    container
+                    alignItems="center"
+                    justifyContent="flex-start"
+                    wrap="nowrap"
+                    className={classes.inputBoxSize}>
+                    <Grid container className={classes.col1}>
+                        <Grid item className={classes.inputCol1}>
+                            <input
+                                type="text"
+                                placeholder="Insert project name or a username"
+                                className={classes.input}
+                            />
+                        </Grid>
+                        <Grid item className={classes.inputCol2}>
+                            <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
+                                <CustomButton externalClass={classes.buttonGroupItem} label="Work" />
+                                <CustomButton externalClass={classes.buttonGroupItem} label="People" />
+                            </Grid>
                         </Grid>
                     </Grid>
+                    <Grid container className={classes.col2}>
+                        <CustomButton label="Search" type="submit" externalClass={classes.confirmButton} />
+                    </Grid>
                 </Grid>
-                <Grid container className={classes.col2}>
-                    <CustomButton label="Search" type="submit" externalClass={classes.confirmButton} />
+                {/* </Grid> */}
+                {/* <Grid item sm={12} md={3} lg={2}> */}
+                <Grid className={classes.filterContainer}>
+                    <Typography className={classes.filterText}>Filter</Typography>
+                    <CustomButton
+                        variant="iconButton"
+                        icon={<FilterIcon />}
+                        onClick={() => setShowFilter(!showFilter)}
+                    />
                 </Grid>
             </Grid>
-            {/* </Grid> */}
-            {/* <Grid item sm={12} md={3} lg={2}> */}
-            <Grid className={classes.filterContainer}>
-                <Typography className={classes.filterText}>Filter</Typography>
-                <CustomButton variant="iconButton" icon={<FilterIcon />} onClick={() => setShowFilter(!showFilter)} />
-            </Grid>
-
-            <Box className={classes.filterWrapper}>{showFilter && <Filter />}</Box>
-        </Grid>
+            <Box className={classes.mobileFilterWrapper}>
+                <Grid className={classes.showFilterMobile}>
+                    <Typography className={classes.filterText}>Filter</Typography>
+                    <CustomButton
+                        variant="iconButton"
+                        icon={<FilterIcon />}
+                        onClick={() => setShowFilter(!showFilter)}
+                    />
+                </Grid>
+            </Box>
+            <Box className={classes.filterWrapper}>{showFilter && <Filter externalClass={classes.search} />}</Box>
+        </>
     );
 };
 
-SearchBox.propTypes = {};
+SearchBox.propTypes = {
+    externalClass: PropTypes.string,
+};
 
 export default SearchBox;

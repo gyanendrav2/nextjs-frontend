@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        cursor: 'pointer'
+        cursor: "pointer",
     },
     cardImageContainer: {
         position: "relative",
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
         background: "red",
     },
 });
-const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick }) => {
+const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick, hideFooter }) => {
     const classes = useStyles();
     const [isHovering, setisHovering] = useState(false);
 
@@ -85,22 +85,22 @@ const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick 
     return (
         <Box className={classes.cardWrapper} onClick={handleClick}>
             <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
-                <Box
-                    className={classes.projectImage}
-                    onMouseEnter={handleMouseHover}>
+                <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
                     <LazyloadImage image={image} externalClass={classes.image} />
                 </Box>
                 {isHovering && <Typography className={classes.ProjectTitle}>{title}</Typography>}
             </Box>
-            <Box className={classes.cardFooter}>
-                <Box>
-                    <img className={classes.roundImage} src={image} alt={title} />
+            {!hideFooter && (
+                <Box className={classes.cardFooter}>
+                    <Box>
+                        <img className={classes.roundImage} src={image} alt={title} />
+                    </Box>
+                    <Box>
+                        <Typography className={classes.projectAuthorName}>{footerTitle}</Typography>
+                        <Typography className={classes.projectAuthorJobTitle}>{footerSubitle}</Typography>
+                    </Box>
                 </Box>
-                <Box>
-                    <Typography className={classes.projectAuthorName}>{footerTitle}</Typography>
-                    <Typography className={classes.projectAuthorJobTitle}>{footerSubitle}</Typography>
-                </Box>
-            </Box>
+            )}
         </Box>
     );
 };
@@ -110,6 +110,7 @@ CardWithFooter.propTypes = {
     title: PropTypes.string,
     footerTitle: PropTypes.string,
     footerSubitle: PropTypes.string,
-    handleClick: PropTypes.func
+    handleClick: PropTypes.func,
+    hideFooter: PropTypes.bool,
 };
 export default CardWithFooter;

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import LeftButton from './LeftButton';
-import RightButton from './RightButton';
-import Indicator from './Indicator';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import LeftButton from "./LeftButton";
+import RightButton from "./RightButton";
+import Indicator from "./Indicator";
 
 const ImageSlider = ({
     imageList,
@@ -15,6 +15,8 @@ const ImageSlider = ({
     height,
     externalBulletClass,
     externalActiveBulletClass,
+    outerLeftBtnClicked,
+    outerRightBtnClicked,
 }) => {
     const [images, setImages] = useState([]);
     const [active, setActive] = useState(0);
@@ -26,6 +28,18 @@ const ImageSlider = ({
             initial();
         }
     }, [imageList]);
+
+    useEffect(() => {
+        if (outerLeftBtnClicked > 0) {
+            slideRight();
+        }
+    }, [outerLeftBtnClicked]);
+
+    useEffect(() => {
+        if (outerRightBtnClicked > 0) {
+            slideRight();
+        }
+    }, [outerRightBtnClicked]);
 
     const initial = () => {
         const result = imageList.map((item, i) => {
@@ -156,7 +170,7 @@ const ImageSlider = ({
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}
                         style={{ transform: `translateX(${item.transform}%)`, transition: `all ${transition}s` }}>
-                        {item.url !== '' && <img className="slider_container_image" key={i} src={item.url} alt="" />}
+                        {item.url !== "" && <img className="slider_container_image" key={i} src={item.url} alt="" />}
                         {item.htmlContent !== null && <item.htmlContent />}
                     </div>
                     <RightButton
@@ -191,6 +205,8 @@ ImageSlider.propTypes = {
     height: PropTypes.string,
     externalBulletClass: PropTypes.string,
     externalActiveBulletClass: PropTypes.string,
+    outerLeftBtnClicked: PropTypes.number,
+    outerRightBtnClicked: PropTypes.number,
 };
 
 export default ImageSlider;

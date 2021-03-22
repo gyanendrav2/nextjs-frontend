@@ -170,9 +170,9 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         "@media (max-width: 767px)": {
             transform: "translateY(-36px)",
-            position: 'absolute',
+            position: "absolute",
             display: "block",
-            maxWidth: '10rem'
+            maxWidth: "10rem",
         },
     },
     results: {

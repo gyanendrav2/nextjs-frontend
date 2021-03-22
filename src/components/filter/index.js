@@ -4,6 +4,7 @@ import { Box, Grid, makeStyles } from "@material-ui/core";
 import { colors } from "../../theme/colors";
 import SelectWithLabelIcon from "../inputs/SelectWithLabelIcon";
 import InputWithLabelIcon from "../inputs/InputWithLabelIcon";
+import classnames from "classnames";
 
 const useStyles = makeStyles({
     wrapper: {
@@ -17,7 +18,15 @@ const useStyles = makeStyles({
         color: colors.black,
         padding: "1.5rem 2.3rem 2rem 1.8rem",
         transform: "translateX(-2%)",
-        "@media (max-width:967px)": {
+        "@media (max-width:767px)": {
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
+            display: "flex",
+            justifyContent: "flex-start",
+            alignItems: "center",
+            flexDirection: "column",
+        },
+        "@media (min-width:768px) and (max-width:967px)": {
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
@@ -61,11 +70,11 @@ const years = [
     { value: "4", label: "2023" },
 ];
 
-const Filter = () => {
+const Filter = ({ externalClass }) => {
     const classes = useStyles();
 
     return (
-        <Box className={classes.wrapper}>
+        <Box className={classnames(classes.wrapper, externalClass)}>
             <Box className={classes.col1}>Filter by:</Box>
             <Box className={classes.col2}>
                 <Grid container spacing={2}>
@@ -112,6 +121,8 @@ const Filter = () => {
     );
 };
 
-Filter.propTypes = {};
+Filter.propTypes = {
+    externalClass: PropTypes.string,
+};
 
 export default Filter;
