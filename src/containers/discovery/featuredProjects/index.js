@@ -137,7 +137,7 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
     const handleActiveButton = (eachBtn, i) => {
         changeTab(eachBtn);
         setActiveCategory(eachBtn);
-        setShowOtherCategories(false);
+        // setShowOtherCategories(false);
     };
 
     return (

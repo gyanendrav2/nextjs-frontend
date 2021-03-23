@@ -108,6 +108,22 @@ const useStyles = makeStyles({
         overflow: "hidden",
         Visibility: "hidden",
     },
+    dropdownButton: {
+        backgroundColor: colors.lightGray,
+        color: colors.black,
+        borderRadius: 0,
+        textTransform: "capitalize",
+        height: "3.5rem",
+        minWidth: "6.437rem",
+        "&:hover": {
+            color: colors.black,
+            backgroundColor: colors.pink,
+        },
+        "& .MuiButton-endIcon": {
+            // position: "absolute",
+            // right: "1.593rem",
+        },
+    },
 });
 
 const allButtons = ({ handleClick, variant, label, icon, externalClass, ...props }) => {
@@ -166,6 +182,17 @@ const allButtons = ({ handleClick, variant, label, icon, externalClass, ...props
             return (
                 <Button className={classnames(classes.iconColorButton, externalClass)} onClick={handleClick} {...props}>
                     {icon}
+                </Button>
+            );
+        }
+        case "dropdownButton": {
+            return (
+                <Button
+                    endIcon={icon}
+                    className={classnames(classes.dropdownButton, externalClass)}
+                    onClick={handleClick}
+                    {...props}>
+                    {label}
                 </Button>
             );
         }

@@ -5,6 +5,8 @@ import { colors } from "../../theme/colors";
 import CopyrightIcon from "@material-ui/icons/Copyright";
 import Link from "next/link";
 import MobileFooter from "./mobileFooter";
+import classnames from "classnames";
+import ContentWrapper from "../contentWrapper/contentWrapper";
 
 const useStyles = makeStyles({
     footer: {
@@ -12,7 +14,7 @@ const useStyles = makeStyles({
         display: "flex",
         marginTop: " 2.5rem",
         alignItems: "center",
-        padding: "0 2.5rem 0 2.5rem",
+        // padding: "0 2.5rem 0 2.5rem",
         backgroundColor: colors.black,
         fontSize: "1rem",
         justifyContent: " space-between",
@@ -48,7 +50,7 @@ const useStyles = makeStyles({
         color: colors.white,
     },
     Images: {
-        margin: "0 0.625rem 0 0.625rem",
+        marginLeft: "1.5rem",
         cursor: "pointer",
         "@media (max-width:768px)": {
             padding: "0.625rem",
@@ -101,11 +103,11 @@ const useStyles = makeStyles({
         marginRight: "0.5rem",
     },
 });
-const Footer = () => {
+const Footer = ({externalClass}) => {
     const classes = useStyles();
     return (
         <>
-            <Box contaier className={classes.footer}>
+            <ContentWrapper contaier externalClass={classnames(classes.footer, externalClass)}>
                 <Grid item sm={6} md={10} lg={10}>
                     <Grid container className={classes.copyRightcontainer}>
                         <Link href="/">
@@ -140,7 +142,7 @@ const Footer = () => {
                         </Link>
                     </Box>
                 </Grid>
-            </Box>
+            </ContentWrapper>
             <MobileFooter />
         </>
     );

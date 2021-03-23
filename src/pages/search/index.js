@@ -52,10 +52,10 @@ const useStyles = makeStyles({
         lineHeight: "1rem",
         color: colors.lighterGray,
     },
-    search:{
-        transform: 'none',
-        width: '100%'
-    }
+    search: {
+        transform: "none",
+        width: "100%",
+    },
 });
 
 const Search = () => {
@@ -68,7 +68,7 @@ const Search = () => {
             <Box className={classes.searchWrapper}>
                 <Typography className={classes.title}>Search the markets</Typography>
             </Box>
-            <SearchBox externalClass={classes.search}/>
+            <SearchBox externalClass={classes.search} />
             <Box className={classes.resultsContainer}>
                 <Typography className={classes.results}>4 results</Typography>
             </Box>

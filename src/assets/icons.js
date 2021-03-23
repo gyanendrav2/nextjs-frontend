@@ -17,6 +17,14 @@ import categoryIcon from "./icons/categoryIcon.svg";
 import markspamIcon from "./icons/mark-spam.svg";
 import reportContentIcon from "./icons/report-content.svg";
 import requestParticipationIcon from "./icons/request-participation.svg";
+import youtube from "./icons/youtube.svg";
+import vimeo from "./icons/vimeo.svg";
+import instagram from "./icons/instagram.svg";
+import linkedin from "./icons/linkedin.svg";
+import arrowDropdown from "./icons/arrowDropdown.svg";
+import triangle from "./icons/triangle.svg";
+import close from "./icons/close.svg";
+
 
 export const icons = {
     Fb,
@@ -38,4 +46,11 @@ export const icons = {
     markspamIcon,
     reportContentIcon,
     requestParticipationIcon,
+    youtube,
+    vimeo,
+    instagram,
+    linkedin,
+    arrowDropdown,
+    triangle,
+    close
 };

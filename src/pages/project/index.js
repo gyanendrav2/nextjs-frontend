@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import HeaderWrapper from "../../components/header/headerWrapper";
 import { images } from "../../assets/images";
-// import CardWithHeader from "../../components/cards/cardWithHeader";
 import { colors } from "../../theme/colors";
 import classnames from "classnames";
 import { teamMemberData } from "../../data/project";
@@ -11,18 +10,29 @@ import UserProfileRow from "../../components/cards/userProfileRow";
 import MoreMemberModel from "../../containers/project/moreMemberModel";
 import Slider from "../../containers/project/slider";
 import { useRouter } from "next/router";
+import ReactPlayer from "react-player";
+import SocialIcons from "../../containers/project/socialIcons";
+import Footer from "../../components/footer";
+import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper";
 
 const useStyles = makeStyles({
     projectwrapper: {
         backgroundColor: colors.white,
     },
     profileWrapper: {
-        padding: "2.5rem 3rem 0rem 5rem",
+        padding: "2.5rem 3rem 2.5rem 5rem",
+        "@media (max-width:992px)": {
+            padding: "2.5rem 3rem 0rem 2rem",
+        },
     },
+
     CreatorsAuthor: {
         display: " flex",
         alignItems: " center",
         padding: "2.5rem 3rem 0rem 5rem",
+        "@media (max-width:992px)": {
+            padding: "2.5rem 3rem 0rem 2rem",
+        },
     },
     image: {
         borderRadius: "50%",
@@ -42,6 +52,7 @@ const useStyles = makeStyles({
         color: colors,
         fontFamily: "Helvetica",
         lineHeight: "1.45rem",
+        cursor: "pointer",
     },
     CreatorsAuthorJobTitle: {
         fontSize: "0.875rem",
@@ -77,7 +88,6 @@ const useStyles = makeStyles({
         margin: "1rem 0",
         maxWidth: "100%",
         "@media(max-width:992px)": {
-            // marginBottom: "1rem",
             marginTop: "1rem",
         },
     },
@@ -96,8 +106,6 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         marginTop: "0.5rem",
-
-        // flexDirection: "column",
     },
     teamWrapper: {
         display: "flex",
@@ -119,37 +127,131 @@ const useStyles = makeStyles({
     },
     whiteBgImgFit: {
         width: "100%",
-        height: "30.125rem",
+        height: "100%",
         objectFit: "cover",
-    },
-    heading: {
-        // font
     },
     contentWrapper: {
         padding: "8rem",
         color: colors.white,
-        "& h3": {},
+        "& h3": {
+            fontFamily: "Forno-Trial",
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "3.125rem",
+            lineHeight: "3.625rem",
+            marginBottom: "1.25rem",
+            "@media(max-width:992px)": {
+                maxWidth: "27.25rem",
+                fontSize: "2.5rem",
+                lineHeight: "3rem",
+                marginBottom: "0.7rem",
+            },
+        },
         "& p": {
             maxWidth: "27.25rem",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "1rem",
+            lineHeight: "2rem",
+        },
+        "@media (max-width:992px)": {
+            padding: "8rem",
+            paddingLeft: "2rem",
         },
     },
     contentWrapperWhiteBg: {
         padding: "8rem",
         color: colors.black,
-        "& h3": {},
+        "& h3": {
+            fontFamily: "Forno-Trial",
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "3.125rem",
+            lineHeight: "3.625rem",
+            marginBottom: "1.25rem",
+            "@media(max-width:992px)": {
+                maxWidth: "27.25rem",
+                fontSize: "2.5rem",
+                lineHeight: "3rem",
+                marginBottom: "0.7rem",
+            },
+        },
         "& p": {
             maxWidth: "27.25rem",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "1rem",
+            lineHeight: "2rem",
+        },
+        "@media (max-width:992px)": {
+            padding: "8rem",
+            paddingLeft: "2rem",
+        },
+    },
+    fulldarkBg: {
+        backgroundColor: colors.black,
+        height: "100%",
+        width: "100%",
+    },
+    fullWidthContent: {
+        color: colors.white,
+        paddingLeft: "16.875rem",
+        paddingRight: "16.875rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        "& h3": {
+            textAlign: "center",
+            fontFamily: "Forno-Trial",
+            fontStyle: "normal",
+            fontWeight: "700",
+            fontSize: "3.125rem",
+            lineHeight: "3.625rem",
+            marginBottom: "2.5rem",
+            marginTop: "7.5rem",
+            "@media(max-width:992px)": {
+                textAlign: "center",
+                maxWidth: "27.25rem",
+                fontSize: "2.5rem",
+                lineHeight: "3rem",
+                marginBottom: "0.7rem",
+            },
+        },
+        "& p": {
+            maxWidth: "27.25rem",
+            fontFamily: "Helvetica",
+            fontStyle: "normal",
+            fontWeight: "normal",
+            fontSize: "1rem",
+            lineHeight: "2rem",
+            marginBottom: "2rem",
+        },
+        "@media (max-width:992px)": {
+            padding: "8rem",
+            paddingLeft: "2rem",
         },
     },
     darkBg: {
         backgroundColor: colors.black,
+        height: "45.375rem",
+        width: "100%",
     },
     whiteBg: {
         backgroundColor: colors.white,
+        height: "37.187rem",
     },
-    fullWidthContent: {
-        color: colors.white,
-        padding: "7.5rem 16.875rem",
+    paragaphStyles: {
+        marginBottom: "2rem",
+    },
+    reportContentwrapper: {
+        marginTop: "9.625rem",
+        marginBottom: "-2rem",
+    },
+    footer: {
+        marginTop: "0rem",
     },
 });
 
@@ -161,11 +263,7 @@ const Project = () => {
     return (
         <Box className={classes.projectwrapper}>
             <HeaderWrapper isScrollDetect={false} />
-            <img
-                style={{ width: "100%", height: "30rem", marginTop: "5.375rem", objectFit: "cover" }}
-                src={images.projectImage}
-                alt=""
-            />
+            <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
             <Grid className={classes.CreatorsAuthor}>
                 <Box>
                     <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
@@ -225,13 +323,13 @@ const Project = () => {
                 </Grid>
             </Grid>
             <Grid container>
-                <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
-                    <img src={images.maskGroup} className={classes.fitSizeImg} />
+                <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
+                    <img src={images.hypebeast} className={classes.fitSizeImg} />
                 </Grid>
-                <Grid item xs={12} sm={12} md={8} lg={8} xl={8} className={classes.darkBg}>
+                <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.darkBg}>
                     <Box className={classes.contentWrapper}>
                         <Typography variant="h3">Making of</Typography>
-                        <Typography>
+                        <Typography variant="p">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                             galley of type and scrambled it to make a type specimen book.
@@ -242,8 +340,8 @@ const Project = () => {
             <Grid container>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.whiteBg}>
                     <Box className={classes.contentWrapperWhiteBg}>
-                        <Typography variant="h3">Making of</Typography>
-                        <Typography>
+                        <Typography variant="h3">Behind the scenes</Typography>
+                        <Typography variant="p">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                             galley of type and scrambled it to make a type specimen book.
@@ -255,10 +353,10 @@ const Project = () => {
                 </Grid>
             </Grid>
             <Grid container>
-                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.darkBg}>
+                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.fulldarkBg}>
                     <Box className={classes.fullWidthContent}>
-                        <Typography variant="h3">Making of</Typography>
-                        <Typography>
+                        <Typography variant="h3">The writing itself</Typography>
+                        <Typography variant="p">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                             galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -267,7 +365,9 @@ const Project = () => {
                             passages, and more recently with desktop publishing software like Aldus PageMaker including
                             versions of Lorem Ipsum.
                         </Typography>
-                        <Typography>
+                        <br />
+                        <br />
+                        <Typography variant="p">
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                             galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -276,7 +376,9 @@ const Project = () => {
                             passages, and more recently with desktop publishing software like Aldus PageMaker including
                             versions of Lorem Ipsum.
                         </Typography>
-                        <Typography>
+                        <br />
+                        <br />
+                        <Typography variant="p" style={{ paddingBotton: "5rem" }}>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
                             galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -289,6 +391,9 @@ const Project = () => {
                 </Grid>
             </Grid>
             <Slider />
+            <SocialIcons />
+            <ReportContentWrapper externalClass={classes.reportContentwrapper} />
+            <Footer externalClass={classes.footer} />
         </Box>
     );
 };

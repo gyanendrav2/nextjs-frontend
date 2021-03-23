@@ -10,6 +10,7 @@ import { icons } from "../../assets/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ReactPlayer from "react-player";
+import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper";
 
 const useStyles = makeStyles({
     wrapper: {
@@ -71,10 +72,7 @@ const useStyles = makeStyles({
         color: colors.black,
         margin: "0.1rem 0",
     },
-    footerWrapper: {
-        backgroundColor: colors.lightGray,
-        padding: "1rem",
-    },
+
     seeFullButton: {
         minWidth: "10rem",
     },
@@ -100,33 +98,6 @@ const useStyles = makeStyles({
     info: {
         "@media(max-width:992px)": {
             marginBottom: "1rem",
-        },
-    },
-    spamContainer: {
-        display: "flex",
-        alignItems: "space-between",
-    },
-    spamwrapper: {
-        display: "flex",
-        flexDirection: "row",
-        "@media(max-width:576px)": {
-            marginBottom: "0.5rem",
-        },
-    },
-    spamText: {
-        color: colors.black,
-        fontFamily: "Helvetica",
-        fontSize: "1rem",
-        marginLeft: "0.3rem",
-        "@media(max-width:992px)": {
-            fontSize: "0.8rem",
-        },
-    },
-    reportContent: {
-        display: "flex",
-        justifyContent: "flex-end",
-        "@media(max-width:992px)": {
-            justifyContent: "flex-start",
         },
     },
 });
@@ -165,13 +136,7 @@ const QuickViewDailog = ({ closeModal }) => {
                 </Grid>
             </Grid>
             <Grid>
-                <ReactPlayer
-                    width="100%"
-                    height="30rem"
-                    controls
-                    // style={{ width: "100%", height: "30rem" }}
-                    url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                />
+                <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
             </Grid>
             {/* <img  objectFit: "cover"  src={images.maskGroup} alt="" /> */}
             <Grid container className={classes.infoContainer}>
@@ -195,47 +160,7 @@ const QuickViewDailog = ({ closeModal }) => {
                     />
                 </Grid>
             </Grid>
-            <Box className={classes.footerWrapper}>
-                <Grid container className={classes.spamContainer}>
-                    <Grid item xs={12} sm={12} md={6} lg={6} container>
-                        <Grid item xs={6} sm={6} md={6} lg={6} className={classes.spamwrapper}>
-                            <Link href="/">
-                                <>
-                                    <img
-                                        className={classnames(classes.spamItem)}
-                                        alt="report-spam"
-                                        src={icons.markspamIcon}></img>
-                                    <Typography className={classes.spamText}>Mark as spam</Typography>
-                                </>
-                            </Link>
-                        </Grid>
-                        <Grid item xs={6} sm={6} md={6} lg={6} className={classnames(classes.spamwrapper)}>
-                            <Link href="/">
-                                <>
-                                    <img
-                                        className={classnames(classes.spamItem)}
-                                        alt="report-content"
-                                        src={icons.reportContentIcon}></img>
-                                    <Typography className={classes.spamText}>Report content</Typography>
-                                </>
-                            </Link>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} className={classes.spamwrapper}>
-                        <Link href="/">
-                            <>
-                                <img
-                                    className={classnames(classes.spamwrapper, classes.reportContent)}
-                                    alt="request participation"
-                                    src={icons.requestParticipationIcon}></img>
-                                <Typography className={classes.spamText}>
-                                    Request participation in the project
-                                </Typography>
-                            </>
-                        </Link>
-                    </Grid>
-                </Grid>
-            </Box>
+            <ReportContentWrapper />
         </Box>
     );
 };

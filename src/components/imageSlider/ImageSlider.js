@@ -1,23 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import LeftButton from "./LeftButton";
-import RightButton from "./RightButton";
-import Indicator from "./Indicator";
 
-const ImageSlider = ({
-    imageList,
-    transition,
-    infiniteSlide,
-    leftButton,
-    rightButton,
-    externalLeftButtonClass,
-    extnernalRightButtonClass,
-    height,
-    externalBulletClass,
-    externalActiveBulletClass,
-    outerLeftBtnClicked,
-    outerRightBtnClicked,
-}) => {
+const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBtnClicked, outerRightBtnClicked }) => {
     const [images, setImages] = useState([]);
     const [active, setActive] = useState(0);
     const [touchStart, setTouchStart] = useState(0);
@@ -156,14 +140,6 @@ const ImageSlider = ({
         <div style={{ height }} className="wrapper">
             {images.map((item, i) => (
                 <React.Fragment key={i}>
-                    <LeftButton
-                        externalButton={leftButton}
-                        externalClass={externalLeftButtonClass}
-                        infiniteSlide={infiniteSlide}
-                        active={active}
-                        onClick={slideRight}
-                        images={images}
-                    />
                     <div
                         className="slider_container"
                         onTouchStart={handleTouchStart}
@@ -171,25 +147,9 @@ const ImageSlider = ({
                         onTouchEnd={handleTouchEnd}
                         style={{ transform: `translateX(${item.transform}%)`, transition: `all ${transition}s` }}>
                         {item.url !== "" && <img className="slider_container_image" key={i} src={item.url} alt="" />}
-                        {item.htmlContent !== null && <item.htmlContent />}
                     </div>
-                    <RightButton
-                        externalButton={rightButton}
-                        externalClass={extnernalRightButtonClass}
-                        infiniteSlide={infiniteSlide}
-                        active={active}
-                        onClick={slideLeft}
-                        images={images}
-                    />
                 </React.Fragment>
             ))}
-            <Indicator
-                images={images}
-                active={active}
-                gotoSlide={gotoSlide}
-                bulletClass={externalBulletClass}
-                activeBulletClass={externalActiveBulletClass}
-            />
         </div>
     );
 };
@@ -198,13 +158,7 @@ ImageSlider.propTypes = {
     imageList: PropTypes.array,
     transition: PropTypes.number,
     infiniteSlide: PropTypes.bool,
-    leftButton: PropTypes.element,
-    rightButton: PropTypes.element,
-    externalLeftButtonClass: PropTypes.string,
-    extnernalRightButtonClass: PropTypes.string,
     height: PropTypes.string,
-    externalBulletClass: PropTypes.string,
-    externalActiveBulletClass: PropTypes.string,
     outerLeftBtnClicked: PropTypes.number,
     outerRightBtnClicked: PropTypes.number,
 };

@@ -54,7 +54,7 @@ const MobileFooter = () => {
             <Link href="/">
                 <Typography className={classes.itemPadding}>Privacy and cookie policy</Typography>
             </Link>
-            <Box className={classes.Images_}>
+            <Box>
                 <Link href="/">
                     <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.Fb}></img>
                 </Link>
