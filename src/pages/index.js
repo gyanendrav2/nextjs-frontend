@@ -1,11 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Discovery from "../pages/discovery/";
+import Discovery from "../containers/discovery";
 import PropTypes from "prop-types";
 
 export default function Home({ homeData }) {
     const [data, setData] = useState({ hero: [], curatedCreators: [], featuredProjects: [] });
-    
+
     useEffect(() => {
         if (homeData?.hero) {
             const newData = {
