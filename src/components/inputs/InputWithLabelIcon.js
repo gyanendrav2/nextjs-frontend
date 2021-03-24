@@ -7,8 +7,8 @@ import { colors } from "../../theme/colors";
 import classnames from "classnames";
 
 const useStyles = makeStyles({
-    rootWrapper:{
-        width: '100%'
+    rootWrapper: {
+        width: "100%",
     },
     wrapper: {
         width: "100%",
@@ -16,7 +16,6 @@ const useStyles = makeStyles({
         margin: 0,
         fontSize: "0.85rem",
         fontWeight: 400,
-        borderRadius: "0.5rem",
         backgroundColor: colors.white,
         padding: "0.6rem 0",
         fontFamily: "aino-regular",
@@ -45,9 +44,9 @@ const useStyles = makeStyles({
     inputContainer: {
         width: "100%",
     },
-    iconWrapper:{
-        cursor: 'pointer'
-    }
+    iconWrapper: {
+        cursor: "pointer",
+    },
 });
 
 const InputWithLabelIcon = ({
@@ -82,7 +81,9 @@ const InputWithLabelIcon = ({
                     />
                 </Box>
                 <Grid container alignItems="center" justify="center" className={classes.iconContainer}>
-                    <Box onClick={iconOnClick} className={classes.iconWrapper}>{icon}</Box>
+                    <Box onClick={iconOnClick} className={classes.iconWrapper}>
+                        {icon}
+                    </Box>
                 </Grid>
             </Grid>
             <ErrorMessage error={errorMsg?.message} />

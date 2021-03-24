@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Box, Grid, makeStyles } from "@material-ui/core";
 import { colors } from "../../../theme/colors";
 import PropTypes from "prop-types";
 import CardWithHeader from "../../../components/cards/cardWithHeader";

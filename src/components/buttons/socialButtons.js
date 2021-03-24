@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Grid, makeStyles } from "@material-ui/core";
 import { icons } from "../../assets/icons";
 
@@ -29,10 +29,6 @@ const SocialButtons = () => {
             <img alt="vimeo" src={icons.vimeo} className={classes.socialButton}></img>
             <img alt="instagram" src={icons.instagram} className={classes.socialButton}></img>
             <img alt="linkedin" src={icons.linkedin} className={classes.socialButton}></img>
-            {/* <CustomButton variant="circleLargeButton" icon={<YouTubeIcon />} externalClass={classes.socialButton} />
-                <CustomButton variant="circleLargeButton" icon={<YouTubeIcon />} externalClass={classes.socialButton} />
-                <CustomButton variant="circleLargeButton" icon={<YouTubeIcon />} externalClass={classes.socialButton} />
-                <CustomButton variant="circleLargeButton" icon={<YouTubeIcon />} externalClass={classes.socialButton} /> */}
         </Grid>
     );
 };

@@ -72,7 +72,7 @@ const MobileFooter = () => {
                 </Link>
             </Box>
             <Link href="/">
-                <Box item md={3} lg={3}>
+                <Box>
                     <Typography className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
                         <CopyrightIcon className={classes.copyrightIcon} />
                         Copyright PXL

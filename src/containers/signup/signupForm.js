@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import Link from "next/link";
 import VisibilityIcon from "@material-ui/icons/Visibility";
-import CustomButton from "../../ui/button/CustomButton";
+import CustomButton from "../../components/buttons/customButton";
 import InputWithLabelIcon from "../../components/inputs/InputWithLabelIcon";
 import { colors } from "../../theme/colors";
 import { useForm } from "react-hook-form";

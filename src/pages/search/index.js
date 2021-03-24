@@ -1,9 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import { colors } from "../../theme/colors";
-import CustomButton from "../../components/buttons/CustomButton";
-import FilterIcon from "../../components/icons/filterIcon";
-import Filter from "../../components/filter";
 import HeaderWrapper from "../../components/header/headerWrapper";
 import Footer from "../../components/footer";
 import SearchBox from "../../containers/search/searchBox";
@@ -60,7 +57,7 @@ const useStyles = makeStyles({
 
 const Search = () => {
     const classes = useStyles();
-    const [showFilter, setShowFilter] = useState(false);
+    // const [showFilter, setShowFilter] = useState(false);
 
     return (
         <Box>

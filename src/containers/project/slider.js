@@ -5,7 +5,6 @@ import SliderButton from "./sliderButton";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Box, makeStyles } from "@material-ui/core";
-import { images } from "../../assets/images";
 
 const useStyles = makeStyles({
     seperator: {

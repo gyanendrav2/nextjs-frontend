@@ -1,25 +1,25 @@
-import React from 'react';
-import { colors } from '../../theme/colors';
-import PropTypes from 'prop-types';
-import { Box, makeStyles } from '@material-ui/core';
+import React from "react";
+import { colors } from "../../theme/colors";
+import PropTypes from "prop-types";
+import { Box, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     wrapper: {
-        '& textarea': {
-            width: '100%',
-            padding: '8px',
-            outline: 'none',
+        "& textarea": {
+            width: "100%",
+            padding: "8px",
+            outline: "none",
             margin: 0,
-            fontSize: '1rem',
+            fontSize: "1rem",
             fontWeight: 400,
-            fontFamily: 'CircularXXWeb',
+            fontFamily: "Helvetica",
             backgroundColor: colors.white,
-            color: (props) => (props.error ? `${colors.red}` : `${colors.black}`),
+            color: (props) => (props.error ? `${colors.red}` : `${colors.lighterGray}`),
 
-            border: (props) => `solid 1px ${props.error ? colors.red : colors.black}`,
-            '&::placeholder': {
-                color: (props) => (props.error ? `${colors.red}` : `${colors.black}`),
-                fontSize: '0.875rem',
+            border: (props) => `solid 1px ${props.error ? colors.red : colors.lighterGray}`,
+            "&::placeholder": {
+                color: (props) => (props.error ? `${colors.red}` : `${colors.lighterGray}`),
+                fontSize: "1rem",
             },
         },
     },

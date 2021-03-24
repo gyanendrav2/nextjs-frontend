@@ -75,7 +75,7 @@ const useStyles = makeStyles({
     },
 });
 const SelectWithLabelIcon = ({
-    externalClass,
+    // externalClass,
     label,
     error,
     errorMsg,
@@ -85,7 +85,7 @@ const SelectWithLabelIcon = ({
     options,
     variant,
     labelColor,
-    bgColor,
+    // bgColor,
     ...props
 }) => {
     const classes = useStyles({ error, labelColor });

@@ -34,7 +34,7 @@ const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }
                 item
                 container
                 alignItems="center"
-                justifyContent="flex-start"
+                // justifycontent="flex-start"
                 xs={col1Size}
                 sm={12}
                 md={col1Size}
@@ -49,7 +49,14 @@ const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }
                     {name}
                 </Typography>
             </Grid>
-            <Grid item xs={col2Size} sm={12} md={col2Size} lg={col2Size} xl={col2Size} className={classes.disabledTeamContainer}>
+            <Grid
+                item
+                xs={col2Size}
+                sm={12}
+                md={col2Size}
+                lg={col2Size}
+                xl={col2Size}
+                className={classes.disabledTeamContainer}>
                 <Typography className={classes.positionText}>{position}</Typography>
             </Grid>
         </Grid>
@@ -62,7 +69,7 @@ UserProfileRow.propTypes = {
     position: PropTypes.string,
     isDisable: PropTypes.bool,
     col1Size: PropTypes.string,
-    col2Size: PropTypes.string
+    col2Size: PropTypes.string,
 };
 
 export default UserProfileRow;

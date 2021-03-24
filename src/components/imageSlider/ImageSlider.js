@@ -59,14 +59,14 @@ const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBt
         }
     };
 
-    const gotoSlide = (i) => {
-        if (i < active) {
-            slidePrevious(i - active);
-        } else if (i > active) {
-            slideFarword(active - i);
-        }
-        setActive(i);
-    };
+    // const gotoSlide = (i) => {
+    //     if (i < active) {
+    //         slidePrevious(i - active);
+    //     } else if (i > active) {
+    //         slideFarword(active - i);
+    //     }
+    //     setActive(i);
+    // };
 
     const slidePrevious = (i) => {
         const data = [...images];

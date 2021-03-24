@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Box, makeStyles } from "@material-ui/core";
 import Link from "next/link";
 import classnames from "classnames";
 import { icons } from "../../assets/icons";
-import { colors } from "../../theme/Colors";
 
 const useStyles = makeStyles({
     iconContainer: {
@@ -12,14 +11,12 @@ const useStyles = makeStyles({
         alignItems: "center",
         width: "100%",
         justifyContent: "center",
-        margin: "0 auto",
+        margin: "3.562rem auto",
     },
     Images: {
         height: "2.25rem",
         width: "2.25rem",
-        backgroundColor: colors.black,
         marginRight: "1.5rem",
-        // color: colors.black,
     },
 });
 
@@ -28,16 +25,22 @@ const SocialIcons = () => {
     return (
         <Box className={classes.iconContainer}>
             <Link href="/">
-                <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.Fb}></img>
+                <img
+                    className={classnames(classes.itemPadding, classes.Images)}
+                    alt="fb"
+                    src={icons.twitterBlack}></img>
             </Link>
             <Link href="/">
-                <img className={classnames(classes.itemPadding, classes.Images)} alt="Insta" src={icons.Insta}></img>
+                <img
+                    className={classnames(classes.itemPadding, classes.Images)}
+                    alt="Insta"
+                    src={icons.twitterBlack}></img>
             </Link>
             <Link href="/">
                 <img
                     className={classnames(classes.itemPadding, classes.Images)}
                     alt="Linked In"
-                    src={icons.Linkedin}></img>
+                    src={icons.linkedinBlack}></img>
             </Link>
         </Box>
     );

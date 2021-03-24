@@ -1,14 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import { images } from "../../assets/images";
 import PictureOverSquare from "../../components/cards/pictureOverSquare";
 import FollowingFollwers from "../../components/texts/followingFollwers";
-import CustomButton from "../../ui/button/CustomButton";
+import CustomButton from "../../components/buttons/customButton";
 import { icons } from "../../assets/icons";
 import { colors } from "../../theme/colors";
 import SocialButtons from "../../components/buttons/socialButtons";
-import TwoColModalGrid from "../../components/Grid/twoColModalGrid";
+import TwoColModalGrid from "../../components/grid/twoColModalGrid";
 
 const useStyles = makeStyles({
     infoWrapper: {
@@ -33,6 +33,12 @@ const useStyles = makeStyles({
 
 const UserInfo = () => {
     const classes = useStyles();
+    const [openMsg, setOpenMsg] = useState(false);
+
+    const handleMsg = () => {
+        setOpenMsg(!openMsg);
+    };
+
     return (
         <TwoColModalGrid
             col1Children={<PictureOverSquare image={images.maskGroup} />}
@@ -45,7 +51,11 @@ const UserInfo = () => {
                         <Typography className={classes.username}>@veritas_z</Typography>
                         <FollowingFollwers followers="15" following="15" />
                         <Box className={classes.buttonWrapper}>
-                            <CustomButton label="Message me" externalClass={classes.msgbtn} />
+                            {/* <ModalComponent openOrNot={openInfo} onClose={handleMsg}>
+                                <MessageBox />
+                            </ModalComponent> */}
+
+                            <CustomButton label="Message me" externalClass={classes.msgbtn} on={handleMsg} />
                             <CustomButton
                                 variant="dropdownButton"
                                 icon={<img src={icons.arrowDropdown} />}

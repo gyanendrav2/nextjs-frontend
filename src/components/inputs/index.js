@@ -26,13 +26,12 @@ const useStyles = makeStyles({
 });
 
 const Input = ({ onChange, inputRegister, error, name, externalClass, ...rest }) => {
-    const classes = useStyles({ error });
+    const classes = useStyles({ error: error ? true : false });
     return (
         <Box className={classes.wrapper}>
             <input
                 className={classnames(classes.input, externalClass)}
                 {...rest}
-                error={error}
                 name={name}
                 ref={inputRegister}
                 onChange={(e) => {

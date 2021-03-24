@@ -81,7 +81,7 @@ const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, featuredCardsDetai
             <Box style={{ backgroundColor: shouldDark() }} className={classes.mobileNavWrapper}>
                 <Link href="/">
                     <img
-                        src={scrollTop > 534 ? icons.LogoWhite : icons.LogoBlack}
+                        src={scrollTop > 534 ? icons.logoWhite : icons.logoBlack}
                         className={classes.mobileLogo}
                         alt="logo"
                     />
@@ -104,6 +104,7 @@ const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, featuredCardsDetai
 HeaderWrapper.propTypes = {
     isScrollDetect: PropTypes.bool,
     mobileMenuIconColor: PropTypes.string,
+    featuredCardsDetails: PropTypes.any,
 };
 
 export default HeaderWrapper;

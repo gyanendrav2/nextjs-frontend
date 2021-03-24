@@ -4,8 +4,7 @@ import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import { images } from "../../assets/images";
 import classnames from "classnames";
 import RoomIcon from "@material-ui/icons/Room";
-import CustomButton from "../../ui/button/CustomButton";
-// import YouTubeIcon from "@material-ui/icons/YouTube";
+import CustomButton from "../../components/buttons/customButton";
 import { icons } from "../../assets/icons";
 import { colors } from "../../theme/colors";
 import FollowingFollwers from "../texts/followingFollwers";
@@ -53,7 +52,18 @@ const useStyles = makeStyles({
     },
 });
 
-const UserProfileCard = ({ image, name, userName, followers, following, position, location, bio, onClickProfile, onMsgBtnClick }) => {
+const UserProfileCard = ({
+    image,
+    name,
+    userName,
+    followers,
+    following,
+    position,
+    location,
+    bio,
+    onClickProfile,
+    onMsgBtnClick,
+}) => {
     const classes = useStyles();
     const lessText = bio.slice(0, 90);
     const fullText = bio.slice(0, bio.length);
@@ -111,7 +121,7 @@ UserProfileCard.propTypes = {
     location: PropTypes.string,
     bio: PropTypes.string,
     onClickProfile: PropTypes.func,
-    onMsgBtnClick: PropTypes.func
+    onMsgBtnClick: PropTypes.func,
 };
 
 export default UserProfileCard;

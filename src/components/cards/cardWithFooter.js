@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { colors } from "../../theme/colors";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Box, Typography } from "@material-ui/core";
 import PropTypes from "prop-types";
 import LazyloadImage from "../lazyloadImage/lazyloadImage";
 

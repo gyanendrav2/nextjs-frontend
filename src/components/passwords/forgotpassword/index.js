@@ -55,7 +55,7 @@ const useStyles = makeStyles({
     },
 });
 
-const RightSide = ({ title, subTitle }) => {
+const RightSide = () => {
     const classes = useStyles();
     return (
         <Box container className={classes.wrapper}>

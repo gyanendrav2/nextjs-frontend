@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createRef } from "react";
 import PropTypes from "prop-types";
 import { Button, makeStyles } from "@material-ui/core";
 import { colors } from "../../theme/colors";
@@ -9,7 +9,7 @@ const useStyles = makeStyles({
         backgroundColor: colors.black,
         color: colors.white,
         borderRadius: 0,
-        // textTransform: "capitalize",
+        textTransform: "capitalize",
         height: "3.5rem",
         minWidth: "6.437rem",
         "&:hover": {
@@ -101,63 +101,132 @@ const useStyles = makeStyles({
             backgroundColor: colors.pink,
         },
     },
+    fileInput: {
+        width: 0,
+        height: 0,
+        overflow: "hidden",
+        Visibility: "hidden",
+    },
+    dropdownButton: {
+        backgroundColor: colors.lightGray,
+        color: colors.black,
+        borderRadius: 0,
+        textTransform: "capitalize",
+        height: "3.5rem",
+        minWidth: "6.437rem",
+        "&:hover": {
+            color: colors.black,
+            backgroundColor: colors.pink,
+        },
+        "& .MuiButton-endIcon": {
+            // position: "absolute",
+            // right: "1.593rem",
+        },
+    },
+    cancel: {
+        width: "100%",
+        backgroundColor: colors.white,
+        border: `1px solid ${colors.red}`,
+        borderRadius: 0,
+        textTransform: "capitalize",
+        padding: "0.75rem 3rem",
+        color: colors.red,
+        fontSize: "1rem",
+        "&:hover": {
+            color: colors.white,
+            backgroundColor: colors.red,
+        },
+        // "&::placeholder": {
+        //     color: colors.red,
+        //     fontSize: "1rem",
+        // },
+    },
 });
 
-const allButtons = ({ variant, label, icon, externalClass, ...props }) => {
+const allButtons = ({ handleClick, variant, label, icon, externalClass, ...props }) => {
     const classes = useStyles();
+
     switch (variant) {
         case "primary": {
             return (
-                <Button className={classnames(classes.primary, externalClass)} {...props}>
+                <Button className={classnames(classes.primary, externalClass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             );
         }
         case "borderButton": {
             return (
-                <Button className={classnames(classes.borderButton, externalClass)} {...props}>
+                <Button className={classnames(classes.borderButton, externalClass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             );
         }
         case "iconButton": {
             return (
-                <Button className={classnames(classes.iconButton, externalClass)} {...props}>
+                <Button className={classnames(classes.iconButton, externalClass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             );
         }
         case "iconLargeButton": {
             return (
-                <Button className={classnames(classes.iconLargeButton, externalClass)} {...props}>
-                    {label}
+                <Button className={classnames(classes.iconLargeButton, externalClass)} onClick={handleClick} {...props}>
+                    {icon}
                 </Button>
             );
         }
         case "circleSmallButton": {
             return (
-                <Button className={classnames(classes.circleSmallButton, externalClass)} {...props}>
+                <Button
+                    className={classnames(classes.circleSmallButton, externalClass)}
+                    onClick={handleClick}
+                    {...props}>
                     {icon}
                 </Button>
             );
         }
         case "circleLargeButton": {
             return (
-                <Button className={classnames(classes.circleLargeButton, externalClass)} {...props}>
+                <Button
+                    className={classnames(classes.circleLargeButton, externalClass)}
+                    onClick={handleClick}
+                    {...props}>
                     {icon}
                 </Button>
             );
         }
         case "iconColorButton": {
             return (
-                <Button className={classnames(classes.iconColorButton, externalClass)} {...props}>
+                <Button className={classnames(classes.iconColorButton, externalClass)} onClick={handleClick} {...props}>
                     {icon}
+                </Button>
+            );
+        }
+        case "dropdownButton": {
+            return (
+                <Button
+                    endIcon={icon}
+                    className={classnames(classes.dropdownButton, externalClass)}
+                    onClick={handleClick}
+                    {...props}>
+                    {label}
+                </Button>
+            );
+        }
+        case "cancel": {
+            return (
+                <Button
+                    endIcon={icon}
+                    className={classnames(classes.cancel, externalClass)}
+                    onClick={handleClick}
+                    {...props}>
+                    {label}
                 </Button>
             );
         }
         default: {
             return (
-                <Button className={classnames(classes.primary, externalClass)} {...props}>
+                <Button className={classnames(classes.primary, externalClass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             );
@@ -165,8 +234,31 @@ const allButtons = ({ variant, label, icon, externalClass, ...props }) => {
     }
 };
 
-const CustomButton = (props) => {
-    return allButtons({ ...props });
+const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, ...props }) => {
+    const classes = useStyles();
+    const input = createRef();
+    const handleClick = () => {
+        if (wantFile) {
+            input.current.click();
+        } else if (onClick) {
+            onClick();
+        }
+    };
+
+    return (
+        <>
+            {wantFile && (
+                <input
+                    type="file"
+                    ref={input}
+                    multiple={allowMultiple}
+                    className={classes.fileInput}
+                    onChange={onFileChange}
+                />
+            )}
+            {allButtons({ handleClick, ...props })}
+        </>
+    );
 };
 
 CustomButton.propTypes = {
@@ -175,6 +267,9 @@ CustomButton.propTypes = {
     variant: PropTypes.string,
     icon: PropTypes.element,
     onClick: PropTypes.func,
+    wantFile: PropTypes.bool,
+    onFileChange: PropTypes.func,
+    allowMultiple: PropTypes.bool,
 };
 
 export default CustomButton;

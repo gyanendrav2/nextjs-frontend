@@ -22,7 +22,7 @@ const ContentWrapper = ({ externalClass, children }) => {
 };
 
 ContentWrapper.propTypes = {
-    children: PropTypes.element,
+    children: PropTypes.array,
     externalClass: PropTypes.string,
 };
 

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { colors } from "../../../theme/colors";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Box, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 import CardWithFooter from "../../../components/cards/CardWithFooter";
-import { useRouter } from "next/router";
 import QuickViewDailog from "../../project/quickViewDailog";
 
 const useStyles = makeStyles({
@@ -78,17 +77,7 @@ const useStyles = makeStyles({
 });
 const SelectingCategories = ({ featuredCardsDetails }) => {
     const classes = useStyles();
-    const [newIdx, setnewIdx] = useState(0);
-    const [isHovering, setisHovering] = useState(false);
     const [openModal, setOpenModal] = useState(false);
-    const routes = useRouter();
-
-    const handleMouseHover = () => {
-        setisHovering(true);
-    };
-    const handleMouseOut = () => {
-        setisHovering(false);
-    };
 
     return (
         <Box>

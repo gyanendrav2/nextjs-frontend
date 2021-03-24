@@ -4,7 +4,7 @@ export const NavItemOptions = [
     {
         id: 1,
         name: "discover",
-        iconWhite: icons.Ellipse,
+        iconWhite: icons.ellipse,
         iconBlack: icons.discoverBlack,
         iconPink: icons.loginPink,
 
@@ -13,7 +13,7 @@ export const NavItemOptions = [
     {
         id: 2,
         name: "Search",
-        iconWhite: icons.Rectangle1,
+        iconWhite: icons.rectangle1,
         iconBlack: icons.searchBlack,
         iconPink: icons.searchPink,
         pathname: "/search",
@@ -21,7 +21,7 @@ export const NavItemOptions = [
     {
         id: 3,
         name: "Sign in",
-        iconWhite: icons.Rectangle,
+        iconWhite: icons.rectangle,
         iconBlack: icons.loginBlack,
         iconPink: icons.loginPink,
         pathname: "/signin",

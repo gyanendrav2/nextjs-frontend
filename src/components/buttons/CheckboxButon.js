@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Checkbox from "@material-ui/core/Checkbox";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     container: {
@@ -47,6 +47,7 @@ const useStyles = makeStyles({
 });
 
 const checkboxButton = ({ labelText }) => {
+    const classes = useStyles();
     return (
         <div className={classes.wrapper}>
             {labelText}

@@ -9,7 +9,6 @@ import CardWithFooter from "../../components/cards/CardWithFooter";
 import Footer from "../../components/footer";
 import classnames from "classnames";
 import { colors } from "../../theme/colors";
-import { TrendingUpOutlined } from "@material-ui/icons";
 import { icons } from "../../assets/icons";
 import ModalComponent from "../../components/modal/ModalComponent";
 import UserInfo from "../../containers/profile/userInfo";
@@ -18,10 +17,6 @@ import MessageBox from "../../containers/profile/messageBox";
 const useStyles = makeStyles({
     wrapper: {
         paddingTop: "7rem",
-        // "@media (max-width:992px)": {
-        //     // padding: "0",
-        //     paddingTop: "3.5rem",
-        // },
     },
     profileHeader: {
         marginBottom: "1.5rem",
@@ -71,12 +66,12 @@ const Profile = () => {
     const [openMsg, setOpenMsg] = useState(false);
 
     const handleInfo = () => {
-        setOpenInfo(!openInfo)
-    }
+        setOpenInfo(!openInfo);
+    };
 
     const handleMsg = () => {
-        setOpenMsg(!openMsg)
-    }
+        setOpenMsg(!openMsg);
+    };
     return (
         <>
             <HeaderWrapper isScrollDetect={false} />
@@ -99,7 +94,7 @@ const Profile = () => {
                             following="20"
                             position="Director assistant, producer"
                             location="USA, Ohio"
-                            bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.this is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
+                            bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
                         />
                     </Grid>
                     <Grid item sx={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
@@ -123,7 +118,7 @@ const Profile = () => {
                     </Typography>
                 </Grid>
                 <Grid container spacing={2}>
-                    {[1, 1, 1, 1, 1, 1, 1, 1].map((newData, idx) => {
+                    {[1, 1, 1, 1, 1, 1, 1, 1].map((idx) => {
                         return (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
                                 <CardWithFooter
@@ -131,7 +126,7 @@ const Profile = () => {
                                     title={"dummy data"}
                                     hideFooter={true}
                                     handleClick={() => {
-                                        setOpenModal(true);
+                                        // setOpenModal(true);
                                     }}
                                 />
                             </Grid>
@@ -139,9 +134,10 @@ const Profile = () => {
                     })}
                 </Grid>
             </ContentWrapper>
+
             <ContentWrapper externalClass={classes.report}>
-                <Grid container alignItems="flex-end" justify="flex-start">
-                    <img src={icons.triangle} alt="" />
+                <Grid container dispaly="flex" alignItems="center" justify="flex-start">
+                    <img src={icons.reportContentIcon} alt="" />
                     <Typography>Report user</Typography>
                 </Grid>
             </ContentWrapper>

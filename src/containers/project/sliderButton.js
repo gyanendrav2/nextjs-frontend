@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Grid, makeStyles } from "@material-ui/core";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles({
     wrapper: {

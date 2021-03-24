@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../theme/Colors";
+import { colors } from "../../../theme/colors";
 import CloseIcon from "@material-ui/icons/Close";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import { icons } from "../../../assets/icons";
@@ -9,8 +9,7 @@ import classnames from "classnames";
 import { images } from "../../../assets/images";
 import InputWithLabelIcon from "../../inputs/InputWithLabelIcon";
 import SearchIcon from "@material-ui/icons/Search";
-import CustomButton from "../../../ui/button/CustomButton";
-import Link from "next/link";
+import CustomButton from "../../../components/buttons/customButton";
 
 const useStyles = makeStyles({
     wrapper: {
@@ -135,12 +134,12 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
     return (
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
             <Box className={classes.contentWrapper}>
-                <Grid container alignItems="center" justifyContent="space-between" className={classes.headerWrapper}>
-                    <Grid container alignItems="center" justifyContent="space-between" className={classes.autoWidth}>
+                <Grid container alignItems="center" justifycontent="space-between" className={classes.headerWrapper}>
+                    <Grid container alignItems="center" justifycontent="space-between" className={classes.autoWidth}>
                         <Avatar src={images.maskGroup} />
                         <Typography className={classes.username}>Brandon</Typography>
                     </Grid>
-                    <Grid container alignItems="center" justifyContent="space-around" className={classes.autoWidth}>
+                    <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
                         <IconButton className={classes.closeButton} onClick={onClose}>
                             <NotificationsNoneIcon className={classes.icon} />
                         </IconButton>
@@ -172,7 +171,14 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                             />
                         </li>
                         <li className={classes.listStyle}>
-                            <CustomButton wantFile={true} allowMultiple={true} onFileChange={(e)=>console.log(e.target.files)} className={classes.button} label="Upload work" type="file" />
+                            <CustomButton
+                                wantFile={true}
+                                allowMultiple={true}
+                                onFileChange={(e) => console.log(e.target.files)}
+                                className={classes.button}
+                                label="Upload work"
+                                type="file"
+                            />
                         </li>
                     </ul>
                 </Box>
@@ -184,7 +190,7 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
 MobileMenu.propTypes = {
     menuList: PropTypes.arrayOf(
         PropTypes.shape({
-            id: PropTypes.string,
+            id: PropTypes.number,
             name: PropTypes.string,
             icon: PropTypes.string,
         })

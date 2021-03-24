@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Box, Grid, makeStyles } from "@material-ui/core";
 import HeadItem from "./headItem";
 import Link from "next/link";
-import CustomButton from "../../ui/button/CustomButton";
+import CustomButton from "../../components/buttons/customButton";
 import { icons } from "../../assets/icons";
 import { colors } from "../../theme/colors";
 import { images } from "../../assets/images";
@@ -68,12 +68,11 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
             <Link href="/">
                 <img
                     className={classes.logo}
-                    src={color === colors.white ? icons.LogoWhite : images.LogoImage}
-                    LogoImage
+                    src={color === colors.white ? icons.logoWhite : images.logoImage}
                     alt="PXL-logo"
                 />
             </Link>
-            <Grid container alignItems="center" justifyContent="flex-end" className={classes.rightPart}>
+            <Grid container alignItems="center" justifycontent="flex-end" className={classes.rightPart}>
                 {NavItemOptions.map((item, index) => {
                     return (
                         <HeadItem
@@ -89,9 +88,9 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
                         />
                     );
                 })}
-                <Link href="/signup">
-                    <CustomButton label="Sign up" externalClass={classes.button} />
-                </Link>
+                {/* <Link href="/signup"> */}
+                <CustomButton label="Sign up" externalClass={classes.button} />
+                {/* </Link> */}
             </Grid>
         </Box>
     );
@@ -100,6 +99,9 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
 Header.propTypes = {
     color: PropTypes.string,
     bgColor: PropTypes.string,
+    NavItemOptions: PropTypes.arrayOf(
+        PropTypes.shape({ id: PropTypes.number, name: PropTypes.string, pathname: PropTypes.string })
+    ),
 };
 
 export default Header;

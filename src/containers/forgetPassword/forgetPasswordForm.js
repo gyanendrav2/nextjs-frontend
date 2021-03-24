@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import { colors } from "../../theme/colors";
 import InputWithLabelIcon from "../../components/inputs/InputWithLabelIcon";
-import Link from "next/link";
 import CustomButton from "../../components/buttons/CustomButton";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";

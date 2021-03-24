@@ -1,16 +1,16 @@
-import Fb from "./icons/Vector2.svg";
-import Insta from "./icons/Vector1.svg";
-import Linkedin from "./icons/Vector.svg";
-import Ellipse from "./icons/Nav.svg";
-import Rectangle from "./icons/Exit.svg";
-import Rectangle1 from "./icons/Search.svg";
-import More from "./icons/More-icon.svg";
+import fb from "./icons/vector2.svg";
+import insta from "./icons/vector1.svg";
+import linkedin from "./icons/vector.svg";
+import ellipse from "./icons/nav.svg";
+import rectangle from "./icons/exit.svg";
+import rectangle1 from "./icons/search.svg";
+import more from "./icons/More-icon.svg";
 import discoverBlack from "./icons/discoverBlack.svg";
 import loginBlack from "./icons/loginBlack.svg";
 import searchBlack from "./icons/searchBlack.svg";
-import Filter from "./icons/Filter.svg";
-import LogoWhite from "./icons/LogoWhite.svg";
-import LogoBlack from "./icons/LogoBlack.svg";
+import filter from "./icons/Filter.svg";
+import logoWhite from "./icons/logoWhite.svg";
+import logoBlack from "./icons/logoBlack.svg";
 import loginPink from "./icons/loginPink.svg";
 import searchPink from "./icons/searchPink.svg";
 import categoryIcon from "./icons/categoryIcon.svg";
@@ -20,26 +20,27 @@ import requestParticipationIcon from "./icons/request-participation.svg";
 import youtube from "./icons/youtube.svg";
 import vimeo from "./icons/vimeo.svg";
 import instagram from "./icons/instagram.svg";
-import linkedin from "./icons/linkedin.svg";
 import arrowDropdown from "./icons/arrowDropdown.svg";
-import triangle from "./icons/triangle.svg";
+// import triangle from "./icons/triangle.svg";
 import close from "./icons/close.svg";
-
+import fbBlack from "./icons/facebookBlack.svg";
+import linkedinBlack from "./icons/linkedinBlack.svg";
+import twitterBlack from "./icons/twitterBlack.svg";
 
 export const icons = {
-    Fb,
-    Insta,
-    Linkedin,
-    Ellipse,
-    Rectangle,
-    Rectangle1,
-    More,
+    fb,
+    insta,
+    linkedin,
+    ellipse,
+    rectangle,
+    rectangle1,
+    more,
     discoverBlack,
     loginBlack,
     searchBlack,
-    Filter,
-    LogoWhite,
-    LogoBlack,
+    filter,
+    logoWhite,
+    logoBlack,
     loginPink,
     searchPink,
     categoryIcon,
@@ -51,6 +52,9 @@ export const icons = {
     instagram,
     linkedin,
     arrowDropdown,
-    triangle,
-    close
+    // triangle,
+    close,
+    fbBlack,
+    linkedinBlack,
+    twitterBlack,
 };

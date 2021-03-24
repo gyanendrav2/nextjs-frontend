@@ -93,7 +93,6 @@ const RightSide = () => {
                         externalClass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.code}
-                        externalClass={classes.inputStyles}
                     />
                     <InputWithLabelIcon
                         name="email"
@@ -101,7 +100,6 @@ const RightSide = () => {
                         externalClass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.email}
-                        externalClass={classes.inputStyles}
                     />
                     <InputWithLabelIcon
                         name="password"

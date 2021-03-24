@@ -1,10 +1,10 @@
 import React from "react";
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { Grid, Typography } from "@material-ui/core";
-import { CheckCircle } from "@material-ui/icons";
+import { Box, Grid } from "@material-ui/core";
 import { colors } from "../../theme/colors";
 import { icons } from "../../assets/icons";
 
@@ -72,13 +72,22 @@ export const ModalComponent = ({ handleClose, openOrNot, children, onClose }) =>
                 }}>
                 <Fade in={openOrNot}>
                     <Grid container alignItems="center" direction="column" justify="center" className={classes.paper}>
-                        <img src={icons.close} className={classes.closeIcon} onClick={onClose} />
+                        <Box className={classes.closeIcon} onClick={onClose}>
+                            <img src={icons.close} alt="" />
+                        </Box>
                         {children}
                     </Grid>
                 </Fade>
             </Modal>
         </div>
     );
+};
+
+ModalComponent.propTypes = {
+    handleClose: PropTypes.func,
+    openOrNot: PropTypes.bool,
+    children: PropTypes.element,
+    onClose: PropTypes.func,
 };
 
 export default ModalComponent;

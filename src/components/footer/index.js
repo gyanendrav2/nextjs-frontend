@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { icons } from "../../assets/icons";
 import { Box, makeStyles, Typography, Grid } from "@material-ui/core";
 import { colors } from "../../theme/colors";
@@ -103,7 +104,7 @@ const useStyles = makeStyles({
         marginRight: "0.5rem",
     },
 });
-const Footer = ({externalClass}) => {
+const Footer = ({ externalClass }) => {
     const classes = useStyles();
     return (
         <>
@@ -132,13 +133,13 @@ const Footer = ({externalClass}) => {
                 <Grid item sm={6} md={2} lg={2} className={classes.titles}>
                     <Box className={classes.Images_}>
                         <Link href="/">
-                            <img className={classes.Images} alt="fb" src={icons.Fb}></img>
+                            <img className={classes.Images} alt="fb" src={icons.fb}></img>
                         </Link>
                         <Link href="/">
-                            <img className={classes.Images} alt="Insta" src={icons.Insta}></img>
+                            <img className={classes.Images} alt="Insta" src={icons.insta}></img>
                         </Link>
                         <Link href="/">
-                            <img className={classes.Images} alt="Linked In" src={icons.Linkedin}></img>
+                            <img className={classes.Images} alt="Linked In" src={icons.linkedin}></img>
                         </Link>
                     </Box>
                 </Grid>
@@ -146,6 +147,9 @@ const Footer = ({externalClass}) => {
             <MobileFooter />
         </>
     );
+};
+Footer.propTypes = {
+    externalClass: PropTypes.string,
 };
 
 export default Footer;

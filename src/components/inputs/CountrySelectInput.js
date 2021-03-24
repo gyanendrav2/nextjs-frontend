@@ -106,7 +106,7 @@ const CountrySelectInput = ({
     name,
     ...props
 }) => {
-    const classes = useStyles({ error });
+    const classes = useStyles({});
     const [openSelection, setOpenSelection] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState("");
     const handleOpenSelection = () => {

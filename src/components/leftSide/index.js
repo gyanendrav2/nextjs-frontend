@@ -9,7 +9,7 @@ const useStyles = makeStyles({
         height: "100%",
         paddingLeft: "2.4rem",
         backgroundImage: `url(${images.SigninWall})`,
-        backgroundSize: '100% 100%',
+        backgroundSize: "100% 100%",
         position: "relative",
         zIndex: "0",
         width: "100%",

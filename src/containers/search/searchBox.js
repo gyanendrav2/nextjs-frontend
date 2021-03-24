@@ -173,7 +173,7 @@ const SearchBox = ({ externalClass }) => {
                 <Grid
                     container
                     alignItems="center"
-                    justifyContent="flex-start"
+                    // justifycontent="flex-start"
                     wrap="nowrap"
                     className={classes.inputBoxSize}>
                     <Grid container className={classes.col1}>

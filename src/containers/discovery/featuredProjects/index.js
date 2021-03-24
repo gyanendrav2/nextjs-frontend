@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import PropTypes from "prop-types";
-import CustomButton from "../../../ui/button/CustomButton";
+import CustomButton from "../../../components/buttons/customButton";
 import Categories from "../categories/categories";
 import { colors } from "../../../theme/colors";
 import classnames from "classnames";
@@ -134,7 +134,7 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
         setShowOtherCategories(!showOtherCategories);
     };
 
-    const handleActiveButton = (eachBtn, i) => {
+    const handleActiveButton = (eachBtn) => {
         changeTab(eachBtn);
         setActiveCategory(eachBtn);
         // setShowOtherCategories(false);
@@ -150,7 +150,7 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
                             label={eachBtn}
                             externalClass={classnames(classes.projectButton, {
                                 [classes.activeButton]: eachBtn === activeCategory,
-                                [classes.disableButton]: showOtherCategories
+                                [classes.disableButton]: showOtherCategories,
                             })}
                             onClick={() => handleActiveButton(eachBtn, i)}
                         />

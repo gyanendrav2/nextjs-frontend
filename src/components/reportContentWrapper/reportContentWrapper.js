@@ -4,7 +4,7 @@ import classnames from "classnames";
 import Link from "next/link";
 import { icons } from "../../assets/icons";
 import PropTypes from "prop-types";
-import { colors } from "../../theme/Colors";
+import { colors } from "../../theme/colors";
 
 const useStyles = makeStyles({
     reportWrapper: {
@@ -18,8 +18,8 @@ const useStyles = makeStyles({
     spamwrapper: {
         display: "flex",
         flexDirection: "row",
-        // textAlign: "right",
-
+        alignItems: "center",
+        justifyContent: "center",
         "@media(max-width:576px)": {
             marginBottom: "0.5rem",
         },
@@ -54,7 +54,7 @@ export const ReportContentWrapper = (externalClass) => {
     return (
         <Box className={classnames(classes.reportWrapper, externalClass)}>
             <Grid container className={classes.spamContainer}>
-                <Grid item xs={12} sm={12} md={6} lg={6} className={classes.spamwrapper} container>
+                <Grid item xs={12} sm={12} md={6} lg={6} className={classes.reportspamwrapper} container>
                     <Grid item xs={6} sm={6} md={6} lg={6}>
                         <Link href="/">
                             <>
@@ -80,13 +80,13 @@ export const ReportContentWrapper = (externalClass) => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} className={classes.requestwrapper}>
                     <Link href="/">
-                        <>
+                        <Grid display="flex" alignItems="center" justify="center" flexDirection="row">
                             <img
                                 className={classnames(classes.spamwrapper, classes.reportContent)}
                                 alt="request participation"
                                 src={icons.requestParticipationIcon}></img>
                             <Typography className={classes.spamText}>Request participation in the project</Typography>
-                        </>
+                        </Grid>
                     </Link>
                 </Grid>
             </Grid>

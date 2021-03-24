@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import HeaderWrapper from "../../components/header/headerWrapper";
 import { images } from "../../assets/images";
@@ -14,6 +15,7 @@ import ReactPlayer from "react-player";
 import SocialIcons from "../../containers/project/socialIcons";
 import Footer from "../../components/footer";
 import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper";
+import ImageGallery from "../../components/imageGallery/imageGallery";
 
 const useStyles = makeStyles({
     projectwrapper: {
@@ -111,7 +113,6 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-start",
-        flexDirection: "column",
         position: "relative",
     },
     activeMember: {
@@ -243,6 +244,10 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         height: "37.187rem",
     },
+    paragraphContent: {
+        paddingBotton: "5rem",
+        marginBottom: "5rem",
+    },
     paragaphStyles: {
         marginBottom: "2rem",
     },
@@ -324,7 +329,7 @@ const Project = () => {
             </Grid>
             <Grid container>
                 <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
-                    <img src={images.hypebeast} className={classes.fitSizeImg} />
+                    <img src={images.hypebeast} className={classes.fitSizeImg} alt="" />
                 </Grid>
                 <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.darkBg}>
                     <Box className={classes.contentWrapper}>
@@ -349,48 +354,51 @@ const Project = () => {
                     </Box>
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <img src={images.maskGroup} className={classes.whiteBgImgFit} />
+                    <img src={images.maskGroup} className={classes.whiteBgImgFit} alt="" />
                 </Grid>
             </Grid>
             <Grid container>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.fulldarkBg}>
                     <Box className={classes.fullWidthContent}>
                         <Typography variant="h3">The writing itself</Typography>
-                        <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
-                        </Typography>
-                        <br />
-                        <br />
-                        <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
-                        </Typography>
-                        <br />
-                        <br />
-                        <Typography variant="p" style={{ paddingBotton: "5rem" }}>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
-                        </Typography>
+                        <Box className={classes.paragraphContent}>
+                            <Typography variant="p">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </Typography>
+                            <br />
+                            <br />
+                            <Typography variant="p">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </Typography>
+                            <br />
+                            <br />
+                            <Typography variant="p">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book. It has
+                                survived not only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                            </Typography>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>
             <Slider />
+            <ImageGallery />
             <SocialIcons />
             <ReportContentWrapper externalClass={classes.reportContentwrapper} />
             <Footer externalClass={classes.footer} />
