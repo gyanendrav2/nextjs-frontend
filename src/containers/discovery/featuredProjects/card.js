@@ -83,7 +83,7 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
         <Box>
             {openModal && <QuickViewDailog closeModal={() => setOpenModal(false)} />}
             <Grid container className={classes.FeaturedProjectContainer} spacing={2}>
-                {featuredCardsDetails.map((newData, idx) => {
+                {featuredCardsDetails && featuredCardsDetails.map((newData, idx) => {
                     return (
                         <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
                             <CardWithFooter

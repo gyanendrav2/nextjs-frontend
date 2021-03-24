@@ -10,8 +10,10 @@ import { Box, makeStyles, Typography } from "@material-ui/core";
 import { colors } from "../../theme/colors";
 import PropTypes from "prop-types";
 import CustomButton from "../../components/buttons/customButton";
+import MobileFooter from "../../components/footer/mobileFooter";
 import HeaderWrapper from "../../components/header/headerWrapper";
 import HeaderCategory from "../../components/header/headerCategory";
+import Link from "next/link";
 import ContentWrapper from "../../components/contentWrapper/contentWrapper";
 
 const useStyles = makeStyles({
@@ -59,6 +61,7 @@ const useStyles = makeStyles({
         padding: "0.1rem 0.5rem",
         backgroundColor: colors.black,
         fontFamily: "Forno-Trial",
+        fontWeight: "bold",
         letterSpacing: "0.2rem",
         transition: "all 1s ease",
         "@media (max-width:567px)": {
@@ -182,22 +185,23 @@ const useStyles = makeStyles({
 
 export const Discovery = ({ details }) => {
     const classes = useStyles();
-    // const { hero, curatedCreators, featuredProjects } = details;
+    const { hero, curatedCreators, featuredProjects } = details;
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([]);
     const [totalCategories, setTotalCategories] = useState([]);
     const [activeCategory, setActiveCategory] = useState(null);
 
     useEffect(() => {
-        if (details?.featuredProjects) {
+        if (featuredProjects) {
             const tempCategory = [];
-            details?.featuredProjects.forEach((item) => {
+            // eslint-disable-next-line react/prop-types
+            featuredProjects.forEach((item) => {
                 if (!tempCategory.includes(item.category)) {
                     tempCategory.push(item.category);
                 }
             });
             setTotalCategories(tempCategory);
         }
-    }, [details]);
+    }, [featuredProjects]);
 
     const LengthHandler = (details) => {
         if (details.length > 9) {
@@ -211,17 +215,17 @@ export const Discovery = ({ details }) => {
         let details;
         if (name !== "More") {
             // eslint-disable-next-line react/prop-types
-            details = details?.featuredProjects.filter((each) => each["category"] === name);
+            details = featuredProjects.filter((each) => each["category"] === name);
             LengthHandler(details);
         } else if (name === "More") {
-            details = [...details?.featuredProjects];
+            details = [...featuredProjects];
             LengthHandler(details);
         }
     };
 
     useEffect(() => {
         // eslint-disable-next-line react/prop-types
-        const details = details?.featuredProjects.slice(0, 8);
+        const details = featuredProjects.slice(0, 8);
         setFeaturedCardsDetails(details);
     }, []);
 
@@ -248,8 +252,9 @@ export const Discovery = ({ details }) => {
                     <HeaderCategory categoryName={activeCategory} />
                 ) : (
                     <Slider {...settings}>
-                        {details?.hero &&
-                            details?.hero.map((item, index) => {
+                        {hero &&
+                            // eslint-disable-next-line react/prop-types
+                            hero.map((item, index) => {
                                 return (
                                     <div key={index} className={classes.carouselContainer}>
                                         <div
@@ -273,7 +278,7 @@ export const Discovery = ({ details }) => {
                                                 </Typography>
                                                 <Typography className={classes.subtitle}>{item.subtitle}</Typography>
                                                 {/* <Link href="/signup"> */}
-                                                <CustomButton label="Sign Up" externalClass={classes.bigSignup} />
+                                                    <CustomButton label="Sign Up" externalClass={classes.bigSignup} />
                                                 {/* </Link> */}
                                             </div>
                                         </div>
@@ -293,14 +298,14 @@ export const Discovery = ({ details }) => {
                             <Typography className={classes.results}>4 results </Typography>
                         </Box>
                     ) : (
-                        ""
+                        " "
                     )}
                     {!activeCategory && <Typography className={classes.headings}>Featured Projects</Typography>}
                     <FeaturedCards featuredCardsDetails={featuredCardsDetails} />
                     {!activeCategory && (
                         <>
                             <Typography className={classes.headings}>Curated creators</Typography>
-                            <CreationCard curatedCreators={details?.curatedCreators} />
+                            <CreationCard curatedCreators={curatedCreators} />{" "}
                         </>
                     )}
                 </ContentWrapper>
