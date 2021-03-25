@@ -1,63 +1,70 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import React, { useEffect, useState } from "react"
+import PropTypes from "prop-types"
 
-const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBtnClicked, outerRightBtnClicked }) => {
-    const [images, setImages] = useState([]);
-    const [active, setActive] = useState(0);
-    const [touchStart, setTouchStart] = useState(0);
-    const [touchEnd, setTouchEnd] = useState(0);
+const ImageSlider = ({
+    imageList,
+    transition,
+    infiniteSlide,
+    height,
+    outerLeftBtnClicked,
+    outerRightBtnClicked,
+}) => {
+    const [images, setImages] = useState([])
+    const [active, setActive] = useState(0)
+    const [touchStart, setTouchStart] = useState(0)
+    const [touchEnd, setTouchEnd] = useState(0)
 
     useEffect(() => {
         if (Array.isArray(imageList)) {
-            initial();
+            initial()
         }
-    }, [imageList]);
+    }, [imageList])
 
     useEffect(() => {
         if (outerLeftBtnClicked > 0) {
-            slideRight();
+            slideRight()
         }
-    }, [outerLeftBtnClicked]);
+    }, [outerLeftBtnClicked])
 
     useEffect(() => {
         if (outerRightBtnClicked > 0) {
-            slideRight();
+            slideRight()
         }
-    }, [outerRightBtnClicked]);
+    }, [outerRightBtnClicked])
 
     const initial = () => {
         const result = imageList.map((item, i) => {
-            return { ...item, transform: i * 100 };
-        });
-        setImages(result);
-    };
+            return { ...item, transform: i * 100 }
+        })
+        setImages(result)
+    }
 
     const slideLeft = () => {
-        slidePrevious();
+        slidePrevious()
         if (active < images.length - 1) {
-            setActive(active + 1);
+            setActive(active + 1)
         } else {
-            initial();
-            setActive(0);
+            initial()
+            setActive(0)
         }
-    };
+    }
 
     const slideRight = () => {
-        slideFarword();
+        slideFarword()
         if (active > 0) {
-            setActive(active - 1);
+            setActive(active - 1)
         } else {
-            const data = [...images];
+            const data = [...images]
             const result = data.map((item, i) => {
                 return {
                     ...item,
                     transform: -(data.length - 1 - i) * 100,
-                };
-            });
-            setActive(images.length - 1);
-            setImages(result);
+                }
+            })
+            setActive(images.length - 1)
+            setImages(result)
         }
-    };
+    }
 
     // const gotoSlide = (i) => {
     //     if (i < active) {
@@ -69,72 +76,72 @@ const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBt
     // };
 
     const slidePrevious = (i) => {
-        const data = [...images];
+        const data = [...images]
         if (i) {
             const result = data.map((item) => {
                 return {
                     ...item,
                     transform: item.transform - i * 100,
-                };
-            });
-            setImages(result);
+                }
+            })
+            setImages(result)
         } else {
             const result = data.map((item) => {
                 return {
                     ...item,
                     transform: item.transform - 100,
-                };
-            });
-            setImages(result);
+                }
+            })
+            setImages(result)
         }
-    };
+    }
 
     const slideFarword = (i) => {
-        const data = [...images];
+        const data = [...images]
         if (i) {
             const result = data.map((item) => {
                 return {
                     ...item,
                     transform: item.transform + i * 100,
-                };
-            });
-            setImages(result);
+                }
+            })
+            setImages(result)
         } else {
             const result = data.map((item) => {
                 return {
                     ...item,
                     transform: item.transform + 100,
-                };
-            });
-            setImages(result);
+                }
+            })
+            setImages(result)
         }
-    };
+    }
 
     const handleTouchStart = (e) => {
-        setTouchStart(e.targetTouches[0].clientX);
-    };
+        setTouchStart(e.targetTouches[0].clientX)
+    }
 
     const handleTouchMove = (e) => {
-        setTouchEnd(e.targetTouches[0].clientX);
-    };
+        setTouchEnd(e.targetTouches[0].clientX)
+    }
 
     const handleTouchEnd = () => {
         if (infiniteSlide) {
             if (touchStart - touchEnd > 150) {
-                slideLeft();
+                slideLeft()
             }
             if (touchStart - touchEnd < -150) {
-                slideRight();
+                slideRight()
             }
         } else {
             if (touchStart - touchEnd > 150 && active < images.length - 1) {
-                slideLeft();
+                slideLeft()
             }
             if (touchStart - touchEnd < -150 && active > 0) {
-                slideRight();
+                slideRight()
             }
         }
-    };
+    }
 
     return (
         <div style={{ height }} className="wrapper">
@@ -145,14 +152,19 @@ const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBt
                         onTouchStart={handleTouchStart}
                         onTouchMove={handleTouchMove}
                         onTouchEnd={handleTouchEnd}
-                        style={{ transform: `translateX(${item.transform}%)`, transition: `all ${transition}s` }}>
-                        {item.url !== "" && <img className="slider_container_image" key={i} src={item.url} alt="" />}
+                        style={{
+                            transform: `translateX(${item.transform}%)`,
+                            transition: `all ${transition}s`,
+                        }}>
+                        {item.url !== "" && (
+                            <img className="slider_container_image" key={i} src={item.url} alt="" />
+                        )}
                     </div>
                 </React.Fragment>
             ))}
         </div>
-    );
-};
+    )
+}
 
 ImageSlider.propTypes = {
     imageList: PropTypes.array,
@@ -161,6 +173,6 @@ ImageSlider.propTypes = {
     height: PropTypes.string,
     outerLeftBtnClicked: PropTypes.number,
     outerRightBtnClicked: PropTypes.number,
-};
+}
 
-export default ImageSlider;
+export default ImageSlider

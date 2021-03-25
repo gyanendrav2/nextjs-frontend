@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { icons } from "../../assets/icons";
-import { Box, makeStyles, Typography, Grid } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import CopyrightIcon from "@material-ui/icons/Copyright";
-import Link from "next/link";
-import MobileFooter from "./mobileFooter";
-import classnames from "classnames";
-import ContentWrapper from "../contentWrapper/contentWrapper";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles, Typography, Grid } from "@material-ui/core"
+import CopyrightIcon from "@material-ui/icons/Copyright"
+import Link from "next/link"
+import classnames from "classnames"
+import MobileFooter from "./mobileFooter"
+import { colors } from "../../theme/colors"
+import { icons } from "../../assets/icons"
+import ContentWrapper from "../contentWrapper/contentWrapper"
 
 const useStyles = makeStyles({
     footer: {
@@ -58,7 +58,7 @@ const useStyles = makeStyles({
             alignItems: "center",
         },
     },
-    Images_: {
+    footerImage: {
         display: "flex",
     },
     copyRightcontainer: {
@@ -103,12 +103,12 @@ const useStyles = makeStyles({
         fontSize: "1.2rem",
         marginRight: "0.5rem",
     },
-});
-const Footer = ({ externalClass }) => {
-    const classes = useStyles();
+})
+const Footer = ({ exteranlclass }) => {
+    const classes = useStyles()
     return (
         <>
-            <ContentWrapper contaier externalClass={classnames(classes.footer, externalClass)}>
+            <ContentWrapper contaier exteranlclass={classnames(classes.footer, exteranlclass)}>
                 <Grid item sm={6} md={10} lg={10}>
                     <Grid container className={classes.copyRightcontainer}>
                         <Link href="/">
@@ -124,32 +124,39 @@ const Footer = ({ externalClass }) => {
                                 <Typography className={classes.name}>About us</Typography>
                             </Link>
                             <Link href="/">
-                                <Typography className={classes.spec}>Privacy and cookie policy</Typography>
+                                <Typography className={classes.spec}>
+                                    Privacy and cookie policy
+                                </Typography>
                             </Link>
                         </Grid>
                     </Grid>
                 </Grid>
 
                 <Grid item sm={6} md={2} lg={2} className={classes.titles}>
-                    <Box className={classes.Images_}>
+                    <Box className={classes.footerImage}>
                         <Link href="/">
-                            <img className={classes.Images} alt="fb" src={icons.fb}></img>
+                            <img className={classes.Images} alt="fb" src={icons.fb} />
                         </Link>
                         <Link href="/">
-                            <img className={classes.Images} alt="Insta" src={icons.insta}></img>
+                            <img className={classes.Images} alt="Insta" src={icons.insta} />
                         </Link>
                         <Link href="/">
-                            <img className={classes.Images} alt="Linked In" src={icons.linkedin}></img>
+                            <img className={classes.Images} alt="Linked In" src={icons.linkedin} />
                         </Link>
                     </Box>
                 </Grid>
             </ContentWrapper>
             <MobileFooter />
         </>
-    );
-};
-Footer.propTypes = {
-    externalClass: PropTypes.string,
-};
+    )
+}
 
-export default Footer;
+Footer.defaultProps = {
+    exteranlclass: "",
+}
+
+Footer.propTypes = {
+    exteranlclass: PropTypes.string,
+}
+
+export default Footer

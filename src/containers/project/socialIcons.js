@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 // import PropTypes from "prop-types";
-import { Box, makeStyles } from "@material-ui/core";
-import Link from "next/link";
-import classnames from "classnames";
-import { icons } from "../../assets/icons";
+import { Box, makeStyles } from "@material-ui/core"
+import Link from "next/link"
+import classnames from "classnames"
+import { icons } from "../../assets/icons"
 
 const useStyles = makeStyles({
     iconContainer: {
@@ -18,34 +18,37 @@ const useStyles = makeStyles({
         width: "2.25rem",
         marginRight: "1.5rem",
     },
-});
+})
 
 const SocialIcons = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box className={classes.iconContainer}>
             <Link href="/">
                 <img
                     className={classnames(classes.itemPadding, classes.Images)}
                     alt="fb"
-                    src={icons.twitterBlack}></img>
+                    src={icons.twitterBlack}
+                />
             </Link>
             <Link href="/">
                 <img
                     className={classnames(classes.itemPadding, classes.Images)}
                     alt="Insta"
-                    src={icons.twitterBlack}></img>
+                    src={icons.twitterBlack}
+                />
             </Link>
             <Link href="/">
                 <img
                     className={classnames(classes.itemPadding, classes.Images)}
                     alt="Linked In"
-                    src={icons.linkedinBlack}></img>
+                    src={icons.linkedinBlack}
+                />
             </Link>
         </Box>
-    );
-};
+    )
+}
 
-SocialIcons.propTypes = {};
+SocialIcons.propTypes = {}
 
-export default SocialIcons;
+export default SocialIcons

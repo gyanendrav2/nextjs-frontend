@@ -1,9 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../../theme/colors";
-import InputWithLabelIcon from "../../../../components/inputs/InputWithLabelIcon";
-import CustomButton from "../../../../components/buttons/CustomButton";
+import React from "react"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { colors } from "../../../theme/colors"
+import InputWithLabelIcon from "../../inputs/inputWithLabelIcon"
+import CustomButton from "../../buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -45,10 +44,10 @@ const useStyles = makeStyles({
         backgroundColor: colors.black,
         padding: "1rem 1.3rem",
     },
-});
+})
 
-const RightSide = ({ title, subTitle }) => {
-    const classes = useStyles();
+const RightSide = () => {
+    const classes = useStyles()
     return (
         <Box container className={classes.wrapper}>
             <Typography className={classes.title}>Reset Password</Typography>
@@ -57,36 +56,37 @@ const RightSide = ({ title, subTitle }) => {
                 <InputWithLabelIcon
                     label="Input field"
                     placeholder="Confirmation code"
-                    externalClass={classes.inputStyles}
+                    exteranlclass={classes.inputStyles}
                 />
-                <InputWithLabelIcon label="Input field" placeholder="Email" externalClass={classes.inputStyles} />
+                <InputWithLabelIcon
+                    label="Input field"
+                    placeholder="Email"
+                    exteranlclass={classes.inputStyles}
+                />
                 <InputWithLabelIcon
                     label="Input field"
                     placeholder="New password"
-                    externalClass={classes.inputStyles}
+                    exteranlclass={classes.inputStyles}
                 />
                 <InputWithLabelIcon
                     label="Input field"
                     placeholder="Confirmation new password"
-                    externalClass={classes.inputStyles}
+                    exteranlclass={classes.inputStyles}
                 />
                 <Grid container display="flex" className={classes.submitContainer}>
                     <Grid item sm={12}>
                         <CustomButton
                             variant="borderButton"
                             label="Send password"
-                            externalClass={classes.confirmButton}
+                            exteranlclass={classes.confirmButton}
                         />
                     </Grid>
                 </Grid>
             </form>
         </Box>
-    );
-};
+    )
+}
 
-RightSide.propTypes = {
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-};
+RightSide.propTypes = {}
 
-export default RightSide;
+export default RightSide

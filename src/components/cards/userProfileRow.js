@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import classnames from "classnames";
+import React from "react"
+import PropTypes from "prop-types"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
+import classnames from "classnames"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     disabledTeamContainer: {
@@ -24,10 +24,10 @@ const useStyles = makeStyles({
         height: "2rem",
         marginRight: "1rem",
     },
-});
+})
 
 const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Grid container wrap="nowrap">
             <Grid
@@ -60,16 +60,16 @@ const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }
                 <Typography className={classes.positionText}>{position}</Typography>
             </Grid>
         </Grid>
-    );
-};
+    )
+}
 
 UserProfileRow.propTypes = {
-    image: PropTypes.string,
-    name: PropTypes.string,
-    position: PropTypes.string,
-    isDisable: PropTypes.bool,
-    col1Size: PropTypes.string,
-    col2Size: PropTypes.string,
-};
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    isDisable: PropTypes.bool.isRequired,
+    col1Size: PropTypes.string.isRequired,
+    col2Size: PropTypes.string.isRequired,
+}
 
-export default UserProfileRow;
+export default UserProfileRow

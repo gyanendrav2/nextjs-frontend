@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, makeStyles } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import classnames from "classnames";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles } from "@material-ui/core"
+import classnames from "classnames"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -14,16 +14,21 @@ const useStyles = makeStyles({
             paddingRight: "1rem",
         },
     },
-});
+})
 
-const ContentWrapper = ({ externalClass, children }) => {
-    const classes = useStyles();
-    return <Box className={classnames(classes.wrapper, externalClass)}>{children}</Box>;
-};
+const ContentWrapper = ({ exteranlclass, children }) => {
+    const classes = useStyles()
+    return <Box className={classnames(classes.wrapper, exteranlclass)}>{children}</Box>
+}
+
+ContentWrapper.defaultProps = {
+    children: "",
+    exteranlclass: "",
+}
 
 ContentWrapper.propTypes = {
-    children: PropTypes.array,
-    externalClass: PropTypes.string,
-};
+    children: PropTypes.element,
+    exteranlclass: PropTypes.string,
+}
 
-export default ContentWrapper;
+export default ContentWrapper

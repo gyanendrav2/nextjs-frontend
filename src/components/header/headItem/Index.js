@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../theme/colors";
-import classnames from "classnames";
-import { useRouter } from "next/router";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import classnames from "classnames"
+import { useRouter } from "next/router"
+import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -37,15 +37,24 @@ const useStyles = makeStyles({
         //     color: colors.pink,
         // },
     },
-});
+})
 
-const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, handleMouseLeave }) => {
-    const classes = useStyles({ id, color });
-    const router = useRouter();
+const HeadItem = ({
+    name,
+    active,
+    icon,
+    id,
+    color,
+    routeName,
+    handleMouseHover,
+    handleMouseLeave,
+}) => {
+    const classes = useStyles({ id, color })
+    const router = useRouter()
 
     const handleRoute = () => {
-        router.push(routeName);
-    };
+        router.push(routeName)
+    }
 
     return (
         <Box
@@ -53,20 +62,24 @@ const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, 
             onMouseEnter={handleMouseHover}
             onMouseLeave={handleMouseLeave}
             onClick={handleRoute}>
-            <img src={icon} alt={name} className={classes.img}></img>
+            <img src={icon} alt={name} className={classes.img} />
             <Typography className={classes.title}>{name}</Typography>
         </Box>
-    );
-};
+    )
+}
+HeadItem.defaultProps = {
+    handleMouseHover: () => {},
+    handleMouseLeave: () => {},
+}
 
 HeadItem.propTypes = {
-    name: PropTypes.string,
-    icon: PropTypes.string,
-    id: PropTypes.number,
-    color: PropTypes.string,
-    active: PropTypes.bool,
-    routeName: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    active: PropTypes.bool.isRequired,
+    routeName: PropTypes.string.isRequired,
     handleMouseHover: PropTypes.func,
     handleMouseLeave: PropTypes.func,
-};
-export default HeadItem;
+}
+export default HeadItem

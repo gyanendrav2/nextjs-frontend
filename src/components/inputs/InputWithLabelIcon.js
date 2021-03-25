@@ -1,10 +1,10 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import Input from ".";
-import PropTypes from "prop-types";
-import React from "react";
-import ErrorMessage from "../errorMessage/ErrorMessage";
-import { colors } from "../../theme/colors";
-import classnames from "classnames";
+import React from "react"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import classnames from "classnames"
+import Input from "."
+import ErrorMessage from "../errorMessage/errorMessage"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     rootWrapper: {
@@ -47,10 +47,10 @@ const useStyles = makeStyles({
     iconWrapper: {
         cursor: "pointer",
     },
-});
+})
 
 const InputWithLabelIcon = ({
-    externalClass,
+    exteranlclass,
     labelColor,
     label,
     icon,
@@ -60,7 +60,7 @@ const InputWithLabelIcon = ({
     iconOnClick,
     ...props
 }) => {
-    const classes = useStyles({ error: errorMsg?.message ? true : false, labelColor });
+    const classes = useStyles({ error: !!errorMsg.message, labelColor })
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classnames(classes.label)}>{label}</Typography>
@@ -71,25 +71,46 @@ const InputWithLabelIcon = ({
                 wrap="nowrap"
                 component="div"
                 tabIndex="0"
-                className={classnames(classes.wrapper, externalClass)}>
+                className={classnames(classes.wrapper, exteranlclass)}>
                 <Box className={classes.inputContainer}>
                     <Input
-                        error={errorMsg?.message ? true : false}
+                        error={!!errorMsg.message}
                         inputRegister={inputRegister}
                         name={name}
                         {...props}
                     />
                 </Box>
-                <Grid container alignItems="center" justify="center" className={classes.iconContainer}>
+                <Grid
+                    container
+                    alignItems="center"
+                    justify="center"
+                    className={classes.iconContainer}>
                     <Box onClick={iconOnClick} className={classes.iconWrapper}>
                         {icon}
                     </Box>
                 </Grid>
             </Grid>
-            <ErrorMessage error={errorMsg?.message} />
+            <ErrorMessage error={errorMsg.message} />
         </Box>
-    );
-};
+    )
+}
+
+InputWithLabelIcon.defaultProps = {
+    disabled: false,
+    error: false,
+    onChange: () => {},
+    placeholder: "",
+    value: "",
+    type: "text",
+    label: "",
+    icon: "",
+    inputRegister: () => {},
+    name: PropTypes.string,
+    errorMsg: PropTypes.shape({ message: PropTypes.string }),
+    exteranlclass: "",
+    labelColor: "",
+    iconOnClick: () => {},
+}
 
 InputWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
@@ -102,9 +123,9 @@ InputWithLabelIcon.propTypes = {
     icon: PropTypes.element,
     inputRegister: PropTypes.func,
     name: PropTypes.string,
-    errorMsg: PropTypes.object,
-    externalClass: PropTypes.string,
+    errorMsg: PropTypes.shape({ message: PropTypes.string }),
+    exteranlclass: PropTypes.string,
     labelColor: PropTypes.string,
     iconOnClick: PropTypes.func,
-};
-export default InputWithLabelIcon;
+}
+export default InputWithLabelIcon

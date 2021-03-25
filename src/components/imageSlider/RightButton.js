@@ -1,23 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react"
+import PropTypes from "prop-types"
 
 const RightButton = ({ active, images, onClick, infiniteSlide, externalButton, externalClass }) => {
     return (
         <>
             {infiniteSlide ? (
-                <div className={externalClass ? externalClass : 'iconButtonRight'} onClick={onClick}>
-                    {externalButton ? externalButton : <div className="iconButtonRight__arrowRight"></div>}
+                <div className={externalClass || "iconButtonRight"} onClick={onClick}>
+                    {externalButton || <div className="iconButtonRight__arrowRight" />}
                 </div>
             ) : (
                 active < images.length - 1 && (
-                    <div className={externalClass ? externalClass : 'iconButtonRight'} onClick={onClick}>
-                        {externalButton ? externalButton : <div className="iconButtonRight__arrowRight"></div>}
+                    <div className={externalClass || "iconButtonRight"} onClick={onClick}>
+                        {externalButton || <div className="iconButtonRight__arrowRight" />}
                     </div>
                 )
             )}
         </>
-    );
-};
+    )
+}
 
 RightButton.propTypes = {
     active: PropTypes.number,
@@ -26,6 +26,6 @@ RightButton.propTypes = {
     infiniteSlide: PropTypes.bool,
     externalButton: PropTypes.element,
     externalClass: PropTypes.string,
-};
+}
 
-export default RightButton;
+export default RightButton

@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import Link from "next/link";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import CustomButton from "../../components/buttons/customButton";
-import InputWithLabelIcon from "../../components/inputs/InputWithLabelIcon";
-import { colors } from "../../theme/colors";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
-import { signupFormValidation } from "../../formValidation/signup";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import Link from "next/link"
+import VisibilityIcon from "@material-ui/icons/Visibility"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers"
+import CustomButton from "../../components/buttons/customButton"
+import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
+import { colors } from "../../theme/colors"
+import { signupFormValidation } from "../../formValidation/signup"
 
 const titleText = {
     fontFamily: "Helvetica",
@@ -18,7 +18,7 @@ const titleText = {
     lineHeight: "2.5rem",
     marginBottom: "1.5rem",
     color: colors.black,
-};
+}
 
 const useStyles = makeStyles({
     wrapper: {
@@ -115,18 +115,18 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         color: colors.black,
     },
-});
+})
 
 const RightSide = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(signupFormValidation),
-    });
-    const [hideShowPassword, setHideShowPassword] = useState(false);
+    })
+    const [hideShowPassword, setHideShowPassword] = useState(false)
 
     const submit = (data) => {
-        console.log(data);
-    };
+        console.log(data)
+    }
 
     return (
         <Box container className={classes.wrapper}>
@@ -146,24 +146,28 @@ const RightSide = () => {
                         name="username"
                         inputRegister={register}
                         errorMsg={errors.username}
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                     />
                     <InputWithLabelIcon
                         placeholder="Email address"
                         name="email"
                         inputRegister={register}
                         errorMsg={errors.email}
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                     />
                     <InputWithLabelIcon
                         placeholder="Password"
                         name="password"
                         inputRegister={register}
                         errorMsg={errors.password}
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                         type={hideShowPassword ? "text" : "password"}
                         icon={
-                            hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`}></span>
+                            hideShowPassword ? (
+                                <VisibilityIcon />
+                            ) : (
+                                <span className={`icon-Eye ${classes.icon}`} />
+                            )
                         }
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
@@ -173,7 +177,7 @@ const RightSide = () => {
                                 variant="borderButton"
                                 label="Confirm"
                                 type="submit"
-                                externalClass={classes.confirmButton}
+                                exteranlclass={classes.confirmButton}
                             />
                         </Grid>
                         <Grid>
@@ -185,12 +189,12 @@ const RightSide = () => {
                 </form>
             </Box>
         </Box>
-    );
-};
+    )
+}
 
 RightSide.propTypes = {
     title: PropTypes.string,
     subTitle: PropTypes.string,
-};
+}
 
-export default RightSide;
+export default RightSide

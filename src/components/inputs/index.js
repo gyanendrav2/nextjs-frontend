@@ -1,8 +1,8 @@
-import React from "react";
-import { colors } from "../../theme/colors";
-import PropTypes from "prop-types";
-import { Box, makeStyles } from "@material-ui/core";
-import classnames from "classnames";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles } from "@material-ui/core"
+import classnames from "classnames"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -23,25 +23,39 @@ const useStyles = makeStyles({
             },
         },
     },
-});
+})
 
-const Input = ({ onChange, inputRegister, error, name, externalClass, ...rest }) => {
-    const classes = useStyles({ error: error ? true : false });
+const Input = ({ onChange, inputRegister, error, name, exteranlclass, ...rest }) => {
+    const classes = useStyles({ error: !!error })
     return (
         <Box className={classes.wrapper}>
             <input
-                className={classnames(classes.input, externalClass)}
+                className={classnames(classes.input, exteranlclass)}
                 {...rest}
                 name={name}
                 ref={inputRegister}
                 onChange={(e) => {
-                    e.preventDefault();
-                    onChange && onChange(e.target.value);
+                    e.preventDefault()
+                    if (onChange !== undefined) {
+                        onChange(e.target.value)
+                    }
                 }}
             />
         </Box>
-    );
-};
+    )
+}
+
+Input.defaultProps = {
+    disabled: false,
+    error: false,
+    onChange: () => {},
+    placeholder: "",
+    value: "",
+    type: "text",
+    inputRegister: () => {},
+    name: "",
+    exteranlclass: "",
+}
 
 Input.propTypes = {
     disabled: PropTypes.bool,
@@ -50,9 +64,9 @@ Input.propTypes = {
     placeholder: PropTypes.string,
     value: PropTypes.string,
     type: PropTypes.string,
-    inputRegister: PropTypes.any,
+    inputRegister: PropTypes.func,
     name: PropTypes.string,
-    externalClass: PropTypes.string,
-};
+    exteranlclass: PropTypes.string,
+}
 
-export default Input;
+export default Input

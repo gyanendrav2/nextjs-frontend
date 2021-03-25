@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
-import HeaderWrapper from "../../components/header/headerWrapper";
-import { Grid, makeStyles, Typography } from "@material-ui/core";
-import UserProfileCard from "../../components/cards/userProfileCard";
-import { images } from "../../assets/images";
-import ReactPlayer from "react-player";
-import CardWithFooter from "../../components/cards/CardWithFooter";
-import Footer from "../../components/footer";
-import classnames from "classnames";
-import { colors } from "../../theme/colors";
-import { icons } from "../../assets/icons";
-import ModalComponent from "../../components/modal/ModalComponent";
-import UserInfo from "../../containers/profile/userInfo";
-import MessageBox from "../../containers/profile/messageBox";
+import React, { useState } from "react"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
+import ReactPlayer from "react-player"
+import classnames from "classnames"
+import ContentWrapper from "../../components/contentWrapper/contentWrapper"
+import HeaderWrapper from "../../components/header/headerWrapper"
+import UserProfileCard from "../../components/cards/userProfileCard"
+import { images } from "../../assets/images"
+import CardWithFooter from "../../components/cards/cardWithFooter"
+import Footer from "../../components/footer"
+import { colors } from "../../theme/colors"
+import { icons } from "../../assets/icons"
+import { ModalComponent } from "../../components/modal/modalComponent"
+import UserInfo from "../../containers/profile/userInfo"
+import MessageBox from "../../containers/profile/messageBox"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -58,20 +58,20 @@ const useStyles = makeStyles({
     footer: {
         marginTop: 0,
     },
-});
+})
 
 const Profile = () => {
-    const classes = useStyles();
-    const [openInfo, setOpenInfo] = useState(false);
-    const [openMsg, setOpenMsg] = useState(false);
+    const classes = useStyles()
+    const [openInfo, setOpenInfo] = useState(false)
+    const [openMsg, setOpenMsg] = useState(false)
 
     const handleInfo = () => {
-        setOpenInfo(!openInfo);
-    };
+        setOpenInfo(!openInfo)
+    }
 
     const handleMsg = () => {
-        setOpenMsg(!openMsg);
-    };
+        setOpenMsg(!openMsg)
+    }
     return (
         <>
             <HeaderWrapper isScrollDetect={false} />
@@ -81,7 +81,7 @@ const Profile = () => {
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
             </ModalComponent>
-            <ContentWrapper externalClass={classes.wrapper}>
+            <ContentWrapper exteranlclass={classes.wrapper}>
                 <Grid container spacing={2} className={classes.profileHeader}>
                     <Grid item sx={12} sm={12} md={5} lg={5} xl={5}>
                         <UserProfileCard
@@ -106,14 +106,27 @@ const Profile = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid container alignItems="center" justify="flex-start" className={classes.category}>
-                    <Typography className={classnames(classes.boldText, { [classes.activeCategory]: true })}>
+                <Grid
+                    container
+                    alignItems="center"
+                    justify="flex-start"
+                    className={classes.category}>
+                    <Typography
+                        className={classnames(classes.boldText, {
+                            [classes.activeCategory]: true,
+                        })}>
                         All (6)
                     </Typography>
-                    <Typography className={classnames(classes.boldText, { [classes.activeCategory]: false })}>
+                    <Typography
+                        className={classnames(classes.boldText, {
+                            [classes.activeCategory]: false,
+                        })}>
                         Directing (3)
                     </Typography>
-                    <Typography className={classnames(classes.boldText, { [classes.activeCategory]: false })}>
+                    <Typography
+                        className={classnames(classes.boldText, {
+                            [classes.activeCategory]: false,
+                        })}>
                         Production (3)
                     </Typography>
                 </Grid>
@@ -123,29 +136,29 @@ const Profile = () => {
                             <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
                                 <CardWithFooter
                                     image={images.maskGroup}
-                                    title={"dummy data"}
-                                    hideFooter={true}
+                                    title="dummy data"
+                                    hideFooter
                                     handleClick={() => {
                                         // setOpenModal(true);
                                     }}
                                 />
                             </Grid>
-                        );
+                        )
                     })}
                 </Grid>
             </ContentWrapper>
 
-            <ContentWrapper externalClass={classes.report}>
+            <ContentWrapper exteranlclass={classes.report}>
                 <Grid container dispaly="flex" alignItems="center" justify="flex-start">
                     <img src={icons.reportContentIcon} alt="" />
                     <Typography>Report user</Typography>
                 </Grid>
             </ContentWrapper>
-            <Footer externalClass={classes.footer} />
+            <Footer exteranlclass={classes.footer} />
         </>
-    );
-};
+    )
+}
 
-Profile.propTypes = {};
+Profile.propTypes = {}
 
-export default Profile;
+export default Profile

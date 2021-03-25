@@ -1,9 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../../theme/colors";
-import InputWithLabelIcon from "../../../../components/inputs/InputWithLabelIcon";
-import CustomButton from "../../../../components/buttons/CustomButton";
+import React from "react"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import InputWithLabelIcon from "../../inputs/inputWithLabelIcon"
+import CustomButton from "../../buttons/customButton"
+import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -53,36 +52,38 @@ const useStyles = makeStyles({
         backgroundColor: colors.black,
         padding: "1rem 1.3rem",
     },
-});
+})
 
 const RightSide = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box container className={classes.wrapper}>
             <Typography className={classes.title}>Forgot Password</Typography>
             <Typography className={classes.subTitle}>
-                Enter the email address associated with your account, and we’ll email you a link to reset your password.
+                Enter the email address associated with your account, and we’ll email you a link to
+                reset your password.
             </Typography>
 
             <form>
-                <InputWithLabelIcon label="Input field" placeholder="Username" externalClass={classes.inputStyles} />
+                <InputWithLabelIcon
+                    label="Input field"
+                    placeholder="Username"
+                    exteranlclass={classes.inputStyles}
+                />
                 <Grid container display="flex" className={classes.submitContainer}>
                     <Grid item sm={12}>
                         <CustomButton
                             variant="borderButton"
                             label="Send reset link"
-                            externalClass={classes.confirmButton}
+                            exteranlclass={classes.confirmButton}
                         />
                     </Grid>
                 </Grid>
             </form>
         </Box>
-    );
-};
+    )
+}
 
-RightSide.propTypes = {
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-};
+RightSide.propTypes = {}
 
-export default RightSide;
+export default RightSide

@@ -1,21 +1,22 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
+import React, { useState } from "react"
 // import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import HeaderWrapper from "../../components/header/headerWrapper";
-import { images } from "../../assets/images";
-import { colors } from "../../theme/colors";
-import classnames from "classnames";
-import { teamMemberData } from "../../data/project";
-import UserProfileRow from "../../components/cards/userProfileRow";
-import MoreMemberModel from "../../containers/project/moreMemberModel";
-import Slider from "../../containers/project/slider";
-import { useRouter } from "next/router";
-import ReactPlayer from "react-player";
-import SocialIcons from "../../containers/project/socialIcons";
-import Footer from "../../components/footer";
-import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper";
-import ImageGallery from "../../components/imageGallery/imageGallery";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import classnames from "classnames"
+import { useRouter } from "next/router"
+import ReactPlayer from "react-player"
+import HeaderWrapper from "../../components/header/headerWrapper"
+import { images } from "../../assets/images"
+import { colors } from "../../theme/colors"
+import { teamMemberData } from "../../data/project"
+import UserProfileRow from "../../components/cards/userProfileRow"
+import MoreMemberModel from "../../containers/project/moreMemberModel"
+import Slider from "../../containers/project/slider"
+import SocialIcons from "../../containers/project/socialIcons"
+import Footer from "../../components/footer"
+import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper"
+import ImageGallery from "../../components/imageGallery/imageGallery"
 
 const useStyles = makeStyles({
     projectwrapper: {
@@ -258,27 +259,36 @@ const useStyles = makeStyles({
     footer: {
         marginTop: "0rem",
     },
-});
+})
 
 const Project = () => {
-    const classes = useStyles();
-    const [maxShow, setMaxShow] = useState(false);
-    const routes = useRouter();
+    const classes = useStyles()
+    const [maxShow, setMaxShow] = useState(false)
+    const routes = useRouter()
 
     return (
         <Box className={classes.projectwrapper}>
             <HeaderWrapper isScrollDetect={false} />
-            <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+            <ReactPlayer
+                width="100%"
+                height="30rem"
+                controls
+                url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+            />
             <Grid className={classes.CreatorsAuthor}>
                 <Box>
                     <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
                 </Box>
                 <Box>
-                    <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/profile")}>
+                    <Typography
+                        className={classes.CreatorsAuthorName}
+                        onClick={() => routes.push("/profile")}>
                         Brandon Landing
                     </Typography>
-                    <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>
-                    <button className={classes.CreatorsButton}>follow</button>
+                    <Typography className={classes.CreatorsAuthorJobTitle}>
+                        Director assistant
+                    </Typography>
+                    <button type="button" className={classes.CreatorsButton}>follow</button>
                 </Box>
             </Grid>
             <Grid container className={classes.profileWrapper}>
@@ -289,12 +299,15 @@ const Project = () => {
                     <Grid container>
                         <Grid className={classes.info} xs={12} sm={12} md={6} lg={6}>
                             <Typography className={classes.infoTextHead}>Category:</Typography>
-                            <Typography className={classnames(classes.underlineStyle, classes.infoText)}>
+                            <Typography
+                                className={classnames(classes.underlineStyle, classes.infoText)}>
                                 Directing
                             </Typography>
                             <Grid className={classes.info} item xs={12} sm={4} md={6} lg={6}>
                                 <Typography className={classes.infoTextHead}>Client:</Typography>
-                                <Typography className={classes.infoText}>SiR, Top Dog Entertainment</Typography>
+                                <Typography className={classes.infoText}>
+                                    SiR, Top Dog Entertainment
+                                </Typography>
                             </Grid>
                         </Grid>
                         <Grid className={classes.info} item xs={12} sm={4} md={6} lg={6}>
@@ -303,7 +316,15 @@ const Project = () => {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container className={classes.teamWrapper}>
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    lg={6}
+                    xl={6}
+                    container
+                    className={classes.teamWrapper}>
                     <Typography className={classes.teamTitle}>Team</Typography>
                     {teamMemberData.slice(0, 5).map((item, i) => (
                         <UserProfileRow
@@ -335,9 +356,10 @@ const Project = () => {
                     <Box className={classes.contentWrapper}>
                         <Typography variant="h3">Making of</Typography>
                         <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever
+                            since the 1500s, when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
                         </Typography>
                     </Box>
                 </Grid>
@@ -347,9 +369,10 @@ const Project = () => {
                     <Box className={classes.contentWrapperWhiteBg}>
                         <Typography variant="h3">Behind the scenes</Typography>
                         <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever
+                            since the 1500s, when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
                         </Typography>
                     </Box>
                 </Grid>
@@ -363,35 +386,41 @@ const Project = () => {
                         <Typography variant="h3">The writing itself</Typography>
                         <Box className={classes.paragraphContent}>
                             <Typography variant="p">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book. It has survived not
+                                only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages,
+                                and more recently with desktop publishing software like Aldus
+                                PageMaker including versions of Lorem Ipsum.
                             </Typography>
                             <br />
                             <br />
                             <Typography variant="p">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book. It has survived not
+                                only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages,
+                                and more recently with desktop publishing software like Aldus
+                                PageMaker including versions of Lorem Ipsum.
                             </Typography>
                             <br />
                             <br />
                             <Typography variant="p">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                printer took a galley of type and scrambled it to make a type specimen book. It has
-                                survived not only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s with the release of
-                                Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                                publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                Lorem Ipsum is simply dummy text of the printing and typesetting
+                                industry. Lorem Ipsum has been the industry's standard dummy text
+                                ever since the 1500s, when an unknown printer took a galley of type
+                                and scrambled it to make a type specimen book. It has survived not
+                                only five centuries, but also the leap into electronic typesetting,
+                                remaining essentially unchanged. It was popularised in the 1960s
+                                with the release of Letraset sheets containing Lorem Ipsum passages,
+                                and more recently with desktop publishing software like Aldus
+                                PageMaker including versions of Lorem Ipsum.
                             </Typography>
                         </Box>
                     </Box>
@@ -400,12 +429,12 @@ const Project = () => {
             <Slider />
             <ImageGallery />
             <SocialIcons />
-            <ReportContentWrapper externalClass={classes.reportContentwrapper} />
-            <Footer externalClass={classes.footer} />
+            <ReportContentWrapper exteranlclass={classes.reportContentwrapper} />
+            <Footer exteranlclass={classes.footer} />
         </Box>
-    );
-};
+    )
+}
 
-Project.propTypes = {};
+Project.propTypes = {}
 
-export default Project;
+export default Project

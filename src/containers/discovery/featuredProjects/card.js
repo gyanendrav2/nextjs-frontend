@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { colors } from "../../../theme/colors";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box, Grid } from "@material-ui/core";
-import PropTypes from "prop-types";
-import CardWithFooter from "../../../components/cards/CardWithFooter";
-import QuickViewDailog from "../../project/quickViewDailog";
+import React, { useState } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import { Box, Grid } from "@material-ui/core"
+import PropTypes from "prop-types"
+import { colors } from "../../../theme/colors"
+import QuickViewDailog from "../../project/quickViewDailog"
+import CardWithFooter from "../../../components/cards/cardWithFooter"
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
@@ -74,35 +74,40 @@ const useStyles = makeStyles({
     red: {
         background: "red",
     },
-});
+})
 const SelectingCategories = ({ featuredCardsDetails }) => {
-    const classes = useStyles();
-    const [openModal, setOpenModal] = useState(false);
+    const classes = useStyles()
+    const [openModal, setOpenModal] = useState(false)
 
     return (
         <Box>
             {openModal && <QuickViewDailog closeModal={() => setOpenModal(false)} />}
             <Grid container className={classes.FeaturedProjectContainer} spacing={2}>
-                {featuredCardsDetails && featuredCardsDetails.map((newData, idx) => {
-                    return (
-                        <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-                            <CardWithFooter
-                                image={newData.image}
-                                title={newData.title}
-                                hideFooter={false}
-                                footerTitle={newData.author.name}
-                                footerSubitle={newData.author.jobTitle}
-                                handleClick={() => {
-                                    setOpenModal(true);
-                                }}
-                            />
-                        </Grid>
-                    );
-                })}
+                {featuredCardsDetails &&
+                    featuredCardsDetails.map((newData, idx) => {
+                        return (
+                            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                                <CardWithFooter
+                                    image={newData.image}
+                                    title={newData.title}
+                                    hideFooter={false}
+                                    footerTitle={newData.author.name}
+                                    footerSubitle={newData.author.jobTitle}
+                                    handleClick={() => {
+                                        setOpenModal(true)
+                                    }}
+                                />
+                            </Grid>
+                        )
+                    })}
             </Grid>
         </Box>
-    );
-};
+    )
+}
+
+SelectingCategories.defaultProps = {
+    featuredCardsDetails: [],
+}
 
 SelectingCategories.propTypes = {
     featuredCardsDetails: PropTypes.arrayOf(
@@ -116,5 +121,5 @@ SelectingCategories.propTypes = {
             }),
         })
     ),
-};
-export default SelectingCategories;
+}
+export default SelectingCategories

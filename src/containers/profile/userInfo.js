@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import { images } from "../../assets/images";
-import PictureOverSquare from "../../components/cards/pictureOverSquare";
-import FollowingFollwers from "../../components/texts/followingFollwers";
-import CustomButton from "../../components/buttons/customButton";
-import { icons } from "../../assets/icons";
-import { colors } from "../../theme/colors";
-import SocialButtons from "../../components/buttons/socialButtons";
-import TwoColModalGrid from "../../components/grid/twoColModalGrid";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import { images } from "../../assets/images"
+import PictureOverSquare from "../../components/cards/pictureOverSquare"
+import FollowingFollwers from "../../components/texts/followingFollwers"
+import CustomButton from "../../components/buttons/customButton"
+import { icons } from "../../assets/icons"
+import { colors } from "../../theme/colors"
+import SocialButtons from "../../components/buttons/socialButtons"
+import TwoColModalGrid from "../../components/grid/twoColModalGrid"
 
 const useStyles = makeStyles({
     infoWrapper: {
@@ -29,15 +29,15 @@ const useStyles = makeStyles({
     name: {
         fontSize: "2.5rem",
     },
-});
+})
 
 const UserInfo = () => {
-    const classes = useStyles();
-    const [openMsg, setOpenMsg] = useState(false);
+    const classes = useStyles()
+    const [openMsg, setOpenMsg] = useState(false)
 
     const handleMsg = () => {
-        setOpenMsg(!openMsg);
-    };
+        setOpenMsg(!openMsg)
+    }
 
     return (
         <TwoColModalGrid
@@ -55,7 +55,11 @@ const UserInfo = () => {
                                 <MessageBox />
                             </ModalComponent> */}
 
-                            <CustomButton label="Message me" externalClass={classes.msgbtn} on={handleMsg} />
+                            <CustomButton
+                                label="Message me"
+                                exteranlclass={classes.msgbtn}
+                                on={handleMsg}
+                            />
                             <CustomButton
                                 variant="dropdownButton"
                                 icon={<img src={icons.arrowDropdown} />}
@@ -63,22 +67,24 @@ const UserInfo = () => {
                             />
                         </Box>
                         <Typography className={classes.bio}>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book. It has survived not only five
-                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                            It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum
-                            passages, and more recently with desktop publishing software like Aldus PageMaker including
-                            versions of Lorem Ipsum.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has been the industry's standard dummy text ever
+                            since the 1500s, when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining
+                            essentially unchanged. It was popularised in the 1960s with the release
+                            of Letraset sheets containing Lorem Ipsum passages, and more recently
+                            with desktop publishing software like Aldus PageMaker including versions
+                            of Lorem Ipsum.
                         </Typography>
                         <SocialButtons />
                     </Box>
                 </Box>
             }
         />
-    );
-};
+    )
+}
 
-UserInfo.propTypes = {};
+UserInfo.propTypes = {}
 
-export default UserInfo;
+export default UserInfo

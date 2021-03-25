@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, makeStyles } from "@material-ui/core";
-import UserProfileRow from "../../components/cards/userProfileRow";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles } from "@material-ui/core"
+import UserProfileRow from "../../components/cards/userProfileRow"
 
 const useStyles = makeStyles({
     rootWrapper: {
@@ -27,10 +27,10 @@ const useStyles = makeStyles({
         maxHeight: "26.5rem",
         overflowY: "auto",
     },
-});
+})
 
 const MoreMemberModel = ({ onClose, data }) => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <>
             <Box className={classes.wrapper}>
@@ -46,10 +46,10 @@ const MoreMemberModel = ({ onClose, data }) => {
                     />
                 ))}
             </Box>
-            <Box className={classes.rootWrapper} onClick={onClose}></Box>
+            <Box className={classes.rootWrapper} onClick={onClose} />
         </>
-    );
-};
+    )
+}
 
 MoreMemberModel.propTypes = {
     onClose: PropTypes.func,
@@ -61,6 +61,6 @@ MoreMemberModel.propTypes = {
             isDisable: PropTypes.bool,
         }).isRequired
     ),
-};
+}
 
-export default MoreMemberModel;
+export default MoreMemberModel

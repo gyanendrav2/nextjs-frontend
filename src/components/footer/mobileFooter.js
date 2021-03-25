@@ -1,10 +1,10 @@
-import React from "react";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { icons } from "../../assets/icons";
-import { colors } from "../../theme/colors";
-import classnames from "classnames";
-import Link from "next/link";
-import CopyrightIcon from "@material-ui/icons/Copyright";
+import React from "react"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import classnames from "classnames"
+import Link from "next/link"
+import CopyrightIcon from "@material-ui/icons/Copyright"
+import { colors } from "../../theme/colors"
+import { icons } from "../../assets/icons"
 
 const useStyles = makeStyles({
     mobilefooterWrapper: {
@@ -40,10 +40,10 @@ const useStyles = makeStyles({
         fontSize: "1.2rem",
         marginRight: "0.5rem",
     },
-});
+})
 
 const MobileFooter = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box className={classnames(classes.mobilefooterWrapper)}>
             <Link href="/">
@@ -56,31 +56,38 @@ const MobileFooter = () => {
             </Link>
             <Box>
                 <Link href="/">
-                    <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.Fb}></img>
+                    <img
+                        className={classnames(classes.itemPadding, classes.Images)}
+                        alt="fb"
+                        src={icons.Fb}
+                    />
                 </Link>
                 <Link href="/">
                     <img
                         className={classnames(classes.itemPadding, classes.Images)}
                         alt="Insta"
-                        src={icons.Insta}></img>
+                        src={icons.Insta}
+                    />
                 </Link>
                 <Link href="/">
                     <img
                         className={classnames(classes.itemPadding, classes.Images)}
                         alt="Linked In"
-                        src={icons.Linkedin}></img>
+                        src={icons.Linkedin}
+                    />
                 </Link>
             </Box>
             <Link href="/">
                 <Box>
-                    <Typography className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
+                    <Typography
+                        className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
                         <CopyrightIcon className={classes.copyrightIcon} />
                         Copyright PXL
                     </Typography>
                 </Box>
             </Link>
         </Box>
-    );
-};
+    )
+}
 
-export default MobileFooter;
+export default MobileFooter

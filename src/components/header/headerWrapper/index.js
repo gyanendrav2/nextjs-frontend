@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import Header from "..";
-import { Box, IconButton, makeStyles } from "@material-ui/core";
-import { icons } from "../../../assets/icons";
-import { mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList";
-import { colors } from "../../../theme/colors";
-import MobileMenu from "../../../components/header/mobilemenu/MobileMenu";
-import MenuIcon from "@material-ui/icons/Menu";
-import Link from "next/link";
+import React, { useEffect, useState } from "react"
+import PropTypes from "prop-types"
+import { Box, IconButton, makeStyles } from "@material-ui/core"
+import MenuIcon from "@material-ui/icons/Menu"
+import Link from "next/link"
+import Header from ".."
+import { icons } from "../../../assets/icons"
+import { mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
+import { colors } from "../../../theme/colors"
+import MobileMenu from "../mobilemenu/mobileMenu"
 
 const useStyles = makeStyles({
     mobileNavWrapper: {
@@ -31,49 +31,50 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         color: (props) => (props.mobileMenuIconColor ? props.mobileMenuIconColor : colors.white),
     },
-});
+})
 
-const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, featuredCardsDetails }) => {
-    const classes = useStyles({ mobileMenuIconColor });
-    const [scrollTop, setScrollTop] = useState(0);
-    const [mobileMenu, setMobileMenu] = useState(false);
+const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
+    const classes = useStyles({ mobileMenuIconColor })
+    const [scrollTop, setScrollTop] = useState(0)
+    const [mobileMenu, setMobileMenu] = useState(false)
 
     useEffect(() => {
         const onScroll = (e) => {
-            setScrollTop(e.target.documentElement.scrollTop);
-        };
+            setScrollTop(e.target.documentElement.scrollTop)
+        }
         if (isScrollDetect) {
-            window.addEventListener("scroll", onScroll);
+            if (typeof window !== "undefined") {
+                window.addEventListener("scroll", onScroll)
+            }
         }
 
         return () => {
             if (isScrollDetect) {
-                window.removeEventListener("scroll", onScroll);
+                if (typeof window !== "undefined") {
+                    window.removeEventListener("scroll", onScroll)
+                }
             }
-        };
-    }, [scrollTop]);
+        }
+    }, [scrollTop, isScrollDetect])
 
     const shouldDark = () => {
         if (!isScrollDetect) {
-            return colors.black;
-        } else if (scrollTop > 534) {
-            return colors.black;
-        } else {
-            colors.white;
+            return colors.black
         }
-    };
+        if (scrollTop > 534) {
+            return colors.black
+        }
+    }
 
     const textColor = () => {
         if (!isScrollDetect) {
-            return colors.white;
-        } else {
-            if (scrollTop > 534) {
-                return colors.white;
-            } else {
-                return colors.black;
-            }
+            return colors.white
         }
-    };
+        if (scrollTop > 534) {
+            return colors.white
+        }
+        return colors.black
+    }
 
     return (
         <>
@@ -95,16 +96,19 @@ const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, featuredCardsDetai
                 toggleMenu={mobileMenu}
                 menuList={mobileNavOptions}
                 onClose={() => setMobileMenu(false)}
-                featuredCardsDetails={featuredCardsDetails}
             />
         </>
-    );
-};
+    )
+}
+
+HeaderWrapper.defaultProps = {
+    isScrollDetect: () => {},
+    mobileMenuIconColor: "",
+}
 
 HeaderWrapper.propTypes = {
     isScrollDetect: PropTypes.bool,
     mobileMenuIconColor: PropTypes.string,
-    featuredCardsDetails: PropTypes.any,
-};
+}
 
-export default HeaderWrapper;
+export default HeaderWrapper

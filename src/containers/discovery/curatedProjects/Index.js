@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, Grid, makeStyles } from "@material-ui/core";
-import { colors } from "../../../theme/colors";
-import PropTypes from "prop-types";
-import CardWithHeader from "../../../components/cards/cardWithHeader";
+import React from "react"
+import { Box, Grid, makeStyles } from "@material-ui/core"
+import PropTypes from "prop-types"
+import { colors } from "../../../theme/colors"
+import CardWithHeader from "../../../components/cards/cardWithHeader"
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -57,10 +57,10 @@ const useStyles = makeStyles({
         height: "100%",
         objectFit: "cover",
     },
-});
+})
 
 const CreationCard = ({ curatedCreators }) => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box className={classes.CuratorCard}>
             <Grid container spacing={2}>
@@ -75,12 +75,16 @@ const CreationCard = ({ curatedCreators }) => {
                                     buttonText="Follow"
                                 />
                             </Grid>
-                        );
+                        )
                     })}
             </Grid>
         </Box>
-    );
-};
+    )
+}
+
+CreationCard.defaultProps = {
+    curatedCreators: [],
+}
 
 CreationCard.propTypes = {
     curatedCreators: PropTypes.arrayOf(
@@ -90,6 +94,6 @@ CreationCard.propTypes = {
             jobTitle: PropTypes.string,
         })
     ),
-};
+}
 
-export default CreationCard;
+export default CreationCard

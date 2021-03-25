@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../theme/colors";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -32,20 +32,22 @@ const useStyles = makeStyles({
         lineHeight: "1.5",
         color: colors.black,
     },
-});
+})
 
 const HeaderCategory = ({ categoryName }) => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
             <Typography className={classes.title}>{categoryName}</Typography>
-            <Typography className={classes.subTitle}>Shuffle between categories and get inspired!</Typography>
+            <Typography className={classes.subTitle}>
+                Shuffle between categories and get inspired!
+            </Typography>
         </Box>
-    );
-};
+    )
+}
 
 HeaderCategory.propTypes = {
-    categoryName: PropTypes.string,
-};
+    categoryName: PropTypes.string.isRequired,
+}
 
-export default HeaderCategory;
+export default HeaderCategory

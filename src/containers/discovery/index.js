@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import SelectingCategories from "./featuredProjects";
-import CreationCard from "./curatedProjects";
-import FeaturedCards from "./featuredProjects/Card";
-import Footer from "../../components/footer";
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import PropTypes from "prop-types";
-import CustomButton from "../../components/buttons/customButton";
-import MobileFooter from "../../components/footer/mobileFooter";
-import HeaderWrapper from "../../components/header/headerWrapper";
-import HeaderCategory from "../../components/header/headerCategory";
-import Link from "next/link";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
+import React, { useState, useEffect } from "react"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import Link from "next/link"
+import SelectingCategories from "./featuredProjects"
+import CreationCard from "./curatedProjects"
+import FeaturedCards from "./featuredProjects/Card"
+import Footer from "../../components/footer"
+import { colors } from "../../theme/colors"
+import CustomButton from "../../components/buttons/customButton"
+import MobileFooter from "../../components/footer/mobileFooter"
+import HeaderWrapper from "../../components/header/headerWrapper"
+import HeaderCategory from "../../components/header/headerCategory"
+import ContentWrapper from "../../components/contentWrapper/contentWrapper"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -56,7 +56,6 @@ const useStyles = makeStyles({
         fontSize: "4rem",
         lineHeight: "5rem",
         marginBottom: "-0.75rem",
-        fontWeight: 800,
         display: "inline",
         padding: "0.1rem 0.5rem",
         backgroundColor: colors.black,
@@ -181,53 +180,52 @@ const useStyles = makeStyles({
         lineHeight: "1rem",
         color: colors.lighterGray,
     },
-});
+})
 
 export const Discovery = ({ details }) => {
-    const classes = useStyles();
-    const { hero, curatedCreators, featuredProjects } = details;
-    const [featuredCardsDetails, setFeaturedCardsDetails] = useState([]);
-    const [totalCategories, setTotalCategories] = useState([]);
-    const [activeCategory, setActiveCategory] = useState(null);
+    const classes = useStyles()
+    const { hero, curatedCreators, featuredProjects } = details
+    const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
+    const [totalCategories, setTotalCategories] = useState([])
+    const [activeCategory, setActiveCategory] = useState(null)
 
     useEffect(() => {
         if (featuredProjects) {
-            const tempCategory = [];
+            const tempCategory = []
             // eslint-disable-next-line react/prop-types
             featuredProjects.forEach((item) => {
                 if (!tempCategory.includes(item.category)) {
-                    tempCategory.push(item.category);
+                    tempCategory.push(item.category)
                 }
-            });
-            setTotalCategories(tempCategory);
+            })
+            setTotalCategories(tempCategory)
         }
-    }, [featuredProjects]);
+    }, [featuredProjects])
 
     const LengthHandler = (details) => {
         if (details.length > 9) {
-            setFeaturedCardsDetails(details.slice(0, 8));
+            setFeaturedCardsDetails(details.slice(0, 8))
         } else {
-            setFeaturedCardsDetails(details.slice(0, details.length));
+            setFeaturedCardsDetails(details.slice(0, details.length))
         }
-    };
+    }
     const handleTab = (name) => {
-        setActiveCategory(name);
-        let details;
+        setActiveCategory(name)
         if (name !== "More") {
             // eslint-disable-next-line react/prop-types
-            details = featuredProjects.filter((each) => each["category"] === name);
-            LengthHandler(details);
+            details = featuredProjects.filter((each) => each.category === name)
+            LengthHandler(details)
         } else if (name === "More") {
-            details = [...featuredProjects];
-            LengthHandler(details);
+            details = [...featuredProjects]
+            LengthHandler(details)
         }
-    };
+    }
 
     useEffect(() => {
         // eslint-disable-next-line react/prop-types
-        const details = featuredProjects.slice(0, 8);
-        setFeaturedCardsDetails(details);
-    }, []);
+        const details = featuredProjects.slice(0, 8)
+        setFeaturedCardsDetails(details)
+    }, [])
 
     const settings = {
         infinite: true,
@@ -239,14 +237,11 @@ export const Discovery = ({ details }) => {
         slidesToScroll: 1,
         dots: false,
         height: "100vh",
-    };
+    }
     return (
         <>
             <Box className={classes.wrapper}>
-                <HeaderWrapper
-                    isScrollDetect={activeCategory ? false : true}
-                    featuredCardsDetails={featuredCardsDetails}
-                />
+                <HeaderWrapper isScrollDetect={!activeCategory} featuredCardsDetails={featuredCardsDetails} />
 
                 {activeCategory ? (
                     <HeaderCategory categoryName={activeCategory} />
@@ -259,31 +254,33 @@ export const Discovery = ({ details }) => {
                                     <div key={index} className={classes.carouselContainer}>
                                         <div
                                             className={classes.carouselImage}
-                                            style={{ backgroundImage: `url(${item.backgroundImage})` }}>
+                                            style={{
+                                                backgroundImage: `url(${item.backgroundImage})`,
+                                            }}>
                                             <div className={classes.messageWrapper}>
                                                 <Typography className={classes.title}>
                                                     {item.titleLines[0]}
-                                                    <span className={classes.pinkSquare}></span>
+                                                    <span className={classes.pinkSquare} />
                                                 </Typography>
 
                                                 <br />
                                                 <Typography className={classes.title}>
                                                     {item.titleLines[1]}
-                                                    <span className={classes.pinkSquare}></span>
+                                                    <span className={classes.pinkSquare} />
                                                 </Typography>
                                                 <br />
                                                 <Typography className={classes.title}>
                                                     {item.titleLines[2]}
-                                                    <span className={classes.pinkSquare}></span>
+                                                    <span className={classes.pinkSquare} />
                                                 </Typography>
                                                 <Typography className={classes.subtitle}>{item.subtitle}</Typography>
                                                 {/* <Link href="/signup"> */}
-                                                    <CustomButton label="Sign Up" externalClass={classes.bigSignup} />
+                                                <CustomButton label="Sign Up" exteranlclass={classes.bigSignup} />
                                                 {/* </Link> */}
                                             </div>
                                         </div>
                                     </div>
-                                );
+                                )
                             })}
                     </Slider>
                 )}
@@ -313,8 +310,8 @@ export const Discovery = ({ details }) => {
                 {/* <MobileFooter /> */}
             </Box>
         </>
-    );
-};
+    )
+}
 
 const propsValidation = {
     hero: PropTypes.shape(
@@ -342,7 +339,7 @@ const propsValidation = {
             }),
         })
     ),
-};
+}
 
 Discovery.propTypes = {
     details: PropTypes.shape(
@@ -350,7 +347,7 @@ Discovery.propTypes = {
             ...propsValidation,
         }).isRequired
     ),
-};
+}
 
 SelectingCategories.prototype = {
     details: PropTypes.shape(
@@ -358,5 +355,5 @@ SelectingCategories.prototype = {
             ...propsValidation,
         }).isRequired
     ),
-};
-export default Discovery;
+}
+export default Discovery

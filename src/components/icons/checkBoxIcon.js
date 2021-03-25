@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 // import PropTypes from "prop-types";
 
 const CheckBoxIcon = () => {
@@ -13,9 +13,9 @@ const CheckBoxIcon = () => {
                 <span className="path6" />
             </span>
         </>
-    );
-};
+    )
+}
 
-CheckBoxIcon.propTypes = {};
+CheckBoxIcon.propTypes = {}
 
-export default CheckBoxIcon;
+export default CheckBoxIcon

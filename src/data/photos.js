@@ -15,4 +15,4 @@ export const photos = [
     //     width: 3,
     //     height: 4,
     // },
-];
+]

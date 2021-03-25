@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Avatar, Box, makeStyles } from "@material-ui/core";
-import { colors } from "../../theme/colors";
+import React from "react"
+import PropTypes from "prop-types"
+import { Avatar, Box, makeStyles } from "@material-ui/core"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -20,20 +20,20 @@ const useStyles = makeStyles({
         left: "2rem",
         zIndex: 2,
     },
-});
+})
 
 const PictureOverSquare = ({ image }) => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
-            <Box className={classes.square}></Box>
+            <Box className={classes.square} />
             <Avatar src={image} className={classes.profile} />
         </Box>
-    );
-};
+    )
+}
 
 PictureOverSquare.propTypes = {
-    image: PropTypes.string,
-};
+    image: PropTypes.string.isRequired,
+}
 
-export default PictureOverSquare;
+export default PictureOverSquare

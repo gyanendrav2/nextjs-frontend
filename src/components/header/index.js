@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles } from "@material-ui/core";
-import HeadItem from "./headItem";
-import Link from "next/link";
-import CustomButton from "../../components/buttons/customButton";
-import { icons } from "../../assets/icons";
-import { colors } from "../../theme/colors";
-import { images } from "../../assets/images";
-import { useRouter } from "next/router";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Box, Grid, makeStyles } from "@material-ui/core"
+import Link from "next/link"
+import { useRouter } from "next/router"
+import HeadItem from "./headItem"
+import CustomButton from "../buttons/customButton"
+import { icons } from "../../assets/icons"
+import { colors } from "../../theme/colors"
+import { images } from "../../assets/images"
 
 const useStyles = makeStyles({
     header: {
@@ -38,30 +38,28 @@ const useStyles = makeStyles({
     rightPart: {
         width: "auto",
     },
-});
+})
 
 const Header = ({ color, bgColor, NavItemOptions }) => {
-    const classes = useStyles({ color, bgColor });
-    const router = useRouter();
-    const [hoveredActive, setHoverdActive] = useState(null);
+    const classes = useStyles({ color, bgColor })
+    const router = useRouter()
+    const [hoveredActive, setHoverdActive] = useState(null)
 
     const handleHoveredItem = (item) => {
         if (!hoveredActive) {
-            setHoverdActive(item.pathname);
+            setHoverdActive(item.pathname)
         }
-    };
+    }
 
     const getIconType = (item) => {
         if (item.pathname === hoveredActive) {
-            return item.iconPink;
-        } else {
-            if (color === colors.white) {
-                return item.iconWhite;
-            } else {
-                return item.iconBlack;
-            }
+            return item.iconPink
         }
-    };
+        if (color === colors.white) {
+            return item.iconWhite
+        }
+        return item.iconBlack
+    }
 
     return (
         <Box className={classes.header}>
@@ -72,7 +70,11 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
                     alt="PXL-logo"
                 />
             </Link>
-            <Grid container alignItems="center" justifycontent="flex-end" className={classes.rightPart}>
+            <Grid
+                container
+                alignItems="center"
+                justifycontent="flex-end"
+                className={classes.rightPart}>
                 {NavItemOptions.map((item, index) => {
                     return (
                         <HeadItem
@@ -86,22 +88,32 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
                             handleMouseLeave={() => setHoverdActive(null)}
                             icon={getIconType(item)}
                         />
-                    );
+                    )
                 })}
                 {/* <Link href="/signup"> */}
-                <CustomButton label="Sign up" externalClass={classes.button} />
+                <CustomButton label="Sign up" exteranlclass={classes.button} />
                 {/* </Link> */}
             </Grid>
         </Box>
-    );
-};
+    )
+}
+
+Header.defaultProps = {
+    color: "",
+    bgColor: "",
+    NavItemOptions: [],
+}
 
 Header.propTypes = {
     color: PropTypes.string,
     bgColor: PropTypes.string,
     NavItemOptions: PropTypes.arrayOf(
-        PropTypes.shape({ id: PropTypes.number, name: PropTypes.string, pathname: PropTypes.string })
+        PropTypes.shape({
+            id: PropTypes.number,
+            name: PropTypes.string,
+            pathname: PropTypes.string,
+        }).isRequired
     ),
-};
+}
 
-export default Header;
+export default Header

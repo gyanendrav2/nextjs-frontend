@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 // import PropTypes from "prop-types";
 
 const ExploreIcon = () => {
@@ -11,9 +11,9 @@ const ExploreIcon = () => {
             <span className="path5" />
             <span className="path6" />
         </span>
-    );
-};
+    )
+}
 
-ExploreIcon.propTypes = {};
+ExploreIcon.propTypes = {}
 
-export default ExploreIcon;
+export default ExploreIcon

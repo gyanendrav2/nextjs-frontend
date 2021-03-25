@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Blurhash } from "react-blurhash";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Blurhash } from "react-blurhash"
 
-const LazyloadImage = ({ image, externalClass }) => {
-    const [showImage, setShowImage] = useState(false);
+const LazyloadImage = ({ image, exteranlclass }) => {
+    const [showImage, setShowImage] = useState(false)
     return (
         <>
             {/* {showImage && ( */}
-            <img className={externalClass} onLoad={() => setShowImage(true)} src={image} alt={image} />
+            <img
+                className={exteranlclass}
+                onLoad={() => setShowImage(true)}
+                src={image}
+                alt={image}
+            />
             {/* )} */}
             {!showImage && (
                 <Blurhash
@@ -20,12 +25,15 @@ const LazyloadImage = ({ image, externalClass }) => {
                 />
             )}
         </>
-    );
-};
+    )
+}
+LazyloadImage.defaultProps = {
+    exteranlclass: "",
+}
 
 LazyloadImage.propTypes = {
-    image: PropTypes.string,
-    externalClass: PropTypes.string,
-};
+    image: PropTypes.string.isRequired,
+    exteranlclass: PropTypes.string,
+}
 
-export default LazyloadImage;
+export default LazyloadImage

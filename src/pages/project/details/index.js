@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 // import PropTypes from 'prop-types';
 
 const Details = () => {
-    return <div>Details</div>;
-};
+    return <div>Details</div>
+}
 
-Details.propTypes = {};
+Details.propTypes = {}
 
-export default Details;
+export default Details

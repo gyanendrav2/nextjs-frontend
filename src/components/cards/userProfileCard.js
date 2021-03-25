@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { images } from "../../assets/images";
-import classnames from "classnames";
-import RoomIcon from "@material-ui/icons/Room";
-import CustomButton from "../../components/buttons/customButton";
-import { icons } from "../../assets/icons";
-import { colors } from "../../theme/colors";
-import FollowingFollwers from "../texts/followingFollwers";
-import SocialButtons from "../buttons/socialButtons";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import RoomIcon from "@material-ui/icons/Room"
+import CustomButton from "../buttons/customButton"
+import { icons } from "../../assets/icons"
+import { colors } from "../../theme/colors"
+import FollowingFollwers from "../texts/followingFollwers"
+import SocialButtons from "../buttons/socialButtons"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -46,11 +44,12 @@ const useStyles = makeStyles({
     },
     readmore: {
         cursor: "pointer",
+        display: "inline-block",
     },
     username: {
         color: colors.lighterGray,
     },
-});
+})
 
 const UserProfileCard = ({
     image,
@@ -64,14 +63,14 @@ const UserProfileCard = ({
     onClickProfile,
     onMsgBtnClick,
 }) => {
-    const classes = useStyles();
-    const lessText = bio.slice(0, 90);
-    const fullText = bio.slice(0, bio.length);
-    const [fullParagraph, setfullParagraph] = useState(false);
+    const classes = useStyles()
+    const lessText = bio.slice(0, 90)
+    const fullText = bio.slice(0, bio.length)
+    const [fullParagraph, setfullParagraph] = useState(false)
 
     const toggleReadmore = () => {
-        setfullParagraph(!fullParagraph);
-    };
+        setfullParagraph(!fullParagraph)
+    }
     return (
         <Box className={classes.wrapper}>
             <Grid container alignItems="flex-start" justify="flex-start">
@@ -89,39 +88,48 @@ const UserProfileCard = ({
             <FollowingFollwers followers={followers} following={following} />
             <Typography className={classes.bioText}>
                 {fullParagraph ? fullText : lessText}
-                <span className={classes.readmore} onClick={toggleReadmore}>
+                <Typography className={classes.readmore} onClick={toggleReadmore}>
                     {fullParagraph ? "Read less" : "Read more"}
-                </span>
+                </Typography>
             </Typography>
             <SocialButtons />
             <Grid container spacing={3}>
                 <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
-                    <CustomButton label="Message me" externalClass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
+                    <CustomButton
+                        label="Message me"
+                        exteranlclass={classes.fullWidthBtn}
+                        onClick={onMsgBtnClick}
+                    />
                 </Grid>
                 <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
                     <CustomButton
                         variant="dropdownButton"
-                        icon={<img src={icons.arrowDropdown} />}
+                        icon={<img src={icons.arrowDropdown} alt="" />}
                         label="Following"
-                        externalClass={classes.smallBtn}
+                        exteranlclass={classes.smallBtn}
                     />
                 </Grid>
             </Grid>
         </Box>
-    );
-};
+    )
+}
+
+UserProfileCard.defaultProps = {
+    onClickProfile: () => {},
+    onMsgBtnClick: () => {},
+}
 
 UserProfileCard.propTypes = {
-    image: PropTypes.string,
-    name: PropTypes.string,
-    userName: PropTypes.string,
-    followers: PropTypes.string,
-    following: PropTypes.string,
-    position: PropTypes.string,
-    location: PropTypes.string,
-    bio: PropTypes.string,
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+    followers: PropTypes.string.isRequired,
+    following: PropTypes.string.isRequired,
+    position: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    bio: PropTypes.string.isRequired,
     onClickProfile: PropTypes.func,
     onMsgBtnClick: PropTypes.func,
-};
+}
 
-export default UserProfileCard;
+export default UserProfileCard

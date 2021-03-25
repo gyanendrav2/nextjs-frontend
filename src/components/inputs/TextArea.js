@@ -1,9 +1,9 @@
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
-import React from "react";
-import TextAreaInput from "./textAreaInput";
-import { colors } from "../../theme/colors";
-import ErrorMessage from "../errorMessage/ErrorMessage";
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import React from "react"
+import TextAreaInput from "./textAreaInput"
+import { colors } from "../../theme/colors"
+import ErrorMessage from "../errorMessage/errorMessage"
 
 const useStyles = makeStyles({
     container: {
@@ -37,23 +37,42 @@ const useStyles = makeStyles({
     white: {
         color: colors.white,
     },
-});
+})
 
 const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, ...props }) => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classes.label}>{label}</Typography>
-            <TextAreaInput className={classes.input} error={error} inputRegister={inputRegister} {...props} />
-            {iscompulsory == true ? <ErrorMessage errorMsg={errorMsg} /> : null}
+            <TextAreaInput
+                className={classes.input}
+                error={error}
+                inputRegister={inputRegister}
+                {...props}
+            />
+            {iscompulsory === true ? <ErrorMessage errorMsg={errorMsg} /> : null}
         </Box>
-    );
-};
+    )
+}
+
+TextArea.defaultProps = {
+    disabled: false,
+    error: false,
+    inputRegister: () => {},
+    errorMsg: "",
+    iscompulsory: false,
+    label: "",
+    type: "text",
+    name: "",
+    onChange: () => {},
+    placeholder: "",
+    value: "",
+}
 
 TextArea.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    inputRegister: PropTypes.any,
+    inputRegister: PropTypes.func,
     errorMsg: PropTypes.string,
     iscompulsory: PropTypes.bool,
     label: PropTypes.string,
@@ -62,5 +81,5 @@ TextArea.propTypes = {
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
     value: PropTypes.string,
-};
-export default TextArea;
+}
+export default TextArea

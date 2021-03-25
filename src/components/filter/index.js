@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import SelectWithLabelIcon from "../inputs/SelectWithLabelIcon";
-import InputWithLabelIcon from "../inputs/InputWithLabelIcon";
-import classnames from "classnames";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, Grid, makeStyles } from "@material-ui/core"
+import classnames from "classnames"
+import { colors } from "../../theme/colors"
+import InputWithLabelIcon from "../inputs/inputWithLabelIcon"
+import SelectWithLabelIcon from "../inputs/selectWithLabelIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -56,25 +56,25 @@ const useStyles = makeStyles({
     locationInput: {
         padding: "0.9px",
     },
-});
+})
 const secondlevelCategoryItems = [
     { value: "1", label: "category-1" },
     { value: "2", label: "category-2" },
     { value: "3", label: "category-3" },
     { value: "4", label: "category-4" },
-];
+]
 const years = [
     { value: "1", label: "2020" },
     { value: "2", label: "2021" },
     { value: "3", label: "2022" },
     { value: "4", label: "2023" },
-];
+]
 
-const Filter = ({ externalClass }) => {
-    const classes = useStyles();
+const Filter = ({ exteranlclass }) => {
+    const classes = useStyles()
 
     return (
-        <Box className={classnames(classes.wrapper, externalClass)}>
+        <Box className={classnames(classes.wrapper, exteranlclass)}>
             <Box className={classes.col1}>Filter by:</Box>
             <Box className={classes.col2}>
                 <Grid container spacing={2}>
@@ -82,7 +82,7 @@ const Filter = ({ externalClass }) => {
                         <SelectWithLabelIcon
                             label="Second level category"
                             options={secondlevelCategoryItems}
-                            externalClass={classes.locationInput}
+                            exteranlclass={classes.locationInput}
                             placeholder="Sports Photography"
                             labelColor={colors.lighterGray}
                         />
@@ -91,7 +91,7 @@ const Filter = ({ externalClass }) => {
                         <InputWithLabelIcon
                             label="Location"
                             placeholder="Georgia, US "
-                            externalClass={classes.locationInput}
+                            exteranlclass={classes.locationInput}
                             labelColor={colors.lighterGray}
                         />
                     </Grid>
@@ -99,7 +99,7 @@ const Filter = ({ externalClass }) => {
                         <SelectWithLabelIcon
                             label="Year"
                             options={years}
-                            externalClass={classes.yearInput}
+                            exteranlclass={classes.yearInput}
                             placeholder="-"
                             labelColor={colors.lighterGray}
                         />
@@ -109,7 +109,7 @@ const Filter = ({ externalClass }) => {
                             label="Sort by"
                             options={secondlevelCategoryItems}
                             variant="underlineBorder"
-                            externalClass={classes.sortInput}
+                            exteranlclass={classes.sortInput}
                             placeholder="A-Z"
                             labelColor={colors.lighterGray}
                             bgColor={colors.lighterPrimary}
@@ -118,11 +118,15 @@ const Filter = ({ externalClass }) => {
                 </Grid>
             </Box>
         </Box>
-    );
-};
+    )
+}
+
+Filter.defaultProps = {
+    exteranlclass: "",
+}
 
 Filter.propTypes = {
-    externalClass: PropTypes.string,
-};
+    exteranlclass: PropTypes.string,
+}
 
-export default Filter;
+export default Filter

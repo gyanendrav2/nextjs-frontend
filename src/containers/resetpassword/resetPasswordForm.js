@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import InputWithLabelIcon from "../../components/inputs/InputWithLabelIcon";
-import CustomButton from "../../components/buttons/CustomButton";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
-import { resetFormValidation } from "../../formValidation/resetpassword";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import VisibilityIcon from "@material-ui/icons/Visibility"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers"
+import { colors } from "../../theme/colors"
+import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
+import CustomButton from "../../components/buttons/CustomButton"
+import { resetFormValidation } from "../../formValidation/resetpassword"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -70,17 +70,17 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         color: colors.black,
     },
-});
+})
 
 const RightSide = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(resetFormValidation),
-    });
+    })
     const submit = (data) => {
-        console.log(data);
-    };
-    const [hideShowPassword, setHideShowPassword] = useState(false);
+        console.log(data)
+    }
+    const [hideShowPassword, setHideShowPassword] = useState(false)
 
     return (
         <Box className={classes.wrapper}>
@@ -90,38 +90,46 @@ const RightSide = () => {
                     <InputWithLabelIcon
                         name="code"
                         placeholder="Confirmation code"
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.code}
                     />
                     <InputWithLabelIcon
                         name="email"
                         placeholder="Email"
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.email}
                     />
                     <InputWithLabelIcon
                         name="password"
                         placeholder="New password"
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
                         icon={
-                            hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`}></span>
+                            hideShowPassword ? (
+                                <VisibilityIcon />
+                            ) : (
+                                <span className={`icon-Eye ${classes.icon}`} />
+                            )
                         }
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <InputWithLabelIcon
                         name="confirmpassword"
                         placeholder="Confirmation new password"
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.confirmpassword}
                         type={hideShowPassword ? "text" : "password"}
                         icon={
-                            hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`}></span>
+                            hideShowPassword ? (
+                                <VisibilityIcon />
+                            ) : (
+                                <span className={`icon-Eye ${classes.icon}`} />
+                            )
                         }
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
@@ -131,19 +139,19 @@ const RightSide = () => {
                                 type="submit"
                                 variant="borderButton"
                                 label="Send password"
-                                externalClass={classes.confirmButton}
+                                exteranlclass={classes.confirmButton}
                             />
                         </Grid>
                     </Grid>
                 </form>
             </Box>
         </Box>
-    );
-};
+    )
+}
 
 RightSide.propTypes = {
     title: PropTypes.string,
     subTitle: PropTypes.string,
-};
+}
 
-export default RightSide;
+export default RightSide

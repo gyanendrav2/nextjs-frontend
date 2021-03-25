@@ -1,14 +1,14 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import Link from "next/link";
-import CustomButton from "../../components/buttons/customButton";
-import InputWithLabelIcon from "../../components/inputs/InputWithLabelIcon";
-import { colors } from "../../theme/colors";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
-import { signinFormValidation } from "../../formValidation/signin";
-import VisibilityIcon from "@material-ui/icons/Visibility";
+import React, { useState } from "react"
+import PropTypes from "prop-types"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import Link from "next/link"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers"
+import VisibilityIcon from "@material-ui/icons/Visibility"
+import CustomButton from "../../components/buttons/customButton"
+import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
+import { colors } from "../../theme/colors"
+import { signinFormValidation } from "../../formValidation/signin"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -92,18 +92,18 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         color: colors.black,
     },
-});
+})
 
 const RightSide = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(signinFormValidation),
-    });
-    const [hideShowPassword, setHideShowPassword] = useState(false);
+    })
+    const [hideShowPassword, setHideShowPassword] = useState(false)
 
     const submit = (data) => {
-        console.log(data);
-    };
+        console.log(data)
+    }
 
     return (
         <Box container className={classes.wrapper}>
@@ -122,7 +122,7 @@ const RightSide = () => {
                         name="email"
                         placeholder="Email"
                         errorMsg={errors.email}
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                     />
 
                     <InputWithLabelIcon
@@ -132,9 +132,13 @@ const RightSide = () => {
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
                         icon={
-                            hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`}></span>
+                            hideShowPassword ? (
+                                <VisibilityIcon />
+                            ) : (
+                                <span className={`icon-Eye ${classes.icon}`} />
+                            )
                         }
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
 
@@ -144,7 +148,7 @@ const RightSide = () => {
                                 variant="borderButton"
                                 label="Confirm"
                                 type="submit"
-                                externalClass={classes.confirmButton}
+                                exteranlclass={classes.confirmButton}
                             />
                         </Grid>
                         <Grid>
@@ -156,12 +160,12 @@ const RightSide = () => {
                 </form>
             </Box>
         </Box>
-    );
-};
+    )
+}
 
 RightSide.propTypes = {
     title: PropTypes.string,
     subTitle: PropTypes.string,
-};
+}
 
-export default RightSide;
+export default RightSide

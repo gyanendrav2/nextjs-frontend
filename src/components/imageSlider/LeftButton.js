@@ -1,23 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react"
+import PropTypes from "prop-types"
 
 const LeftButton = ({ active, onClick, infiniteSlide, externalButton, externalClass }) => {
     return (
         <>
             {infiniteSlide ? (
-                <div className={externalClass ? externalClass : "iconButtonLeft"} onClick={onClick}>
-                    {externalButton ? externalButton : <div className="iconButtonLeft__arrowLeft"></div>}
+                <div className={externalClass || "iconButtonLeft"} onClick={onClick}>
+                    {externalButton || <div className="iconButtonLeft__arrowLeft" />}
                 </div>
             ) : (
                 active > 0 && (
-                    <div  className={externalClass ? externalClass : "iconButtonLeft"} onClick={onClick}>
-                        {externalButton ? externalButton : <div className="iconButtonLeft__arrowLeft"></div>}
+                    <div className={externalClass || "iconButtonLeft"} onClick={onClick}>
+                        {externalButton || <div className="iconButtonLeft__arrowLeft" />}
                     </div>
                 )
             )}
         </>
-    );
-};
+    )
+}
 
 LeftButton.propTypes = {
     active: PropTypes.number,
@@ -25,6 +25,6 @@ LeftButton.propTypes = {
     infiniteSlide: PropTypes.bool,
     externalButton: PropTypes.element,
     externalClass: PropTypes.element,
-};
+}
 
-export default LeftButton;
+export default LeftButton

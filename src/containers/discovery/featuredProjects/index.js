@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Box, makeStyles, Typography } from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import PropTypes from "prop-types";
-import CustomButton from "../../../components/buttons/customButton";
-import Categories from "../categories/categories";
-import { colors } from "../../../theme/colors";
-import classnames from "classnames";
-import Filter from "../../../components/filter";
-import FilterIcon from "../../../components/icons/filterIcon";
+import React, { useEffect, useState } from "react"
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import MoreVertIcon from "@material-ui/icons/MoreVert"
+import PropTypes from "prop-types"
+import classnames from "classnames"
+import CustomButton from "../../../components/buttons/customButton"
+import Categories from "../categories/categories"
+import { colors } from "../../../theme/colors"
+import Filter from "../../../components/filter"
+import FilterIcon from "../../../components/icons/filterIcon"
 
 const useStyles = makeStyles({
     projectButtonContainer: {
@@ -112,33 +112,33 @@ const useStyles = makeStyles({
     disableButton: {
         opacity: 0.5,
     },
-});
+})
 const SelectingCategories = ({ changeTab, category, categories }) => {
-    const classes = useStyles();
-    const [showCategories, setShowCategories] = useState([]);
-    const [showOtherCategories, setShowOtherCategories] = useState(false);
-    const [extraCategories, setExtraCategories] = useState([]);
-    const [activeCategory, setActiveCategory] = useState("");
-    const [showFilter, setShowFilter] = useState(false);
+    const classes = useStyles()
+    const [showCategories, setShowCategories] = useState([])
+    const [showOtherCategories, setShowOtherCategories] = useState(false)
+    const [extraCategories, setExtraCategories] = useState([])
+    const [activeCategory, setActiveCategory] = useState("")
+    const [showFilter, setShowFilter] = useState(false)
 
     useEffect(() => {
-        if (categories && categories?.length >= 6) {
-            setShowCategories(categories.slice(0, 6));
-            setExtraCategories(categories.slice(6, categories.length));
+        if (categories && categories.length >= 6) {
+            setShowCategories(categories.slice(0, 6))
+            setExtraCategories(categories.slice(6, categories.length))
         } else {
-            setShowCategories(categories);
+            setShowCategories(categories)
         }
-    }, [categories]);
+    }, [categories])
 
     const handleShowMore = () => {
-        setShowOtherCategories(!showOtherCategories);
-    };
+        setShowOtherCategories(!showOtherCategories)
+    }
 
     const handleActiveButton = (eachBtn) => {
-        changeTab(eachBtn);
-        setActiveCategory(eachBtn);
+        changeTab(eachBtn)
+        setActiveCategory(eachBtn)
         // setShowOtherCategories(false);
-    };
+    }
 
     return (
         <Box>
@@ -148,7 +148,7 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
                         <CustomButton
                             key={i}
                             label={eachBtn}
-                            externalClass={classnames(classes.projectButton, {
+                            exteranlclass={classnames(classes.projectButton, {
                                 [classes.activeButton]: eachBtn === activeCategory,
                                 [classes.disableButton]: showOtherCategories,
                             })}
@@ -162,7 +162,7 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
                             <Box>More</Box>
                         </>
                     }
-                    externalClass={classnames(classes.moreButton)}
+                    exteranlclass={classnames(classes.moreButton)}
                     onClick={handleShowMore}
                 />
                 {showOtherCategories && (
@@ -188,12 +188,12 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
             </Box>
             {showFilter && <Filter />}
         </Box>
-    );
-};
+    )
+}
 
 SelectingCategories.propTypes = {
-    changeTab: PropTypes.func,
-    categories: PropTypes.arrayOf(PropTypes.string),
-    category: PropTypes.string,
-};
-export default SelectingCategories;
+    changeTab: PropTypes.func.isRequired,
+    categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    category: PropTypes.string.isRequired,
+}
+export default SelectingCategories

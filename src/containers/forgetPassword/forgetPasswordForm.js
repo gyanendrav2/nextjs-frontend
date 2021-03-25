@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import { colors } from "../../theme/colors";
-import InputWithLabelIcon from "../../components/inputs/InputWithLabelIcon";
+import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon";
 import CustomButton from "../../components/buttons/CustomButton";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
@@ -100,14 +100,14 @@ const RightSide = () => {
                         name="email"
                         inputRegister={register}
                         errorMsg={errors?.email}
-                        externalClass={classes.inputStyles}
+                        exteranlclass={classes.inputStyles}
                     />
                     <Grid className={classes.submitContainer}>
                         <CustomButton
                             variant="borderButton"
                             label="Send reset link"
                             type="submit"
-                            externalClass={classes.confirmButton}
+                            exteranlclass={classes.confirmButton}
                         />
                     </Grid>
                 </form>

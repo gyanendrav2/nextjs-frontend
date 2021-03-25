@@ -1,10 +1,11 @@
-import React from "react";
-import { Box, makeStyles } from "@material-ui/core";
-import LeftSide from "../components/leftSide";
-import HeaderWrapper from "../components/header/headerWrapper";
-import { images } from "../assets/images";
-import ResetPasswordForm from "../containers/resetpassword/resetPasswordForm";
-import { colors } from "../theme/colors";
+import React from "react"
+import { Box, makeStyles } from "@material-ui/core"
+import LeftSide from "../components/leftSide"
+import HeaderWrapper from "../components/header/headerWrapper"
+import { images } from "../assets/images"
+import ResetPasswordForm from "../containers/resetpassword/resetPasswordForm"
+import { colors } from "../theme/colors"
+
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
@@ -28,13 +29,13 @@ const useStyles = makeStyles({
             width: "100%",
         },
     },
-});
+})
 
 const ResetPassword = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Box container className={classes.wrapper}>
-            <HeaderWrapper isScrollDetect={true} mobileMenuIconColor={colors.black} />
+            <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
             <Box item sm={0} md={0} lg={6} className={classes.left}>
                 <LeftSide />
             </Box>
@@ -42,9 +43,9 @@ const ResetPassword = () => {
                 <ResetPasswordForm />
             </Box>
         </Box>
-    );
-};
+    )
+}
 
-ResetPassword.propTypes = {};
+ResetPassword.propTypes = {}
 
-export default ResetPassword;
+export default ResetPassword

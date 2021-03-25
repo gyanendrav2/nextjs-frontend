@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 // import PropTypes from "prop-types";
 
 const Team = () => {
-    return <div>Team</div>;
-};
+    return <div>Team</div>
+}
 
-Team.propTypes = {};
+Team.propTypes = {}
 
-export default Team;
+export default Team

@@ -1,7 +1,7 @@
-import React from "react";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import PropTypes from "prop-types";
+import React from "react"
+import { Box, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -52,15 +52,15 @@ const useStyles = makeStyles({
         width: "100%",
         height: "11.25rem",
     },
-    image_: {
+    projectImg: {
         width: "100%",
         height: "100%",
         objectFit: "cover",
     },
-});
+})
 
 const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) => {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <Box className={classes.Container}>
@@ -71,23 +71,29 @@ const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) =
                 <Box>
                     <Typography className={classes.CreatorsAuthorName}>{title}</Typography>
                     <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
-                    <button className={classes.CreatorsButton}>{buttonText}</button>
+                    <button type="submit" className={classes.CreatorsButton}>
+                        {buttonText}
+                    </button>
                 </Box>
             </Box>
             {isProjectPage ? null : (
                 <Box className={classes.image_container}>
-                    <img className={classes.image_} src={image} alt={title} />
+                    <img className={classes.projectImg} src={image} alt={title} />
                 </Box>
             )}
         </Box>
-    );
-};
+    )
+}
+
+CardWithHeader.defaultProps = {
+    isProjectPage: false,
+}
 
 CardWithHeader.propTypes = {
-    image: PropTypes.string,
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-    buttonText: PropTypes.string,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
     isProjectPage: PropTypes.bool,
-};
-export default CardWithHeader;
+}
+export default CardWithHeader

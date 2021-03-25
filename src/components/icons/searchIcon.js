@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 // import PropTypes from "prop-types";
 
 const SearchIcon = () => {
@@ -9,9 +9,9 @@ const SearchIcon = () => {
             <span className="path3" />
             <span className="path4" />
         </span>
-    );
-};
+    )
+}
 
-SearchIcon.propTypes = {};
+SearchIcon.propTypes = {}
 
-export default SearchIcon;
+export default SearchIcon

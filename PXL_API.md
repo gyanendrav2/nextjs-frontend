@@ -33,7 +33,7 @@
         "roles": ["Director", "Screenwriter"],
         "location": "New York, NY, USA",
         "external_links": {
-            "youtube": "https://www.youtube.com/channel/pxl", 
+            "youtube": "https://www.youtube.com/channel/pxl",
             "instagram": "https://www.instagram.com/pxlforcreators/",
             "facebook": "https://www.facebook.com/pxlforcreators/",
             "tiktok": "https://www.tiktok.com/@pxlforcreators/",
@@ -117,7 +117,7 @@ Single project with full details.
                 },
                 "full": null
             }],
-            contentBlocksCount: 3 
+            contentBlocksCount: 3
         },
         "gallery": [image1, image2, image3],
         "participating": false
@@ -127,14 +127,14 @@ Single project with full details.
 
 ## Status Codes
 
-- 200 OK
-- 201 created OK
-- 204 deleted OK
-- 400 bad/invalid request
-- 401 for unauthorized requests for requests which require authentication.
-- 403 for requests where user doesn't have permissions.
-- 404 for not found errors.
-- 422 for requests with unprocessable entities, like missing values in request body or images which can't be formatted.
+-   200 OK
+-   201 created OK
+-   204 deleted OK
+-   400 bad/invalid request
+-   401 for unauthorized requests for requests which require authentication.
+-   403 for requests where user doesn't have permissions.
+-   404 for not found errors.
+-   422 for requests with unprocessable entities, like missing values in request body or images which can't be formatted.
 
 ### Error payload
 
@@ -166,10 +166,9 @@ POST /api/users
 }
 ```
 
-
 ## Login/Authentication
 
-Redirect to home page. Returns user object with token to be used for future authenticated requests. 
+Redirect to home page. Returns user object with token to be used for future authenticated requests.
 
 ```
 POST /api/users/login
@@ -209,6 +208,7 @@ POST /api/forgot_password_submit
 All require jwt token.
 
 Get active current user. Returns logged-in user object.
+
 ```
 GET /api/user
 ```
@@ -239,7 +239,7 @@ Get profile. jwt token not required. Returns profile object.
 GET /api/profiles/:username
 ```
 
-### Updating Profiles 
+### Updating Profiles
 
 Update profile. jwt token required. Returns profile object.
 
@@ -256,7 +256,7 @@ POST /api/profiles/:username/follow
 DELETE /api/profiles/:username/follow
 ```
 
-Get followers of profile. jwt not required. 
+Get followers of profile. jwt not required.
 
 ```
 GET /api/profiles/:username/followers
@@ -302,9 +302,9 @@ GET /api/profiles/:username/following
 }
 ```
 
-### Contact 
+### Contact
 
-To send email via pxl to user. jwt required. 
+To send email via pxl to user. jwt required.
 
 ```
 POST /api/profiles/:username/contact
@@ -328,20 +328,20 @@ Get a specific project. Returns a project object.
 GET /api/projects/:id
 ```
 
-- To get projects for a specific profile, use endpoint under 'Profiles'.
-- To get global projects, and filter them, use endpoint under 'Discover'. 
-- To get personalized projects for feed, use endpoint under 'Home/Feed'.
+-   To get projects for a specific profile, use endpoint under 'Profiles'.
+-   To get global projects, and filter them, use endpoint under 'Discover'.
+-   To get personalized projects for feed, use endpoint under 'Home/Feed'.
 
 ### Creating and Editting Projects
 
-Create new project or update existing project. Authentication required. 
+Create new project or update existing project. Authentication required.
 
-Members added are preliminary. A request is sent to added users, and they must accept to appear in the project and have it displayed on their profile. Once part of the project, members have editting privileges, but not deletion. 
+Members added are preliminary. A request is sent to added users, and they must accept to appear in the project and have it displayed on their profile. Once part of the project, members have editting privileges, but not deletion.
 
-Limit of 20 photos in gallery. Maximum size of 5 MB each. 
+Limit of 20 photos in gallery. Maximum size of 5 MB each.
 
 ```
-(create) POST /api/projects 
+(create) POST /api/projects
 (update) PUT /api/projects/:id
 
 // Example create request
@@ -407,18 +407,18 @@ Limit of 20 photos in gallery. Maximum size of 5 MB each.
                 },
                 "full": null
             }],
-            contentBlocksCount: 3 
+            contentBlocksCount: 3
         },
         "gallery": [image1, image2, image3],
     }
 }
 ```
 
-Optional fields for creation: `members, clients, external_links, content, gallery`. All other fields are required. At least one category is required. 
+Optional fields for creation: `members, clients, external_links, content, gallery`. All other fields are required. At least one category is required.
 
 ### Delete Project
 
-Delete project, authentication required. Only the owner can delete this. 
+Delete project, authentication required. Only the owner can delete this.
 
 ```
 DELETE /api/projects/:id
@@ -426,7 +426,7 @@ DELETE /api/projects/:id
 
 ### User Requests Participation in Project
 
-Active logged-in user sends a request to be included as team member in already uploaded project. Authentication required. 
+Active logged-in user sends a request to be included as team member in already uploaded project. Authentication required.
 
 ```
 POST /api/projects/:id/participate
@@ -440,7 +440,8 @@ POST /api/projects/:id/participate
 }
 ```
 
-The owner of the project will see a message in notifications describing this request. POST to this endpoint for the owner to accept or decline request. True denotes acceptance, false rejection. 
+The owner of the project will see a message in notifications describing this request. POST to this endpoint for the owner to accept or decline request. True denotes acceptance, false rejection.
+
 ```
 POST /api/projects/:id/participate/response
 
@@ -454,7 +455,7 @@ POST /api/projects/:id/participate/response
 }
 ```
 
-### User responding to request to join project 
+### User responding to request to join project
 
 A user is added by a project owner to join their project upon project creation or project update. This will send a notification to the added user. They must accept or reject the request from notifications using this endpoint. True denotes acceptance, false rejection.
 
@@ -500,7 +501,7 @@ GET /api/feed
 
 ## Discover
 
-Returns default list of 8 featured projects as IDs and 4 featured curated creators as usernames. Applying filters returns new list of only projects, default size 10. jwt not required. 
+Returns default list of 8 featured projects as IDs and 4 featured curated creators as usernames. Applying filters returns new list of only projects, default size 10. jwt not required.
 
 ```
 GET /api/discover
@@ -571,7 +572,7 @@ GET /api/notifications
             "profile": {
                 "username": "chris_nolan",
                 "name": "Chris Nolan",
-                "picture": 
+                "picture":
             },
             "project": {
                 "id": 342,
@@ -587,7 +588,7 @@ GET /api/notifications
             "profile": {
                 "username": "jksimmons",
                 "name": "J.K. Simmons",
-                "picture": 
+                "picture":
             },
             "project": {
                 "id": 41421,
@@ -601,20 +602,20 @@ GET /api/notifications
             "profile": {
                 "username": "chris_nolan",
                 "name": "Chris Nolan",
-                "picture": 
+                "picture":
             },
             "project": {
                 "id": 342,
                 "title": "Tenet"
             }
         },
-        
+
         // User rejects your request to add them to your project
         "request_add_member_rejection": {
             "profile": {
                 "username": "david_gilmour",
                 "name": "David Gilmour",
-                "picture": 
+                "picture":
             },
             "project": {
                 "id": 342,
@@ -628,7 +629,7 @@ GET /api/notifications
             "profile": {
                 "username": "david_gilmour",
                 "name": "David Gilmour",
-                "picture": 
+                "picture":
             },
             "project": {
                 "id": 6545,
@@ -641,7 +642,7 @@ GET /api/notifications
             "profile": {
                 "username": "freddie.mercury",
                 "name": "Freddie Mercury",
-                "picture": 
+                "picture":
             },
             "project": {
                 "id": 6545,
@@ -703,8 +704,8 @@ GET /api/search
 ?sort=alpha
 ```
 
-- To search existing projects before creating your own, use search endpoint with type "projects".
-- To search existing profiles to add to project, use search endpoint with type "profiles".
+-   To search existing projects before creating your own, use search endpoint with type "projects".
+-   To search existing profiles to add to project, use search endpoint with type "profiles".
 
 ## About Us
 
@@ -733,7 +734,7 @@ GET /api/pxl_social_media
 // Example return object
 {
     "pxl_social_media": {
-        "youtube": "https://www.youtube.com/channel/pxl", 
+        "youtube": "https://www.youtube.com/channel/pxl",
         "instagram": "https://www.instagram.com/pxlforcreators/",
         "facebook": "https://www.facebook.com/pxlforcreators/",
         "tiktok": "https://www.tiktok.com/@pxlforcreators/",

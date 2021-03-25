@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import { images } from "../../assets/images";
-import { Close, MoreVert } from "@material-ui/icons";
-import CustomButton from "../../components/buttons/customButton";
-import classnames from "classnames";
-import { useRouter } from "next/router";
-import ReactPlayer from "react-player";
-import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper";
+import React from "react"
+import PropTypes from "prop-types"
+import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Close, MoreVert } from "@material-ui/icons"
+import classnames from "classnames"
+import { useRouter } from "next/router"
+import ReactPlayer from "react-player"
+import CustomButton from "../../components/buttons/customButton"
+import { images } from "../../assets/images"
+import { colors } from "../../theme/colors"
+import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -98,14 +98,19 @@ const useStyles = makeStyles({
             marginBottom: "1rem",
         },
     },
-});
+})
 
 const QuickViewDailog = ({ closeModal }) => {
-    const classes = useStyles();
-    const routes = useRouter();
+    const classes = useStyles()
+    const routes = useRouter()
     return (
         <Box className={classes.wrapper}>
-            <Grid container alignItems="flex-start" justify="space-between" wrap="nowrap" className={classes.header}>
+            <Grid
+                container
+                alignItems="flex-start"
+                justify="space-between"
+                wrap="nowrap"
+                className={classes.header}>
                 <Grid
                     container
                     alignItems="center"
@@ -120,13 +125,18 @@ const QuickViewDailog = ({ closeModal }) => {
                         <Typography>Brandon Landing 2nd AD</Typography>
                     </Grid>
                 </Grid>
-                <Grid container alignItems="flex-start" justify="center" className={classes.shareButtonContainer}>
+                <Grid
+                    container
+                    alignItems="flex-start"
+                    justify="center"
+                    className={classes.shareButtonContainer}>
                     <CustomButton
-                        externalClass={classes.button}
-                        disableRipple={true}
+                        exteranlclass={classes.button}
+                        disableRipple
                         label={
                             <>
-                                <MoreVert /> <Typography className={classes.shareButtonText}>Share</Typography>
+                                <MoreVert />{" "}
+                                <Typography className={classes.shareButtonText}>Share</Typography>
                             </>
                         }
                     />
@@ -134,13 +144,20 @@ const QuickViewDailog = ({ closeModal }) => {
                 </Grid>
             </Grid>
             <Grid>
-                <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+                <ReactPlayer
+                    width="100%"
+                    height="30rem"
+                    controls
+                    url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                />
             </Grid>
             {/* <img  objectFit: "cover"  src={images.maskGroup} alt="" /> */}
             <Grid container className={classes.infoContainer}>
                 <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Category:</Typography>
-                    <Typography className={classnames(classes.underlineStyle, classes.infoText)}>Directing</Typography>
+                    <Typography className={classnames(classes.underlineStyle, classes.infoText)}>
+                        Directing
+                    </Typography>
                 </Grid>
                 <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Year</Typography>
@@ -150,21 +167,28 @@ const QuickViewDailog = ({ closeModal }) => {
                     <Typography className={classes.infoTextHead}>Client:</Typography>
                     <Typography className={classes.infoText}>SiR, Top Dog Entertainment</Typography>
                 </Grid>
-                <Grid item className={classes.fullProjectButton} xs={12} sm={4} md={3} lg={3} xl={3}>
+                <Grid
+                    item
+                    className={classes.fullProjectButton}
+                    xs={12}
+                    sm={4}
+                    md={3}
+                    lg={3}
+                    xl={3}>
                     <CustomButton
                         label="See full project"
                         onClick={() => routes.push("/project")}
-                        externalClass={classes.seeFullButton}
+                        exteranlclass={classes.seeFullButton}
                     />
                 </Grid>
             </Grid>
             <ReportContentWrapper />
         </Box>
-    );
-};
+    )
+}
 
 QuickViewDailog.propTypes = {
     closeModal: PropTypes.func,
-};
+}
 
-export default QuickViewDailog;
+export default QuickViewDailog

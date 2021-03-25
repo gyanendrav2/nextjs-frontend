@@ -1,11 +1,11 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { colors } from "../../theme/colors";
-import CustomButton from "../../components/buttons/CustomButton";
-import FilterIcon from "../../components/icons/filterIcon";
-import Filter from "../../components/filter";
-import classnames from "classnames";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import React, { useState } from "react"
+import classnames from "classnames"
+import { colors } from "../../theme/colors"
+import CustomButton from "../../components/buttons/CustomButton"
+import FilterIcon from "../../components/icons/filterIcon"
+import Filter from "../../components/filter"
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -62,7 +62,6 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
-        position: "absolute",
         right: "2rem",
         position: "relative",
         "@media (max-width: 767px)": {
@@ -159,15 +158,19 @@ const useStyles = makeStyles({
         transform: "none!important",
         width: "100%!important",
     },
-});
+})
 
-const SearchBox = ({ externalClass }) => {
-    const classes = useStyles();
+const SearchBox = ({ exteranlclass }) => {
+    const classes = useStyles()
 
-    const [showFilter, setShowFilter] = useState(false);
+    const [showFilter, setShowFilter] = useState(false)
     return (
         <>
-            <Grid container alignItems="center" justify="center" className={classes.searchContainer}>
+            <Grid
+                container
+                alignItems="center"
+                justify="center"
+                className={classes.searchContainer}>
                 {/* <Grid item sm={12} md={3} lg={2}></Grid>
                 <Grid item sm={12} md={6} lg={8}> */}
                 <Grid
@@ -185,14 +188,28 @@ const SearchBox = ({ externalClass }) => {
                             />
                         </Grid>
                         <Grid item className={classes.inputCol2}>
-                            <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
-                                <CustomButton externalClass={classes.buttonGroupItem} label="Work" />
-                                <CustomButton externalClass={classes.buttonGroupItem} label="People" />
+                            <Grid
+                                container
+                                alignItems="center"
+                                justifyContent="flex-start"
+                                wrap="nowrap">
+                                <CustomButton
+                                    exteranlclass={classes.buttonGroupItem}
+                                    label="Work"
+                                />
+                                <CustomButton
+                                    exteranlclass={classes.buttonGroupItem}
+                                    label="People"
+                                />
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.col2}>
-                        <CustomButton label="Search" type="submit" externalClass={classes.confirmButton} />
+                        <CustomButton
+                            label="Search"
+                            type="submit"
+                            exteranlclass={classes.confirmButton}
+                        />
                     </Grid>
                 </Grid>
                 {/* </Grid> */}
@@ -216,13 +233,15 @@ const SearchBox = ({ externalClass }) => {
                     />
                 </Grid>
             </Box>
-            <Box className={classes.filterWrapper}>{showFilter && <Filter externalClass={classes.search} />}</Box>
+            <Box className={classes.filterWrapper}>
+                {showFilter && <Filter exteranlclass={classes.search} />}
+            </Box>
         </>
-    );
-};
+    )
+}
 
 SearchBox.propTypes = {
-    externalClass: PropTypes.string,
-};
+    exteranlclass: PropTypes.string,
+}
 
-export default SearchBox;
+export default SearchBox

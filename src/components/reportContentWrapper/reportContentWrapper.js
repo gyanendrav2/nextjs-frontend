@@ -1,10 +1,10 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
-import classnames from "classnames";
-import Link from "next/link";
-import { icons } from "../../assets/icons";
-import PropTypes from "prop-types";
-import { colors } from "../../theme/colors";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import React from "react"
+import classnames from "classnames"
+import Link from "next/link"
+import PropTypes from "prop-types"
+import { icons } from "../../assets/icons"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     reportWrapper: {
@@ -46,22 +46,30 @@ const useStyles = makeStyles({
             justifyContent: "flex-start",
         },
     },
-});
+})
 
-export const ReportContentWrapper = (externalClass) => {
-    const classes = useStyles();
+const ReportContentWrapper = (exteranlclass) => {
+    const classes = useStyles()
 
     return (
-        <Box className={classnames(classes.reportWrapper, externalClass)}>
+        <Box className={classnames(classes.reportWrapper, exteranlclass)}>
             <Grid container className={classes.spamContainer}>
-                <Grid item xs={12} sm={12} md={6} lg={6} className={classes.reportspamwrapper} container>
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    lg={6}
+                    className={classes.reportspamwrapper}
+                    container>
                     <Grid item xs={6} sm={6} md={6} lg={6}>
                         <Link href="/">
                             <>
                                 <img
                                     className={classnames(classes.spamItem)}
                                     alt="report-spam"
-                                    src={icons.markspamIcon}></img>
+                                    src={icons.markspamIcon}
+                                />
                                 <Typography className={classes.spamText}>Mark as spam</Typography>
                             </>
                         </Link>
@@ -72,7 +80,8 @@ export const ReportContentWrapper = (externalClass) => {
                                 <img
                                     className={classnames(classes.spamItem)}
                                     alt="report-content"
-                                    src={icons.reportContentIcon}></img>
+                                    src={icons.reportContentIcon}
+                                />
                                 <Typography className={classes.spamText}>Report content</Typography>
                             </>
                         </Link>
@@ -80,20 +89,27 @@ export const ReportContentWrapper = (externalClass) => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} className={classes.requestwrapper}>
                     <Link href="/">
-                        <Grid display="flex" alignItems="center" justify="center" flexDirection="row">
+                        <Grid
+                            display="flex"
+                            alignItems="center"
+                            justify="center"
+                            flexDirection="row">
                             <img
                                 className={classnames(classes.spamwrapper, classes.reportContent)}
                                 alt="request participation"
-                                src={icons.requestParticipationIcon}></img>
-                            <Typography className={classes.spamText}>Request participation in the project</Typography>
+                                src={icons.requestParticipationIcon}
+                            />
+                            <Typography className={classes.spamText}>
+                                Request participation in the project
+                            </Typography>
                         </Grid>
                     </Link>
                 </Grid>
             </Grid>
         </Box>
-    );
-};
+    )
+}
 ReportContentWrapper.prototypes = {
-    externalClass: PropTypes.string,
-};
-export default ReportContentWrapper;
+    exteranlclass: PropTypes.string,
+}
+export default ReportContentWrapper

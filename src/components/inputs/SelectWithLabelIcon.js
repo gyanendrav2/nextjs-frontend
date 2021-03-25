@@ -1,9 +1,9 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
-import React from "react";
-import { colors } from "../../theme/colors";
-import ErrorMessage from "../errorMessage/ErrorMessage";
-import cn from "classnames";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import React from "react"
+import cn from "classnames"
+import { colors } from "../../theme/colors"
+import ErrorMessage from "../errorMessage/errorMessage"
 
 const useStyles = makeStyles({
     container: {
@@ -16,7 +16,8 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         fontWeight: 400,
         backgroundColor: (props) => (props.bgColor ? props.bgColor : colors.white),
-        border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`),
+        border: (props) =>
+            props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`,
         borderRadius: "3px",
         "&:focus": {
             borderColor: (props) => (props.error ? colors.red : colors.black),
@@ -73,9 +74,9 @@ const useStyles = makeStyles({
             backgroundColor: (props) => (props.bgColor ? props.bgColor : colors.white),
         },
     },
-});
+})
 const SelectWithLabelIcon = ({
-    // externalClass,
+    // exteranlclass,
     label,
     error,
     errorMsg,
@@ -88,7 +89,7 @@ const SelectWithLabelIcon = ({
     // bgColor,
     ...props
 }) => {
-    const classes = useStyles({ error, labelColor });
+    const classes = useStyles({ error, labelColor })
     return (
         <Box className={classes.container}>
             <Typography className={classes.label}>
@@ -103,7 +104,11 @@ const SelectWithLabelIcon = ({
                 tabIndex="0"
                 className={cn(classes.wrapper, { [classes[variant]]: variant })}>
                 <Box className={classes.inputContainer}>
-                    <select ref={inputRegister} className={cn(classes.input)} error={error} {...props}>
+                    <select
+                        ref={inputRegister}
+                        className={cn(classes.input)}
+                        error={error}
+                        {...props}>
                         <option value="" hidden>
                             {placeholder}
                         </option>
@@ -117,8 +122,8 @@ const SelectWithLabelIcon = ({
             </Grid>
             <ErrorMessage errorMsg={errorMsg} />
         </Box>
-    );
-};
+    )
+}
 
 SelectWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
@@ -137,5 +142,5 @@ SelectWithLabelIcon.propTypes = {
     variant: PropTypes.string,
     labelColor: PropTypes.string,
     bgColor: PropTypes.string,
-};
-export default SelectWithLabelIcon;
+}
+export default SelectWithLabelIcon

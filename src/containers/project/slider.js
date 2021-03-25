@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 // import PropTypes from "prop-types";
-import ImageSlider from "../../components/imageSlider/ImageSlider";
-import SliderButton from "./sliderButton";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import { Box, makeStyles } from "@material-ui/core";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack"
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
+import { Box, makeStyles } from "@material-ui/core"
+import SliderButton from "./sliderButton"
+import ImageSlider from "../../components/imageSlider/imageSlider"
 
 const useStyles = makeStyles({
     seperator: {
@@ -16,19 +16,19 @@ const useStyles = makeStyles({
             maxWidth: "6rem",
         },
     },
-});
+})
 
 const Slider = () => {
-    const classes = useStyles();
-    const [slideLeftClick, setSlideLeftClick] = useState(0);
-    const [slideRightClick, setSlideRightClick] = useState(0);
+    const classes = useStyles()
+    const [slideLeftClick, setSlideLeftClick] = useState(0)
+    const [slideRightClick, setSlideRightClick] = useState(0)
 
     const imageList = [
         { url: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" },
         { url: "https://i.pinimg.com/originals/3b/1c/fa/3b1cfaff4adbaa3aa4d781bc25dde452.jpg" },
         { url: "https://i.pinimg.com/originals/aa/23/92/aa2392f40795d215302934420387cf10.jpg" },
         { url: "https://images.pexels.com/photos/2929227/pexels-photo-2929227.jpeg" },
-    ];
+    ]
 
     return (
         <>
@@ -38,7 +38,7 @@ const Slider = () => {
                 outerLeftBtnClicked={slideLeftClick}
                 outerRightBtnClicked={slideRightClick}
                 height="45rem"
-                infiniteSlide={true}
+                infiniteSlide
             />
             <Box className={classes.seperator}>
                 <Box>
@@ -58,9 +58,9 @@ const Slider = () => {
                 </Box>
             </Box>
         </>
-    );
-};
+    )
+}
 
-Slider.propTypes = {};
+Slider.propTypes = {}
 
-export default Slider;
+export default Slider

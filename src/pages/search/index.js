@@ -1,12 +1,12 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
-import { colors } from "../../theme/colors";
-import HeaderWrapper from "../../components/header/headerWrapper";
-import Footer from "../../components/footer";
-import SearchBox from "../../containers/search/searchBox";
-import CardWithHeader from "../../components/cards/cardWithHeader";
-import { images } from "../../assets/images";
-import ContentWrapper from "../../components/contentWrapper/contentWrapper";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import React from "react"
+import { colors } from "../../theme/colors"
+import HeaderWrapper from "../../components/header/headerWrapper"
+import Footer from "../../components/footer"
+import SearchBox from "../../containers/search/searchBox"
+import CardWithHeader from "../../components/cards/cardWithHeader"
+import { images } from "../../assets/images"
+import ContentWrapper from "../../components/contentWrapper/contentWrapper"
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -53,10 +53,10 @@ const useStyles = makeStyles({
         transform: "none",
         width: "100%",
     },
-});
+})
 
 const Search = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     // const [showFilter, setShowFilter] = useState(false);
 
     return (
@@ -65,7 +65,7 @@ const Search = () => {
             <Box className={classes.searchWrapper}>
                 <Typography className={classes.title}>Search the markets</Typography>
             </Box>
-            <SearchBox externalClass={classes.search} />
+            <SearchBox exteranlclass={classes.search} />
             <Box className={classes.resultsContainer}>
                 <Typography className={classes.results}>4 results</Typography>
             </Box>
@@ -85,9 +85,9 @@ const Search = () => {
             </ContentWrapper>
             <Footer />
         </Box>
-    );
-};
+    )
+}
 
-Search.propTypes = {};
+Search.propTypes = {}
 
-export default Search;
+export default Search

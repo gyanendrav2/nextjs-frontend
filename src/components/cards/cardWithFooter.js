@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { colors } from "../../theme/colors";
-import { makeStyles } from "@material-ui/core/styles";
-import { Box, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
-import LazyloadImage from "../lazyloadImage/lazyloadImage";
+import React, { useState } from "react"
+import { makeStyles } from "@material-ui/core/styles"
+import { Box, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import { colors } from "../../theme/colors"
+import LazyloadImage from "../lazyloadImage/lazyloadImage"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -70,23 +70,23 @@ const useStyles = makeStyles({
     red: {
         background: "red",
     },
-});
+})
 const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick, hideFooter }) => {
-    const classes = useStyles();
-    const [isHovering, setisHovering] = useState(false);
+    const classes = useStyles()
+    const [isHovering, setisHovering] = useState(false)
 
     const handleMouseHover = () => {
-        setisHovering(true);
-    };
+        setisHovering(true)
+    }
     const handleMouseOut = () => {
-        setisHovering(false);
-    };
+        setisHovering(false)
+    }
 
     return (
         <Box className={classes.cardWrapper} onClick={handleClick}>
             <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
                 <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
-                    <LazyloadImage image={image} externalClass={classes.image} />
+                    <LazyloadImage image={image} exteranlclass={classes.image} />
                 </Box>
                 {isHovering && <Typography className={classes.ProjectTitle}>{title}</Typography>}
             </Box>
@@ -97,20 +97,27 @@ const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick,
                     </Box>
                     <Box>
                         <Typography className={classes.projectAuthorName}>{footerTitle}</Typography>
-                        <Typography className={classes.projectAuthorJobTitle}>{footerSubitle}</Typography>
+                        <Typography className={classes.projectAuthorJobTitle}>
+                            {footerSubitle}
+                        </Typography>
                     </Box>
                 </Box>
             )}
         </Box>
-    );
-};
+    )
+}
+
+CardWithFooter.defaultProps = {
+    handleClick: () => {},
+    hideFooter: false,
+}
 
 CardWithFooter.propTypes = {
-    image: PropTypes.string,
-    title: PropTypes.string,
-    footerTitle: PropTypes.string,
-    footerSubitle: PropTypes.string,
+    image: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    footerTitle: PropTypes.string.isRequired,
+    footerSubitle: PropTypes.string.isRequired,
     handleClick: PropTypes.func,
     hideFooter: PropTypes.bool,
-};
-export default CardWithFooter;
+}
+export default CardWithFooter

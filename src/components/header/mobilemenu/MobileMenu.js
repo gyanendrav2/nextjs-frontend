@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../../theme/colors";
-import CloseIcon from "@material-ui/icons/Close";
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
-import { icons } from "../../../assets/icons";
-import classnames from "classnames";
-import { images } from "../../../assets/images";
-import InputWithLabelIcon from "../../inputs/InputWithLabelIcon";
-import SearchIcon from "@material-ui/icons/Search";
-import CustomButton from "../../../components/buttons/customButton";
+import React from "react"
+import PropTypes from "prop-types"
+import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
+import CloseIcon from "@material-ui/icons/Close"
+import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone"
+import classnames from "classnames"
+import SearchIcon from "@material-ui/icons/Search"
+import { colors } from "../../../theme/colors"
+import { icons } from "../../../assets/icons"
+import { images } from "../../../assets/images"
+import CustomButton from "../../buttons/customButton"
+import InputWithLabelIcon from "../../inputs/inputWithLabelIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -126,20 +126,32 @@ const useStyles = makeStyles({
             backgroundColor: colors.pink,
         },
     },
-});
+})
 
 const MobileMenu = ({ toggleMenu, onClose }) => {
-    const classes = useStyles();
+    const classes = useStyles()
 
     return (
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
             <Box className={classes.contentWrapper}>
-                <Grid container alignItems="center" justifycontent="space-between" className={classes.headerWrapper}>
-                    <Grid container alignItems="center" justifycontent="space-between" className={classes.autoWidth}>
+                <Grid
+                    container
+                    alignItems="center"
+                    justifycontent="space-between"
+                    className={classes.headerWrapper}>
+                    <Grid
+                        container
+                        alignItems="center"
+                        justifycontent="space-between"
+                        className={classes.autoWidth}>
                         <Avatar src={images.maskGroup} />
                         <Typography className={classes.username}>Brandon</Typography>
                     </Grid>
-                    <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
+                    <Grid
+                        container
+                        alignItems="center"
+                        justifycontent="space-around"
+                        className={classes.autoWidth}>
                         <IconButton className={classes.closeButton} onClick={onClose}>
                             <NotificationsNoneIcon className={classes.icon} />
                         </IconButton>
@@ -151,13 +163,13 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                 <Box className={classes.menuWrapper}>
                     <ul className={classes.unorderedList}>
                         <li className={classes.listStyle}>
-                            <img src={icons.Ellipse} alt="feed" className={classes.img}></img>
+                            <img src={icons.Ellipse} alt="feed" className={classes.img} />
                             <Typography className={classes.title}>Feed</Typography>
                         </li>
                         <li className={classes.listStyle}>
                             {/* <Link href="/"> */}
                             <>
-                                <img src={icons.Ellipse} alt="feed" className={classes.img}></img>
+                                <img src={icons.Ellipse} alt="feed" className={classes.img} />
                                 <Typography className={classes.title}>Discover</Typography>
                             </>
                             {/* </Link> */}
@@ -167,13 +179,13 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                             <InputWithLabelIcon
                                 placeholder="Search"
                                 icon={<SearchIcon />}
-                                externalClass={classes.input}
+                                exteranlclass={classes.input}
                             />
                         </li>
                         <li className={classes.listStyle}>
                             <CustomButton
-                                wantFile={true}
-                                allowMultiple={true}
+                                wantFile
+                                allowMultiple
                                 onFileChange={(e) => console.log(e.target.files)}
                                 className={classes.button}
                                 label="Upload work"
@@ -184,31 +196,17 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                 </Box>
             </Box>
         </Box>
-    );
-};
+    )
+}
+
+MobileMenu.defaultProps = {
+    toggleMenu: false,
+    onClose: () => {},
+}
 
 MobileMenu.propTypes = {
-    menuList: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number,
-            name: PropTypes.string,
-            icon: PropTypes.string,
-        })
-    ),
     toggleMenu: PropTypes.bool,
     onClose: PropTypes.func,
-    menuIconColor: PropTypes.string,
-    featuredCardsDetails: PropTypes.arrayOf(
-        PropTypes.shape({
-            image: PropTypes.string,
-            title: PropTypes.string,
-            category: PropTypes.string,
-            author: PropTypes.shape({
-                jobTitle: PropTypes.string,
-                name: PropTypes.string,
-            }),
-        })
-    ),
-};
+}
 
-export default MobileMenu;
+export default MobileMenu

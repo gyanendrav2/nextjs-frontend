@@ -1,8 +1,8 @@
-import React from "react";
-import { Box, Checkbox, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import { images } from "../../assets/images";
-import CheckBoxIcon from "../icons/checkBoxIcon";
+import React from "react"
+import { Box, Checkbox, Grid, makeStyles, Typography } from "@material-ui/core"
+import { colors } from "../../theme/colors"
+import { images } from "../../assets/images"
+import CheckBoxIcon from "../icons/checkBoxIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -50,24 +50,24 @@ const useStyles = makeStyles({
     checkboxText: {
         fontSize: "0.9rem",
     },
-});
+})
 
 const LeftSide = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="flex-start" className={classes.wrapper}>
             <Box className={classes.titleWrapper}>
                 <Box className={classes.titlesContainer}>
                     <Typography className={classes.title}>
-                        Show work <span></span>
+                        Show work <span />
                     </Typography>
                     <br />
                     <Typography className={classes.title}>
-                        Network <span></span>
+                        Network <span />
                     </Typography>
                     <br />
                     <Typography className={classes.title}>
-                        Get work <span></span>
+                        Get work <span />
                     </Typography>
                 </Box>
                 <Box className={classes.radioboxWrapper}>
@@ -100,14 +100,16 @@ const LeftSide = () => {
                             icon={<span className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
                         />
-                        <Typography className={classes.checkboxText}>Use smart search to find inspiration</Typography>
+                        <Typography className={classes.checkboxText}>
+                            Use smart search to find inspiration
+                        </Typography>
                     </Box>
                 </Box>
             </Box>
         </Grid>
-    );
-};
+    )
+}
 
-LeftSide.propTypes = {};
+LeftSide.propTypes = {}
 
-export default LeftSide;
+export default LeftSide

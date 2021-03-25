@@ -1,10 +1,10 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { colors } from "../../theme/colors";
-import ErrorMessage from "../errorMessage/ErrorMessage";
-import classnames from "classnames";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
+import React, { useState } from "react"
+import classnames from "classnames"
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
+import { colors } from "../../theme/colors"
+import ErrorMessage from "../errorMessage/errorMessage"
 
 const useStyles = makeStyles({
     container: {
@@ -94,7 +94,7 @@ const useStyles = makeStyles({
         top: "0.5rem",
         right: 0,
     },
-});
+})
 const CountrySelectInput = ({
     label,
     error,
@@ -106,15 +106,15 @@ const CountrySelectInput = ({
     name,
     ...props
 }) => {
-    const classes = useStyles({});
-    const [openSelection, setOpenSelection] = useState(false);
-    const [selectedCountry, setSelectedCountry] = useState("");
+    const classes = useStyles({})
+    const [openSelection, setOpenSelection] = useState(false)
+    const [selectedCountry, setSelectedCountry] = useState("")
     const handleOpenSelection = () => {
-        setOpenSelection(!openSelection);
-    };
+        setOpenSelection(!openSelection)
+    }
     const handleCountrySelect = (country) => {
-        setSelectedCountry(country);
-    };
+        setSelectedCountry(country)
+    }
     return (
         <Box className={classes.container}>
             <Typography className={classes.label}>
@@ -130,8 +130,14 @@ const CountrySelectInput = ({
                 className={classes.wrapper}>
                 <input type="hidden" value={selectedCountry} name={name} ref={inputRegister} />
                 <Box tabIndex={0} className={classes.inputContainer}>
-                    <Box className={classes.input} error={error} onClick={handleOpenSelection} {...props}>
-                        <Typography>{selectedCountry !== "" ? selectedCountry : placeholder}</Typography>
+                    <Box
+                        className={classes.input}
+                        error={error}
+                        onClick={handleOpenSelection}
+                        {...props}>
+                        <Typography>
+                            {selectedCountry !== "" ? selectedCountry : placeholder}
+                        </Typography>
                         <ExpandMoreIcon className={classes.expandIcon} />
                         <Box
                             className={classnames(
@@ -157,8 +163,23 @@ const CountrySelectInput = ({
             </Grid>
             <ErrorMessage errorMsg={errorMsg} />
         </Box>
-    );
-};
+    )
+}
+CountrySelectInput.defaultProps = {
+    disabled: false,
+    error: false,
+    onChange: () => {},
+    placeholder: "",
+    value: "",
+    type: "text",
+    label: "",
+    icon: "",
+    name: "",
+    inputRegister: () => {},
+    errorMsg: "",
+    options: PropTypes.array,
+    iscompulsory: PropTypes.bool,
+}
 
 CountrySelectInput.propTypes = {
     disabled: PropTypes.bool,
@@ -171,8 +192,10 @@ CountrySelectInput.propTypes = {
     icon: PropTypes.element,
     name: PropTypes.string,
     inputRegister: PropTypes.func,
-    errorMsg: PropTypes.object,
-    options: PropTypes.array,
+    errorMsg: PropTypes.arrayOf(PropTypes.shape({ message: PropTypes.string })),
+    options: PropTypes.arrayOf(
+        PropTypes.shape({ value: PropTypes.string, label: PropTypes.string })
+    ),
     iscompulsory: PropTypes.bool,
-};
-export default CountrySelectInput;
+}
+export default CountrySelectInput

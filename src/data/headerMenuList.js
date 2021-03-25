@@ -1,4 +1,4 @@
-import { icons } from "../assets/icons";
+import { icons } from "../assets/icons"
 
 export const NavItemOptions = [
     {
@@ -26,7 +26,7 @@ export const NavItemOptions = [
         iconPink: icons.loginPink,
         pathname: "/signin",
     },
-];
+]
 
 export const mobileNavOptions = [
     {
@@ -46,4 +46,4 @@ export const mobileNavOptions = [
         iconPink: icons.searchPink,
         pathname: "/search",
     },
-];
+]

@@ -1,7 +1,7 @@
-import React from "react";
+import React from "react"
 // import PropTypes from "prop-types";
-import { Grid, makeStyles } from "@material-ui/core";
-import { icons } from "../../assets/icons";
+import { Grid, makeStyles } from "@material-ui/core"
+import { icons } from "../../assets/icons"
 
 const useStyles = makeStyles({
     buttonContainer: {
@@ -19,20 +19,24 @@ const useStyles = makeStyles({
             marginRight: "0.5rem",
         },
     },
-});
+})
 
 const SocialButtons = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     return (
-        <Grid container alignItems="center" justify="flex-start" className={classes.buttonContainer}>
-            <img alt="youtube" src={icons.youtube} className={classes.socialButton}></img>
-            <img alt="vimeo" src={icons.vimeo} className={classes.socialButton}></img>
-            <img alt="instagram" src={icons.instagram} className={classes.socialButton}></img>
-            <img alt="linkedin" src={icons.linkedin} className={classes.socialButton}></img>
+        <Grid
+            container
+            alignItems="center"
+            justify="flex-start"
+            className={classes.buttonContainer}>
+            <img alt="youtube" src={icons.youtube} className={classes.socialButton} />
+            <img alt="vimeo" src={icons.vimeo} className={classes.socialButton} />
+            <img alt="instagram" src={icons.instagram} className={classes.socialButton} />
+            <img alt="linkedin" src={icons.linkedin} className={classes.socialButton} />
         </Grid>
-    );
-};
+    )
+}
 
-SocialButtons.propTypes = {};
+SocialButtons.propTypes = {}
 
-export default SocialButtons;
+export default SocialButtons
