@@ -144,7 +144,7 @@ export const Home = ({ details }) => {
         const result = featuredProjects.slice(0, 8)
         setFeaturedCardsDetails(result)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [details])
 
     const setProjectInitially = () => {
         if (featuredProjects) {
@@ -238,26 +238,28 @@ export const Home = ({ details }) => {
                     </Slider>
                 )}
                 <ContentWrapper>
-                    <SelectingCategories
-                        category={activeCategory}
-                        categories={totalCategories}
-                        changeTab={(e) => handleTab(e)}
-                    />
-                    {activeCategory ? (
-                        <Box className={classes.resultsContainer}>
-                            <Typography className={classes.results}>4 results </Typography>
-                        </Box>
-                    ) : (
-                        " "
-                    )}
-                    {!activeCategory && <Typography className={classes.headings}>Featured Projects</Typography>}
-                    <FeaturedCard featuredCardsDetails={featuredCardsDetails} />
-                    {!activeCategory && (
-                        <>
-                            <Typography className={classes.headings}>Curated creators</Typography>
-                            <CreationCard curatedCreators={curatedCreators} />{" "}
-                        </>
-                    )}
+                    <>
+                        <SelectingCategories
+                            category={activeCategory}
+                            categories={totalCategories}
+                            changeTab={(e) => handleTab(e)}
+                        />
+                        {activeCategory ? (
+                            <Box className={classes.resultsContainer}>
+                                <Typography className={classes.results}>4 results </Typography>
+                            </Box>
+                        ) : (
+                            " "
+                        )}
+                        {!activeCategory && <Typography className={classes.headings}>Featured Projects</Typography>}
+                        <FeaturedCard featuredCardsDetails={featuredCardsDetails} />
+                        {!activeCategory && (
+                            <>
+                                <Typography className={classes.headings}>Curated creators</Typography>
+                                <CreationCard curatedCreators={curatedCreators} />{" "}
+                            </>
+                        )}
+                    </>
                 </ContentWrapper>
                 <Footer />
                 {/* <MobileFooter /> */}
@@ -267,11 +269,11 @@ export const Home = ({ details }) => {
 }
 
 const propsValidation = {
-    hero: PropTypes.shape(
+    hero: PropTypes.arrayOf(
         PropTypes.shape({
             backgroundImage: PropTypes.string,
             subtitle: PropTypes.string,
-            titleLines: PropTypes.arrayOf([PropTypes.string]),
+            titleLines: PropTypes.arrayOf(PropTypes.string),
         })
     ),
     curatedCreators: PropTypes.arrayOf(
@@ -295,14 +297,10 @@ const propsValidation = {
 }
 
 Home.defaultProps = {
-    details: [],
+    details: {},
 }
 
 Home.propTypes = {
-    details: PropTypes.shape(
-        PropTypes.shape({
-            ...propsValidation,
-        }).isRequired
-    ),
+    details: PropTypes.shape(propsValidation),
 }
 export default Home

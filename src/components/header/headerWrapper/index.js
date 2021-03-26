@@ -78,7 +78,7 @@ const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
 
     return (
         <>
-            <Header color={textColor()} bgColor={shouldDark()} NavItemOptions={NavItemOptions} />
+            <Header color={textColor()} bgcolor={shouldDark()} NavItemOptions={NavItemOptions} />
             <Box style={{ backgroundColor: shouldDark() }} className={classes.mobileNavWrapper}>
                 <Link href="/">
                     <img

@@ -21,11 +21,11 @@ export default function Home({ homeData }) {
 }
 
 const propsValidation = {
-    hero: PropTypes.shape(
+    hero: PropTypes.arrayOf(
         PropTypes.shape({
             backgroundImage: PropTypes.string,
             subtitle: PropTypes.string,
-            titleLines: PropTypes.arrayOf([PropTypes.string]),
+            titleLines: PropTypes.arrayOf(PropTypes.string),
         })
     ),
     curatedCreators: PropTypes.arrayOf(
@@ -49,15 +49,11 @@ const propsValidation = {
 }
 
 Home.defaultProps = {
-    homeData: [],
+    homeData: {},
 }
 
 Home.propTypes = {
-    homeData: PropTypes.shape(
-        PropTypes.shape({
-            ...propsValidation,
-        })
-    ),
+    homeData: PropTypes.shape(propsValidation),
 }
 
 Home.getInitialProps = async () => {

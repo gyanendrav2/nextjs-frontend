@@ -16,8 +16,12 @@ const ErrorMessage = ({ error }) => {
     return <p className={classes.errorStyles}>{error}</p>
 }
 
+ErrorMessage.defaultProps = {
+    error: undefined,
+}
+
 ErrorMessage.propTypes = {
-    error: PropTypes.string.isRequired,
+    error: PropTypes.string,
 }
 
 export default ErrorMessage

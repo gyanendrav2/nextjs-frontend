@@ -54,17 +54,25 @@ const RightSide = () => {
 
             <form>
                 <InputWithLabelIcon
+                    name=""
                     label="Input field"
                     placeholder="Confirmation code"
                     exteranlclass={classes.inputStyles}
                 />
-                <InputWithLabelIcon label="Input field" placeholder="Email" exteranlclass={classes.inputStyles} />
                 <InputWithLabelIcon
+                    name=""
+                    label="Input field"
+                    placeholder="Email"
+                    exteranlclass={classes.inputStyles}
+                />
+                <InputWithLabelIcon
+                    name=""
                     label="Input field"
                     placeholder="New password"
                     exteranlclass={classes.inputStyles}
                 />
                 <InputWithLabelIcon
+                    name=""
                     label="Input field"
                     placeholder="Confirmation new password"
                     exteranlclass={classes.inputStyles}

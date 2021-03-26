@@ -109,40 +109,42 @@ const Footer = ({ exteranlclass }) => {
     return (
         <>
             <ContentWrapper contaier exteranlclass={classnames(classes.footer, exteranlclass)}>
-                <Grid item sm={6} md={10} lg={10}>
-                    <Grid container className={classes.copyRightcontainer}>
-                        <Link href="/">
-                            <Grid item md={3} lg={3} className={classes.copyRightcontainer}>
-                                <Typography className={classes.copyright}>
-                                    <CopyrightIcon className={classes.copyrightIcon} />
-                                    Copyright PXL
-                                </Typography>
+                <>
+                    <Grid item sm={6} md={10} lg={10}>
+                        <Grid container className={classes.copyRightcontainer}>
+                            <Link href="/">
+                                <Grid item md={3} lg={3} className={classes.copyRightcontainer}>
+                                    <Typography className={classes.copyright}>
+                                        <CopyrightIcon className={classes.copyrightIcon} />
+                                        Copyright PXL
+                                    </Typography>
+                                </Grid>
+                            </Link>
+                            <Grid item md={9} lg={9} className={classes.aboutusContainer}>
+                                <Link href="/">
+                                    <Typography className={classes.name}>About us</Typography>
+                                </Link>
+                                <Link href="/">
+                                    <Typography className={classes.spec}>Privacy and cookie policy</Typography>
+                                </Link>
                             </Grid>
-                        </Link>
-                        <Grid item md={9} lg={9} className={classes.aboutusContainer}>
-                            <Link href="/">
-                                <Typography className={classes.name}>About us</Typography>
-                            </Link>
-                            <Link href="/">
-                                <Typography className={classes.spec}>Privacy and cookie policy</Typography>
-                            </Link>
                         </Grid>
                     </Grid>
-                </Grid>
 
-                <Grid item sm={6} md={2} lg={2} className={classes.titles}>
-                    <Box className={classes.footerImage}>
-                        <Link href="/">
-                            <img className={classes.Images} alt="fb" src={icons.fb} />
-                        </Link>
-                        <Link href="/">
-                            <img className={classes.Images} alt="Insta" src={icons.insta} />
-                        </Link>
-                        <Link href="/">
-                            <img className={classes.Images} alt="Linked In" src={icons.linkedin} />
-                        </Link>
-                    </Box>
-                </Grid>
+                    <Grid item sm={6} md={2} lg={2} className={classes.titles}>
+                        <Box className={classes.footerImage}>
+                            <Link href="/">
+                                <img className={classes.Images} alt="fb" src={icons.fb} />
+                            </Link>
+                            <Link href="/">
+                                <img className={classes.Images} alt="Insta" src={icons.insta} />
+                            </Link>
+                            <Link href="/">
+                                <img className={classes.Images} alt="Linked In" src={icons.linkedin} />
+                            </Link>
+                        </Box>
+                    </Grid>
+                </>
             </ContentWrapper>
             <MobileFooter />
         </>

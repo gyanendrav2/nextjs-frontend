@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         margin: 0,
         fontSize: "1rem",
         fontWeight: 400,
-        backgroundColor: (props) => (props.bgColor ? props.bgColor : colors.white),
+        backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`),
         borderRadius: "3px",
         "&:focus": {
@@ -48,7 +48,7 @@ const useStyles = makeStyles({
         padding: "0.625rem",
         color: colors.black,
         borderRadius: "3px",
-        backgroundColor: (props) => (props.bgColor ? props.bgColor : colors.white),
+        backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`,
         backgroundRepeat: "no-repeat",
         backgroundPositionX: "99%",
@@ -70,7 +70,7 @@ const useStyles = makeStyles({
 
         "& select": {
             backgroundPositionX: "101%!important",
-            backgroundColor: (props) => (props.bgColor ? props.bgColor : colors.white),
+            backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         },
     },
 })
@@ -85,10 +85,10 @@ const SelectWithLabelIcon = ({
     options,
     variant,
     labelColor,
-    // bgColor,
+    bgcolor,
     ...props
 }) => {
-    const classes = useStyles({ error, labelColor })
+    const classes = useStyles({ error: !!error, labelColor, bgcolor })
     return (
         <Box className={classes.container}>
             <Typography className={classes.label}>
@@ -103,16 +103,29 @@ const SelectWithLabelIcon = ({
                 tabIndex="0"
                 className={cn(classes.wrapper, { [classes[variant]]: variant })}>
                 <Box className={classes.inputContainer}>
-                    <select ref={inputRegister} className={cn(classes.input)} error={error} {...props}>
-                        <option value="" hidden>
-                            {placeholder}
-                        </option>
-                        {options.map((item, i) => (
-                            <option key={i} value={item.value} className={classes.option}>
-                                {item.label}
+                    {inputRegister !== undefined ? (
+                        <select ref={inputRegister} className={cn(classes.input)} {...props}>
+                            <option value="" hidden>
+                                {placeholder}
                             </option>
-                        ))}
-                    </select>
+                            {options.map((item, i) => (
+                                <option key={i} value={item.value} className={classes.option}>
+                                    {item.label}
+                                </option>
+                            ))}
+                        </select>
+                    ) : (
+                        <select ref={inputRegister} className={cn(classes.input)} {...props}>
+                            <option value="" hidden>
+                                {placeholder}
+                            </option>
+                            {options.map((item, i) => (
+                                <option key={i} value={item.value} className={classes.option}>
+                                    {item.label}
+                                </option>
+                            ))}
+                        </select>
+                    )}
                 </Box>
             </Grid>
             <ErrorMessage errorMsg={errorMsg} />
@@ -128,15 +141,15 @@ SelectWithLabelIcon.defaultProps = {
     value: "",
     type: "",
     label: "",
-    icon: PropTypes.element,
+    icon: undefined,
     name: "",
-    inputRegister: PropTypes.func,
+    inputRegister: undefined,
     errorMsg: {},
     options: [],
     iscompulsory: false,
     variant: "",
     labelColor: "",
-    bgColor: "",
+    bgcolor: "",
 }
 
 SelectWithLabelIcon.propTypes = {
@@ -155,6 +168,6 @@ SelectWithLabelIcon.propTypes = {
     iscompulsory: PropTypes.bool,
     variant: PropTypes.string,
     labelColor: PropTypes.string,
-    bgColor: PropTypes.string,
+    bgcolor: PropTypes.string,
 }
 export default SelectWithLabelIcon

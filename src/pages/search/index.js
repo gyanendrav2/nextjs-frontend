@@ -71,8 +71,8 @@ const Search = () => {
             </Box>
             <ContentWrapper>
                 <Grid container spacing={2}>
-                    {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item) => (
-                        <Grid key={item} item xs={12} sm={6} md={4} lg={3} xl={3}>
+                    {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, i) => (
+                        <Grid key={i} item xs={12} sm={6} md={4} lg={3} xl={3}>
                             <CardWithHeader
                                 image={images.maskGroup}
                                 title="Brandon Landing"

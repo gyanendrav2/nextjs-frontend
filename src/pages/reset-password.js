@@ -34,12 +34,12 @@ const useStyles = makeStyles({
 const ResetPassword = () => {
     const classes = useStyles()
     return (
-        <Box container className={classes.wrapper}>
+        <Box className={classes.wrapper}>
             <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
-            <Box item sm={0} md={0} lg={6} className={classes.left}>
+            <Box className={classes.left}>
                 <LeftSide />
             </Box>
-            <Box item sm={12} md={12} lg={6} className={classes.right}>
+            <Box className={classes.right}>
                 <ResetPasswordForm />
             </Box>
         </Box>

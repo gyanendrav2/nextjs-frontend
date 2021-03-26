@@ -89,6 +89,7 @@ const Filter = ({ exteranlclass }) => {
                     </Grid>
                     <Grid item sm={6} xs={12} md={3} lg={3}>
                         <InputWithLabelIcon
+                            name=""
                             label="Location"
                             placeholder="Georgia, US "
                             exteranlclass={classes.locationInput}
@@ -112,7 +113,7 @@ const Filter = ({ exteranlclass }) => {
                             exteranlclass={classes.sortInput}
                             placeholder="A-Z"
                             labelColor={colors.lighterGray}
-                            bgColor={colors.lighterPrimary}
+                            bgcolor={colors.lighterPrimary}
                         />
                     </Grid>
                 </Grid>

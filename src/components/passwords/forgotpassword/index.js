@@ -64,7 +64,12 @@ const RightSide = () => {
             </Typography>
 
             <form>
-                <InputWithLabelIcon label="Input field" placeholder="Username" exteranlclass={classes.inputStyles} />
+                <InputWithLabelIcon
+                    name=""
+                    label="Input field"
+                    placeholder="Username"
+                    exteranlclass={classes.inputStyles}
+                />
                 <Grid container display="flex" className={classes.submitContainer}>
                     <Grid item sm={12}>
                         <CustomButton

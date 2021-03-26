@@ -128,7 +128,7 @@ const RightSide = () => {
     }
 
     return (
-        <Box container className={classes.wrapper}>
+        <Box className={classes.wrapper}>
             <Box className={classes.formWrapper}>
                 <Typography className={classes.title}>Create a new account</Typography>
                 <Typography className={classes.mobileTitle}>Sign Up</Typography>

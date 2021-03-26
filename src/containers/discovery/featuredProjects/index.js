@@ -191,9 +191,13 @@ const SelectingCategories = ({ changeTab, category, categories }) => {
     )
 }
 
+SelectingCategories.defaultProps = {
+    category: "",
+}
+
 SelectingCategories.propTypes = {
     changeTab: PropTypes.func.isRequired,
     categories: PropTypes.arrayOf(PropTypes.string).isRequired,
-    category: PropTypes.string.isRequired,
+    category: PropTypes.string,
 }
 export default SelectingCategories

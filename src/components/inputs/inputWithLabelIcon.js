@@ -73,7 +73,7 @@ const InputWithLabelIcon = ({
                 tabIndex="0"
                 className={classnames(classes.wrapper, exteranlclass)}>
                 <Box className={classes.inputContainer}>
-                    <Input error={!!errorMsg.message} inputRegister={inputRegister} name={name} {...props} />
+                    <Input error={!!errorMsg.message} inputRegister={inputRegister} inputName={name} {...props} />
                 </Box>
                 <Grid container alignItems="center" justify="center" className={classes.iconContainer}>
                     <Box onClick={iconOnClick} className={classes.iconWrapper}>
@@ -97,7 +97,7 @@ InputWithLabelIcon.defaultProps = {
     icon: "",
     inputRegister: () => {},
     name: PropTypes.string,
-    errorMsg: PropTypes.shape({ message: PropTypes.string }),
+    errorMsg: {},
     exteranlclass: "",
     labelColor: "",
     iconOnClick: () => {},
@@ -111,7 +111,7 @@ InputWithLabelIcon.propTypes = {
     value: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
-    icon: PropTypes.element,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     inputRegister: PropTypes.func,
     name: PropTypes.string,
     errorMsg: PropTypes.shape({ message: PropTypes.string }),

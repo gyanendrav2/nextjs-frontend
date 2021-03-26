@@ -93,7 +93,7 @@ const useStyles = makeStyles({
     },
 })
 
-const RightSide = () => {
+const SigninForm = () => {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(signinFormValidation),
@@ -105,7 +105,7 @@ const RightSide = () => {
     }
 
     return (
-        <Box container className={classes.wrapper}>
+        <Box className={classes.wrapper}>
             <Box className={classes.formWrapper}>
                 <Typography className={classes.title}>Sign in</Typography>
                 <Typography className={classes.subTitle}>
@@ -156,6 +156,6 @@ const RightSide = () => {
     )
 }
 
-RightSide.propTypes = {}
+SigninForm.propTypes = {}
 
-export default RightSide
+export default SigninForm

@@ -164,7 +164,7 @@ const SearchBox = () => {
     const [showFilter, setShowFilter] = useState(false)
     return (
         <>
-            <Grid container alignItems="center" justify="center" className={classes.searchContainer}>
+            <Grid container alignItems="center" justifycontent="center" className={classes.searchContainer}>
                 {/* <Grid item sm={12} md={3} lg={2}></Grid>
                 <Grid item sm={12} md={6} lg={8}> */}
                 <Grid
@@ -182,7 +182,7 @@ const SearchBox = () => {
                             />
                         </Grid>
                         <Grid item className={classes.inputCol2}>
-                            <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
+                            <Grid container alignItems="center" justifycontent="flex-start" wrap="nowrap">
                                 <CustomButton exteranlclass={classes.buttonGroupItem} label="Work" />
                                 <CustomButton exteranlclass={classes.buttonGroupItem} label="People" />
                             </Grid>

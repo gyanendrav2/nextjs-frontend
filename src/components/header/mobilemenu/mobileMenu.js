@@ -165,6 +165,7 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
 
                         <li className={classes.listStyle}>
                             <InputWithLabelIcon
+                                name=""
                                 placeholder="Search"
                                 icon={<SearchIcon />}
                                 exteranlclass={classes.input}

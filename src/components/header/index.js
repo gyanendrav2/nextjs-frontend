@@ -18,7 +18,7 @@ const useStyles = makeStyles({
         paddingLeft: "2rem",
         paddingRight: "2rem",
         justifyContent: "space-between",
-        backgroundColor: (props) => (props.bgColor ? props.bgColor : "transparent"),
+        backgroundColor: (props) => (props.bgcolor ? props.bgcolor : "transparent"),
         transition: "all 0.2s",
         "@media (max-width:767px)": {
             visibility: "hidden",
@@ -40,8 +40,8 @@ const useStyles = makeStyles({
     },
 })
 
-const Header = ({ color, bgColor, NavItemOptions }) => {
-    const classes = useStyles({ color, bgColor })
+const Header = ({ color, bgcolor, NavItemOptions }) => {
+    const classes = useStyles({ color, bgcolor })
     const router = useRouter()
     const [hoveredActive, setHoverdActive] = useState(null)
 
@@ -87,7 +87,7 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
                     )
                 })}
                 {/* <Link href="/signup"> */}
-                <CustomButton label="Sign up" exteranlclass={classes.button} />
+                <CustomButton label="Sign up" exteranlclass={classes.button} onClick={() => router.push("/signup")} />
                 {/* </Link> */}
             </Grid>
         </Box>
@@ -96,13 +96,13 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
 
 Header.defaultProps = {
     color: "",
-    bgColor: "",
+    bgcolor: "",
     NavItemOptions: [],
 }
 
 Header.propTypes = {
     color: PropTypes.string,
-    bgColor: PropTypes.string,
+    bgcolor: PropTypes.string,
     NavItemOptions: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.number,

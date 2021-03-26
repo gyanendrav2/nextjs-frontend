@@ -261,6 +261,7 @@ const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, ...props
 
 CustomButton.defaultProps = {
     exteranlclass: "",
+    label: "",
     variant: "primary",
     icon: "",
     onClick: () => {},
@@ -271,9 +272,9 @@ CustomButton.defaultProps = {
 
 CustomButton.propTypes = {
     exteranlclass: PropTypes.string,
-    label: PropTypes.oneOf([PropTypes.string, PropTypes.element]).isRequired,
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     variant: PropTypes.string,
-    icon: PropTypes.element,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     onClick: PropTypes.func,
     wantFile: PropTypes.bool,
     onFileChange: PropTypes.func,

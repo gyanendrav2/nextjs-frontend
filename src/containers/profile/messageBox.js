@@ -42,7 +42,7 @@ const MessageBox = () => {
                             Message Me
                         </Typography>
 
-                        <InputWithLabelIcon placeholder="Email address" />
+                        <InputWithLabelIcon name="" placeholder="Email address" />
                         <TextArea placeholder="Message" />
                         <Grid container spacing={2} className={classes.submitContainer}>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

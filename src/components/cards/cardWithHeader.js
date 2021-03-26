@@ -87,12 +87,14 @@ const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) =
 
 CardWithHeader.defaultProps = {
     isProjectPage: false,
+    title: "",
+    subTitle: "",
 }
 
 CardWithHeader.propTypes = {
     image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    subTitle: PropTypes.string,
     buttonText: PropTypes.string.isRequired,
     isProjectPage: PropTypes.bool,
 }

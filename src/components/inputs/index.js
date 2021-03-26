@@ -25,14 +25,13 @@ const useStyles = makeStyles({
     },
 })
 
-const Input = ({ onChange, inputRegister, error, name, exteranlclass, ...rest }) => {
+const Input = ({ onChange, inputRegister, error, inputName, exteranlclass, ...rest }) => {
     const classes = useStyles({ error: !!error })
     return (
         <Box className={classes.wrapper}>
             <input
                 className={classnames(classes.input, exteranlclass)}
-                {...rest}
-                name={name}
+                name={inputName}
                 ref={inputRegister}
                 onChange={(e) => {
                     e.preventDefault()
@@ -40,6 +39,7 @@ const Input = ({ onChange, inputRegister, error, name, exteranlclass, ...rest })
                         onChange(e.target.value)
                     }
                 }}
+                {...rest}
             />
         </Box>
     )
@@ -53,7 +53,7 @@ Input.defaultProps = {
     value: "",
     type: "text",
     inputRegister: () => {},
-    name: "",
+    inputName: "",
     exteranlclass: "",
 }
 
@@ -65,7 +65,7 @@ Input.propTypes = {
     value: PropTypes.string,
     type: PropTypes.string,
     inputRegister: PropTypes.func,
-    name: PropTypes.string,
+    inputName: PropTypes.string,
     exteranlclass: PropTypes.string,
 }
 
