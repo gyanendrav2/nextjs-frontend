@@ -1,9 +1,7 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import PropTypes from "prop-types"
 import React, { useState } from "react"
-import classnames from "classnames"
 import { colors } from "../../theme/colors"
-import CustomButton from "../../components/buttons/CustomButton"
+import CustomButton from "../../components/buttons/customButton"
 import FilterIcon from "../../components/icons/filterIcon"
 import Filter from "../../components/filter"
 
@@ -160,7 +158,7 @@ const useStyles = makeStyles({
     },
 })
 
-const SearchBox = ({ exteranlclass }) => {
+const SearchBox = () => {
     const classes = useStyles()
 
     const [showFilter, setShowFilter] = useState(false)
@@ -220,8 +218,6 @@ const SearchBox = ({ exteranlclass }) => {
     )
 }
 
-SearchBox.propTypes = {
-    exteranlclass: PropTypes.string,
-}
+SearchBox.propTypes = {}
 
 export default SearchBox

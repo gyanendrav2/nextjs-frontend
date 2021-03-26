@@ -1,13 +1,12 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import VisibilityIcon from "@material-ui/icons/Visibility"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { colors } from "../../theme/colors"
 import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
-import CustomButton from "../../components/buttons/CustomButton"
 import { resetFormValidation } from "../../formValidation/resetpassword"
+import CustomButton from "../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -137,9 +136,6 @@ const RightSide = () => {
     )
 }
 
-RightSide.propTypes = {
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-}
+RightSide.propTypes = {}
 
 export default RightSide

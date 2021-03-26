@@ -133,7 +133,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const Discovery = ({ details }) => {
+export const Home = ({ details }) => {
     const classes = useStyles()
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
@@ -294,15 +294,15 @@ const propsValidation = {
     ),
 }
 
-Discovery.defaultProps = {
+Home.defaultProps = {
     details: [],
 }
 
-Discovery.propTypes = {
+Home.propTypes = {
     details: PropTypes.shape(
         PropTypes.shape({
             ...propsValidation,
         }).isRequired
     ),
 }
-export default Discovery
+export default Home

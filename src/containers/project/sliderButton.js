@@ -25,10 +25,10 @@ const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick }) => {
 }
 
 SliderButton.propTypes = {
-    buttonIcon: PropTypes.element,
-    buttonName: PropTypes.string,
-    flexDirection: PropTypes.string,
-    onClick: PropTypes.func,
+    buttonIcon: PropTypes.element.isRequired,
+    buttonName: PropTypes.string.isRequired,
+    flexDirection: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 }
 
 export default SliderButton

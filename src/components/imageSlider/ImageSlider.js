@@ -6,67 +6,18 @@ const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBt
     const [active, setActive] = useState(0)
     const [touchStart, setTouchStart] = useState(0)
     const [touchEnd, setTouchEnd] = useState(0)
-
-    useEffect(() => {
-        if (Array.isArray(imageList)) {
-            initial()
-        }
-    }, [imageList])
-
-    useEffect(() => {
-        if (outerLeftBtnClicked > 0) {
-            slideRight()
-        }
-    }, [outerLeftBtnClicked])
-
-    useEffect(() => {
-        if (outerRightBtnClicked > 0) {
-            slideRight()
-        }
-    }, [outerRightBtnClicked])
-
     const initial = () => {
         const result = imageList.map((item, i) => {
             return { ...item, transform: i * 100 }
         })
         setImages(result)
     }
-
-    const slideLeft = () => {
-        slidePrevious()
-        if (active < images.length - 1) {
-            setActive(active + 1)
-        } else {
+    useEffect(() => {
+        if (Array.isArray(imageList)) {
             initial()
-            setActive(0)
         }
-    }
-
-    const slideRight = () => {
-        slideFarword()
-        if (active > 0) {
-            setActive(active - 1)
-        } else {
-            const data = [...images]
-            const result = data.map((item, i) => {
-                return {
-                    ...item,
-                    transform: -(data.length - 1 - i) * 100,
-                }
-            })
-            setActive(images.length - 1)
-            setImages(result)
-        }
-    }
-
-    // const gotoSlide = (i) => {
-    //     if (i < active) {
-    //         slidePrevious(i - active);
-    //     } else if (i > active) {
-    //         slideFarword(active - i);
-    //     }
-    //     setActive(i);
-    // };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [imageList])
 
     const slidePrevious = (i) => {
         const data = [...images]
@@ -109,6 +60,55 @@ const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBt
             setImages(result)
         }
     }
+
+    const slideLeft = () => {
+        slidePrevious()
+        if (active < images.length - 1) {
+            setActive(active + 1)
+        } else {
+            initial()
+            setActive(0)
+        }
+    }
+    const slideRight = () => {
+        slideFarword()
+        if (active > 0) {
+            setActive(active - 1)
+        } else {
+            const data = [...images]
+            const result = data.map((item, i) => {
+                return {
+                    ...item,
+                    transform: -(data.length - 1 - i) * 100,
+                }
+            })
+            setActive(images.length - 1)
+            setImages(result)
+        }
+    }
+
+    useEffect(() => {
+        if (outerLeftBtnClicked > 0) {
+            slideRight()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [outerLeftBtnClicked])
+
+    useEffect(() => {
+        if (outerRightBtnClicked > 0) {
+            slideRight()
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [outerRightBtnClicked])
+
+    // const gotoSlide = (i) => {
+    //     if (i < active) {
+    //         slidePrevious(i - active);
+    //     } else if (i > active) {
+    //         slideFarword(active - i);
+    //     }
+    //     setActive(i);
+    // };
 
     const handleTouchStart = (e) => {
         setTouchStart(e.targetTouches[0].clientX)
@@ -157,9 +157,16 @@ const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBt
     )
 }
 
+ImageSlider.defaultProps = {
+    infiniteSlide: false,
+    height: "100vh",
+    outerLeftBtnClicked: 0,
+    outerRightBtnClicked: 0,
+}
+
 ImageSlider.propTypes = {
-    imageList: PropTypes.array,
-    transition: PropTypes.number,
+    imageList: PropTypes.arrayOf(PropTypes.shape({ url: PropTypes.string.isRequired }).isRequired).isRequired,
+    transition: PropTypes.number.isRequired,
     infiniteSlide: PropTypes.bool,
     height: PropTypes.string,
     outerLeftBtnClicked: PropTypes.number,

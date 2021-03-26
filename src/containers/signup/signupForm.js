@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import Link from "next/link"
 import VisibilityIcon from "@material-ui/icons/Visibility"
@@ -186,9 +185,6 @@ const RightSide = () => {
     )
 }
 
-RightSide.propTypes = {
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-}
+RightSide.propTypes = {}
 
 export default RightSide

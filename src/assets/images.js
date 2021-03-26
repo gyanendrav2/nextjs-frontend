@@ -1,5 +1,5 @@
 import signinWall from "./images/bycleCrop.jpg"
-import logoImage from "./images/logo.png"
+import logoImage from "./images/Logo.png"
 import maskGroup from "./images/maskGroup.png"
 import projectImage from "./images/photo.png"
 import hypebeast from "./images/hypebeast.png"

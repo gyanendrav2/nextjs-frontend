@@ -51,6 +51,11 @@ const MoreMemberModel = ({ onClose, data }) => {
     )
 }
 
+MoreMemberModel.defaultProps = {
+    onClose: () => {},
+    data: [],
+}
+
 MoreMemberModel.propTypes = {
     onClose: PropTypes.func,
     data: PropTypes.arrayOf(
@@ -59,7 +64,7 @@ MoreMemberModel.propTypes = {
             memberName: PropTypes.string,
             position: PropTypes.string,
             isDisable: PropTypes.bool,
-        }).isRequired
+        })
     ),
 }
 

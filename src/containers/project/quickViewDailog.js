@@ -164,7 +164,7 @@ const QuickViewDailog = ({ closeModal }) => {
 }
 
 QuickViewDailog.propTypes = {
-    closeModal: PropTypes.func,
+    closeModal: PropTypes.func.isRequired,
 }
 
 export default QuickViewDailog
