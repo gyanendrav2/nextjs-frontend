@@ -74,7 +74,7 @@ const useStyles = makeStyles({
     },
 })
 
-const RightSide = () => {
+const ForgetPasswordForm = () => {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(forgetFormValidation),
@@ -115,4 +115,4 @@ const RightSide = () => {
     )
 }
 
-export default RightSide
+export default ForgetPasswordForm

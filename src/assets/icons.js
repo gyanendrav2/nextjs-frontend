@@ -21,7 +21,6 @@ import youtube from "./icons/youtube.svg"
 import vimeo from "./icons/vimeo.svg"
 import instagram from "./icons/instagram.svg"
 import arrowDropdown from "./icons/arrowDropdown.svg"
-// import triangle from "./icons/triangle.svg";
 import close from "./icons/close.svg"
 import fbBlack from "./icons/facebookBlack.svg"
 import linkedinBlack from "./icons/linkedinBlack.svg"
@@ -51,7 +50,6 @@ export const icons = {
     vimeo,
     instagram,
     arrowDropdown,
-    // triangle,
     close,
     fbBlack,
     linkedinBlack,
