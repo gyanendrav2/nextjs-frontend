@@ -131,13 +131,7 @@ const RightSide = () => {
                         placeholder="Password"
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={
-                            hideShowPassword ? (
-                                <VisibilityIcon />
-                            ) : (
-                                <span className={`icon-Eye ${classes.icon}`} />
-                            )
-                        }
+                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
                         exteranlclass={classes.inputStyles}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />

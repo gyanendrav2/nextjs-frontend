@@ -70,11 +70,7 @@ const Header = ({ color, bgColor, NavItemOptions }) => {
                     alt="PXL-logo"
                 />
             </Link>
-            <Grid
-                container
-                alignItems="center"
-                justifycontent="flex-end"
-                className={classes.rightPart}>
+            <Grid container alignItems="center" justifycontent="flex-end" className={classes.rightPart}>
                 {NavItemOptions.map((item, index) => {
                     return (
                         <HeadItem

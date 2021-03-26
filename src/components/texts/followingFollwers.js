@@ -20,11 +20,7 @@ const useStyles = makeStyles({
 const FollowingFollwers = ({ following, followers }) => {
     const classes = useStyles()
     return (
-        <Grid
-            container
-            alignItems="center"
-            justify="flex-start"
-            className={classes.followersCotainer}>
+        <Grid container alignItems="center" justify="flex-start" className={classes.followersCotainer}>
             <Typography>
                 <span>{following}</span> following
             </Typography>

@@ -162,13 +162,7 @@ const RightSide = () => {
                         errorMsg={errors.password}
                         exteranlclass={classes.inputStyles}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={
-                            hideShowPassword ? (
-                                <VisibilityIcon />
-                            ) : (
-                                <span className={`icon-Eye ${classes.icon}`} />
-                            )
-                        }
+                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <Grid className={classes.submitContainer}>

@@ -97,9 +97,7 @@ const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick,
                     </Box>
                     <Box>
                         <Typography className={classes.projectAuthorName}>{footerTitle}</Typography>
-                        <Typography className={classes.projectAuthorJobTitle}>
-                            {footerSubitle}
-                        </Typography>
+                        <Typography className={classes.projectAuthorJobTitle}>{footerSubitle}</Typography>
                     </Box>
                 </Box>
             )}

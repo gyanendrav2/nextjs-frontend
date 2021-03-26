@@ -1,22 +1,21 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react"
+import React from "react"
 // import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import classnames from "classnames"
 import { useRouter } from "next/router"
 import ReactPlayer from "react-player"
+import { colors } from "../../theme/colors"
 import HeaderWrapper from "../../components/header/headerWrapper"
 import { images } from "../../assets/images"
-import { colors } from "../../theme/colors"
 import { teamMemberData } from "../../data/project"
-import UserProfileRow from "../../components/cards/userProfileRow"
-import MoreMemberModel from "../../containers/project/moreMemberModel"
 import Slider from "../../containers/project/slider"
 import SocialIcons from "../../containers/project/socialIcons"
 import Footer from "../../components/footer"
 import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper"
 import ImageGallery from "../../components/imageGallery/imageGallery"
+import VideoInfo from "../../containers/profile/videoInfo"
+import DarkBgText from "../../containers/profile/darkBgText"
 
 const useStyles = makeStyles({
     projectwrapper: {
@@ -197,45 +196,7 @@ const useStyles = makeStyles({
         height: "100%",
         width: "100%",
     },
-    fullWidthContent: {
-        color: colors.white,
-        paddingLeft: "16.875rem",
-        paddingRight: "16.875rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        "& h3": {
-            textAlign: "center",
-            fontFamily: "Forno-Trial",
-            fontStyle: "normal",
-            fontWeight: "700",
-            fontSize: "3.125rem",
-            lineHeight: "3.625rem",
-            marginBottom: "2.5rem",
-            marginTop: "7.5rem",
-            "@media(max-width:992px)": {
-                textAlign: "center",
-                maxWidth: "27.25rem",
-                fontSize: "2.5rem",
-                lineHeight: "3rem",
-                marginBottom: "0.7rem",
-            },
-        },
-        "& p": {
-            maxWidth: "27.25rem",
-            fontFamily: "Helvetica",
-            fontStyle: "normal",
-            fontWeight: "normal",
-            fontSize: "1rem",
-            lineHeight: "2rem",
-            marginBottom: "2rem",
-        },
-        "@media (max-width:992px)": {
-            padding: "8rem",
-            paddingLeft: "2rem",
-        },
-    },
+
     darkBg: {
         backgroundColor: colors.black,
         height: "45.375rem",
@@ -263,91 +224,27 @@ const useStyles = makeStyles({
 
 const Project = () => {
     const classes = useStyles()
-    const [maxShow, setMaxShow] = useState(false)
     const routes = useRouter()
 
     return (
         <Box className={classes.projectwrapper}>
             <HeaderWrapper isScrollDetect={false} />
-            <ReactPlayer
-                width="100%"
-                height="30rem"
-                controls
-                url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-            />
+            <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
             <Grid className={classes.CreatorsAuthor}>
                 <Box>
                     <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
                 </Box>
                 <Box>
-                    <Typography
-                        className={classes.CreatorsAuthorName}
-                        onClick={() => routes.push("/profile")}>
+                    <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/profile")}>
                         Brandon Landing
                     </Typography>
-                    <Typography className={classes.CreatorsAuthorJobTitle}>
-                        Director assistant
-                    </Typography>
-                    <button type="button" className={classes.CreatorsButton}>follow</button>
+                    <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>
+                    <button type="button" className={classes.CreatorsButton}>
+                        follow
+                    </button>
                 </Box>
             </Grid>
-            <Grid container className={classes.profileWrapper}>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <Typography className={classes.bigTitle}>
-                        SiR - Hair Down (Official Video) ft. Kendrick Lamar
-                    </Typography>
-                    <Grid container>
-                        <Grid className={classes.info} xs={12} sm={12} md={6} lg={6}>
-                            <Typography className={classes.infoTextHead}>Category:</Typography>
-                            <Typography
-                                className={classnames(classes.underlineStyle, classes.infoText)}>
-                                Directing
-                            </Typography>
-                            <Grid className={classes.info} item xs={12} sm={4} md={6} lg={6}>
-                                <Typography className={classes.infoTextHead}>Client:</Typography>
-                                <Typography className={classes.infoText}>
-                                    SiR, Top Dog Entertainment
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid className={classes.info} item xs={12} sm={4} md={6} lg={6}>
-                            <Typography className={classes.infoTextHead}>Year</Typography>
-                            <Typography className={classes.infoText}>2019</Typography>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={6}
-                    lg={6}
-                    xl={6}
-                    container
-                    className={classes.teamWrapper}>
-                    <Typography className={classes.teamTitle}>Team</Typography>
-                    {teamMemberData.slice(0, 5).map((item, i) => (
-                        <UserProfileRow
-                            key={i}
-                            image={item.image}
-                            name={item.memberName}
-                            isDisable={item.isDisable}
-                            position={item.position}
-                            col1Size={6}
-                            col2Size={6}
-                        />
-                    ))}
-                    <Typography className={classes.activeMember} onClick={() => setMaxShow(true)}>
-                        + 15 more members
-                    </Typography>
-                    {maxShow && (
-                        <MoreMemberModel
-                            onClose={() => setMaxShow(false)}
-                            data={teamMemberData.slice(6, teamMemberData.length)}
-                        />
-                    )}
-                </Grid>
-            </Grid>
+            <VideoInfo teamMemberData={teamMemberData} />
             <Grid container>
                 <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
                     <img src={images.hypebeast} className={classes.fitSizeImg} alt="" />
@@ -356,10 +253,9 @@ const Project = () => {
                     <Box className={classes.contentWrapper}>
                         <Typography variant="h3">Making of</Typography>
                         <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever
-                            since the 1500s, when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book.
                         </Typography>
                     </Box>
                 </Grid>
@@ -369,10 +265,9 @@ const Project = () => {
                     <Box className={classes.contentWrapperWhiteBg}>
                         <Typography variant="h3">Behind the scenes</Typography>
                         <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever
-                            since the 1500s, when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book.
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book.
                         </Typography>
                     </Box>
                 </Grid>
@@ -380,52 +275,7 @@ const Project = () => {
                     <img src={images.maskGroup} className={classes.whiteBgImgFit} alt="" />
                 </Grid>
             </Grid>
-            <Grid container>
-                <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.fulldarkBg}>
-                    <Box className={classes.fullWidthContent}>
-                        <Typography variant="h3">The writing itself</Typography>
-                        <Box className={classes.paragraphContent}>
-                            <Typography variant="p">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type
-                                and scrambled it to make a type specimen book. It has survived not
-                                only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages,
-                                and more recently with desktop publishing software like Aldus
-                                PageMaker including versions of Lorem Ipsum.
-                            </Typography>
-                            <br />
-                            <br />
-                            <Typography variant="p">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type
-                                and scrambled it to make a type specimen book. It has survived not
-                                only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages,
-                                and more recently with desktop publishing software like Aldus
-                                PageMaker including versions of Lorem Ipsum.
-                            </Typography>
-                            <br />
-                            <br />
-                            <Typography variant="p">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting
-                                industry. Lorem Ipsum has been the industry's standard dummy text
-                                ever since the 1500s, when an unknown printer took a galley of type
-                                and scrambled it to make a type specimen book. It has survived not
-                                only five centuries, but also the leap into electronic typesetting,
-                                remaining essentially unchanged. It was popularised in the 1960s
-                                with the release of Letraset sheets containing Lorem Ipsum passages,
-                                and more recently with desktop publishing software like Aldus
-                                PageMaker including versions of Lorem Ipsum.
-                            </Typography>
-                        </Box>
-                    </Box>
-                </Grid>
-            </Grid>
+            <DarkBgText />
             <Slider />
             <ImageGallery />
             <SocialIcons />

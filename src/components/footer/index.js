@@ -124,9 +124,7 @@ const Footer = ({ exteranlclass }) => {
                                 <Typography className={classes.name}>About us</Typography>
                             </Link>
                             <Link href="/">
-                                <Typography className={classes.spec}>
-                                    Privacy and cookie policy
-                                </Typography>
+                                <Typography className={classes.spec}>Privacy and cookie policy</Typography>
                             </Link>
                         </Grid>
                     </Grid>

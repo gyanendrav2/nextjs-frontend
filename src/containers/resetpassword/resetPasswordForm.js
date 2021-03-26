@@ -108,13 +108,7 @@ const RightSide = () => {
                         inputRegister={register}
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={
-                            hideShowPassword ? (
-                                <VisibilityIcon />
-                            ) : (
-                                <span className={`icon-Eye ${classes.icon}`} />
-                            )
-                        }
+                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <InputWithLabelIcon
@@ -124,13 +118,7 @@ const RightSide = () => {
                         inputRegister={register}
                         errorMsg={errors.confirmpassword}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={
-                            hideShowPassword ? (
-                                <VisibilityIcon />
-                            ) : (
-                                <span className={`icon-Eye ${classes.icon}`} />
-                            )
-                        }
+                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <Grid className={classes.submitContainer}>

@@ -73,18 +73,9 @@ const InputWithLabelIcon = ({
                 tabIndex="0"
                 className={classnames(classes.wrapper, exteranlclass)}>
                 <Box className={classes.inputContainer}>
-                    <Input
-                        error={!!errorMsg.message}
-                        inputRegister={inputRegister}
-                        name={name}
-                        {...props}
-                    />
+                    <Input error={!!errorMsg.message} inputRegister={inputRegister} name={name} {...props} />
                 </Box>
-                <Grid
-                    container
-                    alignItems="center"
-                    justify="center"
-                    className={classes.iconContainer}>
+                <Grid container alignItems="center" justify="center" className={classes.iconContainer}>
                     <Box onClick={iconOnClick} className={classes.iconWrapper}>
                         {icon}
                     </Box>

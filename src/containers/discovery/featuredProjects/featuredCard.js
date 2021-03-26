@@ -75,7 +75,7 @@ const useStyles = makeStyles({
         background: "red",
     },
 })
-const SelectingCategories = ({ featuredCardsDetails }) => {
+const FeaturedCard = ({ featuredCardsDetails }) => {
     const classes = useStyles()
     const [openModal, setOpenModal] = useState(false)
 
@@ -105,11 +105,11 @@ const SelectingCategories = ({ featuredCardsDetails }) => {
     )
 }
 
-SelectingCategories.defaultProps = {
+FeaturedCard.defaultProps = {
     featuredCardsDetails: [],
 }
 
-SelectingCategories.propTypes = {
+FeaturedCard.propTypes = {
     featuredCardsDetails: PropTypes.arrayOf(
         PropTypes.shape({
             image: PropTypes.string,
@@ -122,4 +122,4 @@ SelectingCategories.propTypes = {
         })
     ),
 }
-export default SelectingCategories
+export default FeaturedCard

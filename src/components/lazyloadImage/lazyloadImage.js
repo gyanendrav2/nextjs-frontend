@@ -7,12 +7,7 @@ const LazyloadImage = ({ image, exteranlclass }) => {
     return (
         <>
             {/* {showImage && ( */}
-            <img
-                className={exteranlclass}
-                onLoad={() => setShowImage(true)}
-                src={image}
-                alt={image}
-            />
+            <img className={exteranlclass} onLoad={() => setShowImage(true)} src={image} alt={image} />
             {/* )} */}
             {!showImage && (
                 <Blurhash

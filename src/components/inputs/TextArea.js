@@ -44,12 +44,7 @@ const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, ...prop
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classes.label}>{label}</Typography>
-            <TextAreaInput
-                className={classes.input}
-                error={error}
-                inputRegister={inputRegister}
-                {...props}
-            />
+            <TextAreaInput className={classes.input} error={error} inputRegister={inputRegister} {...props} />
             {iscompulsory === true ? <ErrorMessage errorMsg={errorMsg} /> : null}
         </Box>
     )

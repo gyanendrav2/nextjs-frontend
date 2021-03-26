@@ -4,17 +4,15 @@ import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
-import Link from "next/link"
 import SelectingCategories from "./featuredProjects"
-import CreationCard from "./curatedProjects"
-import FeaturedCards from "./featuredProjects/Card"
 import Footer from "../../components/footer"
 import { colors } from "../../theme/colors"
 import CustomButton from "../../components/buttons/customButton"
-import MobileFooter from "../../components/footer/mobileFooter"
 import HeaderWrapper from "../../components/header/headerWrapper"
 import HeaderCategory from "../../components/header/headerCategory"
 import ContentWrapper from "../../components/contentWrapper/contentWrapper"
+import FeaturedCard from "./featuredProjects/featuredCard"
+import CreationCard from "./curatedProjects/creationCard"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -73,14 +71,6 @@ const useStyles = makeStyles({
         marginBottom: "1.5rem",
         marginTop: "2.3rem",
     },
-    header: {
-        position: "relative",
-        display: "flex",
-        justifyContent: "flex-end",
-        "@media (max-width:567px)": {
-            visibility: "hidden",
-        },
-    },
     headings: {
         color: colors.black,
         fontSize: "2rem",
@@ -91,17 +81,6 @@ const useStyles = makeStyles({
         "@media (max-width:567px)": {
             fontSize: "1.5rem",
         },
-    },
-    signUp: {
-        backgroundColor: colors.black,
-        border: "none",
-        padding: "0.5rem 1rem",
-        width: "6.25rem",
-        fontSize: "1rem",
-        outline: "none",
-        cursor: "pointer",
-        color: colors.white,
-        marginTop: "1.5rem",
     },
     messageWrapper: {
         position: "relative",
@@ -131,35 +110,7 @@ const useStyles = makeStyles({
             display: "flex",
         },
     },
-    menuIcon: {
-        fontSize: "2rem",
-        color: colors.white,
-    },
-    mobileNavWrapper: {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        zIndex: 2,
-        "@media (min-width:767px)": {
-            display: "none",
-        },
-    },
-    mobileLogo: {
-        width: "3rem",
-        marginLeft: "1rem",
-    },
-    contentWrapper: {
-        marginLeft: "2rem",
-        marginRight: "2rem",
-        "@media (max-width:767px)": {
-            marginLeft: "1rem",
-            marginRight: "1rem",
-        },
-    },
+
     resultsContainer: {
         maxWidth: "100%",
         height: "4rem",
@@ -190,6 +141,12 @@ export const Discovery = ({ details }) => {
     const [activeCategory, setActiveCategory] = useState(null)
 
     useEffect(() => {
+        const result = featuredProjects.slice(0, 8)
+        setFeaturedCardsDetails(result)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    const setProjectInitially = () => {
         if (featuredProjects) {
             const tempCategory = []
             // eslint-disable-next-line react/prop-types
@@ -200,32 +157,28 @@ export const Discovery = ({ details }) => {
             })
             setTotalCategories(tempCategory)
         }
-    }, [featuredProjects])
+    }
+    useEffect(setProjectInitially, [featuredProjects])
 
-    const LengthHandler = (details) => {
-        if (details.length > 9) {
-            setFeaturedCardsDetails(details.slice(0, 8))
+    const LengthHandler = (data) => {
+        if (data.length > 9) {
+            setFeaturedCardsDetails(data.slice(0, 8))
         } else {
-            setFeaturedCardsDetails(details.slice(0, details.length))
+            setFeaturedCardsDetails(data.slice(0, data.length))
         }
     }
+
     const handleTab = (name) => {
         setActiveCategory(name)
         if (name !== "More") {
             // eslint-disable-next-line react/prop-types
-            details = featuredProjects.filter((each) => each.category === name)
-            LengthHandler(details)
+            const result = featuredProjects.filter((each) => each.category === name)
+            LengthHandler(result)
         } else if (name === "More") {
-            details = [...featuredProjects]
-            LengthHandler(details)
+            const result = [...featuredProjects]
+            LengthHandler(result)
         }
     }
-
-    useEffect(() => {
-        // eslint-disable-next-line react/prop-types
-        const details = featuredProjects.slice(0, 8)
-        setFeaturedCardsDetails(details)
-    }, [])
 
     const settings = {
         infinite: true,
@@ -298,7 +251,7 @@ export const Discovery = ({ details }) => {
                         " "
                     )}
                     {!activeCategory && <Typography className={classes.headings}>Featured Projects</Typography>}
-                    <FeaturedCards featuredCardsDetails={featuredCardsDetails} />
+                    <FeaturedCard featuredCardsDetails={featuredCardsDetails} />
                     {!activeCategory && (
                         <>
                             <Typography className={classes.headings}>Curated creators</Typography>
@@ -341,15 +294,11 @@ const propsValidation = {
     ),
 }
 
-Discovery.propTypes = {
-    details: PropTypes.shape(
-        PropTypes.shape({
-            ...propsValidation,
-        }).isRequired
-    ),
+Discovery.defaultProps = {
+    details: [],
 }
 
-SelectingCategories.prototype = {
+Discovery.propTypes = {
     details: PropTypes.shape(
         PropTypes.shape({
             ...propsValidation,

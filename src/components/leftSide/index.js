@@ -100,9 +100,7 @@ const LeftSide = () => {
                             icon={<span className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
                         />
-                        <Typography className={classes.checkboxText}>
-                            Use smart search to find inspiration
-                        </Typography>
+                        <Typography className={classes.checkboxText}>Use smart search to find inspiration</Typography>
                     </Box>
                 </Box>
             </Box>

@@ -56,18 +56,10 @@ const MobileFooter = () => {
             </Link>
             <Box>
                 <Link href="/">
-                    <img
-                        className={classnames(classes.itemPadding, classes.Images)}
-                        alt="fb"
-                        src={icons.Fb}
-                    />
+                    <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.Fb} />
                 </Link>
                 <Link href="/">
-                    <img
-                        className={classnames(classes.itemPadding, classes.Images)}
-                        alt="Insta"
-                        src={icons.Insta}
-                    />
+                    <img className={classnames(classes.itemPadding, classes.Images)} alt="Insta" src={icons.Insta} />
                 </Link>
                 <Link href="/">
                     <img
@@ -79,8 +71,7 @@ const MobileFooter = () => {
             </Box>
             <Link href="/">
                 <Box>
-                    <Typography
-                        className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
+                    <Typography className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
                         <CopyrightIcon className={classes.copyrightIcon} />
                         Copyright PXL
                     </Typography>

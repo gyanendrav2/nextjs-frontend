@@ -147,40 +147,28 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
     switch (variant) {
         case "primary": {
             return (
-                <Button
-                    className={classnames(classes.primary, exteranlclass)}
-                    onClick={handleClick}
-                    {...props}>
+                <Button className={classnames(classes.primary, exteranlclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )
         }
         case "borderButton": {
             return (
-                <Button
-                    className={classnames(classes.borderButton, exteranlclass)}
-                    onClick={handleClick}
-                    {...props}>
+                <Button className={classnames(classes.borderButton, exteranlclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )
         }
         case "iconButton": {
             return (
-                <Button
-                    className={classnames(classes.iconButton, exteranlclass)}
-                    onClick={handleClick}
-                    {...props}>
+                <Button className={classnames(classes.iconButton, exteranlclass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             )
         }
         case "iconLargeButton": {
             return (
-                <Button
-                    className={classnames(classes.iconLargeButton, exteranlclass)}
-                    onClick={handleClick}
-                    {...props}>
+                <Button className={classnames(classes.iconLargeButton, exteranlclass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             )
@@ -207,10 +195,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
         }
         case "iconColorButton": {
             return (
-                <Button
-                    className={classnames(classes.iconColorButton, exteranlclass)}
-                    onClick={handleClick}
-                    {...props}>
+                <Button className={classnames(classes.iconColorButton, exteranlclass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             )
@@ -239,10 +224,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
         }
         default: {
             return (
-                <Button
-                    className={classnames(classes.primary, exteranlclass)}
-                    onClick={handleClick}
-                    {...props}>
+                <Button className={classnames(classes.primary, exteranlclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )

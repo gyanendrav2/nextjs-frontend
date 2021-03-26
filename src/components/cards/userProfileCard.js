@@ -95,11 +95,7 @@ const UserProfileCard = ({
             <SocialButtons />
             <Grid container spacing={3}>
                 <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
-                    <CustomButton
-                        label="Message me"
-                        exteranlclass={classes.fullWidthBtn}
-                        onClick={onMsgBtnClick}
-                    />
+                    <CustomButton label="Message me" exteranlclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
                 </Grid>
                 <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
                     <CustomButton

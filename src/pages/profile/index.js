@@ -106,11 +106,7 @@ const Profile = () => {
                         />
                     </Grid>
                 </Grid>
-                <Grid
-                    container
-                    alignItems="center"
-                    justify="flex-start"
-                    className={classes.category}>
+                <Grid container alignItems="center" justify="flex-start" className={classes.category}>
                     <Typography
                         className={classnames(classes.boldText, {
                             [classes.activeCategory]: true,

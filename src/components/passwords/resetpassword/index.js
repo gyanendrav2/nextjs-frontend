@@ -58,11 +58,7 @@ const RightSide = () => {
                     placeholder="Confirmation code"
                     exteranlclass={classes.inputStyles}
                 />
-                <InputWithLabelIcon
-                    label="Input field"
-                    placeholder="Email"
-                    exteranlclass={classes.inputStyles}
-                />
+                <InputWithLabelIcon label="Input field" placeholder="Email" exteranlclass={classes.inputStyles} />
                 <InputWithLabelIcon
                     label="Input field"
                     placeholder="New password"

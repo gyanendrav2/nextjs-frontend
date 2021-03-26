@@ -23,10 +23,7 @@ export default function MyApp(props) {
             <Head>
                 <title>PXL</title>
                 <link rel="icon" href={images.logoImage} />
-                <meta
-                    name="viewport"
-                    content="minimum-scale=1, initial-scale=1, width=device-width"
-                />
+                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
                 <meta name="description" content="Web site created using next js" />
             </Head>
             <ThemeProvider theme={theme}>
@@ -37,8 +34,13 @@ export default function MyApp(props) {
         </>
     )
 }
+MyApp.defaultProps = {
+    Component: "",
+    pageProps: {},
+}
 
 MyApp.propTypes = {
-    Component: PropTypes.elementType.isRequired,
-    pageProps: PropTypes.object.isRequired,
+    Component: PropTypes.elementType,
+    // eslint-disable-next-line react/forbid-prop-types
+    pageProps: PropTypes.object,
 }

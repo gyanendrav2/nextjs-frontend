@@ -13,14 +13,7 @@ const ImageGallery = () => {
     return (
         <Masonry columnsCount={2} gutter="0.3rem" columnClassName="my-masonry-grid_column">
             {Images.map((photo, i) => {
-                return (
-                    <img
-                        key={i}
-                        src={photo.image}
-                        style={{ width: "100%", display: "block" }}
-                        alt=""
-                    />
-                )
+                return <img key={i} src={photo.image} style={{ width: "100%", display: "block" }} alt="" />
             })}
         </Masonry>
     )

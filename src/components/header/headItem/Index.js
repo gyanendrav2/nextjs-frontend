@@ -39,16 +39,7 @@ const useStyles = makeStyles({
     },
 })
 
-const HeadItem = ({
-    name,
-    active,
-    icon,
-    id,
-    color,
-    routeName,
-    handleMouseHover,
-    handleMouseLeave,
-}) => {
+const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, handleMouseLeave }) => {
     const classes = useStyles({ id, color })
     const router = useRouter()
 

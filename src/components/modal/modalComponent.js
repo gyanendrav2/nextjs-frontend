@@ -74,12 +74,7 @@ export const ModalComponent = ({ handleClose, openOrNot, children, onClose }) =>
                     timeout: 500,
                 }}>
                 <Fade in={openOrNot}>
-                    <Grid
-                        container
-                        alignItems="center"
-                        direction="column"
-                        justify="center"
-                        className={classes.paper}>
+                    <Grid container alignItems="center" direction="column" justify="center" className={classes.paper}>
                         <Box className={classes.closeIcon} onClick={onClose}>
                             <img src={icons.close} alt="" />
                         </Box>

@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 
-const ImageSlider = ({
-    imageList,
-    transition,
-    infiniteSlide,
-    height,
-    outerLeftBtnClicked,
-    outerRightBtnClicked,
-}) => {
+const ImageSlider = ({ imageList, transition, infiniteSlide, height, outerLeftBtnClicked, outerRightBtnClicked }) => {
     const [images, setImages] = useState([])
     const [active, setActive] = useState(0)
     const [touchStart, setTouchStart] = useState(0)
@@ -156,9 +149,7 @@ const ImageSlider = ({
                             transform: `translateX(${item.transform}%)`,
                             transition: `all ${transition}s`,
                         }}>
-                        {item.url !== "" && (
-                            <img className="slider_container_image" key={i} src={item.url} alt="" />
-                        )}
+                        {item.url !== "" && <img className="slider_container_image" key={i} src={item.url} alt="" />}
                     </div>
                 </React.Fragment>
             ))}

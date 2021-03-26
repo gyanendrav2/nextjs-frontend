@@ -60,16 +60,11 @@ const RightSide = () => {
         <Box container className={classes.wrapper}>
             <Typography className={classes.title}>Forgot Password</Typography>
             <Typography className={classes.subTitle}>
-                Enter the email address associated with your account, and we’ll email you a link to
-                reset your password.
+                Enter the email address associated with your account, and we’ll email you a link to reset your password.
             </Typography>
 
             <form>
-                <InputWithLabelIcon
-                    label="Input field"
-                    placeholder="Username"
-                    exteranlclass={classes.inputStyles}
-                />
+                <InputWithLabelIcon label="Input field" placeholder="Username" exteranlclass={classes.inputStyles} />
                 <Grid container display="flex" className={classes.submitContainer}>
                     <Grid item sm={12}>
                         <CustomButton

@@ -16,8 +16,7 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         fontWeight: 400,
         backgroundColor: (props) => (props.bgColor ? props.bgColor : colors.white),
-        border: (props) =>
-            props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`,
+        border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`),
         borderRadius: "3px",
         "&:focus": {
             borderColor: (props) => (props.error ? colors.red : colors.black),
@@ -104,11 +103,7 @@ const SelectWithLabelIcon = ({
                 tabIndex="0"
                 className={cn(classes.wrapper, { [classes[variant]]: variant })}>
                 <Box className={classes.inputContainer}>
-                    <select
-                        ref={inputRegister}
-                        className={cn(classes.input)}
-                        error={error}
-                        {...props}>
+                    <select ref={inputRegister} className={cn(classes.input)} error={error} {...props}>
                         <option value="" hidden>
                             {placeholder}
                         </option>
@@ -125,6 +120,25 @@ const SelectWithLabelIcon = ({
     )
 }
 
+SelectWithLabelIcon.defaultProps = {
+    disabled: false,
+    error: false,
+    onChange: () => {},
+    placeholder: "",
+    value: "",
+    type: "",
+    label: "",
+    icon: PropTypes.element,
+    name: "",
+    inputRegister: PropTypes.func,
+    errorMsg: {},
+    options: [],
+    iscompulsory: false,
+    variant: "",
+    labelColor: "",
+    bgColor: "",
+}
+
 SelectWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
@@ -136,8 +150,8 @@ SelectWithLabelIcon.propTypes = {
     icon: PropTypes.element,
     name: PropTypes.string,
     inputRegister: PropTypes.func,
-    errorMsg: PropTypes.object,
-    options: PropTypes.array,
+    errorMsg: PropTypes.shape({ message: PropTypes.string }),
+    options: PropTypes.arrayOf(PropTypes.shape({ value: PropTypes.string, label: PropTypes.string })),
     iscompulsory: PropTypes.bool,
     variant: PropTypes.string,
     labelColor: PropTypes.string,

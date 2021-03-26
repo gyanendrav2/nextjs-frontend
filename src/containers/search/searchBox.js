@@ -166,11 +166,7 @@ const SearchBox = ({ exteranlclass }) => {
     const [showFilter, setShowFilter] = useState(false)
     return (
         <>
-            <Grid
-                container
-                alignItems="center"
-                justify="center"
-                className={classes.searchContainer}>
+            <Grid container alignItems="center" justify="center" className={classes.searchContainer}>
                 {/* <Grid item sm={12} md={3} lg={2}></Grid>
                 <Grid item sm={12} md={6} lg={8}> */}
                 <Grid
@@ -188,28 +184,14 @@ const SearchBox = ({ exteranlclass }) => {
                             />
                         </Grid>
                         <Grid item className={classes.inputCol2}>
-                            <Grid
-                                container
-                                alignItems="center"
-                                justifyContent="flex-start"
-                                wrap="nowrap">
-                                <CustomButton
-                                    exteranlclass={classes.buttonGroupItem}
-                                    label="Work"
-                                />
-                                <CustomButton
-                                    exteranlclass={classes.buttonGroupItem}
-                                    label="People"
-                                />
+                            <Grid container alignItems="center" justifyContent="flex-start" wrap="nowrap">
+                                <CustomButton exteranlclass={classes.buttonGroupItem} label="Work" />
+                                <CustomButton exteranlclass={classes.buttonGroupItem} label="People" />
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.col2}>
-                        <CustomButton
-                            label="Search"
-                            type="submit"
-                            exteranlclass={classes.confirmButton}
-                        />
+                        <CustomButton label="Search" type="submit" exteranlclass={classes.confirmButton} />
                     </Grid>
                 </Grid>
                 {/* </Grid> */}
@@ -233,9 +215,7 @@ const SearchBox = ({ exteranlclass }) => {
                     />
                 </Grid>
             </Box>
-            <Box className={classes.filterWrapper}>
-                {showFilter && <Filter exteranlclass={classes.search} />}
-            </Box>
+            <Box className={classes.filterWrapper}>{showFilter && <Filter exteranlclass={classes.search} />}</Box>
         </>
     )
 }

@@ -130,14 +130,8 @@ const CountrySelectInput = ({
                 className={classes.wrapper}>
                 <input type="hidden" value={selectedCountry} name={name} ref={inputRegister} />
                 <Box tabIndex={0} className={classes.inputContainer}>
-                    <Box
-                        className={classes.input}
-                        error={error}
-                        onClick={handleOpenSelection}
-                        {...props}>
-                        <Typography>
-                            {selectedCountry !== "" ? selectedCountry : placeholder}
-                        </Typography>
+                    <Box className={classes.input} error={error} onClick={handleOpenSelection} {...props}>
+                        <Typography>{selectedCountry !== "" ? selectedCountry : placeholder}</Typography>
                         <ExpandMoreIcon className={classes.expandIcon} />
                         <Box
                             className={classnames(
@@ -193,9 +187,7 @@ CountrySelectInput.propTypes = {
     name: PropTypes.string,
     inputRegister: PropTypes.func,
     errorMsg: PropTypes.arrayOf(PropTypes.shape({ message: PropTypes.string })),
-    options: PropTypes.arrayOf(
-        PropTypes.shape({ value: PropTypes.string, label: PropTypes.string })
-    ),
+    options: PropTypes.arrayOf(PropTypes.shape({ value: PropTypes.string, label: PropTypes.string })),
     iscompulsory: PropTypes.bool,
 }
 export default CountrySelectInput

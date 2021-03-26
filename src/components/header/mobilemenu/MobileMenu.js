@@ -134,24 +134,12 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
     return (
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
             <Box className={classes.contentWrapper}>
-                <Grid
-                    container
-                    alignItems="center"
-                    justifycontent="space-between"
-                    className={classes.headerWrapper}>
-                    <Grid
-                        container
-                        alignItems="center"
-                        justifycontent="space-between"
-                        className={classes.autoWidth}>
+                <Grid container alignItems="center" justifycontent="space-between" className={classes.headerWrapper}>
+                    <Grid container alignItems="center" justifycontent="space-between" className={classes.autoWidth}>
                         <Avatar src={images.maskGroup} />
                         <Typography className={classes.username}>Brandon</Typography>
                     </Grid>
-                    <Grid
-                        container
-                        alignItems="center"
-                        justifycontent="space-around"
-                        className={classes.autoWidth}>
+                    <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
                         <IconButton className={classes.closeButton} onClick={onClose}>
                             <NotificationsNoneIcon className={classes.icon} />
                         </IconButton>

@@ -39,9 +39,7 @@ const HeaderCategory = ({ categoryName }) => {
     return (
         <Box className={classes.wrapper}>
             <Typography className={classes.title}>{categoryName}</Typography>
-            <Typography className={classes.subTitle}>
-                Shuffle between categories and get inspired!
-            </Typography>
+            <Typography className={classes.subTitle}>Shuffle between categories and get inspired!</Typography>
         </Box>
     )
 }

@@ -3,20 +3,10 @@ import React from "react"
 
 const FilterIcon = () => {
     return (
-        <svg
-            width={20}
-            height={16}
-            viewBox="0 0 20 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+        <svg width={20} height={16} viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 13.5L20 13.5V14.5L0 14.5V13.5Z" fill="white" />
             <path d="M0 13.5L20 13.5V14.5L0 14.5V13.5Z" fill="url(#paint0_linear)" />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 13.5V14.5L0 14.5V13.5L20 13.5Z"
-                fill="white"
-            />
+            <path fillRule="evenodd" clipRule="evenodd" d="M20 13.5V14.5L0 14.5V13.5L20 13.5Z" fill="white" />
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -25,32 +15,12 @@ const FilterIcon = () => {
             />
             <path d="M0 7.5L20 7.5V8.5L0 8.5V7.5Z" fill="white" />
             <path d="M0 7.5L20 7.5V8.5L0 8.5V7.5Z" fill="url(#paint2_linear)" />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 7.5V8.5L0 8.5V7.5L20 7.5Z"
-                fill="white"
-            />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 7.5V8.5L0 8.5V7.5L20 7.5Z"
-                fill="url(#paint3_linear)"
-            />
+            <path fillRule="evenodd" clipRule="evenodd" d="M20 7.5V8.5L0 8.5V7.5L20 7.5Z" fill="white" />
+            <path fillRule="evenodd" clipRule="evenodd" d="M20 7.5V8.5L0 8.5V7.5L20 7.5Z" fill="url(#paint3_linear)" />
             <path d="M0 1.5L20 1.5V2.5L0 2.5V1.5Z" fill="white" />
             <path d="M0 1.5L20 1.5V2.5L0 2.5V1.5Z" fill="url(#paint4_linear)" />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 1.5V2.5L0 2.5V1.5L20 1.5Z"
-                fill="white"
-            />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M20 1.5V2.5L0 2.5V1.5L20 1.5Z"
-                fill="url(#paint5_linear)"
-            />
+            <path fillRule="evenodd" clipRule="evenodd" d="M20 1.5V2.5L0 2.5V1.5L20 1.5Z" fill="white" />
+            <path fillRule="evenodd" clipRule="evenodd" d="M20 1.5V2.5L0 2.5V1.5L20 1.5Z" fill="url(#paint5_linear)" />
             <path
                 d="M6.7998 2C6.7998 3.10457 5.90437 4 4.7998 4C3.69524 4 2.7998 3.10457 2.7998 2C2.7998 0.895431 3.69524 0 4.7998 0C5.90437 0 6.7998 0.895431 6.7998 2Z"
                 fill="#010203"
@@ -100,73 +70,31 @@ const FilterIcon = () => {
                 fill="url(#paint8_linear)"
             />
             <defs>
-                <linearGradient
-                    id="paint0_linear"
-                    x1={10}
-                    y1="13.5"
-                    x2={10}
-                    y2="14.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint0_linear" x1={10} y1="13.5" x2={10} y2="14.5" gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient
-                    id="paint1_linear"
-                    x1={10}
-                    y1="13.5"
-                    x2={10}
-                    y2="14.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint1_linear" x1={10} y1="13.5" x2={10} y2="14.5" gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient
-                    id="paint2_linear"
-                    x1={10}
-                    y1="7.5"
-                    x2={10}
-                    y2="8.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint2_linear" x1={10} y1="7.5" x2={10} y2="8.5" gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient
-                    id="paint3_linear"
-                    x1={10}
-                    y1="7.5"
-                    x2={10}
-                    y2="8.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint3_linear" x1={10} y1="7.5" x2={10} y2="8.5" gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient
-                    id="paint4_linear"
-                    x1={10}
-                    y1="1.5"
-                    x2={10}
-                    y2="2.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint4_linear" x1={10} y1="1.5" x2={10} y2="2.5" gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient
-                    id="paint5_linear"
-                    x1={10}
-                    y1="1.5"
-                    x2={10}
-                    y2="2.5"
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint5_linear" x1={10} y1="1.5" x2={10} y2="2.5" gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>
-                <linearGradient
-                    id="paint6_linear"
-                    x1="4.7998"
-                    y1={0}
-                    x2="4.7998"
-                    y2={4}
-                    gradientUnits="userSpaceOnUse">
+                <linearGradient id="paint6_linear" x1="4.7998" y1={0} x2="4.7998" y2={4} gradientUnits="userSpaceOnUse">
                     <stop stopColor="white" />
                     <stop offset={1} stopColor="white" stopOpacity={0} />
                 </linearGradient>

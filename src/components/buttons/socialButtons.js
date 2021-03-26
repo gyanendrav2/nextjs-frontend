@@ -24,11 +24,7 @@ const useStyles = makeStyles({
 const SocialButtons = () => {
     const classes = useStyles()
     return (
-        <Grid
-            container
-            alignItems="center"
-            justify="flex-start"
-            className={classes.buttonContainer}>
+        <Grid container alignItems="center" justify="flex-start" className={classes.buttonContainer}>
             <img alt="youtube" src={icons.youtube} className={classes.socialButton} />
             <img alt="vimeo" src={icons.vimeo} className={classes.socialButton} />
             <img alt="instagram" src={icons.instagram} className={classes.socialButton} />

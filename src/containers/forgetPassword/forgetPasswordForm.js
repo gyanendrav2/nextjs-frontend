@@ -1,12 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import { colors } from "../../theme/colors";
-import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon";
-import CustomButton from "../../components/buttons/CustomButton";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers";
-import { forgetFormValidation } from "../../formValidation/forgetpassword";
+import React from "react"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers"
+import { colors } from "../../theme/colors"
+import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
+import { forgetFormValidation } from "../../formValidation/forgetpassword"
+import CustomButton from "../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -73,16 +72,16 @@ const useStyles = makeStyles({
             width: "100%",
         },
     },
-});
+})
 
 const RightSide = () => {
-    const classes = useStyles();
+    const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(forgetFormValidation),
-    });
+    })
     const submit = (data) => {
-        console.log("data", data);
-    };
+        console.log("data", data)
+    }
 
     return (
         <Box container className={classes.wrapper}>
@@ -99,7 +98,7 @@ const RightSide = () => {
                         placeholder="Email address"
                         name="email"
                         inputRegister={register}
-                        errorMsg={errors?.email}
+                        errorMsg={errors.email}
                         exteranlclass={classes.inputStyles}
                     />
                     <Grid className={classes.submitContainer}>
@@ -113,12 +112,7 @@ const RightSide = () => {
                 </form>
             </Box>
         </Box>
-    );
-};
+    )
+}
 
-RightSide.propTypes = {
-    title: PropTypes.string,
-    subTitle: PropTypes.string,
-};
-
-export default RightSide;
+export default RightSide
