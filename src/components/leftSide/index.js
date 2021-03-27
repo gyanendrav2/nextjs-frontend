@@ -40,12 +40,23 @@ const useStyles = makeStyles({
     },
     radioboxWrapper: {
         margin: "2rem 0 0 0",
-        // marginTop: "3rem",
     },
     radioboxContainer: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
+    },
+    checkBoxStyles: {
+        "&.MuiIconButton-root": {
+            "&:hover": {
+                backgroundColor: "unset",
+            },
+        },
+        "&.MuiIconButton-colorSecondary": {
+            "&:hover": {
+                backgroundColor: "unset",
+            },
+        },
     },
     checkboxText: {
         fontSize: "0.9rem",
@@ -75,6 +86,7 @@ const LeftSide = () => {
                         <Checkbox
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
+                            disableRipple
                             icon={<i className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
                         />
@@ -85,6 +97,7 @@ const LeftSide = () => {
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
                             className={classes.checkBoxStyles}
+                            disableRipple
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
@@ -95,6 +108,8 @@ const LeftSide = () => {
                     </Box>
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
+                            disableRipple
+                            color="default"
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}

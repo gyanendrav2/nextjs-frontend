@@ -1,10 +1,10 @@
 import React from "react"
 import { Box, makeStyles } from "@material-ui/core"
-import LeftSide from "../../components/leftSide"
-import HeaderWrapper from "../../components/header/headerWrapper"
-import { images } from "../../assets/images"
-import SignupForm from "../../containers/signup/signupForm"
-import { colors } from "../../theme/colors"
+import LeftSide from "../components/leftSide"
+import SigninForm from "../containers/signin/signinForm"
+import HeaderWrapper from "../components/header/headerWrapper"
+import { images } from "../assets/images"
+import { colors } from "../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     },
 })
 
-const SignUp = () => {
+const SignIn = () => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
@@ -40,12 +40,12 @@ const SignUp = () => {
                 <LeftSide />
             </Box>
             <Box className={classes.right}>
-                <SignupForm />
+                <SigninForm />
             </Box>
         </Box>
     )
 }
 
-SignUp.propTypes = {}
+SignIn.propTypes = {}
 
-export default SignUp
+export default SignIn

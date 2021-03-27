@@ -1,12 +1,12 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
-import { colors } from "../../theme/colors"
-import HeaderWrapper from "../../components/header/headerWrapper"
-import Footer from "../../components/footer"
-import SearchBox from "../../containers/search/searchBox"
-import CardWithHeader from "../../components/cards/cardWithHeader"
-import { images } from "../../assets/images"
-import ContentWrapper from "../../components/contentWrapper/contentWrapper"
+import { colors } from "../theme/colors"
+import HeaderWrapper from "../components/header/headerWrapper"
+import Footer from "../components/footer"
+import SearchBox from "../containers/search/searchBox"
+import CardWithHeader from "../components/cards/cardWithHeader"
+import { images } from "../assets/images"
+import ContentWrapper from "../components/contentWrapper/contentWrapper"
 
 const useStyles = makeStyles({
     searchWrapper: {

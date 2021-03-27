@@ -17,7 +17,7 @@ export default function Home({ homeData }) {
         }
     }, [homeData])
 
-    return <>{homeData ? <Discovery details={data} /> : ""}</>
+    return <Discovery details={data} />
 }
 
 const propsValidation = {

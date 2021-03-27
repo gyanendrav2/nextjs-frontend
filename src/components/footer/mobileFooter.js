@@ -56,16 +56,16 @@ const MobileFooter = () => {
             </Link>
             <Box>
                 <Link href="/">
-                    <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.Fb} />
+                    <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.fb} />
                 </Link>
                 <Link href="/">
-                    <img className={classnames(classes.itemPadding, classes.Images)} alt="Insta" src={icons.Insta} />
+                    <img className={classnames(classes.itemPadding, classes.Images)} alt="Insta" src={icons.insta} />
                 </Link>
                 <Link href="/">
                     <img
                         className={classnames(classes.itemPadding, classes.Images)}
                         alt="Linked In"
-                        src={icons.Linkedin}
+                        src={icons.linkedin}
                     />
                 </Link>
             </Box>

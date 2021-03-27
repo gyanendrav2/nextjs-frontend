@@ -2,14 +2,14 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
-import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone"
 import classnames from "classnames"
 import SearchIcon from "@material-ui/icons/Search"
 import { colors } from "../../../theme/colors"
-import { icons } from "../../../assets/icons"
 import { images } from "../../../assets/images"
 import CustomButton from "../../buttons/customButton"
 import InputWithLabelIcon from "../../inputs/inputWithLabelIcon"
+import NotificationBellIcon from "../../icons/notificationBellIcon"
+import { mobileNavOptions } from "../../../data/headerMenuList"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -31,6 +31,7 @@ const useStyles = makeStyles({
     },
     title: {
         color: colors.white,
+        marginLeft: "1rem",
     },
     img: {
         width: "1.5rem",
@@ -141,7 +142,7 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                     </Grid>
                     <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
                         <IconButton className={classes.closeButton} onClick={onClose}>
-                            <NotificationsNoneIcon className={classes.icon} />
+                            <NotificationBellIcon activeColor={colors.pink} className={classes.icon} />
                         </IconButton>
                         <IconButton className={classes.closeButton} onClick={onClose}>
                             <CloseIcon className={classes.icon} />
@@ -150,19 +151,12 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                 </Grid>
                 <Box className={classes.menuWrapper}>
                     <ul className={classes.unorderedList}>
-                        <li className={classes.listStyle}>
-                            <img src={icons.Ellipse} alt="feed" className={classes.img} />
-                            <Typography className={classes.title}>Feed</Typography>
-                        </li>
-                        <li className={classes.listStyle}>
-                            {/* <Link href="/"> */}
-                            <>
-                                <img src={icons.Ellipse} alt="feed" className={classes.img} />
-                                <Typography className={classes.title}>Discover</Typography>
-                            </>
-                            {/* </Link> */}
-                        </li>
-
+                        {mobileNavOptions.map((item) => (
+                            <li className={classes.listStyle}>
+                                {item.icon}
+                                <Typography className={classes.title}>{item.name}</Typography>
+                            </li>
+                        ))}
                         <li className={classes.listStyle}>
                             <InputWithLabelIcon
                                 name=""

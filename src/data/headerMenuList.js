@@ -1,29 +1,26 @@
-import { icons } from "../assets/icons"
+import React from "react"
+import DisocoveryIcon from "../components/icons/disocoveryIcon"
+import HomeIcon from "../components/icons/homeIcon"
+import LoginIcon from "../components/icons/loginIcon"
+import SearchIcon from "../components/icons/searchIcon"
 
 export const NavItemOptions = [
     {
         id: 1,
         name: "discover",
-        iconWhite: icons.ellipse,
-        iconBlack: icons.discoverBlack,
-        iconPink: icons.loginPink,
-
+        icon: <DisocoveryIcon />,
         pathname: "/",
     },
     {
         id: 2,
         name: "Search",
-        iconWhite: icons.rectangle1,
-        iconBlack: icons.searchBlack,
-        iconPink: icons.searchPink,
+        icon: <SearchIcon />,
         pathname: "/search",
     },
     {
         id: 3,
         name: "Sign in",
-        iconWhite: icons.rectangle,
-        iconBlack: icons.loginBlack,
-        iconPink: icons.loginPink,
+        icon: <LoginIcon />,
         pathname: "/signin",
     },
 ]
@@ -31,19 +28,14 @@ export const NavItemOptions = [
 export const mobileNavOptions = [
     {
         id: 1,
-        name: "discover",
-        iconWhite: icons.Ellipse,
-        iconBlack: icons.discoverBlack,
-        iconPink: icons.loginPink,
-
+        name: "Feed",
+        icon: <HomeIcon />,
         pathname: "/",
     },
     {
         id: 2,
-        name: "Search",
-        iconWhite: icons.Rectangle1,
-        iconBlack: icons.searchBlack,
-        iconPink: icons.searchPink,
-        pathname: "/search",
+        name: "Discover",
+        icon: <SearchIcon />,
+        pathname: "/",
     },
 ]

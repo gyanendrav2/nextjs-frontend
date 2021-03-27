@@ -1,13 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Box, makeStyles, Typography, Grid } from "@material-ui/core"
-import CopyrightIcon from "@material-ui/icons/Copyright"
 import Link from "next/link"
 import classnames from "classnames"
 import MobileFooter from "./mobileFooter"
 import { colors } from "../../theme/colors"
 import { icons } from "../../assets/icons"
 import ContentWrapper from "../contentWrapper/contentWrapper"
+import CopyrightIcon from "../icons/copyrightIcon"
 
 const useStyles = makeStyles({
     footer: {
@@ -115,7 +115,7 @@ const Footer = ({ exteranlclass }) => {
                             <Link href="/">
                                 <Grid item md={3} lg={3} className={classes.copyRightcontainer}>
                                     <Typography className={classes.copyright}>
-                                        <CopyrightIcon className={classes.copyrightIcon} />
+                                        <CopyrightIcon width={16} height={16} className={classes.copyrightIcon} />
                                         Copyright PXL
                                     </Typography>
                                 </Grid>

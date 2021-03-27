@@ -32,10 +32,7 @@ const useStyles = makeStyles({
         },
     },
     title: {
-        // color: (props) => props.color,
-        // "&:hover": {
-        //     color: colors.pink,
-        // },
+        marginLeft: "1rem",
     },
 })
 
@@ -53,7 +50,7 @@ const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, 
             onMouseEnter={handleMouseHover}
             onMouseLeave={handleMouseLeave}
             onClick={handleRoute}>
-            <img src={icon} alt={name} className={classes.img} />
+            {icon}
             <Typography className={classes.title}>{name}</Typography>
         </Box>
     )

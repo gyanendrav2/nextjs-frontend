@@ -51,16 +51,6 @@ const Header = ({ color, bgcolor, NavItemOptions }) => {
         }
     }
 
-    const getIconType = (item) => {
-        if (item.pathname === hoveredActive) {
-            return item.iconPink
-        }
-        if (color === colors.white) {
-            return item.iconWhite
-        }
-        return item.iconBlack
-    }
-
     return (
         <Box className={classes.header}>
             <Link href="/">
@@ -82,13 +72,11 @@ const Header = ({ color, bgcolor, NavItemOptions }) => {
                             active={router.pathname === item.pathname}
                             handleMouseHover={() => handleHoveredItem(item)}
                             handleMouseLeave={() => setHoverdActive(null)}
-                            icon={getIconType(item)}
+                            icon={item.icon}
                         />
                     )
                 })}
-                {/* <Link href="/signup"> */}
                 <CustomButton label="Sign up" exteranlclass={classes.button} onClick={() => router.push("/signup")} />
-                {/* </Link> */}
             </Grid>
         </Box>
     )

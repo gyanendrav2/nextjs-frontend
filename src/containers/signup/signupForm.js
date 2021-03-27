@@ -116,7 +116,7 @@ const useStyles = makeStyles({
     },
 })
 
-const RightSide = () => {
+const SignupForm = () => {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(signupFormValidation),
@@ -185,6 +185,6 @@ const RightSide = () => {
     )
 }
 
-RightSide.propTypes = {}
+SignupForm.propTypes = {}
 
-export default RightSide
+export default SignupForm

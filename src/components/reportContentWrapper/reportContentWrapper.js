@@ -55,7 +55,7 @@ const ReportContentWrapper = (exteranlclass) => {
         <Box className={classnames(classes.reportWrapper, exteranlclass)}>
             <Grid container className={classes.spamContainer}>
                 <Grid item xs={12} sm={12} md={6} lg={6} className={classes.reportspamwrapper} container>
-                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Grid item xs={6} sm={6} md={6} lg={6} className={classes.spamwrapper}>
                         <Link href="/">
                             <>
                                 <img
@@ -67,7 +67,7 @@ const ReportContentWrapper = (exteranlclass) => {
                             </>
                         </Link>
                     </Grid>
-                    <Grid item xs={6} sm={6} md={6} lg={6}>
+                    <Grid item xs={6} sm={6} md={6} lg={6} className={classes.spamwrapper}>
                         <Link href="/">
                             <>
                                 <img
@@ -82,7 +82,7 @@ const ReportContentWrapper = (exteranlclass) => {
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} className={classes.requestwrapper}>
                     <Link href="/">
-                        <Grid display="flex" alignItems="center" justify="center" flexDirection="row">
+                        <Grid className={classes.spamwrapper}>
                             <img
                                 className={classnames(classes.spamwrapper, classes.reportContent)}
                                 alt="request participation"

@@ -11,8 +11,20 @@ module.exports = {
     ],
     
     rules: {
-        "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
-        "prettier/prettier": ["error", { "endOfLine": "auto" }] 
+        "react/jsx-filename-extension": [
+            1,
+            { extensions: [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
         // {
         // "import/no-named-as-default": false
         // },
