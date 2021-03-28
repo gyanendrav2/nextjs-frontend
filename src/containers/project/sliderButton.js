@@ -1,14 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Grid, makeStyles } from "@material-ui/core"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
 
 const useStyles = makeStyles({
     wrapper: {
         cursor: "pointer",
     },
+    buttonName: {
+        paddingLeft: "1.5rem",
+        paddingRight: "1.5rem",
+    },
 })
 
-const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick }) => {
+export const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick }) => {
     const classes = useStyles()
     return (
         <Grid
@@ -18,7 +22,7 @@ const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick }) => {
             direction={flexDirection}
             onClick={onClick}
             className={classes.wrapper}>
-            {buttonName}
+            <Typography className={classes.buttonName}> {buttonName}</Typography>
             {buttonIcon}
         </Grid>
     )
@@ -30,5 +34,3 @@ SliderButton.propTypes = {
     flexDirection: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 }
-
-export default SliderButton

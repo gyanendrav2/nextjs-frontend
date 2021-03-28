@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Box, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
-import LazyloadImage from "../lazyloadImage/lazyloadImage"
+import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
         background: "red",
     },
 })
-const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick, hideFooter }) => {
+export const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick, hideFooter }) => {
     const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
 
@@ -118,4 +118,3 @@ CardWithFooter.propTypes = {
     handleClick: PropTypes.func,
     hideFooter: PropTypes.bool,
 }
-export default CardWithFooter

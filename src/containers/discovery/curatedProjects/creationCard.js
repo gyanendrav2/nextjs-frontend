@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../../theme/colors"
-import CardWithHeader from "../../../components/cards/cardWithHeader"
+import { CardWithHeader } from "../../../components/cards/cardWithHeader"
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles({
     },
 })
 
-const CreationCard = ({ curatedCreators }) => {
+export const CreationCard = ({ curatedCreators }) => {
     const classes = useStyles()
     return (
         <Box className={classes.CuratorCard}>
@@ -95,5 +95,3 @@ CreationCard.propTypes = {
         })
     ),
 }
-
-export default CreationCard

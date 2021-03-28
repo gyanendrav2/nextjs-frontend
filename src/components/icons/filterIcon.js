@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const FilterIcon = (props) => {
+export const FilterIcon = (props) => {
     return (
         <svg width={20} height={16} viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path d="M0 13.5L20 13.5V14.5L0 14.5V13.5Z" fill="currentColor" />
@@ -64,50 +64,6 @@ const FilterIcon = (props) => {
                 d="M8.7998 15C9.35209 15 9.7998 14.5523 9.7998 14C9.7998 13.4477 9.35209 13 8.7998 13C8.24752 13 7.7998 13.4477 7.7998 14C7.7998 14.5523 8.24752 15 8.7998 15ZM8.7998 16C9.90437 16 10.7998 15.1046 10.7998 14C10.7998 12.8954 9.90437 12 8.7998 12C7.69524 12 6.7998 12.8954 6.7998 14C6.7998 15.1046 7.69524 16 8.7998 16Z"
                 fill="currentColor"
             />
-            <defs>
-                <linearGradient id="paint0_linear" x1={10} y1="13.5" x2={10} y2="14.5" gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint1_linear" x1={10} y1="13.5" x2={10} y2="14.5" gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint2_linear" x1={10} y1="7.5" x2={10} y2="8.5" gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint3_linear" x1={10} y1="7.5" x2={10} y2="8.5" gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint4_linear" x1={10} y1="1.5" x2={10} y2="2.5" gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint5_linear" x1={10} y1="1.5" x2={10} y2="2.5" gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint6_linear" x1="4.7998" y1={0} x2="4.7998" y2={4} gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient
-                    id="paint7_linear"
-                    x1="14.7998"
-                    y1={6}
-                    x2="14.7998"
-                    y2={10}
-                    gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient id="paint8_linear" x1="8.7998" y1={12} x2="8.7998" y2={16} gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-            </defs>
         </svg>
     )
 }
@@ -121,5 +77,3 @@ FilterIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }
-
-export default FilterIcon

@@ -1,9 +1,9 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import { colors } from "../../theme/colors"
-import CustomButton from "../../components/buttons/customButton"
+import { CustomButton } from "../../components/buttons/customButton"
 import FilterIcon from "../../components/icons/filterIcon"
-import Filter from "../../components/filter"
+import { Filter } from "../../components/filter"
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -158,7 +158,7 @@ const useStyles = makeStyles({
     },
 })
 
-const SearchBox = () => {
+export const SearchBox = () => {
     const classes = useStyles()
 
     const [showFilter, setShowFilter] = useState(false)
@@ -219,5 +219,3 @@ const SearchBox = () => {
 }
 
 SearchBox.propTypes = {}
-
-export default SearchBox

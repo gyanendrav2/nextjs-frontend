@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     },
 })
 
-const SocialButtons = () => {
+export const SocialButtons = () => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="flex-start" className={classes.buttonContainer}>
@@ -34,5 +34,3 @@ const SocialButtons = () => {
 }
 
 SocialButtons.propTypes = {}
-
-export default SocialButtons

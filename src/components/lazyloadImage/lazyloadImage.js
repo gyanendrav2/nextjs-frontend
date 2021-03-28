@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Blurhash } from "react-blurhash"
 
-const LazyloadImage = ({ image, exteranlclass }) => {
+export const LazyloadImage = ({ image, exteranlclass }) => {
     const [showImage, setShowImage] = useState(false)
     return (
         <>
@@ -30,5 +30,3 @@ LazyloadImage.propTypes = {
     image: PropTypes.string.isRequired,
     exteranlclass: PropTypes.string,
 }
-
-export default LazyloadImage

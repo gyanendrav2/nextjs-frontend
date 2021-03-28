@@ -1,7 +1,7 @@
 import React from "react"
 // import PropTypes from "prop-types";
 
-const CheckBoxIcon = () => {
+export const CheckBoxIcon = () => {
     return (
         <>
             <span className="icon-Check">
@@ -17,5 +17,3 @@ const CheckBoxIcon = () => {
 }
 
 CheckBoxIcon.propTypes = {}
-
-export default CheckBoxIcon

@@ -3,19 +3,18 @@ import PropTypes from "prop-types"
 import { Box, makeStyles, Typography, Grid } from "@material-ui/core"
 import Link from "next/link"
 import classnames from "classnames"
-import MobileFooter from "./mobileFooter"
+import { MobileFooter } from "./mobileFooter"
 import { colors } from "../../theme/colors"
 import { icons } from "../../assets/icons"
-import ContentWrapper from "../contentWrapper/contentWrapper"
-import CopyrightIcon from "../icons/copyrightIcon"
+import { ContentWrapper } from "../contentWrapper/contentWrapper"
+import { CopyrightIcon } from "../icons/copyrightIcon"
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     footer: {
         height: "6.25rem",
         display: "flex",
-        marginTop: " 2.5rem",
+        marginTop: " 3.5rem",
         alignItems: "center",
-        // padding: "0 2.5rem 0 2.5rem",
         backgroundColor: colors.black,
         fontSize: "1rem",
         justifyContent: " space-between",
@@ -38,7 +37,7 @@ const useStyles = makeStyles({
         },
     },
     spec: {
-        marginRight: " 2.5rem",
+        marginRight: " 6rem",
         cursor: "pointer",
         color: colors.white,
         "@media (min-width:768px) and (max-width:967px)": {
@@ -46,12 +45,12 @@ const useStyles = makeStyles({
         },
     },
     name: {
-        margin: "0 1.25rem",
+        margin: "0 3.437rem",
         cursor: "pointer",
         color: colors.white,
     },
     Images: {
-        marginLeft: "1.5rem",
+        margin: "auto auto auto 1.5rem",
         cursor: "pointer",
         "@media (max-width:768px)": {
             padding: "0.625rem",
@@ -89,8 +88,10 @@ const useStyles = makeStyles({
     copyright: {
         fontSize: "1rem",
         color: colors.white,
+        lineHeight: "1.375rem",
         display: "flex",
         alignItems: "center",
+        fontFamily: "Helvetica",
         justifyContent: "flex-start",
         "& span": {
             fontSize: "2rem",
@@ -104,7 +105,7 @@ const useStyles = makeStyles({
         marginRight: "0.5rem",
     },
 })
-const Footer = ({ exteranlclass }) => {
+export const Footer = ({ exteranlclass }) => {
     const classes = useStyles()
     return (
         <>
@@ -158,5 +159,3 @@ Footer.defaultProps = {
 Footer.propTypes = {
     exteranlclass: PropTypes.string,
 }
-
-export default Footer

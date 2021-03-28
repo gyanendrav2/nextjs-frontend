@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import classnames from "classnames"
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore"
 import { colors } from "../../theme/colors"
-import ErrorMessage from "../errorMessage/errorMessage"
+import { ErrorMessage } from "../errorMessage/errorMessage"
 
 const useStyles = makeStyles({
     container: {
@@ -95,7 +95,7 @@ const useStyles = makeStyles({
         right: 0,
     },
 })
-const CountrySelectInput = ({
+export const CountrySelectInput = ({
     label,
     error,
     errorMsg,
@@ -190,4 +190,3 @@ CountrySelectInput.propTypes = {
     options: PropTypes.arrayOf(PropTypes.shape({ value: PropTypes.string, label: PropTypes.string })),
     iscompulsory: PropTypes.bool,
 }
-export default CountrySelectInput

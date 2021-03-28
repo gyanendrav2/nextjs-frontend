@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const LoginIcon = (props) => {
+export const LoginIcon = (props) => {
     return (
-        <svg width={20} height={22} viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <svg width={24} height={24} viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -23,13 +23,11 @@ const LoginIcon = (props) => {
 }
 
 LoginIcon.defaultProps = {
-    Width: 133,
-    height: 87,
+    width: 24,
+    height: 24,
 }
 
 LoginIcon.propTypes = {
-    Width: PropTypes.number,
+    width: PropTypes.number,
     height: PropTypes.number,
 }
-
-export default LoginIcon

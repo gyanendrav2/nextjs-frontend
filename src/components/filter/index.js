@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
-import InputWithLabelIcon from "../inputs/inputWithLabelIcon"
-import SelectWithLabelIcon from "../inputs/selectWithLabelIcon"
+import { InputWithLabelIcon } from "../inputs/inputWithLabelIcon"
+import { SelectWithLabelIcon } from "../inputs/selectWithLabelIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -70,7 +70,7 @@ const years = [
     { value: "4", label: "2023" },
 ]
 
-const Filter = ({ exteranlclass }) => {
+export const Filter = ({ exteranlclass }) => {
     const classes = useStyles()
 
     return (
@@ -129,5 +129,3 @@ Filter.defaultProps = {
 Filter.propTypes = {
     exteranlclass: PropTypes.string,
 }
-
-export default Filter

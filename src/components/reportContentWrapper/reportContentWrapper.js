@@ -48,7 +48,7 @@ const useStyles = makeStyles({
     },
 })
 
-const ReportContentWrapper = (exteranlclass) => {
+export const ReportContentWrapper = (exteranlclass) => {
     const classes = useStyles()
 
     return (
@@ -99,4 +99,3 @@ const ReportContentWrapper = (exteranlclass) => {
 ReportContentWrapper.prototypes = {
     exteranlclass: PropTypes.string,
 }
-export default ReportContentWrapper

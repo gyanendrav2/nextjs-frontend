@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     },
 })
 
-const HeaderCategory = ({ categoryName }) => {
+export const HeaderCategory = ({ categoryName }) => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
@@ -47,5 +47,3 @@ const HeaderCategory = ({ categoryName }) => {
 HeaderCategory.propTypes = {
     categoryName: PropTypes.string.isRequired,
 }
-
-export default HeaderCategory

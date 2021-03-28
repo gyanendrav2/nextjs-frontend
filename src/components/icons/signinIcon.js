@@ -1,7 +1,7 @@
 import React from "react"
 // import PropTypes from "prop-types";
 
-const SigninIcon = () => {
+export const SigninIcon = () => {
     return (
         <span className="icon-Signin">
             <span className="path1" />
@@ -15,5 +15,3 @@ const SigninIcon = () => {
 }
 
 SigninIcon.propTypes = {}
-
-export default SigninIcon

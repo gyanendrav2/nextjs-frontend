@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Box, makeStyles } from "@material-ui/core"
-import UserProfileRow from "../../components/cards/userProfileRow"
+import { UserProfileRow } from "../../components/cards/userProfileRow"
 
 const useStyles = makeStyles({
     rootWrapper: {
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     },
 })
 
-const MoreMemberModel = ({ onClose, data }) => {
+export const MoreMemberModel = ({ onClose, data }) => {
     const classes = useStyles()
     return (
         <>
@@ -67,5 +67,3 @@ MoreMemberModel.propTypes = {
         })
     ),
 }
-
-export default MoreMemberModel

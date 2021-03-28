@@ -9,7 +9,7 @@ const Images = [
     { id: 2, image: images.masorny2 },
 ]
 
-const ImageGallery = () => {
+export const ImageGallery = () => {
     return (
         <Masonry columnsCount={2} gutter="0.3rem" columnClassName="my-masonry-grid_column">
             {Images.map((photo, i) => {
@@ -20,5 +20,3 @@ const ImageGallery = () => {
 }
 
 ImageGallery.propTypes = {}
-
-export default ImageGallery

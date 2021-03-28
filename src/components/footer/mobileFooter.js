@@ -42,7 +42,7 @@ const useStyles = makeStyles({
     },
 })
 
-const MobileFooter = () => {
+export const MobileFooter = () => {
     const classes = useStyles()
     return (
         <Box className={classnames(classes.mobilefooterWrapper)}>
@@ -80,5 +80,3 @@ const MobileFooter = () => {
         </Box>
     )
 }
-
-export default MobileFooter

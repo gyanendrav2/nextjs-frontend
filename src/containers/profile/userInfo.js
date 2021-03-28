@@ -1,13 +1,13 @@
 import React, { useState } from "react"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { images } from "../../assets/images"
-import PictureOverSquare from "../../components/cards/pictureOverSquare"
-import FollowingFollwers from "../../components/texts/followingFollwers"
-import CustomButton from "../../components/buttons/customButton"
+import { PictureOverSquare } from "../../components/cards/pictureOverSquare"
+import { FollowingFollwers } from "../../components/texts/followingFollwers"
+import { CustomButton } from "../../components/buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
-import SocialButtons from "../../components/buttons/socialButtons"
-import TwoColModalGrid from "../../components/grid/twoColModalGrid"
+import { SocialButtons } from "../../components/buttons/socialButtons"
+import { TwoColModalGrid } from "../../components/grid/twoColModalGrid"
 
 const useStyles = makeStyles({
     infoWrapper: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     },
 })
 
-const UserInfo = () => {
+export const UserInfo = () => {
     const classes = useStyles()
     const [openMsg, setOpenMsg] = useState(false)
 
@@ -79,5 +79,3 @@ const UserInfo = () => {
 }
 
 UserInfo.propTypes = {}
-
-export default UserInfo

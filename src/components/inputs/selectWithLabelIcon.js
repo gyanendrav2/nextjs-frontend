@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import cn from "classnames"
 import { colors } from "../../theme/colors"
-import ErrorMessage from "../errorMessage/errorMessage"
+import { ErrorMessage } from "../errorMessage/errorMessage"
 
 const useStyles = makeStyles({
     container: {
@@ -74,7 +74,7 @@ const useStyles = makeStyles({
         },
     },
 })
-const SelectWithLabelIcon = ({
+export const SelectWithLabelIcon = ({
     // exteranlclass,
     label,
     error,
@@ -170,4 +170,3 @@ SelectWithLabelIcon.propTypes = {
     labelColor: PropTypes.string,
     bgcolor: PropTypes.string,
 }
-export default SelectWithLabelIcon

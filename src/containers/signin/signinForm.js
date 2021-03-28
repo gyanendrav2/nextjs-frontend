@@ -4,8 +4,8 @@ import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import VisibilityIcon from "@material-ui/icons/Visibility"
-import CustomButton from "../../components/buttons/customButton"
-import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
+import { CustomButton } from "../../components/buttons/customButton"
+import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../theme/colors"
 import { signinFormValidation } from "../../formValidation/signin"
 
@@ -19,8 +19,16 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
+        // "@media(max-width:767px)": {
+        //     padding: "0",
+        // },
+        "@media(min-width:767px) and (max-width:1070px)": {
+            padding: "10rem",
+            marginTop: "6rem",
+        },
         "@media(max-width:767px)": {
             padding: "0",
+            marginTop: "1rem",
         },
     },
     title: {
@@ -93,7 +101,7 @@ const useStyles = makeStyles({
     },
 })
 
-const SigninForm = () => {
+export const SigninForm = () => {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(signinFormValidation),
@@ -157,5 +165,3 @@ const SigninForm = () => {
 }
 
 SigninForm.propTypes = {}
-
-export default SigninForm

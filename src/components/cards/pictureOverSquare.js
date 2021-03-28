@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
 })
 
-const PictureOverSquare = ({ image }) => {
+export const PictureOverSquare = ({ image }) => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
@@ -35,5 +35,3 @@ const PictureOverSquare = ({ image }) => {
 PictureOverSquare.propTypes = {
     image: PropTypes.string.isRequired,
 }
-
-export default PictureOverSquare

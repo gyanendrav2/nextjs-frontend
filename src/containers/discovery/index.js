@@ -4,15 +4,15 @@ import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
-import SelectingCategories from "./featuredProjects"
-import Footer from "../../components/footer"
+import { SelectingCategories } from "./categories/selectingCategories"
+import { Footer } from "../../components/footer"
 import { colors } from "../../theme/colors"
-import CustomButton from "../../components/buttons/customButton"
-import HeaderWrapper from "../../components/header/headerWrapper"
-import HeaderCategory from "../../components/header/headerCategory"
-import ContentWrapper from "../../components/contentWrapper/contentWrapper"
-import FeaturedCard from "./featuredProjects/featuredCard"
-import CreationCard from "./curatedProjects/creationCard"
+import { CustomButton } from "../../components/buttons/customButton"
+import { HeaderWrapper } from "../../components/header/headerWrapper"
+import { HeaderCategory } from "../../components/header/headerCategory"
+import { ContentWrapper } from "../../components/contentWrapper/contentWrapper"
+import { FeaturedCard } from "./featuredProjects/featuredCard"
+import { CreationCard } from "./curatedProjects/creationCard"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -133,7 +133,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const Home = ({ details }) => {
+export const Discovery = ({ details }) => {
     const classes = useStyles()
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
@@ -227,9 +227,7 @@ export const Home = ({ details }) => {
                                                     <span className={classes.pinkSquare} />
                                                 </Typography>
                                                 <Typography className={classes.subtitle}>{item.subtitle}</Typography>
-                                                {/* <Link href="/signup"> */}
                                                 <CustomButton label="Sign Up" exteranlclass={classes.bigSignup} />
-                                                {/* </Link> */}
                                             </div>
                                         </div>
                                     </div>
@@ -262,7 +260,6 @@ export const Home = ({ details }) => {
                     </>
                 </ContentWrapper>
                 <Footer />
-                {/* <MobileFooter /> */}
             </Box>
         </>
     )
@@ -296,11 +293,10 @@ const propsValidation = {
     ),
 }
 
-Home.defaultProps = {
+Discovery.defaultProps = {
     details: {},
 }
 
-Home.propTypes = {
+Discovery.propTypes = {
     details: PropTypes.shape(propsValidation),
 }
-export default Home

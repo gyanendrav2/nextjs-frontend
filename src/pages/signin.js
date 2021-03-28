@@ -1,8 +1,8 @@
 import React from "react"
 import { Box, makeStyles } from "@material-ui/core"
-import LeftSide from "../components/leftSide"
-import SigninForm from "../containers/signin/signinForm"
-import HeaderWrapper from "../components/header/headerWrapper"
+import { LeftSide } from "../components/leftSide"
+import { SigninForm } from "../containers/signin/signinForm"
+import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
 
@@ -18,14 +18,14 @@ const useStyles = makeStyles({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundImage: images.SigninWall,
-        "@media (max-width:1044px)": {
+        "@media (max-width:1072px)": {
             display: "none",
             visibility: "hiiden",
         },
     },
     right: {
         width: "50%",
-        "@media (max-width:1044px)": {
+        "@media (max-width:1072px)": {
             width: "100%",
         },
     },

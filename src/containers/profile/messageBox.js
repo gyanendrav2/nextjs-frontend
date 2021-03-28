@@ -2,11 +2,11 @@ import React from "react"
 // import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { images } from "../../assets/images"
-import PictureOverSquare from "../../components/cards/pictureOverSquare"
-import CustomButton from "../../components/buttons/customButton"
-import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
-import TextArea from "../../components/inputs/textArea"
-import TwoColModalGrid from "../../components/grid/twoColModalGrid"
+import { PictureOverSquare } from "../../components/cards/pictureOverSquare"
+import { CustomButton } from "../../components/buttons/customButton"
+import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
+import { TextArea } from "../../components/inputs/textArea"
+import { TwoColModalGrid } from "../../components/grid/twoColModalGrid"
 
 const useStyles = makeStyles({
     infoWrapper: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     },
 })
 
-const MessageBox = () => {
+export const MessageBox = () => {
     const classes = useStyles()
     return (
         <TwoColModalGrid
@@ -60,5 +60,3 @@ const MessageBox = () => {
 }
 
 MessageBox.propTypes = {}
-
-export default MessageBox

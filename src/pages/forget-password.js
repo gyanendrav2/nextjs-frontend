@@ -1,8 +1,8 @@
 import React from "react"
 import { Box, makeStyles } from "@material-ui/core"
-import LeftSide from "../components/leftSide"
-import ForgotPasswordForm from "../containers/forgetPassword/forgetPasswordForm"
-import HeaderWrapper from "../components/header/headerWrapper"
+import { LeftSide } from "../components/leftSide"
+import { ForgetPasswordForm } from "../containers/forgetPassword/forgetPasswordForm"
+import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
 
@@ -18,20 +18,20 @@ const useStyles = makeStyles({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundImage: images.SigninWall,
-        "@media (max-width:1044px)": {
+        "@media (max-width:1072px)": {
             display: "none",
             visibility: "hiiden",
         },
     },
     right: {
         width: "50%",
-        "@media (max-width:1044px)": {
+        "@media (max-width:1072px)": {
             width: "100%",
         },
     },
 })
 
-const ForgotPassword = () => {
+export const ForgetPassword = () => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
@@ -40,12 +40,10 @@ const ForgotPassword = () => {
                 <LeftSide />
             </Box>
             <Box className={classes.right}>
-                <ForgotPasswordForm />
+                <ForgetPasswordForm />
             </Box>
         </Box>
     )
 }
 
-ForgotPassword.propTypes = {}
-
-export default ForgotPassword
+ForgetPassword.propTypes = {}

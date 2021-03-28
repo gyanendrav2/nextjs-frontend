@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-// import PropTypes from "prop-types";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack"
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward"
+import React from "react"
+import Carousel from "nuka-carousel"
 import { Box, makeStyles } from "@material-ui/core"
-import SliderButton from "./sliderButton"
-import ImageSlider from "../../components/imageSlider/imageSlider"
+import { SliderButton } from "./sliderButton"
+import { ArrowLeft } from "../../components/icons/arrowLeft"
+import { ArrowRight } from "../../components/icons/arrowRight"
+import { images } from "../../assets/images"
 
 const useStyles = makeStyles({
     seperator: {
@@ -13,54 +13,45 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "space-between",
         "& div": {
-            maxWidth: "6rem",
+            maxWidth: "10rem",
         },
+    },
+    image: {
+        height: "45rem",
+        objectFit: "cover",
     },
 })
 
-const Slider = () => {
+export const Slider = () => {
     const classes = useStyles()
-    const [slideLeftClick, setSlideLeftClick] = useState(0)
-    const [slideRightClick, setSlideRightClick] = useState(0)
-
-    const imageList = [
-        { url: "https://cdn.pixabay.com/photo/2015/12/01/20/28/road-1072823__340.jpg" },
-        { url: "https://i.pinimg.com/originals/3b/1c/fa/3b1cfaff4adbaa3aa4d781bc25dde452.jpg" },
-        { url: "https://i.pinimg.com/originals/aa/23/92/aa2392f40795d215302934420387cf10.jpg" },
-        { url: "https://images.pexels.com/photos/2929227/pexels-photo-2929227.jpeg" },
-    ]
 
     return (
         <>
-            <ImageSlider
-                imageList={imageList}
-                transition={1}
-                outerLeftBtnClicked={slideLeftClick}
-                outerRightBtnClicked={slideRightClick}
-                height="45rem"
-                infiniteSlide
-            />
-            <Box className={classes.seperator}>
-                <Box>
+            <Carousel
+                renderCenterLeftControls={({ previousSlide }) => (
                     <SliderButton
-                        buttonName="previous"
+                        buttonName="Previous"
                         flexDirection="row-reverse"
-                        buttonIcon={<ArrowBackIcon />}
-                        onClick={() => setSlideLeftClick(slideLeftClick - 1)}
+                        buttonIcon={<ArrowLeft />}
+                        onClick={previousSlide}
                     />
-                </Box>
-                <Box>
+                )}
+                renderCenterRightControls={({ nextSlide }) => (
                     <SliderButton
-                        buttonName="next"
-                        buttonIcon={<ArrowForwardIcon />}
-                        onClick={() => setSlideRightClick(slideRightClick + 1)}
+                        buttonName="Next"
+                        flexDirection="row"
+                        buttonIcon={<ArrowRight />}
+                        onClick={nextSlide}
                     />
-                </Box>
-            </Box>
+                )}>
+                <img src={images.fullWidthImage} className={classes.image} alt="" />
+                <img src={images.fullWidthImage} className={classes.image} alt="" />
+                <img src={images.fullWidthImage} className={classes.image} alt="" />
+                <img src={images.fullWidthImage} className={classes.image} alt="" />
+            </Carousel>
+            <Box className={classes.seperator} />
         </>
     )
 }
 
 Slider.propTypes = {}
-
-export default Slider

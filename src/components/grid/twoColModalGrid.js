@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     },
 })
 
-const TwoColModalGrid = ({ col1Children, col2Children }) => {
+export const TwoColModalGrid = ({ col1Children, col2Children }) => {
     const classes = useStyles()
     return (
         <Grid container wrap="nowrap">
@@ -26,5 +26,3 @@ TwoColModalGrid.propTypes = {
     col1Children: PropTypes.element.isRequired,
     col2Children: PropTypes.element.isRequired,
 }
-
-export default TwoColModalGrid

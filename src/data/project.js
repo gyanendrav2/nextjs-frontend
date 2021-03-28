@@ -1,4 +1,4 @@
-const { images } = require("../assets/images")
+import { images } from "../assets/images"
 
 export const teamMemberData = [
     {

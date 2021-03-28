@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
 })
 
-const FollowingFollwers = ({ following, followers }) => {
+export const FollowingFollwers = ({ following, followers }) => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="flex-start" className={classes.followersCotainer}>
@@ -35,5 +35,3 @@ FollowingFollwers.propTypes = {
     following: PropTypes.string.isRequired,
     followers: PropTypes.string.isRequired,
 }
-
-export default FollowingFollwers

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const NotificationBellIcon = (props) => {
+export const NotificationBellIcon = (props) => {
     return (
         <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <mask id="path-1-inside-1" fill="currentColor">
@@ -21,19 +21,7 @@ const NotificationBellIcon = (props) => {
                 fill="currentColor"
                 mask="currentColor"
             />
-            <circle cx={19} cy={4} r={4} fill={props.activeColor} />
-            <defs>
-                <linearGradient
-                    id="paint0_linear"
-                    x1="12.0023"
-                    y1="1.5"
-                    x2="12.0023"
-                    y2="22.5"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-            </defs>
+            <circle cx={19} cy={4} r={4} fill={props.activecolor} />
         </svg>
     )
 }
@@ -41,13 +29,11 @@ const NotificationBellIcon = (props) => {
 NotificationBellIcon.defaultProps = {
     width: 22,
     height: 22,
-    activeColor: "none",
+    activecolor: "none",
 }
 
 NotificationBellIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
-    activeColor: PropTypes.string,
+    activecolor: PropTypes.string,
 }
-
-export default NotificationBellIcon

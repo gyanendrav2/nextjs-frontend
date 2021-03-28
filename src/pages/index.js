@@ -1,7 +1,7 @@
 import axios from "axios"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
-import Discovery from "../containers/discovery"
+import { Discovery } from "../containers/discovery"
 
 export default function Home({ homeData }) {
     const [data, setData] = useState({ hero: [], curatedCreators: [], featuredProjects: [] })

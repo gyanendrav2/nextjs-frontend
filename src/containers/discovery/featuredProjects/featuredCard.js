@@ -3,8 +3,8 @@ import { makeStyles } from "@material-ui/core/styles"
 import { Box, Grid } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../../theme/colors"
-import QuickViewDailog from "../../project/quickViewDailog"
-import CardWithFooter from "../../../components/cards/cardWithFooter"
+import { QuickViewDailog } from "../../project/quickViewDailog"
+import { CardWithFooter } from "../../../components/cards/cardWithFooter"
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
@@ -75,7 +75,7 @@ const useStyles = makeStyles({
         background: "red",
     },
 })
-const FeaturedCard = ({ featuredCardsDetails }) => {
+export const FeaturedCard = ({ featuredCardsDetails }) => {
     const classes = useStyles()
     const [openModal, setOpenModal] = useState(false)
 
@@ -122,4 +122,3 @@ FeaturedCard.propTypes = {
         })
     ),
 }
-export default FeaturedCard

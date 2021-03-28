@@ -40,7 +40,7 @@
     width: 13px;
     height: 13px;
     border-radius: 13px;
-    background-color: '#54617A';
+    background-color: "#54617A";
     margin: 4px;
 }
 .iconButtonRight {
@@ -104,4 +104,36 @@
 
 div.bullet_active {
     background-color: #000;
+}
+
+div.slider {
+    height: 45rem !important;
+}
+.slider {
+    .slider-frame,
+    img,
+    ul,
+    li,
+    img {
+        &:focus {
+            outline: none;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.slider-control-centerleft,
+.slider-control-centerright {
+    transform: translateY(25.3rem) !important;
+}
+.slider-control-centerleft {
+    padding-left: 5rem;
+}
+.slider-control-centerright {
+    padding-right: 5rem;
+}
+.slider-control-bottomcenter {
+    display: none;
 }

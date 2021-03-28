@@ -2,17 +2,17 @@ import React, { useState } from "react"
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import ReactPlayer from "react-player"
 import classnames from "classnames"
-import ContentWrapper from "../components/contentWrapper/contentWrapper"
-import HeaderWrapper from "../components/header/headerWrapper"
-import UserProfileCard from "../components/cards/userProfileCard"
+import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
+import { HeaderWrapper } from "../components/header/headerWrapper"
+import { UserProfileCard } from "../components/cards/userProfileCard"
 import { images } from "../assets/images"
-import CardWithFooter from "../components/cards/cardWithFooter"
-import Footer from "../components/footer"
+import { CardWithFooter } from "../components/cards/cardWithFooter"
+import { Footer } from "../components/footer"
 import { colors } from "../theme/colors"
 import { icons } from "../assets/icons"
 import { ModalComponent } from "../components/modal/modalComponent"
-import UserInfo from "../containers/profile/userInfo"
-import MessageBox from "../containers/profile/messageBox"
+import { UserInfo } from "../containers/profile/userInfo"
+import { MessageBox } from "../containers/profile/messageBox"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -64,6 +64,19 @@ const Profile = () => {
     const classes = useStyles()
     const [openInfo, setOpenInfo] = useState(false)
     const [openMsg, setOpenMsg] = useState(false)
+    const [categories, setCategories] = useState([
+        { name: "All (6)", active: true },
+        { name: "Directing (3)", active: false },
+        { name: "Production (3)", active: false },
+    ])
+
+    const handleCategory = (i) => {
+        const result = categories.map((item) => {
+            return { ...item, active: false }
+        })
+        result[i].active = true
+        setCategories(result)
+    }
 
     const handleInfo = () => {
         setOpenInfo(!openInfo)
@@ -72,6 +85,7 @@ const Profile = () => {
     const handleMsg = () => {
         setOpenMsg(!openMsg)
     }
+
     return (
         <>
             <HeaderWrapper isScrollDetect={false} />
@@ -107,24 +121,16 @@ const Profile = () => {
                     </Grid>
                 </Grid>
                 <Grid container alignItems="center" justify="flex-start" className={classes.category}>
-                    <Typography
-                        className={classnames(classes.boldText, {
-                            [classes.activeCategory]: true,
-                        })}>
-                        All (6)
-                    </Typography>
-                    <Typography
-                        className={classnames(classes.boldText, {
-                            [classes.activeCategory]: false,
-                        })}>
-                        Directing (3)
-                    </Typography>
-                    <Typography
-                        className={classnames(classes.boldText, {
-                            [classes.activeCategory]: false,
-                        })}>
-                        Production (3)
-                    </Typography>
+                    {categories.map((item, i) => (
+                        <Typography
+                            key={i}
+                            className={classnames(classes.boldText, {
+                                [classes.activeCategory]: item.active,
+                            })}
+                            onClick={() => handleCategory(i)}>
+                            {item.name}
+                        </Typography>
+                    ))}
                 </Grid>
                 <Grid container spacing={2}>
                     {[1, 1, 1, 1, 1, 1, 1, 1].map((idx) => {

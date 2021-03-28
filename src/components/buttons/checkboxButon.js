@@ -8,11 +8,11 @@ const useStyles = makeStyles({
         display: "block",
         position: "relative",
         cursor: "pointer",
-        fontSize: "0.9rem",
+        fontSize: "2rem",
     },
 })
 
-const CheckboxButton = ({ labelText }) => {
+export const CheckboxButton = ({ labelText }) => {
     const classes = useStyles()
     return (
         <div className={classes.wrapper}>
@@ -25,4 +25,3 @@ const CheckboxButton = ({ labelText }) => {
 CheckboxButton.prototypes = {
     labelText: PropTypes.string,
 }
-export default CheckboxButton

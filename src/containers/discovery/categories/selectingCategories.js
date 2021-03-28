@@ -3,11 +3,11 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import PropTypes from "prop-types"
 import classnames from "classnames"
-import CustomButton from "../../../components/buttons/customButton"
-import Categories from "../categories/categories"
+import { CustomButton } from "../../../components/buttons/customButton"
+import { Categories } from "./categories"
 import { colors } from "../../../theme/colors"
-import Filter from "../../../components/filter"
-import FilterIcon from "../../../components/icons/filterIcon"
+import { Filter } from "../../../components/filter"
+import { FilterIcon } from "../../../components/icons/filterIcon"
 
 const useStyles = makeStyles({
     projectButtonContainer: {
@@ -104,16 +104,17 @@ const useStyles = makeStyles({
             paddingRight: 0,
             width: "100%",
         },
-        "@media (min-width: 476px) and (max-width:768px)": {
+        "@media (min-width: 476px) and (max-width:992px)": {
             width: "100%",
             paddingRight: "0.5rem",
+            marginTop: "1.5rem",
         },
     },
     disableButton: {
         opacity: 0.5,
     },
 })
-const SelectingCategories = ({ changeTab, category, categories }) => {
+export const SelectingCategories = ({ changeTab, category, categories }) => {
     const classes = useStyles()
     const [showCategories, setShowCategories] = useState([])
     const [showOtherCategories, setShowOtherCategories] = useState(false)
@@ -200,4 +201,3 @@ SelectingCategories.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.string).isRequired,
     category: PropTypes.string,
 }
-export default SelectingCategories

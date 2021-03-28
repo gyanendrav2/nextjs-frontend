@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const DisocoveryIcon = (props) => {
+export const DisocoveryIcon = (props) => {
     return (
         <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
@@ -32,38 +32,6 @@ const DisocoveryIcon = (props) => {
                 d="M11.9 21.25C17.0087 21.25 21.15 17.1086 21.15 12C21.15 6.89137 17.0087 2.75 11.9 2.75C6.79139 2.75 2.65002 6.89137 2.65002 12C2.65002 17.1086 6.79139 21.25 11.9 21.25ZM11.9 23.25C18.1132 23.25 23.15 18.2132 23.15 12C23.15 5.7868 18.1132 0.75 11.9 0.75C5.68682 0.75 0.650024 5.7868 0.650024 12C0.650024 18.2132 5.68682 23.25 11.9 23.25Z"
                 fill="url(#paint2_linear)"
             />
-            <defs>
-                <linearGradient
-                    id="paint0_linear"
-                    x1="15.2667"
-                    y1="9.08309"
-                    x2="12.2182"
-                    y2="12.1316"
-                    gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient
-                    id="paint1_linear"
-                    x1="8.53318"
-                    y1="15.8164"
-                    x2="11.5817"
-                    y2="12.7679"
-                    gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient
-                    id="paint2_linear"
-                    x1="11.9"
-                    y1="0.75"
-                    x2="11.9"
-                    y2="23.25"
-                    gradientUnits="currentColor">
-                    <stop stopColor="currentColor" />
-                    <stop offset={1} stopColor="currentColor" stopOpacity={0} />
-                </linearGradient>
-            </defs>
         </svg>
     )
 }
@@ -77,5 +45,3 @@ DisocoveryIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }
-
-export default DisocoveryIcon

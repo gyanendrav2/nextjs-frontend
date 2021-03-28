@@ -6,20 +6,21 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import ReactPlayer from "react-player"
 import { colors } from "../theme/colors"
-import HeaderWrapper from "../components/header/headerWrapper"
+import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { teamMemberData } from "../data/project"
-import Slider from "../containers/project/slider"
-import SocialIcons from "../containers/project/socialIcons"
-import Footer from "../components/footer"
-import ReportContentWrapper from "../components/reportContentWrapper/reportContentWrapper"
-import ImageGallery from "../components/imageGallery/imageGallery"
-import VideoInfo from "../containers/profile/videoInfo"
-import DarkBgText from "../containers/profile/darkBgText"
+import { Slider } from "../containers/project/slider"
+import { SocialIcons } from "../containers/project/socialIcons"
+import { Footer } from "../components/footer"
+import { ReportContentWrapper } from "../components/reportContentWrapper/reportContentWrapper"
+import { ImageGallery } from "../components/imageGallery/imageGallery"
+import { VideoInfo } from "../containers/profile/videoInfo"
+import { DarkBgText } from "../containers/profile/darkBgText"
 
 const useStyles = makeStyles({
     projectwrapper: {
         backgroundColor: colors.white,
+        paddingTop: "5rem",
     },
     profileWrapper: {
         padding: "2.5rem 3rem 2.5rem 5rem",
@@ -191,11 +192,6 @@ const useStyles = makeStyles({
             paddingLeft: "2rem",
         },
     },
-    fulldarkBg: {
-        backgroundColor: colors.black,
-        height: "100%",
-        width: "100%",
-    },
 
     darkBg: {
         backgroundColor: colors.black,
@@ -205,10 +201,6 @@ const useStyles = makeStyles({
     whiteBg: {
         backgroundColor: colors.white,
         height: "37.187rem",
-    },
-    paragraphContent: {
-        paddingBotton: "5rem",
-        marginBottom: "5rem",
     },
     paragaphStyles: {
         marginBottom: "2rem",
@@ -227,61 +219,64 @@ const Project = () => {
     const routes = useRouter()
 
     return (
-        <Box className={classes.projectwrapper}>
+        <>
             <HeaderWrapper isScrollDetect={false} />
-            <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
-            <Grid className={classes.CreatorsAuthor}>
-                <Box>
-                    <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
-                </Box>
-                <Box>
-                    <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/profile")}>
-                        Brandon Landing
-                    </Typography>
-                    <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>
-                    <button type="button" className={classes.CreatorsButton}>
-                        follow
-                    </button>
-                </Box>
-            </Grid>
-            <VideoInfo teamMemberData={teamMemberData} />
-            <Grid container>
-                <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
-                    <img src={images.hypebeast} className={classes.fitSizeImg} alt="" />
-                </Grid>
-                <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.darkBg}>
-                    <Box className={classes.contentWrapper}>
-                        <Typography variant="h3">Making of</Typography>
-                        <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book.
+
+            <Box className={classes.projectwrapper}>
+                <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+                <Grid className={classes.CreatorsAuthor}>
+                    <Box>
+                        <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
+                    </Box>
+                    <Box>
+                        <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/profile")}>
+                            Brandon Landing
                         </Typography>
+                        <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>
+                        <button type="button" className={classes.CreatorsButton}>
+                            follow
+                        </button>
                     </Box>
                 </Grid>
-            </Grid>
-            <Grid container>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.whiteBg}>
-                    <Box className={classes.contentWrapperWhiteBg}>
-                        <Typography variant="h3">Behind the scenes</Typography>
-                        <Typography variant="p">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                            galley of type and scrambled it to make a type specimen book.
-                        </Typography>
-                    </Box>
+                <VideoInfo teamMemberData={teamMemberData} />
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
+                        <img src={images.hypebeast} className={classes.fitSizeImg} alt="" />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.darkBg}>
+                        <Box className={classes.contentWrapper}>
+                            <Typography variant="h3">Making of</Typography>
+                            <Typography>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book.
+                            </Typography>
+                        </Box>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <img src={images.maskGroup} className={classes.whiteBgImgFit} alt="" />
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.whiteBg}>
+                        <Box className={classes.contentWrapperWhiteBg}>
+                            <Typography variant="h3">Behind the scenes</Typography>
+                            <Typography>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                printer took a galley of type and scrambled it to make a type specimen book.
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                        <img src={images.maskGroup} className={classes.whiteBgImgFit} alt="" />
+                    </Grid>
                 </Grid>
-            </Grid>
-            <DarkBgText />
-            <Slider />
-            <ImageGallery />
-            <SocialIcons />
-            <ReportContentWrapper exteranlclass={classes.reportContentwrapper} />
-            <Footer exteranlclass={classes.footer} />
-        </Box>
+                <DarkBgText />
+                <Slider />
+                <ImageGallery />
+                <SocialIcons />
+                <ReportContentWrapper exteranlclass={classes.reportContentwrapper} />
+                <Footer exteranlclass={classes.footer} />
+            </Box>
+        </>
     )
 }
 

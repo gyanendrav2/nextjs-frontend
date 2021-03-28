@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
 })
 
-const SocialIcons = () => {
+export const SocialIcons = () => {
     const classes = useStyles()
     return (
         <Box className={classes.iconContainer}>
@@ -42,5 +42,3 @@ const SocialIcons = () => {
 }
 
 SocialIcons.propTypes = {}
-
-export default SocialIcons

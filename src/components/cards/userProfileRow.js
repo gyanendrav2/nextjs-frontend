@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     },
 })
 
-const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {
+export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {
     const classes = useStyles()
     return (
         <Grid container wrap="nowrap">
@@ -68,8 +68,6 @@ UserProfileRow.propTypes = {
     name: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
     isDisable: PropTypes.bool.isRequired,
-    col1Size: PropTypes.string.isRequired,
-    col2Size: PropTypes.string.isRequired,
+    col1Size: PropTypes.number.isRequired,
+    col2Size: PropTypes.number.isRequired,
 }
-
-export default UserProfileRow

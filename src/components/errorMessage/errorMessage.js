@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     },
 })
 
-const ErrorMessage = ({ error }) => {
+export const ErrorMessage = ({ error }) => {
     const classes = useStyles()
     return <p className={classes.errorStyles}>{error}</p>
 }
@@ -23,5 +23,3 @@ ErrorMessage.defaultProps = {
 ErrorMessage.propTypes = {
     error: PropTypes.string,
 }
-
-export default ErrorMessage

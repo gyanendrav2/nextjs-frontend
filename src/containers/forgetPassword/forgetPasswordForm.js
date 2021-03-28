@@ -3,9 +3,9 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { colors } from "../../theme/colors"
-import InputWithLabelIcon from "../../components/inputs/inputWithLabelIcon"
+import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { forgetFormValidation } from "../../formValidation/forgetpassword"
-import CustomButton from "../../components/buttons/customButton"
+import { CustomButton } from "../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -17,8 +17,16 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
+        // "@media(max-width:767px)": {
+        //     padding: "0",
+        // },
+        "@media(min-width:767px) and (max-width:1070px)": {
+            padding: "10rem",
+            marginTop: "6rem",
+        },
         "@media(max-width:767px)": {
             padding: "0",
+            marginTop: "1rem",
         },
     },
     formWrapper: {
@@ -74,7 +82,7 @@ const useStyles = makeStyles({
     },
 })
 
-const ForgetPasswordForm = () => {
+export const ForgetPasswordForm = () => {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(forgetFormValidation),
@@ -114,5 +122,3 @@ const ForgetPasswordForm = () => {
         </Box>
     )
 }
-
-export default ForgetPasswordForm

@@ -1,5 +1,6 @@
-import { Box, colors, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     fullWidthContent: {
@@ -28,7 +29,6 @@ const useStyles = makeStyles({
             },
         },
         "& p": {
-            maxWidth: "27.25rem",
             fontFamily: "Helvetica",
             fontStyle: "normal",
             fontWeight: "normal",
@@ -41,9 +41,19 @@ const useStyles = makeStyles({
             paddingLeft: "2rem",
         },
     },
+    fulldarkBg: {
+        backgroundColor: colors.black,
+        height: "100%",
+        width: "100%",
+    },
+    paragraphContent: {
+        paddingBotton: "5rem",
+        marginBottom: "5rem",
+        maxWidth: "56.25rem",
+    },
 })
 
-const DarkBgText = () => {
+export const DarkBgText = () => {
     const classes = useStyles()
     return (
         <Grid container>
@@ -51,7 +61,7 @@ const DarkBgText = () => {
                 <Box className={classes.fullWidthContent}>
                     <Typography variant="h3">The writing itself</Typography>
                     <Box className={classes.paragraphContent}>
-                        <Typography variant="p">
+                        <Typography>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not
@@ -62,7 +72,7 @@ const DarkBgText = () => {
                         </Typography>
                         <br />
                         <br />
-                        <Typography variant="p">
+                        <Typography>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not
@@ -73,7 +83,7 @@ const DarkBgText = () => {
                         </Typography>
                         <br />
                         <br />
-                        <Typography variant="p">
+                        <Typography>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not
@@ -88,5 +98,3 @@ const DarkBgText = () => {
         </Grid>
     )
 }
-
-export default DarkBgText

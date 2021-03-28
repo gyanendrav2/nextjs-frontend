@@ -5,10 +5,10 @@ import { Close, MoreVert } from "@material-ui/icons"
 import classnames from "classnames"
 import { useRouter } from "next/router"
 import ReactPlayer from "react-player"
-import CustomButton from "../../components/buttons/customButton"
+import { CustomButton } from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { colors } from "../../theme/colors"
-import ReportContentWrapper from "../../components/reportContentWrapper/reportContentWrapper"
+import { ReportContentWrapper } from "../../components/reportContentWrapper/reportContentWrapper"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -100,7 +100,7 @@ const useStyles = makeStyles({
     },
 })
 
-const QuickViewDailog = ({ closeModal }) => {
+export const QuickViewDailog = ({ closeModal }) => {
     const classes = useStyles()
     const routes = useRouter()
     return (
@@ -166,5 +166,3 @@ const QuickViewDailog = ({ closeModal }) => {
 QuickViewDailog.propTypes = {
     closeModal: PropTypes.func.isRequired,
 }
-
-export default QuickViewDailog

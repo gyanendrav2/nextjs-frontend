@@ -3,11 +3,11 @@ import PropTypes from "prop-types"
 import { Box, IconButton, makeStyles } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import Link from "next/link"
-import Header from ".."
+import { Header } from ".."
 import { icons } from "../../../assets/icons"
 import { mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
 import { colors } from "../../../theme/colors"
-import MobileMenu from "../mobilemenu/mobileMenu"
+import { MobileMenu } from "../mobilemenu/mobileMenu"
 
 const useStyles = makeStyles({
     mobileNavWrapper: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     },
 })
 
-const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
+export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
     const classes = useStyles({ mobileMenuIconColor })
     const [scrollTop, setScrollTop] = useState(0)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -110,5 +110,3 @@ HeaderWrapper.propTypes = {
     isScrollDetect: PropTypes.bool,
     mobileMenuIconColor: PropTypes.string,
 }
-
-export default HeaderWrapper

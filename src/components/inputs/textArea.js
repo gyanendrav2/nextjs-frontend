@@ -1,9 +1,9 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import React from "react"
-import TextAreaInput from "./textAreaInput"
+import { TextAreaInput } from "./textAreaInput"
 import { colors } from "../../theme/colors"
-import ErrorMessage from "../errorMessage/errorMessage"
+import { ErrorMessage } from "../errorMessage/errorMessage"
 
 const useStyles = makeStyles({
     container: {
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
     },
 })
 
-const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, ...props }) => {
+export const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, ...props }) => {
     const classes = useStyles()
     return (
         <Box className={classes.rootWrapper}>
@@ -77,4 +77,3 @@ TextArea.propTypes = {
     placeholder: PropTypes.string,
     value: PropTypes.string,
 }
-export default TextArea

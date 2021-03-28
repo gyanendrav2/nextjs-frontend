@@ -2,11 +2,11 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import RoomIcon from "@material-ui/icons/Room"
-import CustomButton from "../buttons/customButton"
+import { CustomButton } from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
-import FollowingFollwers from "../texts/followingFollwers"
-import SocialButtons from "../buttons/socialButtons"
+import { FollowingFollwers } from "../texts/followingFollwers"
+import { SocialButtons } from "../buttons/socialButtons"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -45,13 +45,14 @@ const useStyles = makeStyles({
     readmore: {
         cursor: "pointer",
         display: "inline-block",
+        textDecoration: "underline",
     },
     username: {
         color: colors.lighterGray,
     },
 })
 
-const UserProfileCard = ({
+export const UserProfileCard = ({
     image,
     name,
     userName,
@@ -127,5 +128,3 @@ UserProfileCard.propTypes = {
     onClickProfile: PropTypes.func,
     onMsgBtnClick: PropTypes.func,
 }
-
-export default UserProfileCard

@@ -2,8 +2,8 @@ import React from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import classnames from "classnames"
-import Input from "."
-import ErrorMessage from "../errorMessage/errorMessage"
+import { Input } from "."
+import { ErrorMessage } from "../errorMessage/errorMessage"
 import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
@@ -31,9 +31,6 @@ const useStyles = makeStyles({
     iconContainer: {
         width: "10%",
         paddingRight: "1rem",
-        "& svg": {
-            color: (props) => (props.error ? colors.red : colors.blueLight1),
-        },
     },
     label: {
         marginBottom: "0.22rem",
@@ -49,7 +46,7 @@ const useStyles = makeStyles({
     },
 })
 
-const InputWithLabelIcon = ({
+export const InputWithLabelIcon = ({
     exteranlclass,
     labelColor,
     label,
@@ -89,9 +86,9 @@ const InputWithLabelIcon = ({
 InputWithLabelIcon.defaultProps = {
     disabled: false,
     error: false,
-    onChange: () => {},
+    // onChange: () => {},
     placeholder: "",
-    value: "",
+    // value: "",
     type: "text",
     label: "",
     icon: "",
@@ -106,9 +103,9 @@ InputWithLabelIcon.defaultProps = {
 InputWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    onChange: PropTypes.func,
+    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    // value: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
@@ -119,4 +116,3 @@ InputWithLabelIcon.propTypes = {
     labelColor: PropTypes.string,
     iconOnClick: PropTypes.func,
 }
-export default InputWithLabelIcon

@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import HeadItem from "./headItem"
-import CustomButton from "../buttons/customButton"
+import { HeadItem } from "./headItem"
+import { CustomButton } from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     },
 })
 
-const Header = ({ color, bgcolor, NavItemOptions }) => {
+export const Header = ({ color, bgcolor, NavItemOptions }) => {
     const classes = useStyles({ color, bgcolor })
     const router = useRouter()
     const [hoveredActive, setHoverdActive] = useState(null)
@@ -99,5 +99,3 @@ Header.propTypes = {
         }).isRequired
     ),
 }
-
-export default Header

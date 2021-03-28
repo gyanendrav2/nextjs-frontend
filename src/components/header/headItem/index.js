@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     },
 })
 
-const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, handleMouseLeave }) => {
+export const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, handleMouseLeave }) => {
     const classes = useStyles({ id, color })
     const router = useRouter()
 
@@ -62,7 +62,7 @@ HeadItem.defaultProps = {
 
 HeadItem.propTypes = {
     name: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.element.isRequired,
     id: PropTypes.number.isRequired,
     color: PropTypes.string.isRequired,
     active: PropTypes.bool.isRequired,
@@ -70,4 +70,3 @@ HeadItem.propTypes = {
     handleMouseHover: PropTypes.func,
     handleMouseLeave: PropTypes.func,
 }
-export default HeadItem

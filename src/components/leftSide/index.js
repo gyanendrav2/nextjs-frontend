@@ -2,13 +2,13 @@ import React from "react"
 import { Box, Checkbox, Grid, makeStyles, Typography } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
-import CheckBoxIcon from "../icons/checkBoxIcon"
+import { CheckBoxIcon } from "../icons/checkBoxIcon"
 
 const useStyles = makeStyles({
     wrapper: {
         height: "100%",
         paddingLeft: "2.4rem",
-        backgroundImage: `url(${images.SigninWall})`,
+        backgroundImage: `url(${images.signinWall})`,
         backgroundSize: "100% 100%",
         position: "relative",
         zIndex: "0",
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
     title: {
         backgroundColor: colors.black,
-        fontFamily: "Helvetica",
+        fontFamily: "Forno-Trial",
         fontStyle: "normal",
         fontWeight: "bold",
         fontSize: "4.375rem",
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
         color: colors.white,
         marginBottom: "0.5rem",
         display: "inline-block",
-        paddingLeft: "0.5rem",
+        padding: "0.3rem 0rem 0.3rem 0.5rem",
         "& span": {
             display: "inline-block",
             width: "0.812rem",
@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     },
 })
 
-const LeftSide = () => {
+export const LeftSide = () => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="flex-start" className={classes.wrapper}>
@@ -86,9 +86,9 @@ const LeftSide = () => {
                         <Checkbox
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
-                            disableRipple
                             icon={<i className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
+                            disableRipple
                         />
                         <Typography className={classes.checkboxText}>
                             Create personalised profile and upload your work
@@ -97,10 +97,10 @@ const LeftSide = () => {
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
                             className={classes.checkBoxStyles}
-                            disableRipple
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
+                            disableRipple
                         />
                         <Typography className={classes.checkboxText}>
                             Build your portfolio up by categories of your needs
@@ -108,8 +108,8 @@ const LeftSide = () => {
                     </Box>
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
-                            disableRipple
                             color="default"
+                            disableRipple
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}
@@ -124,5 +124,3 @@ const LeftSide = () => {
 }
 
 LeftSide.propTypes = {}
-
-export default LeftSide

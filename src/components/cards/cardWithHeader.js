@@ -59,7 +59,7 @@ const useStyles = makeStyles({
     },
 })
 
-const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) => {
+export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) => {
     const classes = useStyles()
 
     return (
@@ -98,4 +98,3 @@ CardWithHeader.propTypes = {
     buttonText: PropTypes.string.isRequired,
     isProjectPage: PropTypes.bool,
 }
-export default CardWithHeader

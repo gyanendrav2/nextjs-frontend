@@ -1,8 +1,8 @@
 import React from "react"
-import DisocoveryIcon from "../components/icons/disocoveryIcon"
-import HomeIcon from "../components/icons/homeIcon"
-import LoginIcon from "../components/icons/loginIcon"
-import SearchIcon from "../components/icons/searchIcon"
+import { DisocoveryIcon } from "../components/icons/disocoveryIcon"
+import { HomeIcon } from "../components/icons/homeIcon"
+import { LoginIcon } from "../components/icons/loginIcon"
+import { SearchIcon } from "../components/icons/searchIcon"
 
 export const NavItemOptions = [
     {

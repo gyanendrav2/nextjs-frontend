@@ -25,7 +25,7 @@ const useStyles = makeStyles({
     },
 })
 
-const Input = ({ onChange, inputRegister, error, name, placeholder, ...rest }) => {
+export const TextAreaInput = ({ onChange, inputRegister, error, name, placeholder, ...rest }) => {
     const classes = useStyles({ error })
     return (
         <Box className={classes.wrapper}>
@@ -47,7 +47,7 @@ const Input = ({ onChange, inputRegister, error, name, placeholder, ...rest }) =
     )
 }
 
-Input.defaultProps = {
+TextAreaInput.defaultProps = {
     disabled: false,
     error: false,
     onChange: () => {},
@@ -58,7 +58,7 @@ Input.defaultProps = {
     name: "",
 }
 
-Input.propTypes = {
+TextAreaInput.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
     onChange: PropTypes.func,
@@ -68,5 +68,3 @@ Input.propTypes = {
     inputRegister: PropTypes.func,
     name: PropTypes.string,
 }
-
-export default Input

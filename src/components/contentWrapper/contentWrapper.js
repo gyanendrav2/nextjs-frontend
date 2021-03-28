@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     },
 })
 
-const ContentWrapper = ({ exteranlclass, children }) => {
+export const ContentWrapper = ({ exteranlclass, children }) => {
     const classes = useStyles()
     return <Box className={classnames(classes.wrapper, exteranlclass)}>{children}</Box>
 }
@@ -30,5 +30,3 @@ ContentWrapper.propTypes = {
     children: PropTypes.element,
     exteranlclass: PropTypes.string,
 }
-
-export default ContentWrapper

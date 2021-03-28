@@ -3,8 +3,8 @@ import PropTypes from "prop-types"
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
-import UserProfileRow from "../../components/cards/userProfileRow"
-import MoreMemberModel from "../project/moreMemberModel"
+import { UserProfileRow } from "../../components/cards/userProfileRow"
+import { MoreMemberModel } from "../project/moreMemberModel"
 
 const useStyles = makeStyles({
     profileWrapper: {
@@ -57,7 +57,7 @@ const useStyles = makeStyles({
     },
 })
 
-const VideoInfo = ({ teamMemberData }) => {
+export const VideoInfo = ({ teamMemberData }) => {
     const classes = useStyles()
     const [maxShow, setMaxShow] = useState(false)
 
@@ -68,7 +68,7 @@ const VideoInfo = ({ teamMemberData }) => {
                     SiR - Hair Down (Official Video) ft. Kendrick Lamar
                 </Typography>
                 <Grid container>
-                    <Grid className={classes.info} xs={12} sm={12} md={6} lg={6}>
+                    <Grid className={classes.info} item xs={12} sm={12} md={6} lg={6}>
                         <Typography className={classes.infoTextHead}>Category:</Typography>
                         <Typography className={classnames(classes.underlineStyle, classes.infoText)}>
                             Directing
@@ -121,5 +121,3 @@ VideoInfo.propTypes = {
         })
     ).isRequired,
 }
-
-export default VideoInfo

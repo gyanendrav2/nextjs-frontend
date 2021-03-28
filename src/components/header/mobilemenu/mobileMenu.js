@@ -3,13 +3,13 @@ import PropTypes from "prop-types"
 import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
 import CloseIcon from "@material-ui/icons/Close"
 import classnames from "classnames"
-import SearchIcon from "@material-ui/icons/Search"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
-import CustomButton from "../../buttons/customButton"
-import InputWithLabelIcon from "../../inputs/inputWithLabelIcon"
-import NotificationBellIcon from "../../icons/notificationBellIcon"
+import { CustomButton } from "../../buttons/customButton"
+import { InputWithLabelIcon } from "../../inputs/inputWithLabelIcon"
+import { NotificationBellIcon } from "../../icons/notificationBellIcon"
 import { mobileNavOptions } from "../../../data/headerMenuList"
+import { SearchIcon } from "../../icons/searchIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -129,7 +129,7 @@ const useStyles = makeStyles({
     },
 })
 
-const MobileMenu = ({ toggleMenu, onClose }) => {
+export const MobileMenu = ({ toggleMenu, onClose }) => {
     const classes = useStyles()
 
     return (
@@ -142,7 +142,7 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                     </Grid>
                     <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
                         <IconButton className={classes.closeButton} onClick={onClose}>
-                            <NotificationBellIcon activeColor={colors.pink} className={classes.icon} />
+                            <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
                         </IconButton>
                         <IconButton className={classes.closeButton} onClick={onClose}>
                             <CloseIcon className={classes.icon} />
@@ -151,8 +151,8 @@ const MobileMenu = ({ toggleMenu, onClose }) => {
                 </Grid>
                 <Box className={classes.menuWrapper}>
                     <ul className={classes.unorderedList}>
-                        {mobileNavOptions.map((item) => (
-                            <li className={classes.listStyle}>
+                        {mobileNavOptions.map((item, i) => (
+                            <li key={i} className={classes.listStyle}>
                                 {item.icon}
                                 <Typography className={classes.title}>{item.name}</Typography>
                             </li>
@@ -191,5 +191,3 @@ MobileMenu.propTypes = {
     toggleMenu: PropTypes.bool,
     onClose: PropTypes.func,
 }
-
-export default MobileMenu

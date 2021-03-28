@@ -2,9 +2,9 @@ import React from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../../theme/colors"
-import CardWithHeader from "../../../components/cards/cardWithHeader"
+import { CardWithHeader } from "../../../components/cards/cardWithHeader"
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     CuratorCard: {
         display: "flex",
         flexWrap: "wrap",
@@ -95,5 +95,3 @@ CreationCard.propTypes = {
         })
     ),
 }
-
-export default CreationCard
