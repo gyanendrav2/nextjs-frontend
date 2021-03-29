@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import ReactPlayer from "react-player"
 import classnames from "classnames"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
@@ -13,26 +13,34 @@ import { icons } from "../assets/icons"
 import { ModalComponent } from "../components/modal/modalComponent"
 import { UserInfo } from "../containers/profile/userInfo"
 import { MessageBox } from "../containers/profile/messageBox"
+import { SelectWithLabelIcon } from "../components/inputs/selectWithLabelIcon"
 
 const useStyles = makeStyles({
     wrapper: {
         paddingTop: "7rem",
+        "@media (max-width:766px)": {
+            paddingTop: "3.5rem",
+            paddingLeft: 0,
+            paddingRight: 0,
+        },
     },
     profileHeader: {
         marginBottom: "1.5rem",
-        "@media (max-width:992px)": {
-            display: "flex",
+        "@media (max-width:959px)": {
             flexDirection: "column-reverse",
+            marginBottom: 0,
         },
     },
     videoStyles: {
-        "@media(max-width:992px)": {
-            padding: "0",
-            paddingTop: "3.5rem",
+        "@media(max-width:959px)": {
+            height: "15.5rem",
         },
     },
     category: {
         padding: "2rem 0",
+        "@media (max-width:768px)": {
+            display: "none",
+        },
     },
     boldText: {
         fontFamily: "Forno-Trial",
@@ -56,7 +64,28 @@ const useStyles = makeStyles({
         },
     },
     footer: {
-        marginTop: 0,
+        marginTop: "0!important",
+    },
+    selectCategories: {
+        padding: "1.25rem",
+        "@media (min-width:768px)": {
+            display: "none",
+        },
+    },
+    cardContainer: {
+        "@media (max-width:768px)": {
+            paddingLeft: "1.25rem",
+            paddingRight: "1.25rem",
+        },
+    },
+    selectCategoryText: {
+        display: "none",
+        marginBottom: "1.25rem",
+        "@media (max-width:768px)": {
+            display: "block",
+            paddingLeft: "1.25rem",
+            paddingRight: "1.25rem",
+        },
     },
 })
 
@@ -64,10 +93,11 @@ const Profile = () => {
     const classes = useStyles()
     const [openInfo, setOpenInfo] = useState(false)
     const [openMsg, setOpenMsg] = useState(false)
+    const [selectedCategory, setSelectedCategory] = useState("All (6)")
     const [categories, setCategories] = useState([
-        { name: "All (6)", active: true },
-        { name: "Directing (3)", active: false },
-        { name: "Production (3)", active: false },
+        { value: "All (6)", label: "All (6)", active: true },
+        { value: "Directing (3)", label: "Directing (3)", active: false },
+        { value: "Production (3)", label: "Production (3)", active: false },
     ])
 
     const handleCategory = (i) => {
@@ -128,16 +158,26 @@ const Profile = () => {
                                 [classes.activeCategory]: item.active,
                             })}
                             onClick={() => handleCategory(i)}>
-                            {item.name}
+                            {item.label}
                         </Typography>
                     ))}
                 </Grid>
-                <Grid container spacing={2}>
+                <Box className={classes.selectCategories}>
+                    <SelectWithLabelIcon
+                        options={categories}
+                        value={selectedCategory}
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                    />
+                </Box>
+                <Box className={classes.selectCategoryText}>
+                    <Typography className={classnames(classes.boldText)}>{selectedCategory}</Typography>
+                </Box>
+                <Grid container spacing={2} className={classes.cardContainer}>
                     {[1, 1, 1, 1, 1, 1, 1, 1].map((idx) => {
                         return (
                             <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
                                 <CardWithFooter
-                                    image={images.maskGroup}
+                                    image="https://source.unsplash.com/random?fp=0"
                                     title="dummy data"
                                     hideFooter
                                     handleClick={() => {

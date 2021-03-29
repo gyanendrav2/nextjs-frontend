@@ -3,11 +3,12 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
-import VisibilityIcon from "@material-ui/icons/Visibility"
 import { CustomButton } from "../../components/buttons/customButton"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../theme/colors"
 import { signinFormValidation } from "../../formValidation/signin"
+import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
+import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -138,7 +139,7 @@ export const SigninForm = () => {
                         placeholder="Password"
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
+                        icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
                         exteranlclass={classes.inputStyles}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />

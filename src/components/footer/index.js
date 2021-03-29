@@ -147,7 +147,7 @@ export const Footer = ({ exteranlclass }) => {
                     </Grid>
                 </>
             </ContentWrapper>
-            <MobileFooter />
+            <MobileFooter exteranlclass={exteranlclass} />
         </>
     )
 }

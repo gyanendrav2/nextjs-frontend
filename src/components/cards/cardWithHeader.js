@@ -2,6 +2,7 @@ import React from "react"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
+import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -27,6 +28,7 @@ const useStyles = makeStyles({
         margin: "0rem 1.125rem 0rem 1rem",
         width: "5.5rem",
         height: "5.5rem",
+        objectFit: "cover",
     },
     CreatorsAuthorName: {
         fontSize: "1rem",
@@ -78,7 +80,7 @@ export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPa
             </Box>
             {isProjectPage ? null : (
                 <Box className={classes.image_container}>
-                    <img className={classes.projectImg} src={image} alt={title} />
+                    <LazyloadImage blurhashHeight="100%" image={image} exteranlclass={classes.projectImg} />
                 </Box>
             )}
         </Box>

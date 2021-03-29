@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import VisibilityIcon from "@material-ui/icons/Visibility"
+import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
+import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { colors } from "../../theme/colors"
@@ -115,7 +116,7 @@ export const ResetPasswordForm = () => {
                         inputRegister={register}
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
+                        icon={hideShowPassword ? <EyeOpenIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <InputWithLabelIcon
@@ -125,7 +126,7 @@ export const ResetPasswordForm = () => {
                         inputRegister={register}
                         errorMsg={errors.confirmpassword}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={hideShowPassword ? <VisibilityIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
+                        icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <Grid className={classes.submitContainer}>

@@ -23,16 +23,8 @@ const useStyles = makeStyles({
         borderTop: `3px solid ${colors.pink}`,
     },
 
-    img: {
-        width: "1.25rem",
-        height: "1.25rem",
-        marginRight: "0.875rem",
-        "&:hover": {
-            color: colors.pink,
-        },
-    },
     title: {
-        marginLeft: "1rem",
+        marginLeft: "0.875rem",
     },
 })
 

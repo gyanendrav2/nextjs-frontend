@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
-import CloseIcon from "@material-ui/icons/Close"
+// import CloseIcon from "@material-ui/icons/Close"
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
@@ -10,6 +10,7 @@ import { InputWithLabelIcon } from "../../inputs/inputWithLabelIcon"
 import { NotificationBellIcon } from "../../icons/notificationBellIcon"
 import { mobileNavOptions } from "../../../data/headerMenuList"
 import { SearchIcon } from "../../icons/searchIcon"
+import { CloseIconBig } from "../../icons/closeIconBig"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -53,9 +54,9 @@ const useStyles = makeStyles({
         width: "100%",
         marginBottom: "3.125rem",
     },
-    closeButton: {
+    NotificationButton: {
         padding: 0,
-        marginLeft: "1.5rem",
+        marginRight: "2.75rem",
         "@media (max-width:350px)": {
             marginLeft: "0.5rem",
         },
@@ -141,11 +142,11 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                         <Typography className={classes.username}>Brandon</Typography>
                     </Grid>
                     <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
-                        <IconButton className={classes.closeButton} onClick={onClose}>
+                        <IconButton className={classes.NotificationButton}>
                             <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
                         </IconButton>
                         <IconButton className={classes.closeButton} onClick={onClose}>
-                            <CloseIcon className={classes.icon} />
+                            <CloseIconBig onClick={onClose} className={classes.icon} />
                         </IconButton>
                     </Grid>
                 </Grid>

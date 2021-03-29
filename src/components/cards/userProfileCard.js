@@ -1,18 +1,22 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import RoomIcon from "@material-ui/icons/Room"
 import { CustomButton } from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { FollowingFollwers } from "../texts/followingFollwers"
 import { SocialButtons } from "../buttons/socialButtons"
+import { LocationIcon } from "../icons/locationIcon"
 
 const useStyles = makeStyles({
     wrapper: {
         border: `1px solid ${colors.lightGray}`,
         padding: "1.5rem",
         height: "100%",
+        "@media (max-width:766px)": {
+            border: "none",
+            borderBottom: `1px solid ${colors.lightGray}`,
+        },
     },
     avatar: {
         width: "5rem",
@@ -82,7 +86,7 @@ export const UserProfileCard = ({
                     <Typography onClick={onClickProfile}>{name}</Typography>
                     <Typography className={classes.username}>{userName}</Typography>
                     <Typography>
-                        {position} &nbsp; <RoomIcon /> {location}
+                        {position} &nbsp; <LocationIcon /> {location}
                     </Typography>
                 </Box>
             </Grid>

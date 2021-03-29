@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const ForgetPassword = () => {
+const ForgetPassword = () => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
@@ -47,3 +47,5 @@ export const ForgetPassword = () => {
 }
 
 ForgetPassword.propTypes = {}
+
+export default ForgetPassword

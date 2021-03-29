@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export const ArrowLeft = (props) => {
+export const ArrowLeftIcon = (props) => {
     return (
         <svg width={40} height={40} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <g>
@@ -19,12 +19,12 @@ export const ArrowLeft = (props) => {
     )
 }
 
-ArrowLeft.defaultProps = {
+ArrowLeftIcon.defaultProps = {
     width: 40,
     height: 40,
 }
 
-ArrowLeft.propTypes = {
+ArrowLeftIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }

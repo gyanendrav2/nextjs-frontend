@@ -136,9 +136,9 @@ export const SelectWithLabelIcon = ({
 SelectWithLabelIcon.defaultProps = {
     disabled: false,
     error: false,
-    onChange: () => {},
+    // onChange: () => {},
     placeholder: "",
-    value: "",
+    // value: "",
     type: "",
     label: "",
     icon: undefined,
@@ -155,9 +155,9 @@ SelectWithLabelIcon.defaultProps = {
 SelectWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    onChange: PropTypes.func,
+    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    // value: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.element,

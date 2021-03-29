@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     },
     projectImage: {
         display: "block",
+        height: "15rem",
     },
     image: {
         display: "block",
@@ -51,6 +52,7 @@ const useStyles = makeStyles({
         marginTop: "0.1rem",
         width: "2.625rem",
         height: "2.625rem",
+        objectFit: "cover",
     },
     cardFooter: {
         border: "1px solid rgba(0, 0, 0, 0.05)",

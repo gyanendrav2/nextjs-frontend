@@ -4,7 +4,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import { CustomButton } from "../../../components/buttons/customButton"
-import { Categories } from "./categories"
+import { Categories } from "../categories/categories"
 import { colors } from "../../../theme/colors"
 import { Filter } from "../../../components/filter"
 import { FilterIcon } from "../../../components/icons/filterIcon"
@@ -39,9 +39,6 @@ const useStyles = makeStyles({
         "@media (min-width:200px) and (max-width:475px)": {
             width: "calc(50% - 0.25rem)",
             display: "flow-root",
-            marginBottom: "1rem",
-            marginRight: "0.5rem",
-
             "& span": {
                 whiteSpace: "nowrap",
                 overflow: "hidden",
@@ -54,9 +51,6 @@ const useStyles = makeStyles({
         "@media (min-width:476px) and (max-width:768px)": {
             width: "calc(25% - 0.5rem)",
             display: "flow-root",
-            marginBottom: "1rem",
-            marginRight: "0.5rem",
-
             "& span": {
                 whiteSpace: "nowrap",
                 overflow: "hidden",

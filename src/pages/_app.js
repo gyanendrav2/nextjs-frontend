@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import theme from "../theme/theme"
 import { images } from "../assets/images"
+import "react-lazy-load-image-component/src/effects/blur.css"
 import "../styles/index.scss"
 
 export default function MyApp(props) {

@@ -1,22 +1,40 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import { LazyLoadImage } from "react-lazy-load-image-component"
 import { Blurhash } from "react-blurhash"
+import { makeStyles } from "@material-ui/core"
 
-export const LazyloadImage = ({ image, exteranlclass }) => {
-    const [showImage, setShowImage] = useState(false)
+const useStyles = makeStyles({
+    imageLoadDetect: {
+        width: 0,
+        height: 0,
+        visibility: "hidden",
+    },
+})
+
+export const LazyloadImage = ({ image, exteranlclass, blurhashHeight }) => {
+    const classes = useStyles()
+    const [isLoaded, setIsLoaded] = useState(false)
     return (
         <>
-            {/* {showImage && ( */}
-            <img className={exteranlclass} onLoad={() => setShowImage(true)} src={image} alt={image} />
-            {/* )} */}
-            {!showImage && (
+            <img className={classes.imageLoadDetect} onLoad={() => setIsLoaded(true)} src={image} alt={image} />
+            {!isLoaded ? (
                 <Blurhash
-                    hash="UC8;;@kD01jE_MofDjWUx^fkRPaz?HWYE1n$"
-                    resolutionX={32}
-                    resolutionY={32}
+                    hash="U55;{wxuxD~BIpWCRiIAELt7ozR,xCRPNHkD"
+                    resolutionX={4}
+                    resolutionY={4}
                     width="100%"
-                    height="15rem"
-                    punch={0}
+                    height={blurhashHeight}
+                    punch={1}
+                />
+            ) : (
+                <LazyLoadImage
+                    alt={image}
+                    className={exteranlclass}
+                    effect="blur"
+                    height="100%"
+                    src={image}
+                    width="100%"
                 />
             )}
         </>
@@ -24,9 +42,11 @@ export const LazyloadImage = ({ image, exteranlclass }) => {
 }
 LazyloadImage.defaultProps = {
     exteranlclass: "",
+    blurhashHeight: "15rem",
 }
 
 LazyloadImage.propTypes = {
     image: PropTypes.string.isRequired,
     exteranlclass: PropTypes.string,
+    blurhashHeight: PropTypes.number,
 }

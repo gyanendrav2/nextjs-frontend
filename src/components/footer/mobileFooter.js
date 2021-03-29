@@ -1,8 +1,9 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import Link from "next/link"
-import CopyrightIcon from "@material-ui/icons/Copyright"
+import { CopyrightIcon } from "../icons/copyrightIcon"
 import { colors } from "../../theme/colors"
 import { icons } from "../../assets/icons"
 
@@ -37,15 +38,14 @@ const useStyles = makeStyles({
         cursor: "pointer",
     },
     copyrightIcon: {
-        fontSize: "1.2rem",
         marginRight: "0.5rem",
     },
 })
 
-export const MobileFooter = () => {
+export const MobileFooter = ({ exteranlclass }) => {
     const classes = useStyles()
     return (
-        <Box className={classnames(classes.mobilefooterWrapper)}>
+        <Box className={classnames(classes.mobilefooterWrapper, exteranlclass)}>
             <Link href="/">
                 <Grid className={classnames(classes.itemPadding, classes.firstChild)}>
                     <Typography>About us</Typography>
@@ -72,11 +72,19 @@ export const MobileFooter = () => {
             <Link href="/">
                 <Box>
                     <Typography className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
-                        <CopyrightIcon className={classes.copyrightIcon} />
+                        <CopyrightIcon width={16} height={16} className={classes.copyrightIcon} />
                         Copyright PXL
                     </Typography>
                 </Box>
             </Link>
         </Box>
     )
+}
+
+MobileFooter.defaultProps = {
+    exteranlclass: "",
+}
+
+MobileFooter.propTypes = {
+    exteranlclass: PropTypes.string,
 }

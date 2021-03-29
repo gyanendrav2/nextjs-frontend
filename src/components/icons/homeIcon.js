@@ -33,8 +33,8 @@ export const HomeIcon = (props) => {
 }
 
 HomeIcon.defaultProps = {
-    width: 22,
-    height: 22,
+    width: 24,
+    height: 24,
 }
 
 HomeIcon.propTypes = {

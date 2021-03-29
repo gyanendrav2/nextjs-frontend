@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
+export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType }) => {
     const classes = useStyles({ mobileMenuIconColor })
     const [scrollTop, setScrollTop] = useState(0)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -76,16 +76,22 @@ export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
         return colors.black
     }
 
+    const getLogo = () => {
+        if (isScrollDetect && !mobileLogoType) {
+            if (scrollTop > 534) {
+                return icons.logoWhite
+            }
+            return icons.logoBlack
+        }
+        return icons.logoWhite
+    }
+
     return (
         <>
             <Header color={textColor()} bgcolor={shouldDark()} NavItemOptions={NavItemOptions} />
             <Box style={{ backgroundColor: shouldDark() }} className={classes.mobileNavWrapper}>
                 <Link href="/">
-                    <img
-                        src={scrollTop > 534 ? icons.logoWhite : icons.logoBlack}
-                        className={classes.mobileLogo}
-                        alt="logo"
-                    />
+                    <img src={getLogo()} className={classes.mobileLogo} alt="logo" />
                 </Link>
                 <IconButton className={classes.menuIconButton} onClick={() => setMobileMenu(true)}>
                     <MenuIcon className={classes.menuIcon} />
@@ -104,9 +110,11 @@ export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor }) => {
 HeaderWrapper.defaultProps = {
     isScrollDetect: () => {},
     mobileMenuIconColor: "",
+    mobileLogoType: undefined,
 }
 
 HeaderWrapper.propTypes = {
     isScrollDetect: PropTypes.bool,
     mobileMenuIconColor: PropTypes.string,
+    mobileLogoType: PropTypes.string,
 }

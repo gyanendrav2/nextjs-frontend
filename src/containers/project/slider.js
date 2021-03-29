@@ -2,8 +2,8 @@ import React from "react"
 import Carousel from "nuka-carousel"
 import { Box, makeStyles } from "@material-ui/core"
 import { SliderButton } from "./sliderButton"
-import { ArrowLeft } from "../../components/icons/arrowLeft"
-import { ArrowRight } from "../../components/icons/arrowRight"
+import { ArrowLeftIcon } from "../../components/icons/arrowLeftIcon"
+import { ArrowRightIcon } from "../../components/icons/arrowRightIcon"
 import { images } from "../../assets/images"
 
 const useStyles = makeStyles({
@@ -28,19 +28,21 @@ export const Slider = () => {
     return (
         <>
             <Carousel
-                renderCenterLeftControls={({ previousSlide }) => (
+                renderCenterLeftControls={({ previousSlide, currentSlide }) => (
                     <SliderButton
                         buttonName="Previous"
                         flexDirection="row-reverse"
-                        buttonIcon={<ArrowLeft />}
+                        disabledButton={currentSlide === 0}
+                        buttonIcon={<ArrowLeftIcon />}
                         onClick={previousSlide}
                     />
                 )}
-                renderCenterRightControls={({ nextSlide }) => (
+                renderCenterRightControls={({ nextSlide, currentSlide }) => (
                     <SliderButton
                         buttonName="Next"
                         flexDirection="row"
-                        buttonIcon={<ArrowRight />}
+                        disabledButton={currentSlide === 3}
+                        buttonIcon={<ArrowRightIcon />}
                         onClick={nextSlide}
                     />
                 )}>

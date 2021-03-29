@@ -2,7 +2,7 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../../components/buttons/customButton"
-import FilterIcon from "../../components/icons/filterIcon"
+import { FilterIcon } from "../../components/icons/filterIcon"
 import { Filter } from "../../components/filter"
 
 const useStyles = makeStyles({

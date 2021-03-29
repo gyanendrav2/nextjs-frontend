@@ -74,7 +74,7 @@ const useStyles = makeStyles({
     headings: {
         color: colors.black,
         fontSize: "2rem",
-        margin: "0.75rem 0 0.75rem 0",
+        margin: "2rem 0 1.25rem 0",
         fontFamily: "Forno-Trial",
         fontWeight: "900",
         lineHeight: "2.75rem",

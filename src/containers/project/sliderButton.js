@@ -5,6 +5,7 @@ import { Grid, makeStyles, Typography } from "@material-ui/core"
 const useStyles = makeStyles({
     wrapper: {
         cursor: "pointer",
+        opacity: (props) => (props.disabledButton ? 0.3 : 1),
     },
     buttonName: {
         paddingLeft: "1.5rem",
@@ -12,8 +13,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick }) => {
-    const classes = useStyles()
+export const SliderButton = ({ buttonIcon, buttonName, flexDirection, onClick, disabledButton }) => {
+    const classes = useStyles({ disabledButton })
     return (
         <Grid
             container
@@ -33,4 +34,5 @@ SliderButton.propTypes = {
     buttonName: PropTypes.string.isRequired,
     flexDirection: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    disabledButton: PropTypes.number.isRequired,
 }
