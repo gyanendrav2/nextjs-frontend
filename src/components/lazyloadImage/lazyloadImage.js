@@ -1,23 +1,22 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { Blurhash } from "react-blurhash"
-import { makeStyles } from "@material-ui/core"
-
-const useStyles = makeStyles({
-    imageLoadDetect: {
-        width: 0,
-        height: 0,
-        visibility: "hidden",
-    },
-})
 
 export const LazyloadImage = ({ image, exteranlclass, blurhashHeight }) => {
-    const classes = useStyles()
     const [isLoaded, setIsLoaded] = useState(false)
+    const isImageLoaded = (imgLink) => {
+        const img = new Image()
+        img.src = imgLink
+        img.onload = () => setIsLoaded(true)
+    }
+
+    useEffect(() => {
+        isImageLoaded(image)
+    }, [image])
+
     return (
         <>
-            <img className={classes.imageLoadDetect} onLoad={() => setIsLoaded(true)} src={image} alt={image} />
             {!isLoaded ? (
                 <Blurhash
                     hash="U55;{wxuxD~BIpWCRiIAELt7ozR,xCRPNHkD"

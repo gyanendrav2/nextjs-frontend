@@ -3,6 +3,7 @@ module.exports = {
     globals: {
         window: true,
         document: true,
+        Image: true
     },
     extends: [
         "@prismx/eslint-config",
