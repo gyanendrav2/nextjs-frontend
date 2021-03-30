@@ -1,5 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import React, { useState } from "react"
+import PropTypes from "prop-types"
+import React, { useEffect, useState } from "react"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../../components/buttons/customButton"
 import { FilterIcon } from "../../components/icons/filterIcon"
@@ -81,7 +82,10 @@ const useStyles = makeStyles({
         color: colors.black,
     },
     inputBoxSize: {
-        maxWidth: "44rem",
+        maxWidth: "56.25rem",
+        "@media (min-width:600px) and (max-width: 1185px)": {
+            maxWidth: "44rem",
+        },
         "@media (max-width: 600px)": {
             display: "block",
         },
@@ -158,10 +162,16 @@ const useStyles = makeStyles({
     },
 })
 
-export const SearchBox = () => {
+export const SearchBox = ({ onFilter }) => {
     const classes = useStyles()
 
     const [showFilter, setShowFilter] = useState(false)
+
+    useEffect(() => {
+        onFilter(showFilter)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [showFilter])
+
     return (
         <>
             <Grid container alignItems="center" justifycontent="center" className={classes.searchContainer}>
@@ -218,4 +228,10 @@ export const SearchBox = () => {
     )
 }
 
-SearchBox.propTypes = {}
+SearchBox.defaultProps = {
+    onFilter: () => {},
+}
+
+SearchBox.propTypes = {
+    onFilter: PropTypes.func,
+}

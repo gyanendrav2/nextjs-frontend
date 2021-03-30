@@ -25,10 +25,14 @@ export const SocialIcons = () => {
     return (
         <Box className={classes.iconContainer}>
             <Link href="/">
-                <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.twitterBlack} />
+                <img className={classnames(classes.itemPadding, classes.Images)} alt="fb" src={icons.fbBlack} />
             </Link>
             <Link href="/">
-                <img className={classnames(classes.itemPadding, classes.Images)} alt="Insta" src={icons.twitterBlack} />
+                <img
+                    className={classnames(classes.itemPadding, classes.Images)}
+                    alt="twitter"
+                    src={icons.twitterBlack}
+                />
             </Link>
             <Link href="/">
                 <img

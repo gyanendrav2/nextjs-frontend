@@ -10,7 +10,7 @@ import { icons } from "../../assets/icons"
 const useStyles = makeStyles({
     mobilefooterWrapper: {
         display: "none",
-        "@media (max-width:768px)": {
+        "@media (max-width:600px)": {
             height: "16.375rem",
             marginTop: "2.5rem",
             width: "100%",
@@ -31,14 +31,22 @@ const useStyles = makeStyles({
     firstChild: {
         paddingTop: "2rem",
     },
-    copyRightcontainer: {
+    copyRight: {
+        fontSize: "1rem",
+        color: colors.white,
+        lineHeight: "1.375rem",
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-between",
-        cursor: "pointer",
+        fontFamily: "Helvetica",
+        justifyContent: "flex-start",
+        "& span": {
+            fontSize: "2rem",
+        },
     },
     copyrightIcon: {
+        fontSize: "1.2rem",
         marginRight: "0.5rem",
+        marginTop: "0.55rem",
     },
 })
 
@@ -71,8 +79,8 @@ export const MobileFooter = ({ exteranlclass }) => {
             </Box>
             <Link href="/">
                 <Box>
-                    <Typography className={classnames(classes.itemPadding, classes.copyRightcontainer)}>
-                        <CopyrightIcon width={16} height={16} className={classes.copyrightIcon} />
+                    <Typography className={classnames(classes.itemPadding, classes.copyRight)}>
+                        <CopyrightIcon width={12} height={22} className={classes.copyrightIcon} />
                         Copyright PXL
                     </Typography>
                 </Box>

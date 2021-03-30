@@ -54,6 +54,10 @@ const useStyles = makeStyles({
     },
     activeMember: {
         cursor: "pointer",
+        textDecoration: "underline",
+        "@media (max-width: 959px)": {
+            marginBottom: "2.5rem",
+        },
     },
 })
 

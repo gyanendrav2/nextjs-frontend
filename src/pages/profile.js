@@ -126,75 +126,81 @@ const Profile = () => {
                 <MessageBox />
             </ModalComponent>
             <ContentWrapper exteranlclass={classes.wrapper}>
-                <Grid container spacing={2} className={classes.profileHeader}>
-                    <Grid item sx={12} sm={12} md={5} lg={5} xl={5}>
-                        <UserProfileCard
-                            onClickProfile={handleInfo}
-                            onMsgBtnClick={handleMsg}
-                            image={images.maskGroup}
-                            name="Brandon Landing"
-                            userName="@veritas_z"
-                            followers="15"
-                            following="20"
-                            position="Director assistant, producer"
-                            location="USA, Ohio"
-                            bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
-                        />
+                <>
+                    <Grid container spacing={2} className={classes.profileHeader}>
+                        <Grid item sx={12} sm={12} md={5} lg={5} xl={5}>
+                            <UserProfileCard
+                                onClickProfile={handleInfo}
+                                onMsgBtnClick={handleMsg}
+                                image={images.maskGroup}
+                                name="Brandon Landing"
+                                userName="@veritas_z"
+                                followers="15"
+                                following="20"
+                                position="Director assistant, producer"
+                                location="USA, Ohio"
+                                bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
+                            <ReactPlayer
+                                width="100%"
+                                height="100%"
+                                controls
+                                url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                            />
+                        </Grid>
                     </Grid>
-                    <Grid item sx={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
-                        <ReactPlayer
-                            width="100%"
-                            height="100%"
-                            controls
-                            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                        />
+
+                    <Grid container alignItems="center" justify="flex-start" className={classes.category}>
+                        {categories.map((item, i) => (
+                            <Typography
+                                key={i}
+                                className={classnames(classes.boldText, {
+                                    [classes.activeCategory]: item.active,
+                                })}
+                                onClick={() => handleCategory(i)}>
+                                {item.label}
+                            </Typography>
+                        ))}
                     </Grid>
-                </Grid>
-                <Grid container alignItems="center" justify="flex-start" className={classes.category}>
-                    {categories.map((item, i) => (
-                        <Typography
-                            key={i}
-                            className={classnames(classes.boldText, {
-                                [classes.activeCategory]: item.active,
-                            })}
-                            onClick={() => handleCategory(i)}>
-                            {item.label}
-                        </Typography>
-                    ))}
-                </Grid>
-                <Box className={classes.selectCategories}>
-                    <SelectWithLabelIcon
-                        options={categories}
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                    />
-                </Box>
-                <Box className={classes.selectCategoryText}>
-                    <Typography className={classnames(classes.boldText)}>{selectedCategory}</Typography>
-                </Box>
-                <Grid container spacing={2} className={classes.cardContainer}>
-                    {[1, 1, 1, 1, 1, 1, 1, 1].map((idx) => {
-                        return (
-                            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
-                                <CardWithFooter
-                                    image="https://source.unsplash.com/random?fp=0"
-                                    title="dummy data"
-                                    hideFooter
-                                    handleClick={() => {
-                                        // setOpenModal(true);
-                                    }}
-                                />
-                            </Grid>
-                        )
-                    })}
-                </Grid>
+                    <Box className={classes.selectCategories}>
+                        <SelectWithLabelIcon
+                            options={categories}
+                            value={selectedCategory}
+                            onChange={(e) => setSelectedCategory(e.target.value)}
+                        />
+                    </Box>
+                    <Box className={classes.selectCategoryText}>
+                        <Typography className={classnames(classes.boldText)}>{selectedCategory}</Typography>
+                    </Box>
+                    <Grid container spacing={2} className={classes.cardContainer}>
+                        {[1, 1, 1, 1, 1, 1, 1, 1].map((idx) => {
+                            return (
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                                    <CardWithFooter
+                                        image="https://source.unsplash.com/random?fp=0"
+                                        title="dummy data"
+                                        hideFooter
+                                        showMoreButton
+                                        handleClick={() => {
+                                            // setOpenModal(true);
+                                        }}
+                                    />
+                                </Grid>
+                            )
+                        })}
+                    </Grid>
+                </>
             </ContentWrapper>
 
             <ContentWrapper exteranlclass={classes.report}>
-                <Grid container dispaly="flex" alignItems="center" justify="flex-start">
-                    <img src={icons.reportContentIcon} alt="" />
-                    <Typography>Report user</Typography>
-                </Grid>
+                <>
+                    <Grid container dispaly="flex" alignItems="center" justify="flex-start">
+                        <img src={icons.reportContentIcon} alt="" />
+                        <Typography>Report user</Typography>
+                    </Grid>
+                </>
             </ContentWrapper>
             <Footer exteranlclass={classes.footer} />
         </>

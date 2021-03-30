@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
-// import CloseIcon from "@material-ui/icons/Close"
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
@@ -53,17 +52,23 @@ const useStyles = makeStyles({
         alignItems: "left",
         width: "100%",
         marginBottom: "3.125rem",
+        color: colors.white,
     },
     NotificationButton: {
         padding: 0,
         marginRight: "2.75rem",
-        "@media (max-width:350px)": {
+        "@media (max-width:500px)": {
             marginLeft: "0.5rem",
+            marginRight: "0.5rem",
         },
     },
     closeIcon: {
         fontSize: "2rem",
         color: (props) => (props.menuIconColor ? props.menuIconColor : colors.white),
+        "@media (max-width:500px)": {
+            marginRight: "-1rem",
+            marginLeft: "0.5rem",
+        },
     },
     icon: {
         fontSize: "2rem",
@@ -136,7 +141,7 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
     return (
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
             <Box className={classes.contentWrapper}>
-                <Grid container alignItems="center" justifycontent="space-between" className={classes.headerWrapper}>
+                <Grid container className={classes.headerWrapper}>
                     <Grid container alignItems="center" justifycontent="space-between" className={classes.autoWidth}>
                         <Avatar src={images.maskGroup} />
                         <Typography className={classes.username}>Brandon</Typography>
@@ -146,7 +151,7 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                             <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
                         </IconButton>
                         <IconButton className={classes.closeButton} onClick={onClose}>
-                            <CloseIconBig onClick={onClose} className={classes.icon} />
+                            <CloseIconBig className={classes.closeIcon} />
                         </IconButton>
                     </Grid>
                 </Grid>

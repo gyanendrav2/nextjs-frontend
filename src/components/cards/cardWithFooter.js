@@ -2,8 +2,12 @@ import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Box, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
+import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
+import { CustomButton } from "../buttons/customButton"
+import MoreVertIcon from "../icons/moreVertIcon"
+import ShareCard from "./shareCard"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -13,6 +17,7 @@ const useStyles = makeStyles({
         flexDirection: "column",
         height: "100%",
         cursor: "pointer",
+        position: "relative",
     },
     cardImageContainer: {
         position: "relative",
@@ -72,21 +77,59 @@ const useStyles = makeStyles({
     red: {
         background: "red",
     },
+    moreVertContainerShow: {
+        display: "block!important",
+    },
+    moreVertContainer: {
+        position: "absolute",
+        top: "1rem",
+        right: "1rem",
+        zIndex: 2,
+        display: "none",
+    },
+    moreVertButton: {
+        color: colors.black,
+        backgroundColor: colors.white,
+    },
 })
-export const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handleClick, hideFooter }) => {
+export const CardWithFooter = ({
+    image,
+    title,
+    footerTitle,
+    footerSubitle,
+    handleClick,
+    hideFooter,
+    showMoreButton,
+}) => {
     const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
+    const [showCopyBox, setShowCopyBox] = useState(false)
 
     const handleMouseHover = () => {
         setisHovering(true)
     }
     const handleMouseOut = () => {
         setisHovering(false)
+        setShowCopyBox(false)
     }
 
     return (
         <Box className={classes.cardWrapper} onClick={handleClick}>
             <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
+                {showMoreButton && (
+                    <Box
+                        className={classnames(classes.moreVertContainer, {
+                            [classes.moreVertContainerShow]: isHovering,
+                        })}>
+                        <CustomButton
+                            variant="iconButton"
+                            exteranlclass={classes.moreVertButton}
+                            icon={<MoreVertIcon />}
+                            onClick={() => setShowCopyBox(!showCopyBox)}
+                        />
+                        {showCopyBox && <ShareCard />}
+                    </Box>
+                )}
                 <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
                     <LazyloadImage image={image} exteranlclass={classes.image} />
                 </Box>
@@ -110,13 +153,17 @@ export const CardWithFooter = ({ image, title, footerTitle, footerSubitle, handl
 CardWithFooter.defaultProps = {
     handleClick: () => {},
     hideFooter: false,
+    footerTitle: "",
+    footerSubitle: "",
+    showMoreButton: false,
 }
 
 CardWithFooter.propTypes = {
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    footerTitle: PropTypes.string.isRequired,
-    footerSubitle: PropTypes.string.isRequired,
+    footerTitle: PropTypes.string,
+    footerSubitle: PropTypes.string,
     handleClick: PropTypes.func,
     hideFooter: PropTypes.bool,
+    showMoreButton: PropTypes.bool,
 }

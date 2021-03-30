@@ -1,5 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import React from "react"
+import React, { useState } from "react"
+import classnames from "classnames"
 import { colors } from "../theme/colors"
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { Footer } from "../components/footer"
@@ -54,11 +55,17 @@ const useStyles = makeStyles({
         transform: "none",
         width: "100%",
     },
+    mobileViewResult: {
+        "@media (max-width: 575px)": {
+            transform: "translate(24px,-79px)",
+            position: "absolute",
+        },
+    },
 })
 
 const Search = () => {
     const classes = useStyles()
-    // const [showFilter, setShowFilter] = useState(false);
+    const [isFilterOpened, setIsFilterOpened] = useState(false)
 
     return (
         <Box>
@@ -66,8 +73,8 @@ const Search = () => {
             <Box className={classes.searchWrapper}>
                 <Typography className={classes.title}>Search the markets</Typography>
             </Box>
-            <SearchBox exteranlclass={classes.search} />
-            <Box className={classes.resultsContainer}>
+            <SearchBox exteranlclass={classes.search} onFilter={(value) => setIsFilterOpened(value)} />
+            <Box className={classnames(classes.resultsContainer, { [classes.mobileViewResult]: !isFilterOpened })}>
                 <Typography className={classes.results}>4 results</Typography>
             </Box>
             <ContentWrapper>

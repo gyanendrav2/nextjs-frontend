@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
+import classnames from "classnames"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { SelectingCategories } from "./categories/selectingCategories"
@@ -61,8 +62,12 @@ const useStyles = makeStyles({
         fontWeight: "bold",
         letterSpacing: "0.2rem",
         transition: "all 1s ease",
-        "@media (max-width:567px)": {
-            fontSize: "2.2rem",
+        "@media (min-width:479px)and(max-width:567px)": {
+            fontSize: "3.2rem",
+            lineHeight: "3.5rem",
+        },
+        "@media (max-width:478px)": {
+            fontSize: "2.1rem",
             lineHeight: "3.5rem",
         },
     },
@@ -118,7 +123,9 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.white,
-        "@media (max-width: 767px)": {
+    },
+    mobileViewResultContainer: {
+        "@media (max-width: 575px)": {
             transform: "translateY(-36px)",
             position: "absolute",
             display: "block",
@@ -139,6 +146,7 @@ export const Discovery = ({ details }) => {
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
     const [totalCategories, setTotalCategories] = useState([])
     const [activeCategory, setActiveCategory] = useState(null)
+    const [isFilterOpened, setIsFilterOpened] = useState(false)
 
     useEffect(() => {
         const result = featuredProjects.slice(0, 8)
@@ -241,9 +249,13 @@ export const Discovery = ({ details }) => {
                             category={activeCategory}
                             categories={totalCategories}
                             changeTab={(e) => handleTab(e)}
+                            onFilter={(value) => setIsFilterOpened(value)}
                         />
                         {activeCategory ? (
-                            <Box className={classes.resultsContainer}>
+                            <Box
+                                className={classnames(classes.resultsContainer, {
+                                    [classes.mobileViewResultContainer]: !isFilterOpened,
+                                })}>
                                 <Typography className={classes.results}>4 results </Typography>
                             </Box>
                         ) : (

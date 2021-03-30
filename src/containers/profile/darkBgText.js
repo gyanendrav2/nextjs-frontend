@@ -22,7 +22,7 @@ const useStyles = makeStyles({
             marginTop: "7.5rem",
             "@media(max-width:992px)": {
                 textAlign: "center",
-                maxWidth: "27.25rem",
+                maxWidth: "100%",
                 fontSize: "2.5rem",
                 lineHeight: "3rem",
                 marginBottom: "0.7rem",
@@ -37,8 +37,7 @@ const useStyles = makeStyles({
             marginBottom: "2rem",
         },
         "@media (max-width:992px)": {
-            padding: "8rem",
-            paddingLeft: "2rem",
+            padding: "6.5rem 1rem!important",
         },
     },
     fulldarkBg: {
@@ -71,7 +70,7 @@ export const DarkBgText = () => {
                             PageMaker including versions of Lorem Ipsum.
                         </Typography>
                         <br />
-                        <br />
+
                         <Typography>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
@@ -82,7 +81,7 @@ export const DarkBgText = () => {
                             PageMaker including versions of Lorem Ipsum.
                         </Typography>
                         <br />
-                        <br />
+
                         <Typography>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer

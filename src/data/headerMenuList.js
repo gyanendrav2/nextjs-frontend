@@ -35,7 +35,7 @@ export const mobileNavOptions = [
     {
         id: 2,
         name: "Discover",
-        icon: <SearchIcon />,
+        icon: <DisocoveryIcon />,
         pathname: "/",
     },
 ]

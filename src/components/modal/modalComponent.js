@@ -54,7 +54,7 @@ const useStyles = makeStyles(
             },
         })
     // eslint-disable-next-line prettier/prettier
-);
+)
 
 export const ModalComponent = ({ handleClose, openOrNot, children, onClose }) => {
     const classes = useStyles()
@@ -85,9 +85,11 @@ export const ModalComponent = ({ handleClose, openOrNot, children, onClose }) =>
         </Box>
     )
 }
-
+ModalComponent.defaultProps = {
+    handleClose: () => {},
+}
 ModalComponent.propTypes = {
-    handleClose: PropTypes.func.isRequired,
+    handleClose: PropTypes.func,
     openOrNot: PropTypes.bool.isRequired,
     children: PropTypes.element.isRequired,
     onClose: PropTypes.func.isRequired,

@@ -5,6 +5,7 @@ import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { SignupForm } from "../containers/signup/signupForm"
 import { colors } from "../theme/colors"
+import { Footer } from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -30,20 +31,26 @@ const useStyles = makeStyles({
             width: "100%",
         },
     },
+    footer: {
+        marginTop: 0,
+    },
 })
 
 const SignUp = () => {
     const classes = useStyles()
     return (
-        <Box className={classes.wrapper}>
-            <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
-            <Box className={classes.left}>
-                <LeftSide />
+        <>
+            <Box className={classes.wrapper}>
+                <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
+                <Box className={classes.left}>
+                    <LeftSide />
+                </Box>
+                <Box className={classes.right}>
+                    <SignupForm />
+                </Box>
             </Box>
-            <Box className={classes.right}>
-                <SignupForm />
-            </Box>
-        </Box>
+            <Footer exteranlclass={classes.footer} />
+        </>
     )
 }
 

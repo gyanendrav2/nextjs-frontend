@@ -10,6 +10,16 @@ import { signinFormValidation } from "../../formValidation/signin"
 import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
 import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
 
+const titleText = {
+    fontFamily: "Forno-Trial",
+    fontStyle: "normal",
+    fontWeight: 900,
+    fontSize: "2rem",
+    lineHeight: "2.5rem",
+    marginBottom: "1.5rem",
+    color: colors.black,
+}
+
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
@@ -20,26 +30,26 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
-        // "@media(max-width:767px)": {
-        //     padding: "0",
-        // },
         "@media(min-width:767px) and (max-width:1070px)": {
             padding: "10rem",
-            marginTop: "6rem",
+            // marginTop: "6rem",
         },
         "@media(max-width:767px)": {
             padding: "0",
             marginTop: "1rem",
         },
     },
+    formWrapper: {
+        width: "100%",
+        "@media(max-width:767px)": {
+            padding: "1rem",
+        },
+    },
     title: {
-        fontFamily: "Helvetica",
-        fontStyle: "normal",
-        fontWeight: "900",
-        fontSize: "2rem",
-        lineHeight: "2.5rem",
-        marginBottom: "1.5rem",
-        color: colors.black,
+        ...titleText,
+        "@media (max-width:767px)": {
+            display: "none",
+        },
     },
     subTitle: {
         fontFamily: "Helvetica",
@@ -83,12 +93,7 @@ const useStyles = makeStyles({
             width: "100%",
         },
     },
-    formWrapper: {
-        width: "100%",
-        "@media(max-width:767px)": {
-            padding: "1rem",
-        },
-    },
+
     forgot: {
         textDecoration: "underline",
         cursor: "pointer",

@@ -19,10 +19,10 @@ const useStyles = makeStyles({
         border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`),
         borderRadius: "3px",
         "&:focus": {
-            borderColor: (props) => (props.error ? colors.red : colors.black),
+            borderColor: (props) => (props.error ? colors.red : colors.lightGray),
         },
         "&:hover": {
-            borderColor: (props) => (props.error ? colors.red : colors.black),
+            borderColor: (props) => (props.error ? colors.red : colors.lightGray),
         },
     },
     iconContainer: {

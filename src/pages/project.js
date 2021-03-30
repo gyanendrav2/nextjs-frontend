@@ -22,13 +22,6 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         paddingTop: "5rem",
     },
-    profileWrapper: {
-        padding: "2.5rem 3rem 2.5rem 5rem",
-        "@media (max-width:992px)": {
-            padding: "2.5rem 3rem 0rem 2rem",
-        },
-    },
-
     CreatorsAuthor: {
         display: " flex",
         alignItems: " center",
@@ -42,12 +35,6 @@ const useStyles = makeStyles({
         margin: "0rem 1.125rem 0rem 0rem",
         width: "5.5rem",
         height: "5.5rem",
-    },
-    teamImage: {
-        borderRadius: "50%",
-        width: "2rem",
-        height: "2rem",
-        marginRight: "1rem",
     },
 
     CreatorsAuthorName: {
@@ -79,49 +66,7 @@ const useStyles = makeStyles({
         lineHeight: "3.25rem",
         maxWidth: "29rem",
     },
-    teamTitle: {
-        fontFamily: "Helvetica",
-        fontStyle: "normal",
-        fontWeight: "normal",
-        fontSize: "1.375rem",
-        lineHeight: "2.125rem",
-        marginBottom: "0.5rem",
-    },
-    info: {
-        margin: "1rem 0",
-        maxWidth: "100%",
-        "@media(max-width:992px)": {
-            marginTop: "1rem",
-        },
-    },
-    infoTextHead: {
-        fontSize: "1.375rem",
-        color: colors.black,
-    },
-    infoText: {
-        color: colors.black,
-        margin: "0.1rem 0",
-    },
 
-    teamContainer: {
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "0.5rem",
-    },
-    teamWrapper: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        position: "relative",
-    },
-    activeMember: {
-        cursor: "pointer",
-    },
-    positionText: {
-        color: colors.lighterGray,
-    },
     fitSizeImg: {
         width: "100%",
         height: "100%",
@@ -135,6 +80,9 @@ const useStyles = makeStyles({
     contentWrapper: {
         padding: "8rem",
         color: colors.white,
+        "@media (max-width:992px)": {
+            padding: "6.5rem 1rem!important",
+        },
         "& h3": {
             fontFamily: "Forno-Trial",
             fontStyle: "normal",
@@ -143,7 +91,7 @@ const useStyles = makeStyles({
             lineHeight: "3.625rem",
             marginBottom: "1.25rem",
             "@media(max-width:992px)": {
-                maxWidth: "27.25rem",
+                maxWidth: "100%",
                 fontSize: "2.5rem",
                 lineHeight: "3rem",
                 marginBottom: "0.7rem",
@@ -156,15 +104,17 @@ const useStyles = makeStyles({
             fontWeight: "normal",
             fontSize: "1rem",
             lineHeight: "2rem",
-        },
-        "@media (max-width:992px)": {
-            padding: "8rem",
-            paddingLeft: "2rem",
+            "@media (max-width:992px)": {
+                maxWidth: "100%",
+            },
         },
     },
     contentWrapperWhiteBg: {
         padding: "8rem",
         color: colors.black,
+        "@media (max-width:992px)": {
+            padding: "6.5rem 1rem!important",
+        },
         "& h3": {
             fontFamily: "Forno-Trial",
             fontStyle: "normal",
@@ -186,28 +136,22 @@ const useStyles = makeStyles({
             fontWeight: "normal",
             fontSize: "1rem",
             lineHeight: "2rem",
-        },
-        "@media (max-width:992px)": {
-            padding: "8rem",
-            paddingLeft: "2rem",
+            "@media (max-width:992px)": {
+                maxWidth: "100%",
+            },
         },
     },
 
     darkBg: {
         backgroundColor: colors.black,
-        height: "45.375rem",
         width: "100%",
     },
     whiteBg: {
         backgroundColor: colors.white,
-        height: "37.187rem",
-    },
-    paragaphStyles: {
-        marginBottom: "2rem",
+        // height: "37.187rem",
     },
     reportContentwrapper: {
         marginTop: "9.625rem",
-        marginBottom: "-2rem",
     },
     footer: {
         marginTop: "0rem",
@@ -223,7 +167,7 @@ const Project = () => {
             <HeaderWrapper isScrollDetect={false} />
 
             <Box className={classes.projectwrapper}>
-                <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+                <ReactPlayer width="100%" height="30rem" controls url="https://www.w3schools.com/html/mov_bbb.mp4" />
                 <Grid className={classes.CreatorsAuthor}>
                     <Box>
                         <img className={classes.image} src={images.maskGroup} alt="maskGroup" />

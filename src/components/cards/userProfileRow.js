@@ -24,6 +24,10 @@ const useStyles = makeStyles({
         height: "2rem",
         marginRight: "1rem",
     },
+    positionText: {
+        color: colors.lighterGray,
+        fontSize: "0.875rem",
+    },
 })
 
 export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {

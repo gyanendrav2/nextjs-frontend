@@ -98,6 +98,9 @@ const useStyles = makeStyles({
             marginBottom: "1rem",
         },
     },
+    dialogreportcontent: {
+        padding: "1rem",
+    },
 })
 
 export const QuickViewDailog = ({ closeModal }) => {
@@ -158,7 +161,7 @@ export const QuickViewDailog = ({ closeModal }) => {
                     />
                 </Grid>
             </Grid>
-            <ReportContentWrapper />
+            <ReportContentWrapper dialogcontentStyle={classes.dialogreportcontent} />
         </Box>
     )
 }

@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
-import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
+import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
+import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
 import { colors } from "../../theme/colors"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { resetFormValidation } from "../../formValidation/resetpassword"
@@ -89,6 +89,7 @@ export const ResetPasswordForm = () => {
         console.log(data)
     }
     const [hideShowPassword, setHideShowPassword] = useState(false)
+    const [hideShowConPassword, setHideShowConPassword] = useState(false)
 
     return (
         <Box className={classes.wrapper}>
@@ -116,7 +117,7 @@ export const ResetPasswordForm = () => {
                         inputRegister={register}
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
-                        icon={hideShowPassword ? <EyeOpenIcon /> : <span className={`icon-Eye ${classes.icon}`} />}
+                        icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
                     <InputWithLabelIcon
@@ -125,9 +126,9 @@ export const ResetPasswordForm = () => {
                         exteranlclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.confirmpassword}
-                        type={hideShowPassword ? "text" : "password"}
-                        icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
-                        iconOnClick={() => setHideShowPassword(!hideShowPassword)}
+                        type={hideShowConPassword ? "text" : "password"}
+                        icon={hideShowConPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                        iconOnClick={() => setHideShowConPassword(!hideShowConPassword)}
                     />
                     <Grid className={classes.submitContainer}>
                         <Grid>

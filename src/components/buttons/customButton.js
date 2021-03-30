@@ -18,14 +18,15 @@ const useStyles = makeStyles({
         },
     },
     borderButton: {
-        backgroundColor: colors.white,
-        border: `2px solid ${colors.black}`,
+        backgroundColor: colors.black,
+        color: colors.white,
+        // border: `2px solid ${colors.black}`,
         borderRadius: 0,
         textTransform: "capitalize",
         padding: "1.125rem 3rem",
         "&:hover": {
-            color: colors.white,
-            backgroundColor: colors.black,
+            color: colors.black,
+            backgroundColor: colors.pink,
         },
     },
     iconButton: {

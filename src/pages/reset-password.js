@@ -5,12 +5,14 @@ import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { ResetPasswordForm } from "../containers/resetpassword/resetPasswordForm"
 import { colors } from "../theme/colors"
+import { Footer } from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
         display: "flex",
         height: "100vh",
+        backgroundColor: colors.white,
     },
     left: {
         width: "50%",
@@ -29,20 +31,26 @@ const useStyles = makeStyles({
             width: "100%",
         },
     },
+    footer: {
+        marginTop: 0,
+    },
 })
 
 const ResetPassword = () => {
     const classes = useStyles()
     return (
-        <Box className={classes.wrapper}>
-            <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
-            <Box className={classes.left}>
-                <LeftSide />
+        <>
+            <Box className={classes.wrapper}>
+                <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
+                <Box className={classes.left}>
+                    <LeftSide />
+                </Box>
+                <Box className={classes.right}>
+                    <ResetPasswordForm />
+                </Box>
             </Box>
-            <Box className={classes.right}>
-                <ResetPasswordForm />
-            </Box>
-        </Box>
+            <Footer exteranlclass={classes.footer} />
+        </>
     )
 }
 

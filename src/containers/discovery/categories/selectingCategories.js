@@ -120,7 +120,7 @@ const useStyles = makeStyles({
         opacity: 0.5,
     },
 })
-export const SelectingCategories = ({ changeTab, category, categories }) => {
+export const SelectingCategories = ({ changeTab, category, categories, onFilter }) => {
     const classes = useStyles()
     const [showCategories, setShowCategories] = useState([])
     const [showOtherCategories, setShowOtherCategories] = useState(false)
@@ -136,6 +136,11 @@ export const SelectingCategories = ({ changeTab, category, categories }) => {
             setShowCategories(categories)
         }
     }, [categories])
+
+    useEffect(() => {
+        onFilter(showFilter)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [showFilter])
 
     const handleShowMore = () => {
         setShowOtherCategories(!showOtherCategories)
@@ -206,4 +211,5 @@ SelectingCategories.propTypes = {
     changeTab: PropTypes.func.isRequired,
     categories: PropTypes.arrayOf(PropTypes.string).isRequired,
     category: PropTypes.string,
+    onFilter: PropTypes.func.isRequired,
 }
