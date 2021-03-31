@@ -25,12 +25,12 @@ const useStyles = makeStyles({
     },
 })
 
-export const Input = ({ inputRegister, error, inputName, exteranlclass, ...rest }) => {
+export const Input = ({ inputRegister, error, inputName, externalclass, ...rest }) => {
     const classes = useStyles({ error: !!error })
     return (
         <Box className={classes.wrapper}>
             <input
-                className={classnames(classes.input, exteranlclass)}
+                className={classnames(classes.input, externalclass)}
                 name={inputName}
                 ref={inputRegister}
                 {...rest}
@@ -48,7 +48,7 @@ Input.defaultProps = {
     type: "text",
     inputRegister: () => {},
     inputName: "",
-    exteranlclass: "",
+    externalclass: "",
 }
 
 Input.propTypes = {
@@ -60,5 +60,5 @@ Input.propTypes = {
     type: PropTypes.string,
     inputRegister: PropTypes.func,
     inputName: PropTypes.string,
-    exteranlclass: PropTypes.string,
+    externalclass: PropTypes.string,
 }

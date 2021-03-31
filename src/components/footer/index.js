@@ -117,11 +117,11 @@ export const useStyles = makeStyles({
         marginTop: "0.55rem",
     },
 })
-export const Footer = ({ exteranlclass }) => {
+export const Footer = ({ externalclass }) => {
     const classes = useStyles()
     return (
         <>
-            <ContentWrapper contaier exteranlclass={classnames(classes.footer, exteranlclass)}>
+            <ContentWrapper contaier externalclass={classnames(classes.footer, externalclass)}>
                 <>
                     <Grid item sm={10} md={10} lg={10} container className={classes.copyRightcontainer}>
                         {/* <Grid container> */}
@@ -161,15 +161,15 @@ export const Footer = ({ exteranlclass }) => {
                     </Grid>
                 </>
             </ContentWrapper>
-            <MobileFooter exteranlclass={exteranlclass} />
+            <MobileFooter externalclass={externalclass} />
         </>
     )
 }
 
 Footer.defaultProps = {
-    exteranlclass: "",
+    externalclass: "",
 }
 
 Footer.propTypes = {
-    exteranlclass: PropTypes.string,
+    externalclass: PropTypes.string,
 }

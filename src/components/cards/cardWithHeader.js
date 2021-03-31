@@ -52,7 +52,7 @@ const useStyles = makeStyles({
     },
     image_container: {
         width: "100%",
-        height: "11.25rem",
+        height: "100%",
     },
     projectImg: {
         width: "100%",
@@ -80,7 +80,7 @@ export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPa
             </Box>
             {isProjectPage ? null : (
                 <Box className={classes.image_container}>
-                    <LazyloadImage blurhashHeight="100%" image={image} exteranlclass={classes.projectImg} />
+                    <LazyloadImage blurhashHeight="100%" image={image} externalclass={classes.projectImg} />
                 </Box>
             )}
         </Box>

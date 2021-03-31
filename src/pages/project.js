@@ -21,6 +21,15 @@ const useStyles = makeStyles({
     projectwrapper: {
         backgroundColor: colors.white,
         paddingTop: "5rem",
+        "@media (max-width:992px)": {
+            paddingTop: "3.5rem",
+        },
+    },
+    videoStyles: {
+        "@media(max-width:959px)": {
+            height: "15.5rem",
+            marginBottom: "15.5rem",
+        },
     },
     CreatorsAuthor: {
         display: " flex",
@@ -80,8 +89,11 @@ const useStyles = makeStyles({
     contentWrapper: {
         padding: "8rem",
         color: colors.white,
-        "@media (max-width:992px)": {
-            padding: "6.5rem 1rem!important",
+        "@media (min-width:576px) and (max-width:992px)": {
+            padding: "5rem 1rem 6rem 1rem!important",
+        },
+        "@media (max-width:575px)": {
+            padding: "5rem 1rem 2.75rem 1rem!important",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -112,8 +124,11 @@ const useStyles = makeStyles({
     contentWrapperWhiteBg: {
         padding: "8rem",
         color: colors.black,
-        "@media (max-width:992px)": {
-            padding: "6.5rem 1rem!important",
+        "@media (min-width:576px) and (max-width:992px)": {
+            padding: "5rem 1rem 6rem 1rem!important",
+        },
+        "@media (max-width:575px)": {
+            padding: "5rem 1rem 2.75rem 1rem!important",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -152,6 +167,7 @@ const useStyles = makeStyles({
     },
     reportContentwrapper: {
         marginTop: "9.625rem",
+        padding: "1rem",
     },
     footer: {
         marginTop: "0rem",
@@ -167,7 +183,14 @@ const Project = () => {
             <HeaderWrapper isScrollDetect={false} />
 
             <Box className={classes.projectwrapper}>
-                <ReactPlayer width="100%" height="30rem" controls url="https://www.w3schools.com/html/mov_bbb.mp4" />
+                <Box className={classes.videoStyles}>
+                    <ReactPlayer
+                        width="100%"
+                        height="30rem"
+                        controls
+                        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                    />
+                </Box>
                 <Grid className={classes.CreatorsAuthor}>
                     <Box>
                         <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
@@ -217,8 +240,8 @@ const Project = () => {
                 <Slider />
                 <ImageGallery />
                 <SocialIcons />
-                <ReportContentWrapper exteranlclass={classes.reportContentwrapper} />
-                <Footer exteranlclass={classes.footer} />
+                <ReportContentWrapper externalclass={classes.reportContentwrapper} />
+                <Footer externalclass={classes.footer} />
             </Box>
         </>
     )

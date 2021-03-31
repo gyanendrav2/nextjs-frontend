@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     wrapper: {
         width: "100%",
         display: "flex",
-        height: "100vh",
         backgroundColor: colors.white,
     },
     left: {
@@ -49,7 +48,7 @@ const SignIn = () => {
                     <SigninForm />
                 </Box>
             </Box>
-            <Footer exteranlclass={classes.footer} />
+            <Footer externalclass={classes.footer} />
         </>
     )
 }

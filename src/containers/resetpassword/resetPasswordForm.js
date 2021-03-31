@@ -19,12 +19,8 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
-        // "@media(max-width:767px)": {
-        //     padding: "0",
-        // },
         "@media(min-width:767px) and (max-width:1070px)": {
             padding: "10rem",
-            marginTop: "6rem",
         },
         "@media(max-width:767px)": {
             padding: "0",
@@ -99,21 +95,21 @@ export const ResetPasswordForm = () => {
                     <InputWithLabelIcon
                         name="code"
                         placeholder="Confirmation code"
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.code}
                     />
                     <InputWithLabelIcon
                         name="email"
                         placeholder="Email"
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.email}
                     />
                     <InputWithLabelIcon
                         name="password"
                         placeholder="New password"
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
@@ -123,7 +119,7 @@ export const ResetPasswordForm = () => {
                     <InputWithLabelIcon
                         name="confirmpassword"
                         placeholder="Confirmation new password"
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.confirmpassword}
                         type={hideShowConPassword ? "text" : "password"}
@@ -136,7 +132,7 @@ export const ResetPasswordForm = () => {
                                 type="submit"
                                 variant="borderButton"
                                 label="Send password"
-                                exteranlclass={classes.confirmButton}
+                                externalclass={classes.confirmButton}
                             />
                         </Grid>
                     </Grid>

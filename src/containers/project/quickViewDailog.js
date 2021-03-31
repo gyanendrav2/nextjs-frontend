@@ -32,13 +32,17 @@ const useStyles = makeStyles({
     },
     leftAvatarContainer: {
         maxWidth: "26rem",
-        "@media(min-width:576px)": {
-            // minWidth: "10rem",
-        },
     },
     shareButtonContainer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
         "@media(min-width:576px)": {
             maxWidth: "8rem",
+        },
+        "@media(max-width:412px)": {
+            minWidth: "0",
         },
     },
     shareButtonText: {
@@ -48,12 +52,20 @@ const useStyles = makeStyles({
     },
     headingTextWrapper: {
         marginLeft: "1rem",
+        "@media(max-width:400px)": {
+            minWidth: "10rem",
+            width: "100%",
+        },
     },
+
     button: {
         height: "1.5rem",
         "&:hover": {
             color: colors.white,
             backgroundColor: colors.black,
+        },
+        "@media(max-width:372px)": {
+            minWidth: "1rem!important",
         },
     },
     infoContainer: {
@@ -125,11 +137,12 @@ export const QuickViewDailog = ({ closeModal }) => {
                 </Grid>
                 <Grid container alignItems="flex-start" justify="center" className={classes.shareButtonContainer}>
                     <CustomButton
-                        exteranlclass={classes.button}
+                        externalclass={classes.button}
                         disableRipple
                         label={
                             <>
-                                <MoreVert /> <Typography className={classes.shareButtonText}>Share</Typography>
+                                <MoreVert className={classes.morevert} />{" "}
+                                <Typography className={classes.shareButtonText}>Share</Typography>
                             </>
                         }
                     />
@@ -157,7 +170,7 @@ export const QuickViewDailog = ({ closeModal }) => {
                     <CustomButton
                         label="See full project"
                         onClick={() => routes.push("/project")}
-                        exteranlclass={classes.seeFullButton}
+                        externalclass={classes.seeFullButton}
                     />
                 </Grid>
             </Grid>

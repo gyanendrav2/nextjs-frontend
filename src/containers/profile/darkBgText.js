@@ -20,12 +20,13 @@ const useStyles = makeStyles({
             lineHeight: "3.625rem",
             marginBottom: "2.5rem",
             marginTop: "7.5rem",
-            "@media(max-width:992px)": {
+            "@media (max-width:992px)": {
                 textAlign: "center",
                 maxWidth: "100%",
                 fontSize: "2.5rem",
                 lineHeight: "3rem",
-                marginBottom: "0.7rem",
+                marginTop: "0rem",
+                marginBottom: "2.5rem",
             },
         },
         "& p": {
@@ -36,8 +37,11 @@ const useStyles = makeStyles({
             lineHeight: "2rem",
             marginBottom: "2rem",
         },
-        "@media (max-width:992px)": {
-            padding: "6.5rem 1rem!important",
+        "@media (min-width:576px) and (max-width:992px)": {
+            padding: "5rem 1rem 6rem 1rem!important",
+        },
+        "@media (max-width:575px)": {
+            padding: "5rem 1rem 2.75rem 1rem!important",
         },
     },
     fulldarkBg: {
@@ -49,6 +53,12 @@ const useStyles = makeStyles({
         paddingBotton: "5rem",
         marginBottom: "5rem",
         maxWidth: "56.25rem",
+        "@media (min-width:576px) and (max-width:992px)": {
+            marginBottom: "0rem",
+        },
+        "@media (max-width:575px)": {
+            marginBottom: "0rem",
+        },
     },
 })
 

@@ -193,13 +193,13 @@ export const SearchBox = ({ onFilter }) => {
                         </Grid>
                         <Grid item className={classes.inputCol2}>
                             <Grid container alignItems="center" justifycontent="flex-start" wrap="nowrap">
-                                <CustomButton exteranlclass={classes.buttonGroupItem} label="Work" />
-                                <CustomButton exteranlclass={classes.buttonGroupItem} label="People" />
+                                <CustomButton externalclass={classes.buttonGroupItem} label="Work" />
+                                <CustomButton externalclass={classes.buttonGroupItem} label="People" />
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.col2}>
-                        <CustomButton label="Search" type="submit" exteranlclass={classes.confirmButton} />
+                        <CustomButton label="Search" type="submit" externalclass={classes.confirmButton} />
                     </Grid>
                 </Grid>
                 {/* </Grid> */}
@@ -223,7 +223,7 @@ export const SearchBox = ({ onFilter }) => {
                     />
                 </Grid>
             </Box>
-            <Box className={classes.filterWrapper}>{showFilter && <Filter exteranlclass={classes.search} />}</Box>
+            <Box className={classes.filterWrapper}>{showFilter && <Filter externalclass={classes.search} />}</Box>
         </>
     )
 }

@@ -70,11 +70,11 @@ const years = [
     { value: "4", label: "2023" },
 ]
 
-export const Filter = ({ exteranlclass }) => {
+export const Filter = ({ externalclass }) => {
     const classes = useStyles()
 
     return (
-        <Box className={classnames(classes.wrapper, exteranlclass)}>
+        <Box className={classnames(classes.wrapper, externalclass)}>
             <Box className={classes.col1}>Filter by:</Box>
             <Box className={classes.col2}>
                 <Grid container spacing={2}>
@@ -82,7 +82,7 @@ export const Filter = ({ exteranlclass }) => {
                         <SelectWithLabelIcon
                             label="Second level category"
                             options={secondlevelCategoryItems}
-                            exteranlclass={classes.locationInput}
+                            externalclass={classes.locationInput}
                             placeholder="Sports Photography"
                             labelColor={colors.lighterGray}
                         />
@@ -92,7 +92,7 @@ export const Filter = ({ exteranlclass }) => {
                             name=""
                             label="Location"
                             placeholder="Georgia, US "
-                            exteranlclass={classes.locationInput}
+                            externalclass={classes.locationInput}
                             labelColor={colors.lighterGray}
                         />
                     </Grid>
@@ -100,7 +100,7 @@ export const Filter = ({ exteranlclass }) => {
                         <SelectWithLabelIcon
                             label="Year"
                             options={years}
-                            exteranlclass={classes.yearInput}
+                            externalclass={classes.yearInput}
                             placeholder="-"
                             labelColor={colors.lighterGray}
                         />
@@ -110,7 +110,7 @@ export const Filter = ({ exteranlclass }) => {
                             label="Sort by"
                             options={secondlevelCategoryItems}
                             variant="underlineBorder"
-                            exteranlclass={classes.sortInput}
+                            externalclass={classes.sortInput}
                             placeholder="A-Z"
                             labelColor={colors.lighterGray}
                             bgcolor={colors.lighterPrimary}
@@ -123,9 +123,9 @@ export const Filter = ({ exteranlclass }) => {
 }
 
 Filter.defaultProps = {
-    exteranlclass: "",
+    externalclass: "",
 }
 
 Filter.propTypes = {
-    exteranlclass: PropTypes.string,
+    externalclass: PropTypes.string,
 }

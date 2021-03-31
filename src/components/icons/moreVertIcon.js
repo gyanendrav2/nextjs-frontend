@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-const MoreVertIcon = (props) => {
+export const MoreVertIcon = (props) => {
     return (
         <svg width={2} height={8} viewBox="0 0 2 8" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
@@ -29,5 +29,3 @@ MoreVertIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }
-
-export default MoreVertIcon

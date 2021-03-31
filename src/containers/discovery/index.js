@@ -235,7 +235,7 @@ export const Discovery = ({ details }) => {
                                                     <span className={classes.pinkSquare} />
                                                 </Typography>
                                                 <Typography className={classes.subtitle}>{item.subtitle}</Typography>
-                                                <CustomButton label="Sign Up" exteranlclass={classes.bigSignup} />
+                                                <CustomButton label="Sign Up" externalclass={classes.bigSignup} />
                                             </div>
                                         </div>
                                     </div>

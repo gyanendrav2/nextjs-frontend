@@ -144,32 +144,32 @@ const useStyles = makeStyles({
     },
 })
 
-const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass, ...props }) => {
+const allButtons = ({ classes, handleClick, variant, label, icon, externalclass, ...props }) => {
     switch (variant) {
         case "primary": {
             return (
-                <Button className={classnames(classes.primary, exteranlclass)} onClick={handleClick} {...props}>
+                <Button className={classnames(classes.primary, externalclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )
         }
         case "borderButton": {
             return (
-                <Button className={classnames(classes.borderButton, exteranlclass)} onClick={handleClick} {...props}>
+                <Button className={classnames(classes.borderButton, externalclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )
         }
         case "iconButton": {
             return (
-                <Button className={classnames(classes.iconButton, exteranlclass)} onClick={handleClick} {...props}>
+                <Button className={classnames(classes.iconButton, externalclass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             )
         }
         case "iconLargeButton": {
             return (
-                <Button className={classnames(classes.iconLargeButton, exteranlclass)} onClick={handleClick} {...props}>
+                <Button className={classnames(classes.iconLargeButton, externalclass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             )
@@ -177,7 +177,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
         case "circleSmallButton": {
             return (
                 <Button
-                    className={classnames(classes.circleSmallButton, exteranlclass)}
+                    className={classnames(classes.circleSmallButton, externalclass)}
                     onClick={handleClick}
                     {...props}>
                     {icon}
@@ -187,7 +187,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
         case "circleLargeButton": {
             return (
                 <Button
-                    className={classnames(classes.circleLargeButton, exteranlclass)}
+                    className={classnames(classes.circleLargeButton, externalclass)}
                     onClick={handleClick}
                     {...props}>
                     {icon}
@@ -196,7 +196,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
         }
         case "iconColorButton": {
             return (
-                <Button className={classnames(classes.iconColorButton, exteranlclass)} onClick={handleClick} {...props}>
+                <Button className={classnames(classes.iconColorButton, externalclass)} onClick={handleClick} {...props}>
                     {icon}
                 </Button>
             )
@@ -205,7 +205,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
             return (
                 <Button
                     endIcon={icon}
-                    className={classnames(classes.dropdownButton, exteranlclass)}
+                    className={classnames(classes.dropdownButton, externalclass)}
                     onClick={handleClick}
                     {...props}>
                     {label}
@@ -216,7 +216,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
             return (
                 <Button
                     endIcon={icon}
-                    className={classnames(classes.cancel, exteranlclass)}
+                    className={classnames(classes.cancel, externalclass)}
                     onClick={handleClick}
                     {...props}>
                     {label}
@@ -225,7 +225,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, exteranlclass,
         }
         default: {
             return (
-                <Button className={classnames(classes.primary, exteranlclass)} onClick={handleClick} {...props}>
+                <Button className={classnames(classes.primary, externalclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )
@@ -261,7 +261,7 @@ export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, .
 }
 
 CustomButton.defaultProps = {
-    exteranlclass: "",
+    externalclass: "",
     label: "",
     variant: "primary",
     icon: "",
@@ -272,7 +272,7 @@ CustomButton.defaultProps = {
 }
 
 CustomButton.propTypes = {
-    exteranlclass: PropTypes.string,
+    externalclass: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     variant: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),

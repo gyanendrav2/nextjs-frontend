@@ -50,10 +50,10 @@ const useStyles = makeStyles({
     },
 })
 
-export const MobileFooter = ({ exteranlclass }) => {
+export const MobileFooter = ({ externalclass }) => {
     const classes = useStyles()
     return (
-        <Box className={classnames(classes.mobilefooterWrapper, exteranlclass)}>
+        <Box className={classnames(classes.mobilefooterWrapper, externalclass)}>
             <Link href="/">
                 <Grid className={classnames(classes.itemPadding, classes.firstChild)}>
                     <Typography>About us</Typography>
@@ -90,9 +90,9 @@ export const MobileFooter = ({ exteranlclass }) => {
 }
 
 MobileFooter.defaultProps = {
-    exteranlclass: "",
+    externalclass: "",
 }
 
 MobileFooter.propTypes = {
-    exteranlclass: PropTypes.string,
+    externalclass: PropTypes.string,
 }

@@ -32,7 +32,6 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         "@media(min-width:767px) and (max-width:1070px)": {
             padding: "10rem",
-            // marginTop: "6rem",
         },
         "@media(max-width:767px)": {
             padding: "0",
@@ -135,7 +134,7 @@ export const SigninForm = () => {
                         name="email"
                         placeholder="Email"
                         errorMsg={errors.email}
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                     />
 
                     <InputWithLabelIcon
@@ -145,7 +144,7 @@ export const SigninForm = () => {
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
                         icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
                     />
 
@@ -155,7 +154,7 @@ export const SigninForm = () => {
                                 variant="borderButton"
                                 label="Confirm"
                                 type="submit"
-                                exteranlclass={classes.confirmButton}
+                                externalclass={classes.confirmButton}
                             />
                         </Grid>
                         <Grid>

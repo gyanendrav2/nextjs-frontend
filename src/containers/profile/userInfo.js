@@ -54,7 +54,7 @@ export const UserInfo = () => {
                                 <MessageBox />
                             </ModalComponent> */}
 
-                            <CustomButton label="Message me" exteranlclass={classes.msgbtn} on={handleMsg} />
+                            <CustomButton label="Message me" externalclass={classes.msgbtn} on={handleMsg} />
                             <CustomButton
                                 variant="dropdownButton"
                                 icon={<img src={icons.arrowDropdown} alt="" />}

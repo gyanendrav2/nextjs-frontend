@@ -18,6 +18,9 @@ import { SelectWithLabelIcon } from "../components/inputs/selectWithLabelIcon"
 const useStyles = makeStyles({
     wrapper: {
         paddingTop: "7rem",
+        "@media (min-width:766px) and (max-width:959px)": {
+            paddingTop: "5.5rem",
+        },
         "@media (max-width:766px)": {
             paddingTop: "3.5rem",
             paddingLeft: 0,
@@ -87,6 +90,14 @@ const useStyles = makeStyles({
             paddingRight: "1.25rem",
         },
     },
+    userProfilecardStyles: {
+        "@media (max-width:575px)": {
+            padding: "1rem",
+        },
+        messageBoxStyles: {
+            marginRight: "1rem",
+        },
+    },
 })
 
 const Profile = () => {
@@ -125,7 +136,7 @@ const Profile = () => {
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
             </ModalComponent>
-            <ContentWrapper exteranlclass={classes.wrapper}>
+            <ContentWrapper externalclass={classes.wrapper}>
                 <>
                     <Grid container spacing={2} className={classes.profileHeader}>
                         <Grid item sx={12} sm={12} md={5} lg={5} xl={5}>
@@ -140,6 +151,7 @@ const Profile = () => {
                                 position="Director assistant, producer"
                                 location="USA, Ohio"
                                 bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
+                                externalclass={classes.userProfilecardStyles}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
@@ -175,7 +187,7 @@ const Profile = () => {
                         <Typography className={classnames(classes.boldText)}>{selectedCategory}</Typography>
                     </Box>
                     <Grid container spacing={2} className={classes.cardContainer}>
-                        {[1, 1, 1, 1, 1, 1, 1, 1].map((idx) => {
+                        {[1, 1, 1, 1, 1, 1, 1, 1].map((item, idx) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
                                     <CardWithFooter
@@ -194,7 +206,7 @@ const Profile = () => {
                 </>
             </ContentWrapper>
 
-            <ContentWrapper exteranlclass={classes.report}>
+            <ContentWrapper externalclass={classes.report}>
                 <>
                     <Grid container dispaly="flex" alignItems="center" justify="flex-start">
                         <img src={icons.reportContentIcon} alt="" />
@@ -202,7 +214,7 @@ const Profile = () => {
                     </Grid>
                 </>
             </ContentWrapper>
-            <Footer exteranlclass={classes.footer} />
+            <Footer externalclass={classes.footer} />
         </>
     )
 }

@@ -32,7 +32,6 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         "@media(min-width:767px) and (max-width:1070px)": {
             padding: "10rem",
-            marginTop: "6rem",
         },
         "@media(max-width:767px)": {
             padding: "0",
@@ -146,21 +145,21 @@ export const SignupForm = () => {
                         name="username"
                         inputRegister={register}
                         errorMsg={errors.username}
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                     />
                     <InputWithLabelIcon
                         placeholder="Email address"
                         name="email"
                         inputRegister={register}
                         errorMsg={errors.email}
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                     />
                     <InputWithLabelIcon
                         placeholder="Password"
                         name="password"
                         inputRegister={register}
                         errorMsg={errors.password}
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                         type={hideShowPassword ? "text" : "password"}
                         icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}
                         iconOnClick={() => setHideShowPassword(!hideShowPassword)}
@@ -171,7 +170,7 @@ export const SignupForm = () => {
                                 variant="borderButton"
                                 label="Confirm"
                                 type="submit"
-                                exteranlclass={classes.confirmButton}
+                                externalclass={classes.confirmButton}
                             />
                         </Grid>
                         <Grid>

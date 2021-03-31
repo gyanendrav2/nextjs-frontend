@@ -17,12 +17,8 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
-        // "@media(max-width:767px)": {
-        //     padding: "0",
-        // },
         "@media(min-width:767px) and (max-width:1070px)": {
             padding: "10rem",
-            marginTop: "6rem",
         },
         "@media(max-width:767px)": {
             padding: "0",
@@ -107,14 +103,14 @@ export const ForgetPasswordForm = () => {
                         name="email"
                         inputRegister={register}
                         errorMsg={errors.email}
-                        exteranlclass={classes.inputStyles}
+                        externalclass={classes.inputStyles}
                     />
                     <Grid className={classes.submitContainer}>
                         <CustomButton
                             variant="borderButton"
                             label="Send reset link"
                             type="submit"
-                            exteranlclass={classes.confirmButton}
+                            externalclass={classes.confirmButton}
                         />
                     </Grid>
                 </form>

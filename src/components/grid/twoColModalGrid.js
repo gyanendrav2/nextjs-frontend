@@ -7,6 +7,7 @@ const useStyles = makeStyles({
         width: "18rem",
         position: "relative",
     },
+
     col2: {
         width: "calc(100% - 18rem)",
     },

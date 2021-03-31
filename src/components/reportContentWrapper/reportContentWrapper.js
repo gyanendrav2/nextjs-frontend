@@ -64,11 +64,11 @@ const useStyles = makeStyles({
 })
 
 // eslint-disable-next-line react/prop-types
-export const ReportContentWrapper = ({ exteranlclass, dialogcontentStyle }) => {
+export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
     const classes = useStyles({ dialogcontentStyle })
 
     return (
-        <Grid container className={classnames(classes.reportWrapper, exteranlclass, dialogcontentStyle)}>
+        <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
             {/* <Grid container className={classes.spamContainer}> */}
             <Grid item xs={12} sm={8} md={8} lg={8} className={classes.reportspamwrapper} container>
                 <Grid item xs={6} sm={4} md={3} lg={3} className={classes.spamwrapper}>
@@ -101,9 +101,9 @@ export const ReportContentWrapper = ({ exteranlclass, dialogcontentStyle }) => {
     )
 }
 ReportContentWrapper.defaultProps = {
-    exteranlclass: " ",
+    externalclass: " ",
 }
 ReportContentWrapper.prototypes = {
-    exteranlclass: PropTypes.string.isRequired,
+    externalclass: PropTypes.string.isRequired,
     dialogcontentStyle: PropTypes.string,
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import classnames from "classnames"
 import { CustomButton } from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
@@ -17,6 +18,9 @@ const useStyles = makeStyles({
             border: "none",
             borderBottom: `1px solid ${colors.lightGray}`,
         },
+        // "@media (max-width:575px)": {
+        //     padding: ,
+        // },
     },
     avatar: {
         width: "5rem",
@@ -67,8 +71,9 @@ export const UserProfileCard = ({
     bio,
     onClickProfile,
     onMsgBtnClick,
+    externalclass,
 }) => {
-    const classes = useStyles()
+    const classes = useStyles({ externalclass })
     const lessText = bio.slice(0, 90)
     const fullText = bio.slice(0, bio.length)
     const [fullParagraph, setfullParagraph] = useState(false)
@@ -77,7 +82,7 @@ export const UserProfileCard = ({
         setfullParagraph(!fullParagraph)
     }
     return (
-        <Box className={classes.wrapper}>
+        <Box className={classnames(classes.wrapper, externalclass)}>
             <Grid container alignItems="flex-start" justify="flex-start">
                 <Box className={classes.profilePicContainer}>
                     <Avatar className={classes.avatar} src={image} onClick={onClickProfile} />
@@ -100,14 +105,14 @@ export const UserProfileCard = ({
             <SocialButtons />
             <Grid container spacing={3}>
                 <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
-                    <CustomButton label="Message me" exteranlclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
+                    <CustomButton label="Message me" externalclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
                 </Grid>
                 <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
                     <CustomButton
                         variant="dropdownButton"
                         icon={<img src={icons.arrowDropdown} alt="" />}
                         label="Following"
-                        exteranlclass={classes.smallBtn}
+                        externalclass={classes.smallBtn}
                     />
                 </Grid>
             </Grid>
@@ -118,6 +123,7 @@ export const UserProfileCard = ({
 UserProfileCard.defaultProps = {
     onClickProfile: () => {},
     onMsgBtnClick: () => {},
+    externalclass: "",
 }
 
 UserProfileCard.propTypes = {
@@ -131,4 +137,5 @@ UserProfileCard.propTypes = {
     bio: PropTypes.string.isRequired,
     onClickProfile: PropTypes.func,
     onMsgBtnClick: PropTypes.func,
+    externalclass: PropTypes.string,
 }

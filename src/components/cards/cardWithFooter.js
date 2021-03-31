@@ -6,8 +6,9 @@ import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
 import { CustomButton } from "../buttons/customButton"
-import MoreVertIcon from "../icons/moreVertIcon"
-import ShareCard from "./shareCard"
+import { MoreVertIcon } from "../icons/moreVertIcon"
+import { ShareCard } from "./shareCard"
+import NotificationCard from "./notificationCard"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -24,12 +25,17 @@ const useStyles = makeStyles({
     },
     projectImage: {
         display: "block",
-        height: "15rem",
+        // height: "15rem",
     },
+    // imageContainer: {
+    //     position: "Relative",
+    //     width: "100%",
+    //     // height: "15rem",
+    // },
     image: {
+        // position: "absolute",
         display: "block",
-        width: "100%",
-        height: "15rem",
+        height: "100%",
         objectFit: "cover",
         transition: "all 0.5s",
         "&::before": {
@@ -104,6 +110,7 @@ export const CardWithFooter = ({
     const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
     const [showCopyBox, setShowCopyBox] = useState(false)
+    const [showNotification, setShowNotification] = useState(false)
 
     const handleMouseHover = () => {
         setisHovering(true)
@@ -113,8 +120,22 @@ export const CardWithFooter = ({
         setShowCopyBox(false)
     }
 
+    const handleNotification = () => {
+        setShowNotification(!showNotification)
+    }
+
+    const handleShowCopyBox = () => {
+        setShowCopyBox(!showCopyBox)
+    }
     return (
         <Box className={classes.cardWrapper} onClick={handleClick}>
+            <NotificationCard
+                message="Successfully copied!"
+                buttonText="Unhide"
+                isVisible={showNotification}
+                timeout={4000}
+                handleHideNotification={handleNotification}
+            />
             <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
                 {showMoreButton && (
                     <Box
@@ -123,21 +144,30 @@ export const CardWithFooter = ({
                         })}>
                         <CustomButton
                             variant="iconButton"
-                            exteranlclass={classes.moreVertButton}
+                            externalclass={classes.moreVertButton}
                             icon={<MoreVertIcon />}
-                            onClick={() => setShowCopyBox(!showCopyBox)}
+                            onClick={handleShowCopyBox}
                         />
-                        {showCopyBox && <ShareCard />}
+                        {showCopyBox && (
+                            <ShareCard
+                                onLinkCopied={() => {
+                                    handleNotification()
+                                    setShowCopyBox(!showCopyBox)
+                                }}
+                            />
+                        )}
                     </Box>
                 )}
                 <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
-                    <LazyloadImage image={image} exteranlclass={classes.image} />
+                    <Box className={classes.imageContainer}>
+                        <LazyloadImage image={image} externalclass={classes.image} />
+                    </Box>
                 </Box>
                 {isHovering && <Typography className={classes.ProjectTitle}>{title}</Typography>}
             </Box>
             {!hideFooter && (
                 <Box className={classes.cardFooter}>
-                    <Box>
+                    <Box className={classes.imageContainer}>
                         <img className={classes.roundImage} src={image} alt={title} />
                     </Box>
                     <Box>

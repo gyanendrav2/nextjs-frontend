@@ -73,7 +73,7 @@ const Search = () => {
             <Box className={classes.searchWrapper}>
                 <Typography className={classes.title}>Search the markets</Typography>
             </Box>
-            <SearchBox exteranlclass={classes.search} onFilter={(value) => setIsFilterOpened(value)} />
+            <SearchBox externalclass={classes.search} onFilter={(value) => setIsFilterOpened(value)} />
             <Box className={classnames(classes.resultsContainer, { [classes.mobileViewResult]: !isFilterOpened })}>
                 <Typography className={classes.results}>4 results</Typography>
             </Box>

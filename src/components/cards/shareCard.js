@@ -1,5 +1,5 @@
 import React from "react"
-// import PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { SocialButtons } from "../buttons/socialButtons"
 import { colors } from "../../theme/colors"
@@ -28,6 +28,7 @@ const useStyles = makeStyles({
         lineHeight: "1rem",
         color: colors.lighterGray,
         marginBottom: "1rem",
+        marginTop: "2rem",
     },
     link: {
         whiteSpace: "nowrap",
@@ -42,20 +43,31 @@ const useStyles = makeStyles({
         color: colors.black,
         fontSize: "1rem",
     },
+    socialbtnStyles: {
+        marginRight: "1rem",
+        // marginBottom: "1rem",
+    },
+    hrtag: {
+        borderTop: `1px solid ${colors.lightGray}`,
+    },
 })
 
-const ShareCard = () => {
+export const ShareCard = ({ onLinkCopied }) => {
     const classes = useStyles()
+
     const handleCopyLink = () => {
         const text = "https://www.pxl.net/galleries-project"
-        navigator.clipboard.writeText(text).then()
+        window.navigator.clipboard.writeText(text).then()
+        onLinkCopied()
     }
+
     return (
         <Box className={classes.wrapper}>
             <Typography className={classes.shareText}>Share</Typography>
-            <SocialButtons />
+            <SocialButtons externalclass={classes.socialbtnStyles} />
             <Typography className={classes.copylink}>Copy Link</Typography>
             <Typography className={classes.link}>https://www.pxl.net/galleries-project</Typography>
+            <hr className={classes.hrtag} />
             <Box>
                 <Typography className={classes.copyButton} onClick={handleCopyLink}>
                     Copy
@@ -65,6 +77,10 @@ const ShareCard = () => {
     )
 }
 
-ShareCard.propTypes = {}
+ShareCard.defaultProps = {
+    onLinkCopied: () => {},
+}
 
-export default ShareCard
+ShareCard.propTypes = {
+    onLinkCopied: PropTypes.func,
+}

@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 })
 
 export const InputWithLabelIcon = ({
-    exteranlclass,
+    externalclass,
     labelColor,
     label,
     icon,
@@ -68,7 +68,7 @@ export const InputWithLabelIcon = ({
                 wrap="nowrap"
                 component="div"
                 tabIndex="0"
-                className={classnames(classes.wrapper, exteranlclass)}>
+                className={classnames(classes.wrapper, externalclass)}>
                 <Box className={classes.inputContainer}>
                     <Input error={!!errorMsg.message} inputRegister={inputRegister} inputName={name} {...props} />
                 </Box>
@@ -95,7 +95,7 @@ InputWithLabelIcon.defaultProps = {
     inputRegister: () => {},
     name: PropTypes.string,
     errorMsg: {},
-    exteranlclass: "",
+    externalclass: "",
     labelColor: "",
     iconOnClick: () => {},
 }
@@ -112,7 +112,7 @@ InputWithLabelIcon.propTypes = {
     inputRegister: PropTypes.func,
     name: PropTypes.string,
     errorMsg: PropTypes.shape({ message: PropTypes.string }),
-    exteranlclass: PropTypes.string,
+    externalclass: PropTypes.string,
     labelColor: PropTypes.string,
     iconOnClick: PropTypes.func,
 }

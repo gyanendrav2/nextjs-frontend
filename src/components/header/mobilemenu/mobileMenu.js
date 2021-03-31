@@ -168,7 +168,7 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                                 name=""
                                 placeholder="Search"
                                 icon={<SearchIcon />}
-                                exteranlclass={classes.input}
+                                externalclass={classes.input}
                             />
                         </li>
                         <li className={classes.listStyle}>

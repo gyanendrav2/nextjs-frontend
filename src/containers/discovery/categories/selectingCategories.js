@@ -160,7 +160,7 @@ export const SelectingCategories = ({ changeTab, category, categories, onFilter 
                         <CustomButton
                             key={i}
                             label={eachBtn}
-                            exteranlclass={classnames(classes.projectButton, {
+                            externalclass={classnames(classes.projectButton, {
                                 [classes.activeButton]: eachBtn === activeCategory,
                                 [classes.disableButton]: showOtherCategories,
                             })}
@@ -174,7 +174,7 @@ export const SelectingCategories = ({ changeTab, category, categories, onFilter 
                             <Box>More</Box>
                         </>
                     }
-                    exteranlclass={classnames(classes.moreButton)}
+                    externalclass={classnames(classes.moreButton)}
                     onClick={handleShowMore}
                 />
                 {showOtherCategories && (

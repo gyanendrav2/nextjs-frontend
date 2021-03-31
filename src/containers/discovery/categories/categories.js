@@ -47,7 +47,7 @@ export const Categories = ({ handleClick, categories, activeButton, onClick }) =
                         key={i}
                         variant="primary"
                         label={name}
-                        exteranlclass={classnames(classes.button, {
+                        externalclass={classnames(classes.button, {
                             [classes.activeButton]: activeButton === name,
                         })}
                         onClick={() => onClick(name, i)}

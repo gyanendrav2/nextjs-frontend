@@ -75,7 +75,7 @@ const useStyles = makeStyles({
     },
 })
 export const SelectWithLabelIcon = ({
-    // exteranlclass,
+    // externalclass,
     label,
     error,
     errorMsg,

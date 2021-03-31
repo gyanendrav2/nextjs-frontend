@@ -76,7 +76,7 @@ export const Header = ({ color, bgcolor, NavItemOptions }) => {
                         />
                     )
                 })}
-                <CustomButton label="Sign up" exteranlclass={classes.button} onClick={() => router.push("/signup")} />
+                <CustomButton label="Sign up" externalclass={classes.button} onClick={() => router.push("/signup")} />
             </Grid>
         </Box>
     )

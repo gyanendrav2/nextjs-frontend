@@ -5,13 +5,12 @@ import { ForgetPasswordForm } from "../containers/forgetPassword/forgetPasswordF
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-// import { Footer } from "../components/footer"
+import { Footer } from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
         display: "flex",
-        height: "100vh",
         backgroundColor: colors.white,
     },
     left: {
@@ -31,6 +30,9 @@ const useStyles = makeStyles({
             width: "100%",
         },
     },
+    footer: {
+        marginTop: 0,
+    },
 })
 
 const ForgetPassword = () => {
@@ -46,7 +48,7 @@ const ForgetPassword = () => {
                     <ForgetPasswordForm />
                 </Box>
             </Box>
-            {/* <Footer /> */}
+            <Footer externalclass={classes.footer} />
         </>
     )
 }

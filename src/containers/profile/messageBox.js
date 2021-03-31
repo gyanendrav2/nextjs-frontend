@@ -15,6 +15,7 @@ const useStyles = makeStyles({
     },
     name: {
         fontSize: "2.5rem",
+        lineHeight: "3.125rem",
     },
     submitContainer: {
         display: "flex",
@@ -38,9 +39,7 @@ export const MessageBox = () => {
             col2Children={
                 <Box className={classes.col2}>
                     <Box className={classes.infoWrapper}>
-                        <Typography variant="h4" className={classes.name}>
-                            Message Me
-                        </Typography>
+                        <Typography className={classes.name}>Message Me</Typography>
 
                         <InputWithLabelIcon name="" placeholder="Email address" />
                         <TextArea placeholder="Message" />
@@ -49,7 +48,7 @@ export const MessageBox = () => {
                                 <CustomButton variant="cancel" label="cancel" />
                             </Grid>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.submit}>
-                                <CustomButton label="Confirm" type="submit" exteranlclass={classes.submitBtn} />
+                                <CustomButton label="Confirm" type="submit" externalclass={classes.submitBtn} />
                             </Grid>
                         </Grid>
                     </Box>
