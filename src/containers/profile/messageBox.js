@@ -12,6 +12,10 @@ const useStyles = makeStyles({
     infoWrapper: {
         marginTop: "2rem",
         width: "calc(100% - 2.5rem)",
+        "@media (max-width:767px)": {
+            width: "100%",
+            maxHeight: "90vh",
+        },
     },
     name: {
         fontSize: "2.5rem",
@@ -40,7 +44,6 @@ export const MessageBox = () => {
                 <Box className={classes.col2}>
                     <Box className={classes.infoWrapper}>
                         <Typography className={classes.name}>Message Me</Typography>
-
                         <InputWithLabelIcon name="" placeholder="Email address" />
                         <TextArea placeholder="Message" />
                         <Grid container spacing={2} className={classes.submitContainer}>

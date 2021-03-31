@@ -51,6 +51,10 @@ const useStyles = makeStyles(
                 top: "4.5rem",
                 right: "4.5rem",
                 cursor: "pointer",
+                "@media (max-width:767px)": {
+                    top: "1.5rem",
+                    right: "1.5rem",
+                },
             },
         })
     // eslint-disable-next-line prettier/prettier

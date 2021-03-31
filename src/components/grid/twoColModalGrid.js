@@ -6,10 +6,16 @@ const useStyles = makeStyles({
     col1: {
         width: "18rem",
         position: "relative",
+        "@media (max-width:767px)": {
+            display: "none",
+        },
     },
 
     col2: {
         width: "calc(100% - 18rem)",
+        "@media (max-width:767px)": {
+            width: "100%",
+        },
     },
 })
 
