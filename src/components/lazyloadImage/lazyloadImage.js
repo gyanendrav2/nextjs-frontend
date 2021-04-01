@@ -8,7 +8,7 @@ import classnames from "classnames"
 const useStyles = makeStyles({
     container: {
         position: "relative",
-        paddingTop: "70%",
+        paddingTop: "62%",
         "& span.lazy-load-image-background": {
             position: "absolute",
             top: 0,

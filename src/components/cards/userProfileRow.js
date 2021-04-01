@@ -44,6 +44,7 @@ export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col
                 md={col1Size}
                 lg={col1Size}
                 xl={col1Size}
+                wrap="nowrap"
                 className={classes.disabledTeamContainer}>
                 <img className={classes.teamImage} src={image} alt="maskGroup" />
                 <Typography

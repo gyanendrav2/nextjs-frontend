@@ -79,7 +79,7 @@ const useStyles = makeStyles({
     headings: {
         color: colors.black,
         fontSize: "2rem",
-        margin: "2rem 0 1.25rem 0",
+        marginTop: "2.5rem",
         fontFamily: "Forno-Trial",
         fontWeight: "900",
         lineHeight: "2.75rem",
@@ -266,7 +266,7 @@ export const Discovery = ({ details }) => {
                         {!activeCategory && (
                             <>
                                 <Typography className={classes.headings}>Curated creators</Typography>
-                                <CreationCard curatedCreators={curatedCreators} />{" "}
+                                <CreationCard curatedCreators={curatedCreators} />
                             </>
                         )}
                     </>

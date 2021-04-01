@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { UserProfileRow } from "../../components/cards/userProfileRow"
@@ -59,6 +59,9 @@ const useStyles = makeStyles({
             marginBottom: "2.5rem",
         },
     },
+    moreView: {
+        position: "relative",
+    },
 })
 
 export const VideoInfo = ({ teamMemberData }) => {
@@ -101,15 +104,17 @@ export const VideoInfo = ({ teamMemberData }) => {
                         col2Size={6}
                     />
                 ))}
-                <Typography className={classes.activeMember} onClick={() => setMaxShow(true)}>
-                    + 15 more members
-                </Typography>
-                {maxShow && (
-                    <MoreMemberModel
-                        onClose={() => setMaxShow(false)}
-                        data={teamMemberData.slice(6, teamMemberData.length)}
-                    />
-                )}
+                <Box className={classes.moreView}>
+                    <Typography className={classes.activeMember} onClick={() => setMaxShow(true)}>
+                        + 15 more members
+                    </Typography>
+                    {maxShow && (
+                        <MoreMemberModel
+                            onClose={() => setMaxShow(false)}
+                            data={teamMemberData.slice(6, teamMemberData.length)}
+                        />
+                    )}
+                </Box>
             </Grid>
         </Grid>
     )

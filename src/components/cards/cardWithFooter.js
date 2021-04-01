@@ -25,15 +25,8 @@ const useStyles = makeStyles({
     },
     projectImage: {
         display: "block",
-        // height: "15rem",
     },
-    // imageContainer: {
-    //     position: "Relative",
-    //     width: "100%",
-    //     // height: "15rem",
-    // },
     image: {
-        // position: "absolute",
         display: "block",
         height: "100%",
         objectFit: "cover",
@@ -98,6 +91,7 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
     },
 })
+
 export const CardWithFooter = ({
     image,
     title,

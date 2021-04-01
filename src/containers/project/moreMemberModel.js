@@ -17,8 +17,8 @@ const useStyles = makeStyles({
     wrapper: {
         position: "absolute",
         padding: "1.5rem",
-        top: "18.062rem",
-        left: "-2rem",
+        top: "1.5rem",
+        left: "-1.5rem",
         zIndex: 2,
         display: "flex",
         flexDirection: "column",
@@ -27,8 +27,8 @@ const useStyles = makeStyles({
         width: "34.625rem",
         maxHeight: "26.5rem",
         overflowY: "auto",
-        "@media(max-width:960px)": {
-            top: "17.625rem",
+        "@media(max-width:600px)": {
+            width: "100%",
         },
     },
 })

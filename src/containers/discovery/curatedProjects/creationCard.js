@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     CuratorCard: {
         display: "flex",
         flexWrap: "wrap",
+        marginTop: "1.5rem",
     },
     Container: {
         boxShadow: `0px 1px 1px ${colors.lightGray}`,
@@ -71,7 +72,7 @@ export const CreationCard = ({ curatedCreators }) => {
                                 <CardWithHeader
                                     image={data.image}
                                     title={data.name}
-                                    subTitle={data.subTitle}
+                                    subTitle={data.jobTitle}
                                     buttonText="Follow"
                                 />
                             </Grid>
