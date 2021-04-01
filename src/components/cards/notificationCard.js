@@ -4,7 +4,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import { CustomButton } from "../buttons/customButton"
 import { CloseIconBig } from "../icons/closeIconBig"
 
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     wrapper: {
         background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
         boxShadow: "0 0 15px 2px rgba(0,0,0,0.4)",
@@ -41,7 +41,15 @@ const useStyles = makeStyles({
     },
 })
 
-const NotificationCard = ({ isVisible, timeout, message, buttonText, shouldHide, onClick, handleHideNotification }) => {
+export const NotificationCard = ({
+    isVisible,
+    timeout,
+    message,
+    buttonText,
+    shouldHide,
+    onClick,
+    handleHideNotification,
+}) => {
     const classes = useStyles()
 
     const handleButtonClick = () => {
@@ -90,5 +98,3 @@ NotificationCard.propTypes = {
     isVisible: PropTypes.bool,
     timeout: PropTypes.number,
 }
-
-export default NotificationCard

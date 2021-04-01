@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
 import classnames from "classnames"
 import { Box, makeStyles, Typography } from "@material-ui/core"
+import { useCookies } from "react-cookie"
 import PropTypes from "prop-types"
 import { SelectingCategories } from "./categories/selectingCategories"
 import { Footer } from "../../components/footer"
@@ -14,6 +15,7 @@ import { HeaderCategory } from "../../components/header/headerCategory"
 import { ContentWrapper } from "../../components/contentWrapper/contentWrapper"
 import { FeaturedCard } from "./featuredProjects/featuredCard"
 import { CreationCard } from "./curatedProjects/creationCard"
+import { CookieCard } from "../../components/cards/cookieCard"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -147,6 +149,7 @@ export const Discovery = ({ details }) => {
     const [totalCategories, setTotalCategories] = useState([])
     const [activeCategory, setActiveCategory] = useState(null)
     const [isFilterOpened, setIsFilterOpened] = useState(false)
+    const cookies = useCookies(["pxl-user"])
 
     useEffect(() => {
         const result = featuredProjects.slice(0, 8)
@@ -201,6 +204,7 @@ export const Discovery = ({ details }) => {
     }
     return (
         <>
+            {Object.keys(cookies[0]).length === 0 && <CookieCard />}
             <Box className={classes.wrapper}>
                 <HeaderWrapper isScrollDetect={!activeCategory} featuredCardsDetails={featuredCardsDetails} />
 

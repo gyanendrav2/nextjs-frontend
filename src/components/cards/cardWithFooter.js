@@ -8,7 +8,7 @@ import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
 import { CustomButton } from "../buttons/customButton"
 import { MoreVertIcon } from "../icons/moreVertIcon"
 import { ShareCard } from "./shareCard"
-import NotificationCard from "./notificationCard"
+import { NotificationCard } from "./notificationCard"
 
 const useStyles = makeStyles({
     cardWrapper: {

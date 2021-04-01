@@ -8,7 +8,7 @@ import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../theme/colors"
 import { signupFormValidation } from "../../formValidation/signup"
 import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
-import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
+import { EyeOpenIcon } from "../../components/icons/eyeOpenIcon"
 
 const titleText = {
     fontFamily: "Forno-Trial",
