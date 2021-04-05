@@ -1,4 +1,5 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
+import { useRouter } from "next/router"
 import React from "react"
 import { useCookies } from "react-cookie"
 import { colors } from "../../theme/colors"
@@ -34,13 +35,21 @@ const useStyles = makeStyles({
         marginTop: "1rem",
         fontFamily: "Campton Light",
     },
+    cookiesPage: {
+        cursor: "pointer",
+        textDecoration: "underline",
+    },
 })
 
 export const CookieCard = () => {
-    const [cookies, setCookie] = useCookies(["pxl-user"])
+    const [, setCookie] = useCookies(["pxl-user"])
     const classes = useStyles()
+    const routes = useRouter()
     const handeCookie = () => {
         setCookie("pxl-user", "new pxl user", { path: "/" })
+    }
+    const handleRoute = () => {
+        routes.push("/cookies")
     }
 
     return (
@@ -50,7 +59,10 @@ export const CookieCard = () => {
                 <Typography className={classes.title}>
                     Pxl may use cookies, web beacons, tracking pixels, and other tracking technologies when you visit
                     our website to help customize the Site and improve your experience. Read more about cookies and
-                    terms in our cookie and privacy policy.
+                    terms in our
+                    <span className={classes.cookiesPage} onClick={handleRoute} aria-hidden="true">
+                        cookie and privacy policy.
+                    </span>
                 </Typography>
                 <CustomButton label="Accept cookies" externalclass={classes.cookieButton} onClick={handeCookie} />
             </Box>

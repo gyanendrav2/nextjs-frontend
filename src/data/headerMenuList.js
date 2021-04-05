@@ -2,6 +2,7 @@ import React from "react"
 import { DisocoveryIcon } from "../components/icons/disocoveryIcon"
 import { HomeIcon } from "../components/icons/homeIcon"
 import { LoginIcon } from "../components/icons/loginIcon"
+import { NotificationBellIcon } from "../components/icons/notificationBellIcon"
 import { SearchIcon } from "../components/icons/searchIcon"
 
 export const NavItemOptions = [
@@ -37,5 +38,32 @@ export const mobileNavOptions = [
         name: "Discover",
         icon: <DisocoveryIcon />,
         pathname: "/",
+    },
+]
+
+export const loggedInUserNav = [
+    {
+        id: 1,
+        name: "Home",
+        icon: <HomeIcon />,
+        pathname: "/",
+    },
+    {
+        id: 1,
+        name: "discover",
+        icon: <DisocoveryIcon />,
+        pathname: "/",
+    },
+    {
+        id: 2,
+        name: "Search",
+        icon: <SearchIcon />,
+        pathname: "/search",
+    },
+    {
+        id: 3,
+        name: "",
+        icon: <NotificationBellIcon />,
+        pathname: "",
     },
 ]

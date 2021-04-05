@@ -122,7 +122,7 @@ const useStyles = makeStyles({
         },
     },
     contentWrapperWhiteBg: {
-        padding: "8rem",
+        padding: "8rem 10rem",
         color: colors.black,
         "@media (min-width:576px) and (max-width:992px)": {
             padding: "5rem 1rem 6rem 1rem!important",

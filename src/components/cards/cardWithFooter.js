@@ -9,6 +9,7 @@ import { CustomButton } from "../buttons/customButton"
 import { MoreVertIcon } from "../icons/moreVertIcon"
 import { ShareCard } from "./shareCard"
 import { NotificationCard } from "./notificationCard"
+import { CardMenuOptions } from "./cardMenuOptions"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -100,6 +101,7 @@ export const CardWithFooter = ({
     handleClick,
     hideFooter,
     showMoreButton,
+    handleHide,
 }) => {
     const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
@@ -143,12 +145,13 @@ export const CardWithFooter = ({
                             onClick={handleShowCopyBox}
                         />
                         {showCopyBox && (
-                            <ShareCard
-                                onLinkCopied={() => {
-                                    handleNotification()
-                                    setShowCopyBox(!showCopyBox)
-                                }}
-                            />
+                            // <ShareCard
+                            //     onLinkCopied={() => {
+                            //         handleNotification()
+                            //         setShowCopyBox(!showCopyBox)
+                            //     }}
+                            // />
+                            <CardMenuOptions onHide={handleHide} />
                         )}
                     </Box>
                 )}
@@ -180,6 +183,7 @@ CardWithFooter.defaultProps = {
     footerTitle: "",
     footerSubitle: "",
     showMoreButton: false,
+    handleHide: () => {},
 }
 
 CardWithFooter.propTypes = {
@@ -190,4 +194,5 @@ CardWithFooter.propTypes = {
     handleClick: PropTypes.func,
     hideFooter: PropTypes.bool,
     showMoreButton: PropTypes.bool,
+    handleHide: PropTypes.func,
 }

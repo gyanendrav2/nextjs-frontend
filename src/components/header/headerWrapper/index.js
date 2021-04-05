@@ -5,7 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import Link from "next/link"
 import { Header } from ".."
 import { icons } from "../../../assets/icons"
-import { mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
+import { loggedInUserNav, mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
 import { colors } from "../../../theme/colors"
 import { MobileMenu } from "../mobilemenu/mobileMenu"
 
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType }) => {
+export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated }) => {
     const classes = useStyles({ mobileMenuIconColor })
     const [scrollTop, setScrollTop] = useState(0)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -88,7 +88,12 @@ export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoT
 
     return (
         <>
-            <Header color={textColor()} bgcolor={shouldDark()} NavItemOptions={NavItemOptions} />
+            <Header
+                color={textColor()}
+                bgcolor={shouldDark()}
+                NavItemOptions={isAuthenticated ? loggedInUserNav : NavItemOptions}
+                isAuthenticated={isAuthenticated}
+            />
             <Box style={{ backgroundColor: shouldDark() }} className={classes.mobileNavWrapper}>
                 <Link href="/">
                     <img src={getLogo()} className={classes.mobileLogo} alt="logo" />
@@ -111,10 +116,12 @@ HeaderWrapper.defaultProps = {
     isScrollDetect: () => {},
     mobileMenuIconColor: "",
     mobileLogoType: undefined,
+    isAuthenticated: false,
 }
 
 HeaderWrapper.propTypes = {
     isScrollDetect: PropTypes.bool,
     mobileMenuIconColor: PropTypes.string,
     mobileLogoType: PropTypes.string,
+    isAuthenticated: PropTypes.bool,
 }

@@ -8,6 +8,7 @@ import { CustomButton } from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
+import { UserProfileNav } from "../cards/userProfileNav"
 
 const useStyles = makeStyles({
     header: {
@@ -19,7 +20,7 @@ const useStyles = makeStyles({
         paddingRight: "2rem",
         justifyContent: "space-between",
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : "transparent"),
-        transition: "all 0.2s",
+        // transition: "all 0.2s",
         "@media (max-width:767px)": {
             visibility: "hidden",
             display: "none",
@@ -38,9 +39,20 @@ const useStyles = makeStyles({
     rightPart: {
         width: "auto",
     },
+    uploadBtn: {
+        backgroundColor: colors.white,
+        borderRadius: 1,
+        textTransform: "capitalize",
+        padding: "0.437rem 1.5rem",
+        height: "2.5rem",
+        marginLeft: "2.5rem",
+        "&:hover": {
+            backgroundColor: colors.pink,
+        },
+    },
 })
 
-export const Header = ({ color, bgcolor, NavItemOptions }) => {
+export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
     const classes = useStyles({ color, bgcolor })
     const router = useRouter()
     const [hoveredActive, setHoverdActive] = useState(null)
@@ -76,7 +88,24 @@ export const Header = ({ color, bgcolor, NavItemOptions }) => {
                         />
                     )
                 })}
-                <CustomButton label="Sign up" externalclass={classes.button} onClick={() => router.push("/signup")} />
+                {!isAuthenticated && (
+                    <CustomButton
+                        label="Sign up"
+                        externalclass={classes.button}
+                        onClick={() => router.push("/signup")}
+                    />
+                )}
+                {isAuthenticated && <UserProfileNav userName="Brandon" profileImg={images.maskGroup} />}
+                {isAuthenticated && (
+                    <CustomButton
+                        wantFile
+                        allowMultiple
+                        onFileChange={(e) => console.log(e.target.files)}
+                        className={classes.uploadBtn}
+                        label="Upload work"
+                        type="file"
+                    />
+                )}
             </Grid>
         </Box>
     )
@@ -86,6 +115,7 @@ Header.defaultProps = {
     color: "",
     bgcolor: "",
     NavItemOptions: [],
+    isAuthenticated: false,
 }
 
 Header.propTypes = {
@@ -98,4 +128,5 @@ Header.propTypes = {
             pathname: PropTypes.string,
         }).isRequired
     ),
+    isAuthenticated: PropTypes.bool,
 }

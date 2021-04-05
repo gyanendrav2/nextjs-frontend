@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { useState, useEffect } from "react"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -64,6 +65,7 @@ const useStyles = makeStyles({
         fontWeight: "bold",
         letterSpacing: "0.2rem",
         transition: "all 1s ease",
+        color: colors.white,
         "@media (min-width:479px)and(max-width:567px)": {
             fontSize: "3.2rem",
             lineHeight: "3.5rem",

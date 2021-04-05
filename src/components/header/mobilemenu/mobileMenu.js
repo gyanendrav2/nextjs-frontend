@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Avatar, Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
@@ -10,6 +10,7 @@ import { NotificationBellIcon } from "../../icons/notificationBellIcon"
 import { mobileNavOptions } from "../../../data/headerMenuList"
 import { SearchIcon } from "../../icons/searchIcon"
 import { CloseIconBig } from "../../icons/closeIconBig"
+import { UserProfileNav } from "../../cards/userProfileNav"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -142,10 +143,7 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
             <Box className={classes.contentWrapper}>
                 <Grid container className={classes.headerWrapper}>
-                    <Grid container alignItems="center" justifycontent="space-between" className={classes.autoWidth}>
-                        <Avatar src={images.maskGroup} />
-                        <Typography className={classes.username}>Brandon</Typography>
-                    </Grid>
+                    <UserProfileNav userName="Brandon" profileImg={images.maskGroup} />
                     <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
                         <IconButton className={classes.NotificationButton}>
                             <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
