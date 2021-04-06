@@ -65,7 +65,6 @@ export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoT
             return colors.black
         }
     }
-
     const textColor = () => {
         if (!isScrollDetect) {
             return colors.white

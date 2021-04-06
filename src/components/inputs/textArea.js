@@ -21,13 +21,14 @@ const useStyles = makeStyles({
     input: {
         width: "100%",
         height: "17rem",
-        "& ::placeholder": {
+        "&::placeholder": {
             color: colors.pink,
             opacity: 1,
             fontSize: "0.875rem",
+            marginRight: "2rem",
         },
     },
-    border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.primary}`),
+    border: "1px solid green",
     "&:focus": {
         borderColor: (props) => (props.error ? colors.red : colors.lightGray),
     },

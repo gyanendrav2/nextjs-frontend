@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     name: {
         fontSize: "2.5rem",
         lineHeight: "3.125rem",
+        marginBottom: "2rem",
     },
     submitContainer: {
         display: "flex",

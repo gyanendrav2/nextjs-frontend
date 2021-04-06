@@ -9,7 +9,6 @@ import { images } from "../assets/images"
 import { CardWithFooter } from "../components/cards/cardWithFooter"
 import { Footer } from "../components/footer"
 import { colors } from "../theme/colors"
-import { icons } from "../assets/icons"
 import { ModalComponent } from "../components/modal/modalComponent"
 import { UserInfo } from "../containers/profile/userInfo"
 import { MessageBox } from "../containers/profile/messageBox"
@@ -17,6 +16,8 @@ import { SelectWithLabelIcon } from "../components/inputs/selectWithLabelIcon"
 import { PenIcon } from "../components/icons/penIcon"
 import { EyeClosedIcon } from "../components/icons/eyeClosedIcon"
 import { EyeOpenIcon } from "../components/icons/eyeOpenIcon"
+import { ReportContent } from "../components/reportContentWrapper/reportContent"
+import { AddCategory } from "../containers/userProfile/addCategory"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -140,13 +141,14 @@ const User = () => {
     ])
     const [data, setData] = useState([
         { image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
-        { image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
-        { image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
-        { image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
-        { image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
-        { image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
+        { image: "https://source.unsplash.com/random?fp=1", title: "dummy data" },
+        { image: "https://source.unsplash.com/random?fp=2", title: "dummy data" },
+        { image: "https://source.unsplash.com/random?fp=3", title: "dummy data" },
+        { image: "https://source.unsplash.com/random?fp=4", title: "dummy data" },
+        { image: "https://source.unsplash.com/random?fp=5", title: "dummy data" },
     ])
     const [hideData, setHideData] = useState([])
+    const [addCategory, setAddCategory] = useState(false)
 
     const handleCategory = (i) => {
         const result = categories.map((item) => {
@@ -171,12 +173,18 @@ const User = () => {
         tempData.splice(i, 1)
         setData(tempData)
     }
+    const handleAddCategory = () => {
+        setAddCategory(!addCategory)
+    }
 
     return (
         <>
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
                 <UserInfo />
+            </ModalComponent>
+            <ModalComponent openOrNot={addCategory} onClose={handleAddCategory}>
+                <AddCategory />
             </ModalComponent>
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
@@ -231,7 +239,9 @@ const User = () => {
                     <Box className={classes.selectCategoryText}>
                         <Typography className={classnames(classes.boldText)}>{selectedCategory}</Typography>
                     </Box>
-                    <Typography className={classes.addCategoryButton}>Add category section +</Typography>
+                    <Typography className={classes.addCategoryButton} onClick={handleAddCategory}>
+                        Add category section +
+                    </Typography>
                     <Grid container spacing={2} className={classes.cardContainer}>
                         {data.map((item, i) => {
                             return (
@@ -269,12 +279,7 @@ const User = () => {
                 </>
             </ContentWrapper>
             <ContentWrapper externalclass={classes.report}>
-                <>
-                    <Grid container dispaly="flex" alignItems="center" justify="flex-start">
-                        <img src={icons.reportContentIcon} alt="" />
-                        <Typography>Report user</Typography>
-                    </Grid>
-                </>
+                <ReportContent />
             </ContentWrapper>
             <Footer externalclass={classes.footer} />
         </>

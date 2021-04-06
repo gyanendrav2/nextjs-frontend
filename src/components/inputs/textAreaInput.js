@@ -14,12 +14,13 @@ const useStyles = makeStyles({
             fontWeight: 400,
             fontFamily: "Helvetica",
             backgroundColor: colors.white,
-            color: (props) => (props.error ? `${colors.red}` : `${colors.lighterGray}`),
+            color: (props) => (props.error ? `${colors.red}` : `${colors.lightGray}`),
 
-            border: (props) => `solid 1px ${props.error ? colors.red : colors.lighterGray}`,
+            border: (props) => `solid 1px ${props.error ? colors.red : colors.lightGray}`,
             "&::placeholder": {
                 color: (props) => (props.error ? `${colors.red}` : `${colors.lighterGray}`),
                 fontSize: "1rem",
+                marginRight: "2rem",
             },
         },
     },

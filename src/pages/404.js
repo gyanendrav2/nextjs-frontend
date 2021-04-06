@@ -19,9 +19,6 @@ const useStyles = makeStyles({
     },
     wrapperContent: {
         margin: "auto",
-        // "@media (max-width:1072px)": {
-        //     width: "100%",
-        // },
     },
     title: {
         marginTop: "2rem",
@@ -52,7 +49,7 @@ const Custom404 = () => {
                 direction="column"
                 wrap="nowrap"
                 className={classes.wrapper}>
-                <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
+                <HeaderWrapper isScrollDetect={false} mobileMenuIconColor={colors.black} />
                 <Grid
                     container
                     alignItems="center"

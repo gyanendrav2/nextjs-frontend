@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { CustomButton } from "../buttons/customButton"
 import { CloseIconBig } from "../icons/closeIconBig"
+import { colors } from "../../theme/colors"
 
 export const useStyles = makeStyles({
     wrapper: {
@@ -10,14 +11,15 @@ export const useStyles = makeStyles({
         boxShadow: "0 0 15px 2px rgba(0,0,0,0.4)",
         padding: "1.25rem",
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
+        top: "1rem",
+        left: "2rem",
+        right: "2rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
         flexWrap: "wrap",
         zIndex: 99,
+        borderLeft: `8px solid ${colors.green}`,
         animation: "fadeIn 0.3s linear",
         "@media (max-width:500px)": {
             display: "block",
@@ -72,6 +74,7 @@ export const NotificationCard = ({
         <>
             {isVisible && (
                 <Box className={classes.wrapper}>
+                    {/* <Box className=""></Box> */}
                     <Typography className={classes.msg}>{message}</Typography>
                     <CustomButton label={buttonText} onClick={handleButtonClick} externalclass={classes.button} />
                     <CloseIconBig className={classes.closeIcon} onClick={handleHideNotification} />

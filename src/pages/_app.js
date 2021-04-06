@@ -7,7 +7,7 @@ import theme from "../theme/theme"
 import { images } from "../assets/images"
 import "react-lazy-load-image-component/src/effects/blur.css"
 import "../styles/index.scss"
-import { Loader } from "../components/loader/Loader"
+import { Loader } from "../components/loader/loader"
 
 export default function MyApp(props) {
     const { Component, pageProps } = props

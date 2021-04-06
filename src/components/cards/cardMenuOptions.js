@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { colors } from "../../theme/colors"
+import { ShareInfo } from "./shareInfo"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -25,6 +26,7 @@ const useStyles = makeStyles({
 
 export const CardMenuOptions = ({ onEdit, onHide, onShare }) => {
     const classes = useStyles()
+    const [showShare, setShowShare] = useState(false)
 
     return (
         <Box className={classes.wrapper}>
@@ -34,9 +36,10 @@ export const CardMenuOptions = ({ onEdit, onHide, onShare }) => {
             <Typography className={classes.option} onClick={onHide}>
                 Hide
             </Typography>
-            <Typography className={classes.option} onClick={onShare}>
+            <Typography className={classes.option} onClick={() => setShowShare(!showShare)}>
                 Share
             </Typography>
+            {showShare && <ShareInfo />}
         </Box>
     )
 }

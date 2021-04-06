@@ -1,11 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Avatar, Box, makeStyles } from "@material-ui/core"
+import { Box, makeStyles } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
         position: "relative",
+        // textAlign: "center",
+        // margin: "2rem",
     },
     square: {
         width: "11.125rem",
@@ -19,6 +21,7 @@ const useStyles = makeStyles({
         top: "2rem",
         left: "2rem",
         zIndex: 2,
+        borderRadius: "50%",
     },
 })
 
@@ -27,7 +30,7 @@ export const PictureOverSquare = ({ image }) => {
     return (
         <Box className={classes.wrapper}>
             <Box className={classes.square} />
-            <Avatar src={image} className={classes.profile} />
+            <img src={image} alt={image} className={classes.profile} />
         </Box>
     )
 }

@@ -9,6 +9,8 @@ import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
 import { UserProfileNav } from "../cards/userProfileNav"
+import { ModalComponent } from "../modal/modalComponent"
+import { UserProfileNavCard } from "../cards/userProfileNavCard"
 
 const useStyles = makeStyles({
     header: {
@@ -35,6 +37,7 @@ const useStyles = makeStyles({
         height: "3rem",
         marginTop: "1.4rem",
         cursor: "pointer",
+        marginRight: "auto",
     },
     rightPart: {
         width: "auto",
@@ -50,21 +53,32 @@ const useStyles = makeStyles({
             backgroundColor: colors.pink,
         },
     },
+    UserProfileNav: {
+        cursor: "pointer",
+    },
 })
 
 export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
     const classes = useStyles({ color, bgcolor })
     const router = useRouter()
     const [hoveredActive, setHoverdActive] = useState(null)
+    const [showProfilenavcard, setShowProfilenavcard] = useState(false)
 
     const handleHoveredItem = (item) => {
         if (!hoveredActive) {
             setHoverdActive(item.pathname)
         }
     }
+    const handleUserProfileNav = () => {
+        setShowProfilenavcard(!showProfilenavcard)
+    }
 
     return (
         <Box className={classes.header}>
+            <ModalComponent openOrNot={showProfilenavcard} onClose={handleUserProfileNav}>
+                <UserProfileNavCard />
+            </ModalComponent>
+
             <Link href="/">
                 <img
                     className={classes.logo}
@@ -95,7 +109,14 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                         onClick={() => router.push("/signup")}
                     />
                 )}
-                {isAuthenticated && <UserProfileNav userName="Brandon" profileImg={images.maskGroup} />}
+                {isAuthenticated && (
+                    <UserProfileNav
+                        userName="Brandon"
+                        profileImg={images.maskGroup}
+                        externalclass={classes.UserProfileNav}
+                        onClick={handleUserProfileNav}
+                    />
+                )}
                 {isAuthenticated && (
                     <CustomButton
                         wantFile

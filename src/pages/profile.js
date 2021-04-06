@@ -9,11 +9,11 @@ import { images } from "../assets/images"
 import { CardWithFooter } from "../components/cards/cardWithFooter"
 import { Footer } from "../components/footer"
 import { colors } from "../theme/colors"
-import { icons } from "../assets/icons"
 import { ModalComponent } from "../components/modal/modalComponent"
 import { UserInfo } from "../containers/profile/userInfo"
 import { MessageBox } from "../containers/profile/messageBox"
 import { SelectWithLabelIcon } from "../components/inputs/selectWithLabelIcon"
+import { ReportContent } from "../components/reportContentWrapper/reportContent"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -195,6 +195,7 @@ const Profile = () => {
                                         title="dummy data"
                                         hideFooter
                                         showMoreButton
+                                        anonymous
                                         handleClick={() => {
                                             // setOpenModal(true);
                                         }}
@@ -207,12 +208,7 @@ const Profile = () => {
             </ContentWrapper>
 
             <ContentWrapper externalclass={classes.report}>
-                <>
-                    <Grid container dispaly="flex" alignItems="center" justify="flex-start">
-                        <img src={icons.reportContentIcon} alt="" />
-                        <Typography>Report user</Typography>
-                    </Grid>
-                </>
+                <ReportContent />
             </ContentWrapper>
             <Footer externalclass={classes.footer} />
         </>

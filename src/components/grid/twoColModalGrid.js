@@ -3,11 +3,16 @@ import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 
 const useStyles = makeStyles({
+    wrapper: {
+        maxHeight: "90vh",
+    },
     col1: {
         width: "18rem",
         position: "relative",
         "@media (max-width:767px)": {
-            display: "none",
+            width: "100%",
+            margin: "2rem",
+            // marginTop: "20rem",
         },
     },
 
@@ -22,7 +27,7 @@ const useStyles = makeStyles({
 export const TwoColModalGrid = ({ col1Children, col2Children }) => {
     const classes = useStyles()
     return (
-        <Grid container wrap="nowrap">
+        <Grid container className={classes.wrapper}>
             <Box className={classes.col1}>{col1Children}</Box>
             <Box className={classes.col2}>{col2Children}</Box>
         </Grid>

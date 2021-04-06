@@ -50,10 +50,6 @@ export const UserInfo = () => {
                         <Typography className={classes.username}>@veritas_z</Typography>
                         <FollowingFollwers followers="15" following="15" />
                         <Box className={classes.buttonWrapper}>
-                            {/* <ModalComponent openOrNot={openInfo} onClose={handleMsg}>
-                                <MessageBox />
-                            </ModalComponent> */}
-
                             <CustomButton label="Message me" externalclass={classes.msgbtn} on={handleMsg} />
                             <CustomButton
                                 variant="dropdownButton"

@@ -39,17 +39,10 @@ const useStyles = makeStyles(
                 fontSize: "8rem",
                 color: colors.primary,
             },
-            title: {
-                fontSize: "1.3rem",
-                lineHeight: "2.2rem",
-                color: colors.black,
-                textAlign: "center",
-                fontWeight: 100,
-            },
             closeIcon: {
                 position: "absolute",
-                top: "4.5rem",
-                right: "4.5rem",
+                top: "2rem",
+                right: "2rem",
                 cursor: "pointer",
                 "@media (max-width:767px)": {
                     top: "1.5rem",

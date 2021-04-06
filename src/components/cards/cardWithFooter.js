@@ -7,9 +7,10 @@ import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
 import { CustomButton } from "../buttons/customButton"
 import { MoreVertIcon } from "../icons/moreVertIcon"
-import { ShareCard } from "./shareCard"
 import { NotificationCard } from "./notificationCard"
+import { ShareCard } from "./shareCard"
 import { CardMenuOptions } from "./cardMenuOptions"
+// import { ShareCard } from "./shareCard"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -102,6 +103,7 @@ export const CardWithFooter = ({
     hideFooter,
     showMoreButton,
     handleHide,
+    anonymous,
 }) => {
     const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
@@ -123,10 +125,15 @@ export const CardWithFooter = ({
     const handleShowCopyBox = () => {
         setShowCopyBox(!showCopyBox)
     }
+
+    const handleOnHide = () => {
+        handleHide()
+        handleShowCopyBox()
+    }
     return (
         <Box className={classes.cardWrapper} onClick={handleClick}>
             <NotificationCard
-                message="Successfully copied!"
+                message="You have successfully copied!"
                 buttonText="Unhide"
                 isVisible={showNotification}
                 timeout={4000}
@@ -144,15 +151,16 @@ export const CardWithFooter = ({
                             icon={<MoreVertIcon />}
                             onClick={handleShowCopyBox}
                         />
-                        {showCopyBox && (
-                            // <ShareCard
-                            //     onLinkCopied={() => {
-                            //         handleNotification()
-                            //         setShowCopyBox(!showCopyBox)
-                            //     }}
-                            // />
-                            <CardMenuOptions onHide={handleHide} />
-                        )}
+                        {anonymous
+                            ? showCopyBox && (
+                                  <ShareCard
+                                      onLinkCopied={() => {
+                                          handleNotification()
+                                          setShowCopyBox(!showCopyBox)
+                                      }}
+                                  />
+                              )
+                            : showCopyBox && <CardMenuOptions onHide={handleOnHide} />}
                     </Box>
                 )}
                 <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
@@ -184,6 +192,7 @@ CardWithFooter.defaultProps = {
     footerSubitle: "",
     showMoreButton: false,
     handleHide: () => {},
+    anonymous: false,
 }
 
 CardWithFooter.propTypes = {
@@ -195,4 +204,5 @@ CardWithFooter.propTypes = {
     hideFooter: PropTypes.bool,
     showMoreButton: PropTypes.bool,
     handleHide: PropTypes.func,
+    anonymous: PropTypes.bool,
 }

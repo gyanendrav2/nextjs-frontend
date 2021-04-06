@@ -20,7 +20,6 @@ export const icons = {
     fb,
     linkedin,
     more,
-    // filter,
     logoWhite,
     logoBlack,
     loginPink,

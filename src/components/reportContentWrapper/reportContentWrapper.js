@@ -69,7 +69,6 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
 
     return (
         <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
-            {/* <Grid container className={classes.spamContainer}> */}
             <Grid item xs={12} sm={8} md={8} lg={8} className={classes.reportspamwrapper} container>
                 <Grid item xs={6} sm={4} md={3} lg={3} className={classes.spamwrapper}>
                     <Link href="/">
@@ -97,7 +96,6 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                 </Link>
             </Grid>
         </Grid>
-        // </Grid>
     )
 }
 ReportContentWrapper.defaultProps = {

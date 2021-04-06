@@ -56,10 +56,10 @@ export const CookieCard = () => {
         <>
             <Box className={classes.wrapper}>
                 <CookieIcon />
-                <Typography className={classes.title}>
+                <Typography component="span" className={classes.title}>
                     Pxl may use cookies, web beacons, tracking pixels, and other tracking technologies when you visit
                     our website to help customize the Site and improve your experience. Read more about cookies and
-                    terms in our
+                    terms in our&nbsp;
                     <span className={classes.cookiesPage} onClick={handleRoute} aria-hidden="true">
                         cookie and privacy policy.
                     </span>
