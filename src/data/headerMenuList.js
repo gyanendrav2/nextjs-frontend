@@ -64,6 +64,6 @@ export const loggedInUserNav = [
         id: 3,
         name: "",
         icon: <NotificationBellIcon />,
-        pathname: "",
+        pathname: "/notifications",
     },
 ]

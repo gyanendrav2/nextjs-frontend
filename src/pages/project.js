@@ -196,7 +196,7 @@ const Project = () => {
                         <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
                     </Box>
                     <Box>
-                        <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/profile")}>
+                        <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/user")}>
                             Brandon Landing
                         </Typography>
                         <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>

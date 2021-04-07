@@ -13,7 +13,12 @@ import { ModalComponent } from "../components/modal/modalComponent"
 import { UserInfo } from "../containers/profile/userInfo"
 import { MessageBox } from "../containers/profile/messageBox"
 import { SelectWithLabelIcon } from "../components/inputs/selectWithLabelIcon"
+import { PenIcon } from "../components/icons/penIcon"
+import { EyeClosedIcon } from "../components/icons/eyeClosedIcon"
+import { EyeOpenIcon } from "../components/icons/eyeOpenIcon"
 import { ReportContent } from "../components/reportContentWrapper/reportContent"
+import { AddCategory } from "../containers/userProfile/addCategory"
+import { Adder } from "../components/cards/adder"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -52,6 +57,9 @@ const useStyles = makeStyles({
         lineHeight: "2.75rem",
         marginRight: "4rem",
         cursor: "pointer",
+        "& svg": {
+            transform: "translateY(0.625rem)",
+        },
     },
     activeCategory: {
         color: colors.pink,
@@ -98,18 +106,60 @@ const useStyles = makeStyles({
             marginRight: "1rem",
         },
     },
+    addCategoryButton: {
+        fontSize: "1.375rem",
+        lineHeight: "2.125rem",
+        textAlign: "right",
+        userSelect: "none",
+        cursor: "pointer",
+        fontWeight: 900,
+        marginBottom: "1.5rem",
+        "&:hover": {
+            color: colors.pink,
+        },
+    },
+    hiddenCategory: {
+        userSelect: "none",
+        cursor: "pointer",
+        fontSize: "1rem",
+        textDecoration: "underline",
+        fontWeight: 400,
+        marginBottom: "3.625rem",
+        marginTop: "2.5rem",
+        "& svg": {
+            transform: "translateY(0.3rem)",
+        },
+    },
 })
 
-const Profile = () => {
+const User = () => {
     const classes = useStyles()
     const [openInfo, setOpenInfo] = useState(false)
     const [openMsg, setOpenMsg] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState("All (6)")
+    const [hiddenCategory, setHiddenCategory] = useState(false)
     const [categories, setCategories] = useState([
         { value: "All (6)", label: "All (6)", active: true },
         { value: "Directing (3)", label: "Directing (3)", active: false },
         { value: "Production (3)", label: "Production (3)", active: false },
     ])
+
+    const handleAddNewCategory = (category) => {
+        const newCategory = [...categories]
+        newCategory.push(category)
+        setCategories(newCategory)
+    }
+
+    const [data, setData] = useState([
+        { id: 0, image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
+        { id: 1, image: "https://source.unsplash.com/random?fp=1", title: "dummy data" },
+        { id: 2, image: "https://source.unsplash.com/random?fp=2", title: "dummy data" },
+        { id: 3, image: "https://source.unsplash.com/random?fp=3", title: "dummy data" },
+        { id: 4, image: "https://source.unsplash.com/random?fp=4", title: "dummy data" },
+        { id: 5, image: "https://source.unsplash.com/random?fp=5", title: "dummy data" },
+    ])
+    const [hideData, setHideData] = useState([])
+    const [addCategory, setAddCategory] = useState(false)
 
     const handleCategory = (i) => {
         const result = categories.map((item) => {
@@ -127,11 +177,35 @@ const Profile = () => {
         setOpenMsg(!openMsg)
     }
 
+    const handleUnhide = (i) => {
+        const tempData = [...hideData]
+        const tempHideData = tempData[i]
+        tempData.splice(i, 1)
+        setHideData(tempData)
+        const unhideData = [...data]
+        unhideData.splice(tempHideData.id, 0, tempHideData)
+        setData(unhideData)
+    }
+
+    const handleHide = (i) => {
+        const tempHideData = [...hideData]
+        tempHideData.push(data[i])
+        setHideData(tempHideData)
+        const tempData = [...data]
+        tempData.splice(i, 1)
+        setData(tempData)
+    }
+    const handleAddCategory = () => {
+        setAddCategory(!addCategory)
+    }
     return (
         <>
-            <HeaderWrapper isScrollDetect={false} />
+            <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
                 <UserInfo />
+            </ModalComponent>
+            <ModalComponent openOrNot={addCategory} onClose={handleAddCategory}>
+                <AddCategory onAddCategory={handleAddNewCategory} />
             </ModalComponent>
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
@@ -152,6 +226,7 @@ const Profile = () => {
                                 location="USA, Ohio"
                                 bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
                                 externalclass={classes.userProfilecardStyles}
+                                ownProfile
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
@@ -172,7 +247,7 @@ const Profile = () => {
                                     [classes.activeCategory]: item.active,
                                 })}
                                 onClick={() => handleCategory(i)}>
-                                {item.label}
+                                {item.label} <PenIcon />
                             </Typography>
                         ))}
                     </Grid>
@@ -186,27 +261,50 @@ const Profile = () => {
                     <Box className={classes.selectCategoryText}>
                         <Typography className={classnames(classes.boldText)}>{selectedCategory}</Typography>
                     </Box>
+                    <Typography className={classes.addCategoryButton} onClick={handleAddCategory}>
+                        Add category section +
+                    </Typography>
                     <Grid container spacing={2} className={classes.cardContainer}>
-                        {[1, 1, 1, 1, 1, 1, 1, 1].map((item, idx) => {
+                        <Grid item xs={12} sm={6} md={4} lg={3}>
+                            <Adder onAddClick={() => {}} />
+                        </Grid>
+                        {data.map((item, i) => {
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                                <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                                     <CardWithFooter
-                                        image="https://source.unsplash.com/random?fp=0"
-                                        title="dummy data"
+                                        image={item.image}
+                                        title={item.title}
                                         hideFooter
+                                        hideText="Hide"
                                         showMoreButton
-                                        anonymous
-                                        handleClick={() => {
-                                            // setOpenModal(true);
-                                        }}
+                                        handleHide={() => handleHide(i)}
                                     />
                                 </Grid>
                             )
                         })}
                     </Grid>
+                    <Typography className={classes.hiddenCategory} onClick={() => setHiddenCategory(!hiddenCategory)}>
+                        {hiddenCategory ? <EyeOpenIcon /> : <EyeClosedIcon />} You have {hideData.length} hidden project
+                    </Typography>
+                    <Grid container spacing={2} className={classes.cardContainer}>
+                        {hiddenCategory &&
+                            hideData.map((item, i) => {
+                                return (
+                                    <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                                        <CardWithFooter
+                                            image={item.image}
+                                            title={item.title}
+                                            hideFooter
+                                            categoryHidden
+                                            showMoreButton
+                                            handleHide={() => handleUnhide(i)}
+                                        />
+                                    </Grid>
+                                )
+                            })}
+                    </Grid>
                 </>
             </ContentWrapper>
-
             <ContentWrapper externalclass={classes.report}>
                 <ReportContent />
             </ContentWrapper>
@@ -215,6 +313,6 @@ const Profile = () => {
     )
 }
 
-Profile.propTypes = {}
+User.propTypes = {}
 
-export default Profile
+export default User

@@ -5,7 +5,6 @@ import logoWhite from "./icons/logoWhite.svg"
 import logoBlack from "./icons/logoBlack.svg"
 import loginPink from "./icons/loginPink.svg"
 import reportContentIcon from "./icons/report-content.svg"
-import requestParticipationIcon from "./icons/request-participation.svg"
 import youtube from "./icons/youtube.svg"
 import vimeo from "./icons/vimeo.svg"
 import instagram from "./icons/instagram.svg"
@@ -24,7 +23,6 @@ export const icons = {
     logoBlack,
     loginPink,
     reportContentIcon,
-    requestParticipationIcon,
     youtube,
     vimeo,
     instagram,

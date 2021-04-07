@@ -28,7 +28,6 @@ const useStyles = makeStyles({
     },
     socialbtnStyles: {
         marginRight: "1rem",
-        // marginBottom: "1rem",
     },
     hrtag: {
         borderTop: `1px solid ${colors.lightGray}`,

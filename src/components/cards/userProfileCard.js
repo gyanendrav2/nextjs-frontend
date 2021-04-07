@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { useRouter } from "next/router"
 import classnames from "classnames"
 import { CustomButton } from "../buttons/customButton"
 import { icons } from "../../assets/icons"
@@ -72,11 +73,18 @@ export const UserProfileCard = ({
     onClickProfile,
     onMsgBtnClick,
     externalclass,
+    ownProfile,
 }) => {
     const classes = useStyles({ externalclass })
+
+    const routes = useRouter()
     const lessText = bio.slice(0, 90)
     const fullText = bio.slice(0, bio.length)
     const [fullParagraph, setfullParagraph] = useState(false)
+
+    const handleRoute = () => {
+        routes.push("/editprofile")
+    }
 
     const toggleReadmore = () => {
         setfullParagraph(!fullParagraph)
@@ -103,19 +111,27 @@ export const UserProfileCard = ({
                 </Typography>
             </Typography>
             <SocialButtons />
-            <Grid container spacing={3}>
-                <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
-                    <CustomButton label="Message me" externalclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
+            {!ownProfile ? (
+                <Grid container spacing={3}>
+                    <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
+                        <CustomButton label="Message me" externalclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
+                    </Grid>
+                    <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
+                        <CustomButton
+                            variant="dropdownButton"
+                            icon={<img src={icons.arrowDropdown} alt="" />}
+                            label="Following"
+                            externalclass={classes.smallBtn}
+                        />
+                    </Grid>
                 </Grid>
-                <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
-                    <CustomButton
-                        variant="dropdownButton"
-                        icon={<img src={icons.arrowDropdown} alt="" />}
-                        label="Following"
-                        externalclass={classes.smallBtn}
-                    />
+            ) : (
+                <Grid container>
+                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                        <CustomButton label="Edit profile" externalclass={classes.fullWidthBtn} onClick={handleRoute} />
+                    </Grid>
                 </Grid>
-            </Grid>
+            )}
         </Box>
     )
 }
@@ -124,6 +140,7 @@ UserProfileCard.defaultProps = {
     onClickProfile: () => {},
     onMsgBtnClick: () => {},
     externalclass: "",
+    ownProfile: false,
 }
 
 UserProfileCard.propTypes = {
@@ -138,4 +155,5 @@ UserProfileCard.propTypes = {
     onClickProfile: PropTypes.func,
     onMsgBtnClick: PropTypes.func,
     externalclass: PropTypes.string,
+    ownProfile: PropTypes.bool,
 }

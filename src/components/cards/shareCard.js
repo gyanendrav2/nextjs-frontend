@@ -36,6 +36,7 @@ export const ShareCard = ({ onLinkCopied }) => {
     return (
         <Box className={classes.wrapper}>
             <Typography className={classes.shareText}>Share</Typography>
+            {/* {!anonymousProfile} <ArrowUpIcon /> */}
             <ShareInfo handleCopyLink={handleCopyLink} />
         </Box>
     )

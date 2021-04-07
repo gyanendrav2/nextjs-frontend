@@ -107,6 +107,7 @@ const useStyles = makeStyles({
         height: 0,
         overflow: "hidden",
         Visibility: "hidden",
+        position: "absolute",
     },
     dropdownButton: {
         backgroundColor: colors.lightGray,

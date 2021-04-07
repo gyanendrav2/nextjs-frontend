@@ -3,6 +3,9 @@ import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 import { ShareInfo } from "./shareInfo"
+// import { ArrowUpIcon } from "../icons/arrowUpIcon"
+import { ArrowDownIcon } from "../icons/arrowDownIcon"
+import { ArrowUpIcon } from "../icons/arrowUpIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -22,9 +25,15 @@ const useStyles = makeStyles({
             color: colors.pink,
         },
     },
+    arrowIcon: {
+        height: "5px",
+        width: "8px",
+        marginLeft: "0.5rem",
+        marginBottom: "0.1rem",
+    },
 })
 
-export const CardMenuOptions = ({ onEdit, onHide, onShare }) => {
+export const CardMenuOptions = ({ onEdit, onHide, hiddenCategory }) => {
     const classes = useStyles()
     const [showShare, setShowShare] = useState(false)
 
@@ -33,12 +42,25 @@ export const CardMenuOptions = ({ onEdit, onHide, onShare }) => {
             <Typography className={classes.option} onClick={onEdit}>
                 Edit
             </Typography>
-            <Typography className={classes.option} onClick={onHide}>
-                Hide
-            </Typography>
+            {!hiddenCategory ? (
+                <Typography className={classes.option} onClick={onHide}>
+                    hide
+                </Typography>
+            ) : (
+                <Typography className={classes.option} onClick={onHide}>
+                    unhide
+                </Typography>
+            )}
+
             <Typography className={classes.option} onClick={() => setShowShare(!showShare)}>
                 Share
+                {!showShare ? (
+                    <ArrowDownIcon className={classes.arrowIcon} />
+                ) : (
+                    <ArrowUpIcon className={classes.arrowIcon} />
+                )}
             </Typography>
+
             {showShare && <ShareInfo />}
         </Box>
     )
@@ -47,11 +69,14 @@ export const CardMenuOptions = ({ onEdit, onHide, onShare }) => {
 CardMenuOptions.defaultProps = {
     onEdit: () => {},
     onHide: () => {},
-    onShare: () => {},
+    hiddenCategory: false,
+    // onShare: () => {},
 }
 
 CardMenuOptions.propTypes = {
     onEdit: PropTypes.func,
     onHide: PropTypes.func,
-    onShare: PropTypes.func,
+    hiddenCategory: PropTypes.bool,
+    // onLinkCopied: PropTypes.func.isRequired,
+    // onShare: PropTypes.func,
 }

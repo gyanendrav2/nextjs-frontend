@@ -10,7 +10,6 @@ import { MoreVertIcon } from "../icons/moreVertIcon"
 import { NotificationCard } from "./notificationCard"
 import { ShareCard } from "./shareCard"
 import { CardMenuOptions } from "./cardMenuOptions"
-// import { ShareCard } from "./shareCard"
 
 const useStyles = makeStyles({
     cardWrapper: {
@@ -85,7 +84,7 @@ const useStyles = makeStyles({
         position: "absolute",
         top: "1rem",
         right: "1rem",
-        zIndex: 2,
+        zIndex: 1,
         display: "none",
     },
     moreVertButton: {
@@ -104,6 +103,7 @@ export const CardWithFooter = ({
     showMoreButton,
     handleHide,
     anonymous,
+    categoryHidden,
 }) => {
     const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
@@ -154,13 +154,23 @@ export const CardWithFooter = ({
                         {anonymous
                             ? showCopyBox && (
                                   <ShareCard
+                                      //   anonymousProfile
                                       onLinkCopied={() => {
                                           handleNotification()
                                           setShowCopyBox(!showCopyBox)
                                       }}
                                   />
                               )
-                            : showCopyBox && <CardMenuOptions onHide={handleOnHide} />}
+                            : showCopyBox && (
+                                  <CardMenuOptions
+                                      onHide={handleOnHide}
+                                      hiddenCategory={categoryHidden}
+                                      onLinkCopied={() => {
+                                          handleNotification()
+                                          setShowCopyBox(!showCopyBox)
+                                      }}
+                                  />
+                              )}
                     </Box>
                 )}
                 <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
@@ -193,6 +203,7 @@ CardWithFooter.defaultProps = {
     showMoreButton: false,
     handleHide: () => {},
     anonymous: false,
+    categoryHidden: false,
 }
 
 CardWithFooter.propTypes = {
@@ -205,4 +216,5 @@ CardWithFooter.propTypes = {
     showMoreButton: PropTypes.bool,
     handleHide: PropTypes.func,
     anonymous: PropTypes.bool,
+    categoryHidden: PropTypes.bool,
 }

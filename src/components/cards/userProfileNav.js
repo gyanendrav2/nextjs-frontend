@@ -1,4 +1,5 @@
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { useRouter } from "next/router"
 import React, { useState } from "react"
 import classnames from "classnames"
 import PropTypes from "prop-types"
@@ -48,7 +49,20 @@ const useStyles = makeStyles({
 
 export const UserProfileNav = ({ userName, profileImg, externalclass }) => {
     const classes = useStyles()
+    const routes = useRouter()
     const [showEditOptions, setShowEditOptions] = useState(false)
+
+    const routeEditProfile = () => {
+        routes.push("/profile")
+    }
+
+    const handleRoute = () => {
+        routes.push("/")
+    }
+    const routeSettings = () => {
+        routes.push("/settings")
+    }
+
     return (
         <Grid
             container
@@ -66,9 +80,15 @@ export const UserProfileNav = ({ userName, profileImg, externalclass }) => {
             {showEditOptions && (
                 <>
                     <Box className={classes.editOptionsContainer}>
-                        <Typography className={classes.editOption}>Profile</Typography>
-                        <Typography className={classes.editOption}>Settings</Typography>
-                        <Typography className={classes.editOption}>Log Out</Typography>
+                        <Typography className={classes.editOption} onClick={routeEditProfile}>
+                            Profile
+                        </Typography>
+                        <Typography className={classes.editOption} onClick={routeSettings}>
+                            Settings
+                        </Typography>
+                        <Typography className={classes.editOption} onClick={handleRoute}>
+                            Log Out
+                        </Typography>
                     </Box>
                     <Box className={classes.outside} onClick={() => setShowEditOptions(!showEditOptions)} />
                 </>

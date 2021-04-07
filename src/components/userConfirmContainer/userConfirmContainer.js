@@ -1,5 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
+import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../buttons/customButton"
 
@@ -31,8 +32,9 @@ const useStyles = makeStyles({
     },
 })
 
-export const UserConfirmContainer = () => {
+export const UserConfirmContainer = ({ settingsPage, onConfirmClicked }) => {
     const classes = useStyles()
+    // const handleAddCategory = () => {}
 
     return (
         <Box className={classes.wrapper}>
@@ -41,12 +43,25 @@ export const UserConfirmContainer = () => {
                     <CustomButton variant="cancel" label="cancel" />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.submit}>
-                    <CustomButton label="Confirm" type="submit" externalclass={classes.submitBtn} />
+                    <CustomButton
+                        label="Confirm"
+                        type="submit"
+                        externalclass={classes.submitBtn}
+                        onClick={onConfirmClicked}
+                    />
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                    <Typography className={classes.Btn}>Delete</Typography>
+                    {!settingsPage && <Typography className={classes.Btn}>Delete</Typography>}
                 </Grid>
             </Grid>
         </Box>
     )
+}
+
+UserConfirmContainer.defaultProps = {
+    settingsPage: false,
+}
+UserConfirmContainer.propTypes = {
+    settingsPage: PropTypes.bool,
+    onConfirmClicked: PropTypes.func.isRequired,
 }

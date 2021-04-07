@@ -4,7 +4,7 @@ import React, { useState } from "react"
 import cn from "classnames"
 import { colors } from "../../theme/colors"
 import { ErrorMessage } from "../errorMessage/errorMessage"
-import ArrowDownIcon from "../icons/arrowDownIcon"
+import { ArrowDownIcon } from "../icons/arrowDownIcon"
 
 const useStyles = makeStyles({
     container: {

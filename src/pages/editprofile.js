@@ -1,13 +1,10 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
-import { UserConfirmContainer } from "../components/userConfirmContainer/userConfirmContainer"
-import { colors } from "../theme/colors"
-import { TwoColGrid } from "../components/grid/twoColGrid"
-import { ProfileContent } from "../containers/userEditProfile/settings/profileContent"
-import { NotificationContent } from "../containers/userEditProfile/settings/notificationContent"
 import { Footer } from "../components/footer"
+import { TwoColGrid } from "../components/grid/twoColGrid"
 import { HeaderWrapper } from "../components/header/headerWrapper"
-import { DeleteContent } from "../containers/userEditProfile/settings/deleteContent"
+import { EditProfileContent } from "../containers/userEditProfile/editProfile/editprofileContent"
+import { colors } from "../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -40,28 +37,48 @@ const useStyles = makeStyles({
     deleteContainer: {
         backgroundColor: colors.white,
     },
+
+    radioboxWrapper: {
+        margin: "2rem 0 0 0",
+    },
+    radioboxContainer: {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+    },
+    checkBoxStyles: {
+        "&.MuiIconButton-root": {
+            "&:hover": {
+                backgroundColor: "unset",
+            },
+        },
+        "&.MuiIconButton-colorSecondary": {
+            "&:hover": {
+                backgroundColor: "unset",
+            },
+        },
+    },
+    checkboxText: {
+        fontSize: "0.9rem",
+    },
 })
-const Settings = () => {
+const EditProfile = () => {
     const classes = useStyles()
     return (
         <>
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
-                <Typography className={classes.mainTitle}>Settings</Typography>
+                <Typography className={classes.mainTitle}>Edit profile</Typography>
                 <TwoColGrid
                     col1Children={
                         <Grid container direction="column" display="flex" className={classes.col1}>
-                            <Typography className={classes.col1item}>Profile</Typography>
-                            <Typography className={classes.col1item}>Notifications</Typography>
-                            <Typography className={classes.col1item}>Delete or deactivate account</Typography>
+                            <Typography className={classes.col1item}>Account Information</Typography>
+                            <Typography className={classes.col1item}>Showreel video/photo</Typography>
                         </Grid>
                     }
                     col2Children={
                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <ProfileContent />
-                            <NotificationContent />
-                            <DeleteContent />
-                            <UserConfirmContainer settingsPage />
+                            <EditProfileContent />
                         </Grid>
                     }
                 />
@@ -72,4 +89,4 @@ const Settings = () => {
     )
 }
 
-export default Settings
+export default EditProfile
