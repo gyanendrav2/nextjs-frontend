@@ -1,10 +1,8 @@
-import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
 import { colors } from "../theme/colors"
 import { Footer } from "../components/footer"
 import { HeaderWrapper } from "../components/header/headerWrapper"
-import { CustomButton } from "../components/buttons/customButton"
-import { images } from "../assets/images"
 import { NotificationRow } from "../components/cards/notificationRow"
 
 const useStyles = makeStyles({
@@ -30,7 +28,6 @@ const UserNotifications = () => {
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
                 <Typography className={classes.mainTitle}>Notifications</Typography>
-
                 <NotificationRow
                     title="Peter Pan requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”"
                     isDeclinable

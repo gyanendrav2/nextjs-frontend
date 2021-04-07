@@ -1,14 +1,16 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { useRouter } from "next/router"
 import React from "react"
-import { Footer } from "../components/footer"
-import { TwoColGrid } from "../components/grid/twoColGrid"
-import { HeaderWrapper } from "../components/header/headerWrapper"
-import { EditProfileContent } from "../containers/userEditProfile/editProfile/editprofileContent"
-import { colors } from "../theme/colors"
+import { TwoColGrid } from "../../components/grid/twoColGrid"
+import { HeaderWrapper } from "../../components/header/headerWrapper"
+import { EditProfileContent } from "../../containers/userEditProfile/editProfile/editprofileContent"
+import { colors } from "../../theme/colors"
+import { Footer } from "../../components/footer"
+import { AccountInformation } from "../../containers/userEditProfile/accountInformation.js"
 
 const useStyles = makeStyles({
     wrapper: {
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.lighterPrimary,
         padding: "7rem 10rem 2rem 10rem",
     },
     mainTitle: {
@@ -61,15 +63,30 @@ const useStyles = makeStyles({
     checkboxText: {
         fontSize: "0.9rem",
     },
+    whiteBg: {
+        backgroundColor: colors.lighterPrimary,
+    },
 })
 const EditProfile = () => {
     const classes = useStyles()
+    const { query } = useRouter()
+    const { editOption } = query
+
+    const renderOption = () => {
+        if (editOption === "account-information") {
+            return <AccountInformation />
+        } else {
+            return <EditProfileContent />
+        }
+    }
+
     return (
         <>
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
                 <Typography className={classes.mainTitle}>Edit profile</Typography>
                 <TwoColGrid
+                    externalclass={classes.whiteBg}
                     col1Children={
                         <Grid container direction="column" display="flex" className={classes.col1}>
                             <Typography className={classes.col1item}>Account Information</Typography>
@@ -78,7 +95,7 @@ const EditProfile = () => {
                     }
                     col2Children={
                         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <EditProfileContent />
+                            {renderOption()}
                         </Grid>
                     }
                 />

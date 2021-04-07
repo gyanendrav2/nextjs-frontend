@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         marginBottom: "0.22rem",
         fontSize: "0.85rem",
         fontWeight: 400,
-        color: (props) => (props.labelColor ? props.labelColor : colors.white),
+        color: (props) => (props.labelColor ? props.labelColor : colors.black),
     },
     inputContainer: {
         width: "100%",
