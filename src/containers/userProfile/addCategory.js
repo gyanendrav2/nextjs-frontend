@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { SelectWithLabelIcon } from "../../components/inputs/selectWithLabelIcon"
 import { UserConfirmContainer } from "../../components/userConfirmContainer/userConfirmContainer"
 import { colors } from "../../theme/colors"
-import { customTypography } from "../../components/typography/typography"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -33,11 +32,12 @@ export const AddCategory = ({ onAddCategory }) => {
     return (
         <Box container className={classes.wrapper}>
             <Box className={classes.inputWrapper}>
-                <customTypography type="modalTitle" titleName="Add a category" />
+                <Typography>Add a category </Typography>
                 <SelectWithLabelIcon
                     options={secondlevelCategoryItems}
                     labelColor={colors.lighterGray}
                     placeholder="Choose category"
+                    variantStyle="bigOptionStyle"
                     custom
                     customValue={category.label}
                     customOnChange={(value) => setCategory(value)}

@@ -1,10 +1,12 @@
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Checkbox, Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
 import cn from "classnames"
 import { colors } from "../../theme/colors"
 import { ErrorMessage } from "../errorMessage/errorMessage"
 import { ArrowDownIcon } from "../icons/arrowDownIcon"
+import { SquareIcon } from "../icons/squareIcon"
+import CheckedIcon from "../icons/checkedIcon"
 
 const useStyles = makeStyles({
     container: {
@@ -82,12 +84,17 @@ const useStyles = makeStyles({
         width: "100%",
         backgroundColor: colors.white,
         boxShadow: "0px 4px 100px rgba(0, 0, 0, 0.25)",
-        zIndex: 99,
+        zIndex: 3,
         maxHeight: "17.187rem",
         overflowY: "auto",
     },
     placeholder: {
         color: colors.lightGray,
+    },
+    checkBoxContainer: {
+        display: "flex!important",
+        alignItems: "center",
+        justifyContent: "space-between",
     },
     custom: {
         display: "flex",
@@ -115,6 +122,16 @@ const useStyles = makeStyles({
             },
         },
     },
+    hidder: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 2,
+        width: "100%",
+        height: "100vh",
+    },
 })
 export const SelectWithLabelIcon = ({
     externalclass,
@@ -128,9 +145,10 @@ export const SelectWithLabelIcon = ({
     variant,
     labelColor,
     bgcolor,
-    custom,
+    variantStyle,
     customValue,
     customOnChange,
+    handleOptionSelect,
     ...props
 }) => {
     const classes = useStyles({ error: !!error, labelColor, bgcolor })
@@ -139,20 +157,76 @@ export const SelectWithLabelIcon = ({
         customOnChange(data)
         setCustomShow(false)
     }
-    return (
-        <Box className={classes.container}>
-            <Typography className={classes.label}>
-                {label} {iscompulsory && <span className={classes.white}>*</span>}
-            </Typography>
-            <Grid
-                container
-                alignItems="center"
-                justify="center"
-                wrap="nowrap"
-                component="div"
-                tabIndex="0"
-                className={cn(classes.wrapper, { [classes[variant]]: variant })}>
-                {!custom ? (
+
+    const allVariant = () => {
+        switch (variantStyle) {
+            case "bigOptionStyle": {
+                return (
+                    <Box
+                        className={cn(classes.inputContainer, classes.custom, externalclass)}
+                        onClick={() => setCustomShow(!customShow)}>
+                        {customValue === "" ? (
+                            <Typography className={classes.placeholder}>{placeholder}</Typography>
+                        ) : (
+                            <Typography>{customValue}</Typography>
+                        )}
+                        <ArrowDownIcon />
+                        {customShow && (
+                            <Box className={classes.customContainer}>
+                                <ul>
+                                    {options.map((item, i) => (
+                                        <Typography key={i} onClick={() => handleCustomChange(item)}>
+                                            {item.label}
+                                        </Typography>
+                                    ))}
+                                </ul>
+                            </Box>
+                        )}
+                    </Box>
+                )
+            }
+            case "optionWithCheckboxStyle": {
+                return (
+                    <Box
+                        className={cn(classes.inputContainer, classes.custom, externalclass)}
+                        onClick={() => {
+                            if (!customShow) {
+                                setCustomShow(true)
+                            }
+                        }}>
+                        {customValue === "" ? (
+                            <Typography className={classes.placeholder}>{placeholder}</Typography>
+                        ) : (
+                            <Typography>{customValue}</Typography>
+                        )}
+                        <ArrowDownIcon />
+                        {customShow && (
+                            <>
+                                <Box className={classes.customContainer}>
+                                    <ul>
+                                        {options.map((item, i) => (
+                                            <Typography className={classes.checkBoxContainer} key={i}>
+                                                {item.label}
+                                                <Checkbox
+                                                    disableRipple
+                                                    color="default"
+                                                    onClick={() => handleOptionSelect(item, i)}
+                                                    checked={item.checked}
+                                                    icon={<SquareIcon />}
+                                                    checkedIcon={<CheckedIcon />}
+                                                />
+                                            </Typography>
+                                        ))}
+                                    </ul>
+                                </Box>
+                                <Box className={classes.hidder} onClick={() => setCustomShow(false)} />
+                            </>
+                        )}
+                    </Box>
+                )
+            }
+            default: {
+                return (
                     <Box className={cn(classes.inputContainer, externalclass)}>
                         {inputRegister !== undefined ? (
                             <select ref={inputRegister} className={cn(classes.input)} {...props}>
@@ -178,29 +252,25 @@ export const SelectWithLabelIcon = ({
                             </select>
                         )}
                     </Box>
-                ) : (
-                    <Box
-                        className={cn(classes.inputContainer, classes.custom, externalclass)}
-                        onClick={() => setCustomShow(!customShow)}>
-                        {customValue === "" ? (
-                            <Typography className={classes.placeholder}>{placeholder}</Typography>
-                        ) : (
-                            <Typography>{customValue}</Typography>
-                        )}
-                        <ArrowDownIcon />
-                        {customShow && (
-                            <Box className={classes.customContainer}>
-                                <ul>
-                                    {options.map((item, i) => (
-                                        <Typography key={i} onClick={() => handleCustomChange(item)}>
-                                            {item.label}
-                                        </Typography>
-                                    ))}
-                                </ul>
-                            </Box>
-                        )}
-                    </Box>
-                )}
+                )
+            }
+        }
+    }
+
+    return (
+        <Box className={classes.container}>
+            <Typography className={classes.label}>
+                {label} {iscompulsory && <span className={classes.white}>*</span>}
+            </Typography>
+            <Grid
+                container
+                alignItems="center"
+                justify="center"
+                wrap="nowrap"
+                component="div"
+                tabIndex="0"
+                className={cn(classes.wrapper, { [classes[variant]]: variant })}>
+                {allVariant()}
             </Grid>
             <ErrorMessage errorMsg={errorMsg} />
         </Box>
@@ -225,9 +295,10 @@ SelectWithLabelIcon.defaultProps = {
     labelColor: "",
     bgcolor: "",
     externalclass: "",
-    custom: false,
+    variantStyle: "",
     customValue: "",
     customOnChange: () => {},
+    handleOptionSelect: () => {},
 }
 
 SelectWithLabelIcon.propTypes = {
@@ -248,7 +319,8 @@ SelectWithLabelIcon.propTypes = {
     labelColor: PropTypes.string,
     bgcolor: PropTypes.string,
     externalclass: PropTypes.string,
-    custom: PropTypes.bool,
+    variantStyle: PropTypes.string,
     customOnChange: PropTypes.func,
     customValue: PropTypes.string,
+    handleOptionSelect: PropTypes.func,
 }

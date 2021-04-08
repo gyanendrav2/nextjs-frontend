@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { useState } from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import ReactPlayer from "react-player"

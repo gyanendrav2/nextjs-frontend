@@ -45,21 +45,35 @@ const useStyles = makeStyles({
     title: {
         marginBottom: "2rem",
     },
+    firstName: {
+        height: "2.5rem",
+    },
+    LastName: {
+        height: "2.5rem",
+    },
 })
 
 export const AccountInformation = () => {
     const classes = useStyles()
-    const [roles, setRoles] = useState(["Director assistant", "Producer"])
-    const handleRoles = (e) => {
+    const [roleOptionsData, setRoleOptionsData] = useState(roleOptions)
+    const [roles, setRoles] = useState([])
+
+    const handleRoles = (e, i) => {
         const data = [...roles]
-        data.push(e.target.value)
+        data.push(e.value)
         setRoles(data)
+        const tempRoleOptions = [...roleOptionsData]
+        tempRoleOptions[i].checked = !tempRoleOptions[i].checked
+        setRoleOptionsData(tempRoleOptions)
+        console.log(e, i)
     }
+
     const handleChipItemDelete = (i) => {
         const data = [...roles]
         data.splice(i, 1)
         setRoles(data)
     }
+
     return (
         <>
             <Box className={classes.wrapper}>
@@ -74,18 +88,27 @@ export const AccountInformation = () => {
                     <Box className={classes.col2}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <InputWithLabelIcon labelColor={colors.lightGray} label="First Name" />
+                                <InputWithLabelIcon
+                                    labelColor={colors.lightGray}
+                                    label="First Name"
+                                    externalclass={classes.firstName}
+                                />
                             </Grid>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                <InputWithLabelIcon labelColor={colors.lightGray} label="Last Name" />
+                                <InputWithLabelIcon
+                                    labelColor={colors.lightGray}
+                                    label="Last Name"
+                                    externalclass={classes.LastName}
+                                />
                             </Grid>
                             <Grid container>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <SelectWithLabelIcon
                                         labelColor={colors.lightGray}
                                         label="Add a role"
+                                        variantStyle="optionWithCheckboxStyle"
                                         options={roleOptions}
-                                        onChange={handleRoles}
+                                        handleOptionSelect={handleRoles}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

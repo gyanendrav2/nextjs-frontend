@@ -1,4 +1,4 @@
-import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
 import PropTypes from "prop-types"
 import { CustomButton } from "../buttons/customButton"
@@ -48,14 +48,14 @@ const useStyles = makeStyles({
         display: "none",
         marginLeft: "4rem",
         marginTop: "0.6rem",
-        color:colors.lightGray,
+        color: colors.lightGray,
         "@media (max-width: 500px)": {
             display: "block",
         },
     },
     date2: {
         display: "block",
-        color:colors.lightGray,
+        color: colors.lightGray,
         "@media (max-width: 500px)": {
             display: "none",
         },
