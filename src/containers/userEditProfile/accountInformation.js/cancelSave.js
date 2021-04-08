@@ -16,13 +16,19 @@ const useStyles = makeStyles({
     buttonSave: {
         width: "100%",
     },
+    wrap: {
+        flexWrap: "nowrap",
+        "@media (max-width: 767px)": {
+            flexWrap: "wrap",
+        },
+    },
 })
 
 export const CancelSave = () => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
-            <Grid container spacing={2} alignItems="center" justify="space-between" wrap="nowrap">
+            <Grid container spacing={2} alignItems="center" justify="space-between" className={classes.wrap}>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                     <CustomButton label="Cancel" variant="cancel" externalclass={classes.buttonCancel} />
                 </Grid>

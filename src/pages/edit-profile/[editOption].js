@@ -3,21 +3,28 @@ import { useRouter } from "next/router"
 import React from "react"
 import { TwoColGrid } from "../../components/grid/twoColGrid"
 import { HeaderWrapper } from "../../components/header/headerWrapper"
-import { EditProfileContent } from "../../containers/userEditProfile/editProfile/editprofileContent"
 import { colors } from "../../theme/colors"
 import { Footer } from "../../components/footer"
 import { AccountInformation } from "../../containers/userEditProfile/accountInformation.js"
+import { EditOptions } from "../../containers/userEditProfile/editOptions"
+import ShowReel from "../../containers/userEditProfile/showreel"
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
         padding: "7rem 10rem 2rem 10rem",
+        "@media (min-width:200px) and (max-width:767px)": {
+            padding: "7rem 1rem 2rem 1rem",
+        },
+        "@media (min-width:768px) and (max-width:1350px)": {
+            padding: "7rem 2rem 2rem 2rem",
+        },
     },
     mainTitle: {
-        fontFamily: "Forno-Trial",
-        fontWeight: 900,
-        fontSize: "2rem",
-        lineheight: "2.875rem",
+        marginBottom: "1.5rem",
+    },
+    activeOption: {
+        fontWeight: 800,
     },
     col1: {
         display: "flex",
@@ -27,6 +34,8 @@ const useStyles = makeStyles({
         border: `1px solid ${colors.lightGray}`,
         backgroundColor: colors.white,
         marginRight: "2rem",
+        position: "sticky",
+        top: "6rem",
     },
     col1item: {
         padding: "1rem",
@@ -66,17 +75,21 @@ const useStyles = makeStyles({
     whiteBg: {
         backgroundColor: colors.lighterPrimary,
     },
+    posRelative: {
+        position: "relative",
+    },
 })
 const EditProfile = () => {
     const classes = useStyles()
-    const { query } = useRouter()
+    const { query, push } = useRouter()
     const { editOption } = query
 
     const renderOption = () => {
         if (editOption === "account-information") {
             return <AccountInformation />
-        } else {
-            return <EditProfileContent />
+        }
+        if (editOption === "showreels-video-photos") {
+            return <ShowReel />
         }
     }
 
@@ -84,13 +97,24 @@ const EditProfile = () => {
         <>
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
-                <Typography className={classes.mainTitle}>Edit profile</Typography>
+                <Typography variant="h4" className={classes.mainTitle}>
+                    Edit profile
+                </Typography>
                 <TwoColGrid
                     externalclass={classes.whiteBg}
+                    col1Externalclass={classes.posRelative}
                     col1Children={
                         <Grid container direction="column" display="flex" className={classes.col1}>
-                            <Typography className={classes.col1item}>Account Information</Typography>
-                            <Typography className={classes.col1item}>Showreel video/photo</Typography>
+                            <EditOptions
+                                optionName="Account Information"
+                                isActive={editOption === "account-information"}
+                                onClick={() => push("/edit-profile/account-information")}
+                            />
+                            <EditOptions
+                                optionName="Showreel video/photo"
+                                isActive={editOption === "showreels-video-photos"}
+                                onClick={() => push("/edit-profile/showreels-video-photos")}
+                            />
                         </Grid>
                     }
                     col2Children={

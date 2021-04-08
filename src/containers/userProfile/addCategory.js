@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import { SelectWithLabelIcon } from "../../components/inputs/selectWithLabelIcon"
 import { UserConfirmContainer } from "../../components/userConfirmContainer/userConfirmContainer"
 import { colors } from "../../theme/colors"
+import { customTypography } from "../../components/typography/typography"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -11,13 +12,7 @@ const useStyles = makeStyles({
         textAlign: "center",
         width: "100%",
     },
-    mainTitle: {
-        fontFamily: "Forno-Trial",
-        fontStyle: "normal",
-        fontWeight: 900,
-        fontSize: "2rem",
-        lineHeight: "2.75",
-    },
+
     inputWrapper: {
         maxWidth: "37.75rem",
         margin: "auto",
@@ -38,7 +33,7 @@ export const AddCategory = ({ onAddCategory }) => {
     return (
         <Box container className={classes.wrapper}>
             <Box className={classes.inputWrapper}>
-                <Typography className={classes.mainTitle}> Add a category</Typography>
+                <customTypography type="modalTitle" titleName="Add a category" />
                 <SelectWithLabelIcon
                     options={secondlevelCategoryItems}
                     labelColor={colors.lighterGray}
