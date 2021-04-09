@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
+import { useRouter } from "next/router"
 import classnames from "classnames"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { useCookies } from "react-cookie"
@@ -146,6 +147,7 @@ const useStyles = makeStyles({
 
 export const Discovery = ({ details }) => {
     const classes = useStyles()
+    const routes = useRouter()
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
     const [totalCategories, setTotalCategories] = useState([])
@@ -184,7 +186,6 @@ export const Discovery = ({ details }) => {
     const handleTab = (name) => {
         setActiveCategory(name)
         if (name !== "More") {
-            // eslint-disable-next-line react/prop-types
             const result = featuredProjects.filter((each) => each.category === name)
             LengthHandler(result)
         } else if (name === "More") {
@@ -241,7 +242,11 @@ export const Discovery = ({ details }) => {
                                                     <span className={classes.pinkSquare} />
                                                 </Typography>
                                                 <Typography className={classes.subtitle}>{item.subtitle}</Typography>
-                                                <CustomButton label="Sign Up" externalclass={classes.bigSignup} />
+                                                <CustomButton
+                                                    label="Sign Up"
+                                                    externalclass={classes.bigSignup}
+                                                    onClick={() => routes.push("/signup")}
+                                                />
                                             </div>
                                         </div>
                                     </div>

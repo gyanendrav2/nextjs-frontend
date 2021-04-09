@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const CardMenuOptions = ({ onEdit, onHide, hiddenCategory }) => {
+export const CardMenuOptions = ({ onEdit, onHide, hiddenCategory, onLinkCopied }) => {
     const classes = useStyles()
     const [showShare, setShowShare] = useState(false)
 
@@ -61,7 +61,7 @@ export const CardMenuOptions = ({ onEdit, onHide, hiddenCategory }) => {
                 )}
             </Typography>
 
-            {showShare && <ShareInfo />}
+            {showShare && <ShareInfo handleCopyLink={onLinkCopied} />}
         </Box>
     )
 }
@@ -77,6 +77,6 @@ CardMenuOptions.propTypes = {
     onEdit: PropTypes.func,
     onHide: PropTypes.func,
     hiddenCategory: PropTypes.bool,
-    // onLinkCopied: PropTypes.func.isRequired,
+    onLinkCopied: PropTypes.func.isRequired,
     // onShare: PropTypes.func,
 }

@@ -60,9 +60,9 @@ TextArea.defaultProps = {
     label: "",
     type: "text",
     name: "",
-    onChange: () => {},
+    // onChange: () => {},
     placeholder: "",
-    value: "",
+    // value: "",
 }
 
 TextArea.propTypes = {
@@ -74,7 +74,7 @@ TextArea.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,
     name: PropTypes.string,
-    onChange: PropTypes.func,
+    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    // value: PropTypes.string,
 }

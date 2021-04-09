@@ -14,8 +14,7 @@ const useStyles = makeStyles({
             fontWeight: 400,
             fontFamily: "Helvetica",
             backgroundColor: colors.white,
-            color: (props) => (props.error ? `${colors.red}` : `${colors.lightGray}`),
-
+            color: (props) => (props.error ? `${colors.red}` : `${colors.black}`),
             border: (props) => `solid 1px ${props.error ? colors.red : colors.lightGray}`,
             "&::placeholder": {
                 color: (props) => (props.error ? `${colors.red}` : `${colors.lighterGray}`),
@@ -26,23 +25,17 @@ const useStyles = makeStyles({
     },
 })
 
-export const TextAreaInput = ({ onChange, inputRegister, error, name, placeholder, ...rest }) => {
+export const TextAreaInput = ({ inputRegister, error, name, placeholder, ...rest }) => {
     const classes = useStyles({ error })
     return (
         <Box className={classes.wrapper}>
             <textarea
                 className={classes.input}
-                {...rest}
                 error={error}
                 name={name}
                 placeholder={placeholder}
                 ref={inputRegister}
-                onChange={(e) => {
-                    e.preventDefault()
-                    if (onChange !== undefined) {
-                        onChange(e.target.value)
-                    }
-                }}
+                {...rest}
             />
         </Box>
     )
@@ -51,9 +44,9 @@ export const TextAreaInput = ({ onChange, inputRegister, error, name, placeholde
 TextAreaInput.defaultProps = {
     disabled: false,
     error: false,
-    onChange: () => {},
+    // onChange: () => {},
     placeholder: "",
-    value: "",
+    // value: "",
     type: "",
     inputRegister: () => {},
     name: "",
@@ -62,9 +55,9 @@ TextAreaInput.defaultProps = {
 TextAreaInput.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    onChange: PropTypes.func,
+    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    value: PropTypes.string,
+    // value: PropTypes.string,
     type: PropTypes.string,
     inputRegister: PropTypes.func,
     name: PropTypes.string,

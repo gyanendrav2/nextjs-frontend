@@ -181,7 +181,6 @@ const Project = () => {
     return (
         <>
             <HeaderWrapper isScrollDetect={false} />
-
             <Box className={classes.projectwrapper}>
                 <Box className={classes.videoStyles}>
                     <ReactPlayer

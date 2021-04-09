@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         position: "fixed",
         display: "flex",
         width: "100%",
-        zIndex: 2,
+        zIndex: 99,
         paddingLeft: "2rem",
         paddingRight: "2rem",
         justifyContent: "space-between",

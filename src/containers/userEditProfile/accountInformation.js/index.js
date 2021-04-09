@@ -13,6 +13,8 @@ import { CancelSave } from "./cancelSave"
 import AddIcon from "../../../components/icons/addIcon"
 import { ChipCards } from "../../../components/cards/chipCards"
 import { roleOptions } from "../../../data/roles"
+import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
+import { CustomButton } from "../../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -33,8 +35,11 @@ const useStyles = makeStyles({
     },
     addIcon: {
         position: "absolute",
-        top: "6rem",
-        left: "6rem",
+        top: "5.5rem",
+        left: "5.5rem",
+        "&:hover": {
+            backgroundColor: "transparent",
+        },
     },
     col2: {
         width: "calc(100% - 11.125rem)",
@@ -57,15 +62,17 @@ export const AccountInformation = () => {
     const classes = useStyles()
     const [roleOptionsData, setRoleOptionsData] = useState(roleOptions)
     const [roles, setRoles] = useState([])
+    const [showLinkModal, setLinkModal] = useState(false)
 
     const handleRoles = (e, i) => {
         const data = [...roles]
-        data.push(e.value)
-        setRoles(data)
         const tempRoleOptions = [...roleOptionsData]
         tempRoleOptions[i].checked = !tempRoleOptions[i].checked
         setRoleOptionsData(tempRoleOptions)
-        console.log(e, i)
+        if (tempRoleOptions[i].checked) {
+            data.push(e.value)
+        }
+        setRoles(data)
     }
 
     const handleChipItemDelete = (i) => {
@@ -76,6 +83,11 @@ export const AccountInformation = () => {
 
     return (
         <>
+            <SendDetailsModal
+                modalName="Insert a hyperlink"
+                isOpen={showLinkModal}
+                onClose={() => setLinkModal(false)}
+            />
             <Box className={classes.wrapper}>
                 <Typography variant="h6" className={classes.title}>
                     ACCOUNT INFORMATION
@@ -83,7 +95,7 @@ export const AccountInformation = () => {
                 <Grid container alignItems="flex-start" justify="flex-start">
                     <Box className={classes.col1}>
                         <Avatar className={classes.avatar} src={images.maskGroup} />
-                        <AddIcon className={classes.addIcon} />
+                        <CustomButton disableRipple className={classes.addIcon} wantFile label={<AddIcon />} />
                     </Box>
                     <Box className={classes.col2}>
                         <Grid container spacing={2}>
@@ -135,7 +147,7 @@ export const AccountInformation = () => {
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <Typography>Accounts and links</Typography>
                                 {accountsLinks.map((item) => (
-                                    <AccountsLinks icon={item.icon} />
+                                    <AccountsLinks icon={item.icon} onClick={() => setLinkModal(true)} />
                                 ))}
                             </Grid>
                         </Grid>

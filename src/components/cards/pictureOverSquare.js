@@ -6,13 +6,19 @@ import { colors } from "../../theme/colors"
 const useStyles = makeStyles({
     wrapper: {
         position: "relative",
-        // textAlign: "center",
-        // margin: "2rem",
+
+        "@media (max-width: 690px)": {
+            marginLeft: "-2rem",
+        },
     },
     square: {
         width: "11.125rem",
         height: "11.125rem",
         backgroundColor: colors.pink,
+        "@media (max-width: 767px)": {
+            width: "9.125rem",
+            height: "9.125rem",
+        },
     },
     profile: {
         width: "13.25rem",
@@ -22,6 +28,10 @@ const useStyles = makeStyles({
         left: "2rem",
         zIndex: 2,
         borderRadius: "50%",
+        "@media (max-width: 767px)": {
+            width: "9.125rem",
+            height: "9.125rem",
+        },
     },
 })
 

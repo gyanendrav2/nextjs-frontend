@@ -165,7 +165,11 @@ export const SelectWithLabelIcon = ({
                 return (
                     <Box
                         className={cn(classes.inputContainer, classes.custom, externalclass)}
-                        onClick={() => setCustomShow(!customShow)}>
+                        onClick={() => {
+                            if (!customShow) {
+                                setCustomShow(true)
+                            }
+                        }}>
                         {customValue === "" ? (
                             <Typography className={classes.placeholder}>{placeholder}</Typography>
                         ) : (
@@ -173,15 +177,18 @@ export const SelectWithLabelIcon = ({
                         )}
                         <ArrowDownIcon />
                         {customShow && (
-                            <Box className={classes.customContainer}>
-                                <ul>
-                                    {options.map((item, i) => (
-                                        <Typography key={i} onClick={() => handleCustomChange(item)}>
-                                            {item.label}
-                                        </Typography>
-                                    ))}
-                                </ul>
-                            </Box>
+                            <>
+                                <Box className={classes.customContainer}>
+                                    <ul>
+                                        {options.map((item, i) => (
+                                            <Typography key={i} onClick={() => handleCustomChange(item)}>
+                                                {item.label}
+                                            </Typography>
+                                        ))}
+                                    </ul>
+                                </Box>
+                                <Box className={classes.hidder} onClick={() => setCustomShow(false)} />
+                            </>
                         )}
                     </Box>
                 )

@@ -16,6 +16,9 @@ const useStyles = makeStyles({
         maxWidth: "37.75rem",
         margin: "auto",
     },
+    heading: {
+        marginBottom: "2.5rem",
+    },
 })
 
 export const AddCategory = ({ onAddCategory }) => {
@@ -32,7 +35,9 @@ export const AddCategory = ({ onAddCategory }) => {
     return (
         <Box container className={classes.wrapper}>
             <Box className={classes.inputWrapper}>
-                <Typography>Add a category </Typography>
+                <Typography variant="h4" className={classes.heading}>
+                    Add a category
+                </Typography>
                 <SelectWithLabelIcon
                     options={secondlevelCategoryItems}
                     labelColor={colors.lighterGray}

@@ -234,7 +234,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, externalclass,
     }
 }
 
-export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, ...props }) => {
+export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, acceptFileTyle, ...props }) => {
     const classes = useStyles()
     const input = createRef()
     const handleClick = () => {
@@ -250,6 +250,7 @@ export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, .
             {wantFile && (
                 <input
                     type="file"
+                    accept={acceptFileTyle}
                     ref={input}
                     multiple={allowMultiple}
                     className={classes.fileInput}
@@ -270,6 +271,7 @@ CustomButton.defaultProps = {
     wantFile: false,
     onFileChange: () => {},
     allowMultiple: false,
+    acceptFileTyle: "image/*",
 }
 
 CustomButton.propTypes = {
@@ -281,4 +283,5 @@ CustomButton.propTypes = {
     wantFile: PropTypes.bool,
     onFileChange: PropTypes.func,
     allowMultiple: PropTypes.bool,
+    acceptFileTyle: PropTypes.string,
 }

@@ -83,7 +83,7 @@ export const UserProfileCard = ({
     const [fullParagraph, setfullParagraph] = useState(false)
 
     const handleRoute = () => {
-        routes.push("/editprofile")
+        routes.push("/edit-profile/account-information")
     }
 
     const toggleReadmore = () => {

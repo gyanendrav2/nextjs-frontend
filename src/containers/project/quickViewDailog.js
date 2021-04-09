@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         padding: "2rem",
         paddingTop: 0,
         position: "fixed",
-        zIndex: 5,
+        zIndex: 100,
         top: 0,
         right: 0,
         left: 0,

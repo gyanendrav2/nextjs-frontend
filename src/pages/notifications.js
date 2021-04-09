@@ -1,9 +1,10 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
-import React from "react"
+import React, { useState } from "react"
 import { colors } from "../theme/colors"
 import { Footer } from "../components/footer"
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { NotificationRow } from "../components/cards/notificationRow"
+import { SendDetailsModal } from "../components/modal/sendDetailsModal"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -23,15 +24,24 @@ const useStyles = makeStyles({
 })
 const UserNotifications = () => {
     const classes = useStyles()
+    const [showDeclineModal, setShowDeclineModal] = useState(false)
     return (
         <>
+            <SendDetailsModal
+                modalName="Decline request"
+                title="Decline the participation request with a message"
+                placeholder="Add a message to the requester"
+                isTextArea
+                isOpen={showDeclineModal}
+                onClose={() => setShowDeclineModal(false)}
+            />
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
                 <Typography className={classes.mainTitle}>Notifications</Typography>
                 <NotificationRow
                     title="Peter Pan requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”"
                     isDeclinable
-                    onAcceptClick={() => {}}
+                    onDeclineClick={() => setShowDeclineModal(true)}
                 />
                 <NotificationRow title="Sarah Faulson followed you" onAcceptClick={() => {}} />
                 <NotificationRow
