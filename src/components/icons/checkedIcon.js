@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 
-const CheckedIcon = ({ color, ...props }) => {
+export const CheckedIcon = ({ color, ...props }) => {
     return (
         <svg width={16} height={16} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <rect width={16} height={16} fill={color} />
@@ -30,5 +30,3 @@ CheckedIcon.propTypes = {
     height: PropTypes.number,
     color: PropTypes.string,
 }
-
-export default CheckedIcon

@@ -32,8 +32,6 @@ export const ProfileContent = () => {
                 placeholder="Email"
                 label="Account Email"
                 name="username"
-                // inputRegister={register}
-                // errorMsg={errors.username}
                 externalclass={classes.inputStyles}
             />
             <Typography>Change Password</Typography>

@@ -1,12 +1,12 @@
 import React from "react"
-// import PropTypes from "prop-types";
-// import { photos } from "../../data/photos";
 import Masonry from "react-responsive-masonry"
 import { images } from "../../assets/images"
 
 const Images = [
     { id: 1, image: images.masorny1 },
     { id: 2, image: images.masorny2 },
+    { id: 3, image: images.masorny2 },
+    { id: 4, image: images.masorny1 },
 ]
 
 export const ImageGallery = () => {

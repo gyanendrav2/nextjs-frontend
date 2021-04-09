@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Box, Checkbox, Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import React, { useState } from "react"
@@ -6,7 +7,7 @@ import { colors } from "../../theme/colors"
 import { ErrorMessage } from "../errorMessage/errorMessage"
 import { ArrowDownIcon } from "../icons/arrowDownIcon"
 import { SquareIcon } from "../icons/squareIcon"
-import CheckedIcon from "../icons/checkedIcon"
+import { CheckedIcon } from "../icons/checkedIcon"
 
 const useStyles = makeStyles({
     container: {

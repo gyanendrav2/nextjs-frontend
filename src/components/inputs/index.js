@@ -42,7 +42,6 @@ export const Input = ({ inputRegister, error, inputName, externalclass, ...rest 
 Input.defaultProps = {
     disabled: false,
     error: false,
-    // onChange: () => {},
     placeholder: "",
     // value: "",
     type: "text",

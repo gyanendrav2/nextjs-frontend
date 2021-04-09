@@ -9,7 +9,6 @@ const useStyles = makeStyles({
         width: "100%",
         backgroundColor: colors.lightGray,
         padding: "2rem orem",
-        // paddingLeft: "0rem",
     },
     col1: {
         width: "27.5rem",
