@@ -10,6 +10,7 @@ const useStyles = makeStyles({
         borderBottom: `1px solid ${colors.lightGray}`,
         paddingBottom: "0.4rem",
         paddingTop: "0.4rem",
+        color: colors.lighterGray,
     },
     icon: {
         backgroundColor: colors.white,
@@ -30,11 +31,7 @@ export const AccountsLinks = ({ icon, onClick, externalclass }) => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.wrapper}>
-            {/* <img alt="youtube" src={icon} className={classnames(classes.icon, externalclass)} /> */}
-            {/* <icon /> */}
-            <Typography>
-                <icon width={40} height={40} className={classnames(classes.icon, externalclass)} />
-            </Typography>
+            {icon}
             <CustomButton label="Add a link" disableRipple externalclass={classes.button} onClick={onClick} />
         </Grid>
     )
