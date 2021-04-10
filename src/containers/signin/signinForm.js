@@ -9,6 +9,7 @@ import { colors } from "../../theme/colors"
 import { signinFormValidation } from "../../formValidation/signin"
 import { EyeOpenIcon } from "../../components/icons/eyeOpenIcon"
 import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
+import { loginUserAPIcall } from "../../redux/actions/authAction"
 
 const titleText = {
     fontFamily: "Forno-Trial",
@@ -113,8 +114,10 @@ export const SigninForm = () => {
     })
     const [hideShowPassword, setHideShowPassword] = useState(false)
 
+    console.log(process.env.NEXT_PUBLIC_API_URL)
+
     const submit = (data) => {
-        console.log(data)
+        loginUserAPIcall(data)
     }
 
     return (

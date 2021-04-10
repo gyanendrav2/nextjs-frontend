@@ -2,13 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import { Grid, makeStyles } from "@material-ui/core"
-import { colors } from "../../theme/colors"
+// import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
-        backgroundColor: colors.lightGray,
-        padding: "2rem orem",
+        // backgroundColor: colors.lightGray,
+        // padding: "2rem orem",
     },
     col1: {
         width: "27.5rem",
@@ -31,11 +31,11 @@ const useStyles = makeStyles({
     },
 })
 
-export const TwoColGrid = ({ col1Children, col2Children, col1Externalclass, externalclass }) => {
+export const TwoColGrid = ({ col1Children, col2Children, externalclass }) => {
     const classes = useStyles()
     return (
         <Grid container display="flex" spacing={2} className={classnames(classes.wrapper, externalclass)}>
-            <Grid item className={classnames(classes.col1, col1Externalclass)}>
+            <Grid item className={classnames(classes.col1, externalclass)}>
                 {col1Children}
             </Grid>
             <Grid item className={classes.col2}>
@@ -47,12 +47,10 @@ export const TwoColGrid = ({ col1Children, col2Children, col1Externalclass, exte
 
 TwoColGrid.defaultProps = {
     externalclass: "",
-    col1Externalclass: "",
 }
 
 TwoColGrid.propTypes = {
     col1Children: PropTypes.element.isRequired,
     col2Children: PropTypes.element.isRequired,
     externalclass: PropTypes.string,
-    col1Externalclass: PropTypes.string,
 }

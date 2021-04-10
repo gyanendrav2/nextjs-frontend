@@ -1,12 +1,12 @@
 import React, { useState } from "react"
-// import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import classnames from "classnames"
 import { SelectWithLabelIcon } from "../../../components/inputs/selectWithLabelIcon"
 import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
 import { images } from "../../../assets/images"
 import { TextArea } from "../../../components/inputs/textArea"
 import { colors } from "../../../theme/colors"
-import { accountsLinks } from "../../../data/accountsLinks"
+import { accountsLinksData } from "../../../data/accountsLinks"
 import { AccountsLinks } from "../../../components/cards/accountsLinks"
 import { ConvertVideoOrPhoto } from "./convertVideoOrPhoto"
 import { CancelSave } from "./cancelSave"
@@ -15,6 +15,7 @@ import { ChipCards } from "../../../components/cards/chipCards"
 import { roleOptions } from "../../../data/roles"
 import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
 import { CustomButton } from "../../../components/buttons/customButton"
+import { countryOptions, stateOptions } from "../../../data/usStates"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -50,11 +51,11 @@ const useStyles = makeStyles({
     title: {
         marginBottom: "2rem",
     },
-    firstName: {
+    inputHeight: {
         height: "2.5rem",
     },
     LastName: {
-        height: "2.5rem",
+        marginLeft: "8px",
     },
 })
 
@@ -80,7 +81,6 @@ export const AccountInformation = () => {
         data.splice(i, 1)
         setRoles(data)
     }
-
     return (
         <>
             <SendDetailsModal
@@ -98,29 +98,38 @@ export const AccountInformation = () => {
                         <CustomButton disableRipple className={classes.addIcon} wantFile label={<AddIcon />} />
                     </Box>
                     <Box className={classes.col2}>
-                        <Grid container spacing={2}>
+                        <Grid container>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                 <InputWithLabelIcon
-                                    labelColor={colors.lightGray}
+                                    fontWeight="700"
                                     label="First Name"
-                                    externalclass={classes.firstName}
+                                    externalclass={classnames(classes.inputHeight, classes.firstName)}
+                                    labelColor={colors.lighterGray}
+                                    placeholder="First name"
                                 />
                             </Grid>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                 <InputWithLabelIcon
-                                    labelColor={colors.lightGray}
+                                    fontWeight="700"
+                                    labelColor={colors.lighterGray}
                                     label="Last Name"
-                                    externalclass={classes.LastName}
+                                    externalclass={classnames(classes.inputHeight, classes.LastName)}
+                                    placeholder="Last name"
+                                    labelMargin="0.6rem"
                                 />
                             </Grid>
                             <Grid container>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
                                     <SelectWithLabelIcon
-                                        labelColor={colors.lightGray}
+                                        fontWeight="700"
+                                        labelColor={colors.lighterGray}
                                         label="Add a role"
+                                        placeholder="Director"
                                         variantStyle="optionWithCheckboxStyle"
+                                        checkboxHoverStyle={colors.white}
                                         options={roleOptions}
                                         handleOptionSelect={handleRoles}
+                                        externalclass={classnames(classes.inputHeight)}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -129,24 +138,34 @@ export const AccountInformation = () => {
                             </Grid>
                             <Grid container>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <SelectWithLabelIcon labelColor={colors.lightGray} label="Choose country" />
+                                    <SelectWithLabelIcon
+                                        fontWeight="700"
+                                        labelColor={colors.lighterGray}
+                                        label="Choose country"
+                                        placeholder="Choose country"
+                                        options={countryOptions}
+                                        externalclass={classnames(classes.inputHeight)}
+                                    />
                                 </Grid>
                             </Grid>
                             <Grid container>
                                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                                    <SelectWithLabelIcon labelColor={colors.lightGray} label="Choose city" />
+                                    <SelectWithLabelIcon
+                                        fontWeight="700"
+                                        labelColor={colors.lighterGray}
+                                        label="Choose city"
+                                        options={stateOptions}
+                                        placeholder="Choose city"
+                                        externalclass={classnames(classes.inputHeight)}
+                                    />
                                 </Grid>
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <TextArea
-                                    labelColor={colors.lightGray}
-                                    placeholder="Describe yourself"
-                                    label="Choose city"
-                                />
+                                <TextArea placeholder="Describe yourself" label="Choose city" height="7.687rem" />
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <Typography>Accounts and links</Typography>
-                                {accountsLinks.map((item) => (
+                                {accountsLinksData.map((item) => (
                                     <AccountsLinks icon={item.icon} onClick={() => setLinkModal(true)} />
                                 ))}
                             </Grid>
@@ -159,5 +178,3 @@ export const AccountInformation = () => {
         </>
     )
 }
-
-AccountInformation.propTypes = {}

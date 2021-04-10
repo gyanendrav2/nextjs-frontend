@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         },
     },
     mainTitle: {
-        marginBottom: "1.5rem",
+        marginBottom: "2rem",
     },
     activeOption: {
         fontWeight: 800,
@@ -74,10 +74,10 @@ const useStyles = makeStyles({
     },
     whiteBg: {
         backgroundColor: colors.lighterPrimary,
-    },
-    posRelative: {
         position: "relative",
     },
+    // posRelative: {
+    // },
 })
 const EditProfile = () => {
     const classes = useStyles()
@@ -102,7 +102,6 @@ const EditProfile = () => {
                 </Typography>
                 <TwoColGrid
                     externalclass={classes.whiteBg}
-                    col1Externalclass={classes.posRelative}
                     col1Children={
                         <Grid container direction="column" display="flex" className={classes.col1}>
                             <EditOptions

@@ -1,7 +1,4 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable react/no-unescaped-entities */
 import React from "react"
-// import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import ReactPlayer from "react-player"
@@ -214,7 +211,7 @@ const Project = () => {
                             <Typography variant="h3">Making of</Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown
                                 printer took a galley of type and scrambled it to make a type specimen book.
                             </Typography>
                         </Box>
@@ -226,7 +223,7 @@ const Project = () => {
                             <Typography variant="h3">Behind the scenes</Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                has been the industry's standard dummy text ever since the 1500s, when an unknown
+                                has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown
                                 printer took a galley of type and scrambled it to make a type specimen book.
                             </Typography>
                         </Box>
@@ -245,7 +242,5 @@ const Project = () => {
         </>
     )
 }
-
-Project.propTypes = {}
 
 export default Project

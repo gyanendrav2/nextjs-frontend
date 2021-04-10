@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     label: {
         marginBottom: "0.2rem",
         fontSize: "0.875rem",
-        fontWeight: 500,
+        fontWeight: (props) => (props.fontWeight ? props.fontWeight : 500),
         color: (props) => (props.labelColor ? props.labelColor : colors.white),
     },
     inputContainer: {
@@ -116,7 +116,8 @@ const useStyles = makeStyles({
                 textAlign: "left",
                 borderBottom: `1px solid ${colors.lightGray}`,
                 "&:hover": {
-                    backgroundColor: colors.lightGray,
+                    backgroundColor: (props) =>
+                        props.checkboxHoverStyle ? props.checkboxHoverStyle : colors.lightGray,
                     color: colors.black,
                     fontWeight: 500,
                 },
@@ -150,9 +151,11 @@ export const SelectWithLabelIcon = ({
     customValue,
     customOnChange,
     handleOptionSelect,
+    fontWeight,
+    checkboxHoverStyle,
     ...props
 }) => {
-    const classes = useStyles({ error: !!error, labelColor, bgcolor })
+    const classes = useStyles({ error: !!error, labelColor, bgcolor, fontWeight, checkboxHoverStyle })
     const [customShow, setCustomShow] = useState(false)
     const handleCustomChange = (data) => {
         customOnChange(data)
@@ -307,6 +310,8 @@ SelectWithLabelIcon.defaultProps = {
     customValue: "",
     customOnChange: () => {},
     handleOptionSelect: () => {},
+    fontWeight: "",
+    checkboxHoverStyle: "",
 }
 
 SelectWithLabelIcon.propTypes = {
@@ -331,4 +336,6 @@ SelectWithLabelIcon.propTypes = {
     customOnChange: PropTypes.func,
     customValue: PropTypes.string,
     handleOptionSelect: PropTypes.func,
+    fontWeight: PropTypes.string,
+    checkboxHoverStyle: PropTypes.string,
 }

@@ -1,9 +1,10 @@
 import React from "react"
+import { ConvertVideoOrPhoto } from "../accountInformation.js/convertVideoOrPhoto"
 // import PropTypes from "prop-types"
-import { Box } from "@material-ui/core"
+// import { Box } from "@material-ui/core"
 
 const ShowReel = () => {
-    return <Box>ShowReel</Box>
+    return <ConvertVideoOrPhoto />
 }
 
 ShowReel.propTypes = {}

@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
     input: {
         width: "100%",
-        height: "17rem",
+        height: (props) => (props.height ? props.height : "17rem"),
         "&::placeholder": {
             color: colors.pink,
             opacity: 1,
@@ -40,8 +40,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, ...props }) => {
-    const classes = useStyles()
+export const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, height, ...props }) => {
+    const classes = useStyles({ height })
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classes.label}>{label}</Typography>
@@ -63,6 +63,7 @@ TextArea.defaultProps = {
     // onChange: () => {},
     placeholder: "",
     // value: "",
+    height: "17rem",
 }
 
 TextArea.propTypes = {
@@ -77,4 +78,5 @@ TextArea.propTypes = {
     // onChange: PropTypes.func,
     placeholder: PropTypes.string,
     // value: PropTypes.string,
+    height: PropTypes.string,
 }

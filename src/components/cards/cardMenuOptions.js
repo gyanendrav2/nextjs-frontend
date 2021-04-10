@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 import { ShareInfo } from "./shareInfo"
-// import { ArrowUpIcon } from "../icons/arrowUpIcon"
 import { ArrowDownIcon } from "../icons/arrowDownIcon"
 import { ArrowUpIcon } from "../icons/arrowUpIcon"
 

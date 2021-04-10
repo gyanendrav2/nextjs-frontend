@@ -49,6 +49,7 @@ export const SendDetailsModal = ({
     isTextArea,
     textAreaValue,
     hideCount,
+    externalclass,
 }) => {
     const classes = useStyles()
     const routes = useRouter()
@@ -66,7 +67,7 @@ export const SendDetailsModal = ({
                 <Typography variant="h4" className={classes.heading}>
                     {modalName}
                 </Typography>
-                <Typography>{title}</Typography>
+                <Typography className={externalclass}>{title}</Typography>
                 <Box className={classes.wrapper}>
                     {isTextArea ? (
                         <>
@@ -97,6 +98,7 @@ SendDetailsModal.defaultProps = {
     placeholder: "",
     textAreaValue: "",
     hideCount: false,
+    externalclass: "",
 }
 
 SendDetailsModal.propTypes = {
@@ -108,4 +110,5 @@ SendDetailsModal.propTypes = {
     isTextArea: PropTypes.bool.isRequired,
     textAreaValue: PropTypes.string,
     hideCount: PropTypes.bool,
+    externalclass: PropTypes.string,
 }

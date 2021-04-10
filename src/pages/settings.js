@@ -12,13 +12,14 @@ import { DeleteContent } from "../containers/userEditProfile/settings/deleteCont
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lightGray,
-        padding: "7rem 10rem 2rem 10rem",
+        padding: "9rem 10rem 0rem 10rem",
     },
     mainTitle: {
         fontFamily: "Forno-Trial",
         fontWeight: 900,
         fontSize: "2rem",
         lineheight: "2.875rem",
+        marginBottom: "1rem",
     },
     col1: {
         display: "flex",
@@ -57,12 +58,20 @@ const Settings = () => {
                         </Grid>
                     }
                     col2Children={
-                        <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                            <ProfileContent />
-                            <NotificationContent />
-                            <DeleteContent />
-                            <UserConfirmContainer settingsPage />
-                        </Grid>
+                        <>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <ProfileContent />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <NotificationContent />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <DeleteContent />
+                            </Grid>
+                            <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <UserConfirmContainer settingsPage />
+                            </Grid>
+                        </>
                     }
                 />
             </Box>

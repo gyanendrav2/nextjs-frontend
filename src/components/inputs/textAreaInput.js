@@ -13,6 +13,7 @@ const useStyles = makeStyles({
             fontSize: "1rem",
             fontWeight: 400,
             fontFamily: "Helvetica",
+            resize: "vertical",
             backgroundColor: colors.white,
             color: (props) => (props.error ? `${colors.red}` : `${colors.black}`),
             border: (props) => `solid 1px ${props.error ? colors.red : colors.lightGray}`,

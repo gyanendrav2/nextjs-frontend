@@ -62,9 +62,12 @@ const useStyles = makeStyles({
             justifyContent: "flex-start",
         },
     },
+    modaltitle: {
+        marginTop: "1.5rem",
+        color: colors.lighterGray,
+    },
 })
 
-// eslint-disable-next-line react/prop-types
 export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
     const classes = useStyles({ dialogcontentStyle })
     const [showParticipantModal, setShowParticipantModal] = useState(false)
@@ -78,6 +81,7 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                 isTextArea
                 isOpen={showParticipantModal}
                 onClose={() => setShowParticipantModal(false)}
+                externalclass={classes.modaltitle}
             />
             <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
                 <Grid item xs={12} sm={8} md={8} lg={8} className={classes.reportspamwrapper} container>
@@ -108,8 +112,9 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
 }
 ReportContentWrapper.defaultProps = {
     externalclass: " ",
+    dialogcontentStyle: "",
 }
-ReportContentWrapper.prototypes = {
-    externalclass: PropTypes.string.isRequired,
+ReportContentWrapper.propTypes = {
+    externalclass: PropTypes.string,
     dialogcontentStyle: PropTypes.string,
 }

@@ -27,6 +27,9 @@ const useStyles = makeStyles({
         lineHeight: "2.125rem",
         textAlign: "center",
         padding: "0 1rem",
+        "@media(max-width:330px)": {
+            fontSize: "1.3rem",
+        },
     },
     footer: {
         width: "100%",

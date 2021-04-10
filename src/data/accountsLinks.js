@@ -1,12 +1,12 @@
-import { icons } from "../assets/icons"
+import { YoutubeIcon } from "../components/icons/youtubeIcon"
 
-export const accountsLinks = [
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
-    { icon: icons.youtube, buttonName: "Add a link" },
+export const accountsLinksData = [
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
+    { icon: YoutubeIcon, buttonName: "Add a link" },
 ]

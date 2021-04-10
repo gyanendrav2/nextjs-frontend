@@ -29,7 +29,8 @@ const useStyles = makeStyles({
     },
     menuIcon: {
         fontSize: "2rem",
-        color: (props) => (props.mobileMenuIconColor ? props.mobileMenuIconColor : colors.white),
+        // color: (props) => (props.mobileMenuIconColor ? props.mobileMenuIconColor : colors.white),
+        color: colors.white,
     },
 })
 

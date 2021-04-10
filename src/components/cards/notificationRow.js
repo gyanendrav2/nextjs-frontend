@@ -44,7 +44,7 @@ const useStyles = makeStyles({
         height: "2.5rem",
         marginLeft: "auto",
     },
-    date1: {
+    mobileDate: {
         display: "none",
         marginLeft: "4rem",
         marginTop: "0.6rem",
@@ -53,7 +53,7 @@ const useStyles = makeStyles({
             display: "block",
         },
     },
-    date2: {
+    desktopDate: {
         display: "block",
         color: colors.lightGray,
         "@media (max-width: 500px)": {
@@ -69,7 +69,7 @@ export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, i
                 <Avatar src={image} />
                 <Typography className={classes.title}>{title}</Typography>
             </Grid>
-            <Typography className={classes.date1}>25.10.20</Typography>
+            <Typography className={classes.mobileDate}>25.10.20</Typography>
             <Grid
                 container
                 alignItems="center"
@@ -86,7 +86,7 @@ export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, i
                 )}
                 <CustomButton label="Accept" externalclass={classes.acceptButton} onClick={onAcceptClick} />
             </Grid>
-            <Typography className={classes.date2}>25.10.20</Typography>
+            <Typography className={classes.desktopDate}>25.10.20</Typography>
         </Grid>
     )
 }

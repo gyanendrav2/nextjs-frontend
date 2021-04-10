@@ -164,7 +164,6 @@ export const Discovery = ({ details }) => {
     const setProjectInitially = () => {
         if (featuredProjects) {
             const tempCategory = []
-            // eslint-disable-next-line react/prop-types
             featuredProjects.forEach((item) => {
                 if (!tempCategory.includes(item.category)) {
                     tempCategory.push(item.category)
@@ -216,7 +215,6 @@ export const Discovery = ({ details }) => {
                 ) : (
                     <Slider {...settings}>
                         {hero &&
-                            // eslint-disable-next-line react/prop-types
                             hero.map((item, index) => {
                                 return (
                                     <div key={index} className={classes.carouselContainer}>

@@ -1,7 +1,7 @@
 import React from "react"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import classnames from "classnames"
-import { Grid, makeStyles } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../buttons/customButton"
 
@@ -12,10 +12,11 @@ const useStyles = makeStyles({
         paddingTop: "0.4rem",
     },
     icon: {
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.white,
         borderRadius: "50%",
         width: "2.5rem",
         height: "2.5rem",
+        color: colors.lighterGray,
     },
     button: {
         height: "2.5rem",
@@ -29,8 +30,12 @@ export const AccountsLinks = ({ icon, onClick, externalclass }) => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.wrapper}>
-            <img alt="youtube" src={icon} className={classnames(classes.icon, externalclass)} />
-            <CustomButton label="Add a link" externalclass={classes.button} onClick={onClick} />
+            {/* <img alt="youtube" src={icon} className={classnames(classes.icon, externalclass)} /> */}
+            {/* <icon /> */}
+            <Typography>
+                <icon width={40} height={40} className={classnames(classes.icon, externalclass)} />
+            </Typography>
+            <CustomButton label="Add a link" disableRipple externalclass={classes.button} onClick={onClick} />
         </Grid>
     )
 }

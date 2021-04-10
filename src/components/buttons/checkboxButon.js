@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from "react"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core"
@@ -22,6 +21,9 @@ export const CheckboxButton = ({ labelText }) => {
         </div>
     )
 }
-CheckboxButton.prototypes = {
+CheckboxButton.defaultProps = {
+    labelText: " ",
+}
+CheckboxButton.propTypes = {
     labelText: PropTypes.string,
 }

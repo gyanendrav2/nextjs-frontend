@@ -1,24 +1,31 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
+import classnames from "classnames"
 import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
+        padding: "2rem",
     },
     title: {
-        textTransform: "uppercase",
+        marginBottom: "2rem",
+        // marginLeft: "-1.5rem",
+    },
+    inputLabel: {
         fontWeight: "bold",
-        fontSize: "0.875rem",
-        lineHeight: "1rem",
-        color: colors.lighterGray,
-        textAlign: "left",
-        paddingLeft: "1rem",
-        paddingTop: "1rem",
+        fontSize: "1rem",
+        lineHeight: "1.374rem",
+        marginBottom: "0.5rem",
+    },
+    changeTypo: {
+        marginTop: "2rem",
     },
     inputStyles: {
         color: colors.black,
+        //  width: "20.187rem",
+        width: "50%",
     },
 })
 
@@ -26,15 +33,12 @@ export const ProfileContent = () => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
-            <Typography className={classes.title}>Profile</Typography>
-            <Typography>Account Email</Typography>
-            <InputWithLabelIcon
-                placeholder="Email"
-                label="Account Email"
-                name="username"
-                externalclass={classes.inputStyles}
-            />
-            <Typography>Change Password</Typography>
+            <Typography variant="h6" className={classes.title}>
+                Profile
+            </Typography>
+            <Typography className={classes.inputLabel}>Account Email</Typography>
+            <InputWithLabelIcon placeholder="Email" name="username" externalclass={classes.inputStyles} />
+            <Typography className={classnames(classes.inputLabel, classes.changeTypo)}>Change Password</Typography>
             <InputWithLabelIcon
                 placeholder="Insert current password"
                 // name="username"

@@ -16,10 +16,7 @@ const useStyles = makeStyles({
         padding: "0.625rem 3rem",
         color: colors.black,
     },
-    title: {
-        color: colors.lightGray,
-        fontSize: "0.85rem",
-    },
+    title: { marginBottom: "1.5rem" },
     wrap: {
         flexWrap: "nowrap",
         "@media (max-width:767px)": {
@@ -48,7 +45,9 @@ export const ConvertVideoOrPhoto = () => {
                 onClose={() => setCodeCopyModal(false)}
             />
             <Box className={classes.wrapper}>
-                <Typography className={classes.title}>COVER VIDEO OR PHOTO</Typography>
+                <Typography variant="h6" className={classes.title}>
+                    COVER VIDEO OR PHOTO
+                </Typography>
                 <Grid container alignItems="center" justify="space-between" className={classes.wrap}>
                     <CustomButton
                         label="Copy embed video"

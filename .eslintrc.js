@@ -4,7 +4,8 @@ module.exports = {
         window: true,
         document: true,
         Image: true,
-        navigator: true
+        navigator: true,
+        localStorage: true
     },
     extends: [
         "@prismx/eslint-config",

@@ -35,8 +35,9 @@ const useStyles = makeStyles({
     label: {
         marginBottom: "0.22rem",
         fontSize: "0.85rem",
-        fontWeight: 400,
+        fontWeight: (props) => (props.fontWeight ? props.fontWeight : 400),
         color: (props) => (props.labelColor ? props.labelColor : colors.black),
+        marginLeft: (props) => (props.labelMargin ? props.labelMargin : "initial"),
     },
     inputContainer: {
         width: "100%",
@@ -54,10 +55,12 @@ export const InputWithLabelIcon = ({
     inputRegister,
     errorMsg,
     name,
+    fontWeight,
     iconOnClick,
+    labelMargin,
     ...props
 }) => {
-    const classes = useStyles({ error: !!errorMsg.message, labelColor })
+    const classes = useStyles({ error: !!errorMsg.message, labelColor, fontWeight, labelMargin })
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classnames(classes.label)}>{label}</Typography>
@@ -97,7 +100,9 @@ InputWithLabelIcon.defaultProps = {
     errorMsg: {},
     externalclass: "",
     labelColor: "",
+    fontWeight: "",
     iconOnClick: () => {},
+    labelMargin: "",
 }
 
 InputWithLabelIcon.propTypes = {
@@ -115,4 +120,6 @@ InputWithLabelIcon.propTypes = {
     externalclass: PropTypes.string,
     labelColor: PropTypes.string,
     iconOnClick: PropTypes.func,
+    fontWeight: PropTypes.string,
+    labelMargin: PropTypes.string,
 }

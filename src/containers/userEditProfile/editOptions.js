@@ -19,13 +19,16 @@ const useStyles = makeStyles({
         marginRight: "2rem",
     },
     col1item: {
-        padding: "1rem",
+        padding: "1.312rem",
         fontSize: "1rem",
         lineHeight: "1.375rem",
         borderBottom: `1px solid ${colors.lightGray}`,
         width: "100%",
         borderLeft: `0.5rem solid ${colors.white}`,
         cursor: "pointer",
+        "&:last-child": {
+            borderBottom: "none",
+        },
     },
 })
 
