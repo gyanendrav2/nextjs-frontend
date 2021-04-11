@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { useRouter } from "next/router"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { ModalComponent } from "./modalComponent"
 import { TextArea } from "../inputs/textArea"
@@ -49,10 +48,11 @@ export const SendDetailsModal = ({
     isTextArea,
     textAreaValue,
     hideCount,
+    onConfirm,
+    onLinkChange,
     externalclass,
 }) => {
     const classes = useStyles()
-    const routes = useRouter()
     const [description, setDescription] = useState(textAreaValue)
     const handleDescription = (e) => {
         console.log(e)
@@ -77,16 +77,12 @@ export const SendDetailsModal = ({
                             )}
                         </>
                     ) : (
-                        <InputWithLabelIcon placeholder="Paste URL" />
+                        <InputWithLabelIcon placeholder="Paste URL" onChange={onLinkChange} />
                     )}
                 </Box>
                 <Grid container spacing={2} alignItems="center" justify="center">
                     <CustomButton variant="cancel" label="Cancel" externalclass={classes.button} onClick={onClose} />
-                    <CustomButton
-                        label="Confirm"
-                        externalclass={classes.button}
-                        onClick={() => routes.push("/notifications")}
-                    />
+                    <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
                 </Grid>
             </Grid>
         </ModalComponent>
@@ -99,6 +95,8 @@ SendDetailsModal.defaultProps = {
     textAreaValue: "",
     hideCount: false,
     externalclass: "",
+    onConfirm: () => {},
+    onLinkChange: () => {},
 }
 
 SendDetailsModal.propTypes = {
@@ -111,4 +109,6 @@ SendDetailsModal.propTypes = {
     textAreaValue: PropTypes.string,
     hideCount: PropTypes.bool,
     externalclass: PropTypes.string,
+    onConfirm: PropTypes.func,
+    onLinkChange: PropTypes.func,
 }

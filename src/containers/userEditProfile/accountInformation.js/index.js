@@ -64,6 +64,9 @@ export const AccountInformation = () => {
     const [roleOptionsData, setRoleOptionsData] = useState(roleOptions)
     const [roles, setRoles] = useState([])
     const [showLinkModal, setLinkModal] = useState(false)
+    const [accountsData, setAccountsData] = useState(accountsLinksData)
+    const [activeLinkFor, setActiveLinkFor] = useState()
+    const [link, setLink] = useState("")
 
     const handleRoles = (e, i) => {
         const data = [...roles]
@@ -81,11 +84,30 @@ export const AccountInformation = () => {
         data.splice(i, 1)
         setRoles(data)
     }
+    const handleLink = (e) => {
+        setLink(e.target.value)
+    }
+    const handleAddLink = () => {
+        const data = [...accountsData]
+        data[activeLinkFor].link = link
+        setAccountsData(data)
+        setLink("")
+        setLinkModal(false)
+    }
+
+    const handleDeleteLink = (i) => {
+        const data = [...accountsData]
+        data.splice(i, 1)
+        setAccountsData(data)
+    }
+
     return (
         <>
             <SendDetailsModal
                 modalName="Insert a hyperlink"
                 isOpen={showLinkModal}
+                onLinkChange={handleLink}
+                onConfirm={handleAddLink}
                 onClose={() => setLinkModal(false)}
             />
             <Box className={classes.wrapper}>
@@ -165,8 +187,16 @@ export const AccountInformation = () => {
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <Typography>Accounts and links</Typography>
-                                {accountsLinksData.map((item) => (
-                                    <AccountsLinks icon={item.icon} onClick={() => setLinkModal(true)} />
+                                {accountsData.map((item, i) => (
+                                    <AccountsLinks
+                                        icon={item.icon}
+                                        link={item.link}
+                                        onDelete={() => handleDeleteLink(i)}
+                                        onClick={() => {
+                                            setActiveLinkFor(i)
+                                            setLinkModal(true)
+                                        }}
+                                    />
                                 ))}
                             </Grid>
                         </Grid>

@@ -1,9 +1,10 @@
 import React from "react"
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
-import classnames from "classnames"
+// import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../buttons/customButton"
+import { DeleteIcon } from "../icons/deleteIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -13,11 +14,11 @@ const useStyles = makeStyles({
         color: colors.lighterGray,
     },
     icon: {
-        backgroundColor: colors.white,
+        backgroundColor: colors.lighterGray,
         borderRadius: "50%",
         width: "2.5rem",
         height: "2.5rem",
-        color: colors.lighterGray,
+        color: colors.white,
     },
     button: {
         height: "2.5rem",
@@ -25,25 +26,46 @@ const useStyles = makeStyles({
         backgroundColor: colors.lightGray,
         color: colors.black,
     },
+    deleteIconButton: {
+        backgroundColor: colors.lightGray,
+    },
+    link: {
+        maxWidth: "14rem",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "pre",
+    },
 })
 
-export const AccountsLinks = ({ icon, onClick, externalclass }) => {
+export const AccountsLinks = ({ icon, onClick, link, onDelete }) => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.wrapper}>
             {icon}
-            <CustomButton label="Add a link" disableRipple externalclass={classes.button} onClick={onClick} />
+            {link && <Typography className={classes.link}>{link}</Typography>}
+            {link ? (
+                <CustomButton
+                    variant="iconButton"
+                    icon={<DeleteIcon />}
+                    externalclass={classes.deleteIconButton}
+                    onClick={onDelete}
+                />
+            ) : (
+                <CustomButton label="Add a link" disableRipple externalclass={classes.button} onClick={onClick} />
+            )}
         </Grid>
     )
 }
 
 AccountsLinks.defaultProps = {
     icon: "",
-    externalclass: "",
+    link: "",
+    onDelete: () => {},
 }
 
 AccountsLinks.propTypes = {
     icon: PropTypes.string,
     onClick: PropTypes.func.isRequired,
-    externalclass: PropTypes.string,
+    link: PropTypes.string,
+    onDelete: PropTypes.func,
 }

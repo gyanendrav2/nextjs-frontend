@@ -1,6 +1,7 @@
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import classnames from "classnames"
+import { useRouter } from "next/router"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 import { MarkSpamIcon } from "../icons/markspamIcon"
@@ -70,6 +71,7 @@ const useStyles = makeStyles({
 
 export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
     const classes = useStyles({ dialogcontentStyle })
+    const routes = useRouter()
     const [showParticipantModal, setShowParticipantModal] = useState(false)
 
     return (
@@ -81,6 +83,7 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                 isTextArea
                 isOpen={showParticipantModal}
                 onClose={() => setShowParticipantModal(false)}
+                onConfirm={() => routes.push("/notifications")}
                 externalclass={classes.modaltitle}
             />
             <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
