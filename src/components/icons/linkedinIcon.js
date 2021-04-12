@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export const InstagramIcon = (props) => {
+export const LinkedinIcon = (props) => {
     return (
         <svg width={40} height={40} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
@@ -12,12 +12,12 @@ export const InstagramIcon = (props) => {
     )
 }
 
-InstagramIcon.defaultProps = {
+LinkedinIcon.defaultProps = {
     width: 40,
     height: 40,
 }
 
-InstagramIcon.propTypes = {
+LinkedinIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }

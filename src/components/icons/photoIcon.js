@@ -65,4 +65,3 @@ PhotoIcon.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }
-

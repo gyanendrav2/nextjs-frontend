@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>
             boxShadow: theme.shadows[5],
             padding: theme.spacing(4),
             maxWidth: "70.625rem",
-            maxHeight: "43.125rem",
+            maxHeight: (props) => (props.maxHeight ? props.maxHeight : "43.125rem"),
             overflowY: "auto",
             marginLeft: "auto",
             marginRight: "auto",
@@ -51,8 +51,8 @@ const useStyles = makeStyles((theme) =>
     })
 )
 
-export const ModalComponent = ({ handleClose, openOrNot, children, onClose }) => {
-    const classes = useStyles()
+export const ModalComponent = ({ handleClose, openOrNot, children, onClose, maxHeight }) => {
+    const classes = useStyles({ maxHeight })
 
     return (
         <Box>
@@ -82,10 +82,12 @@ export const ModalComponent = ({ handleClose, openOrNot, children, onClose }) =>
 }
 ModalComponent.defaultProps = {
     handleClose: () => {},
+    maxHeight: "",
 }
 ModalComponent.propTypes = {
     handleClose: PropTypes.func,
     openOrNot: PropTypes.bool.isRequired,
     children: PropTypes.element.isRequired,
     onClose: PropTypes.func.isRequired,
+    maxHeight: PropTypes.string,
 }

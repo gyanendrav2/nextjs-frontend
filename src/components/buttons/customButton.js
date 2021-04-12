@@ -143,6 +143,18 @@ const useStyles = makeStyles({
         //     fontSize: "1rem",
         // },
     },
+    textButton: {
+        backgroundColor: "transparent",
+        color: colors.pink,
+        borderRadius: 0,
+        textTransform: "capitalize",
+        height: "3.5rem",
+        width: "content-fit",
+        "&:hover": {
+            color: colors.pink,
+            backgroundColor: "transparent",
+        },
+    },
 })
 
 const allButtons = ({ classes, handleClick, variant, label, icon, externalclass, ...props }) => {
@@ -220,6 +232,13 @@ const allButtons = ({ classes, handleClick, variant, label, icon, externalclass,
                     className={classnames(classes.cancel, externalclass)}
                     onClick={handleClick}
                     {...props}>
+                    {label}
+                </Button>
+            )
+        }
+        case "textButton": {
+            return (
+                <Button className={classnames(classes.textButton, externalclass)} onClick={handleClick} {...props}>
                     {label}
                 </Button>
             )

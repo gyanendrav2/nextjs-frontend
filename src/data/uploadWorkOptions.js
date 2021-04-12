@@ -5,4 +5,5 @@ export const uploadWorkOptions = [
     { optionName: "Add content block 2 (optional)", pathSlug: "content-block-2" },
     { optionName: "Add content block 3 (optional)", pathSlug: "content-block-3" },
     { optionName: "Add content block 4 (optional)", pathSlug: "content-block-4" },
+    { optionName: "Add a gallery (optional)", pathSlug: "add-gallery" },
 ]

@@ -55,11 +55,14 @@ export const SendDetailsModal = ({
     const classes = useStyles()
     const [description, setDescription] = useState(textAreaValue)
     const handleDescription = (e) => {
-        console.log(e)
         const { value } = e.target
-        if (value.length <= 120) {
-            setDescription(e.target.value)
+        if (!hideCount) {
+            if (value.length <= 120) {
+                setDescription(e.target.value)
+                return
+            }
         }
+        setDescription(e.target.value)
     }
     return (
         <ModalComponent openOrNot={isOpen} onClose={onClose}>

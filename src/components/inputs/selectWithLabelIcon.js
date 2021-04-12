@@ -101,7 +101,7 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "1rem",
+        padding: "0.9rem",
         cursor: "pointer",
         userSelect: "none",
         position: "relative",
