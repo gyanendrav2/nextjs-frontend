@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useRef, useState } from "react"
+import React, { createRef, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { ModalComponent } from "./modalComponent"
