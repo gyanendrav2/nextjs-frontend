@@ -8,7 +8,6 @@ import { TextArea } from "../../../components/inputs/textArea"
 import { colors } from "../../../theme/colors"
 import { accountsLinksData } from "../../../data/accountsLinks"
 import { AccountsLinks } from "../../../components/cards/accountsLinks"
-import { ConvertVideoOrPhoto } from "./convertVideoOrPhoto"
 import { CancelSave } from "./cancelSave"
 import AddIcon from "../../../components/icons/addIcon"
 import { ChipCards } from "../../../components/cards/chipCards"
@@ -56,6 +55,13 @@ const useStyles = makeStyles({
     },
     LastName: {
         marginLeft: "8px",
+        "@media (min-width:200px) and (max-width:767px)": {
+            marginLeft: "0",
+        },
+    },
+    accountsTitle: {
+        marginTop: "2rem",
+        marginBottom: "1rem",
     },
 })
 
@@ -117,7 +123,7 @@ export const AccountInformation = () => {
                 <Grid container alignItems="flex-start" justify="flex-start">
                     <Box className={classes.col1}>
                         <Avatar className={classes.avatar} src={images.maskGroup} />
-                        <CustomButton disableRipple className={classes.addIcon} wantFile label={<AddIcon />} />
+                        <CustomButton className={classes.addIcon} wantFile label={<AddIcon />} />
                     </Box>
                     <Box className={classes.col2}>
                         <Grid container>
@@ -125,7 +131,7 @@ export const AccountInformation = () => {
                                 <InputWithLabelIcon
                                     fontWeight="700"
                                     label="First Name"
-                                    externalclass={classnames(classes.inputHeight, classes.firstName)}
+                                    externalclass={classnames(classes.inputHeight)}
                                     labelColor={colors.lighterGray}
                                     placeholder="First name"
                                 />
@@ -186,7 +192,9 @@ export const AccountInformation = () => {
                                 <TextArea placeholder="Describe yourself" label="Choose city" height="7.687rem" />
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <Typography>Accounts and links</Typography>
+                                <Typography variant="h5" className={classes.accountsTitle}>
+                                    Accounts and links
+                                </Typography>
                                 {accountsData.map((item, i) => (
                                     <AccountsLinks
                                         icon={item.icon}
@@ -203,7 +211,6 @@ export const AccountInformation = () => {
                     </Box>
                 </Grid>
             </Box>
-            <ConvertVideoOrPhoto />
             <CancelSave />
         </>
     )

@@ -50,7 +50,7 @@ const useStyles = makeStyles({
         border: "none",
         outline: "none",
         padding: "0.625rem",
-        color: colors.black,
+        color: (props) => (props.labelColor ? props.labelColor : colors.black),
         borderRadius: "3px",
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`,
@@ -90,7 +90,7 @@ const useStyles = makeStyles({
         overflowY: "auto",
     },
     placeholder: {
-        color: colors.lightGray,
+        color: colors.lighterGray,
     },
     checkBoxContainer: {
         display: "flex!important",
@@ -101,7 +101,7 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "0.9rem",
+        padding: "1rem",
         cursor: "pointer",
         userSelect: "none",
         position: "relative",
@@ -219,7 +219,6 @@ export const SelectWithLabelIcon = ({
                                             <Typography className={classes.checkBoxContainer} key={i}>
                                                 {item.label}
                                                 <Checkbox
-                                                    disableRipple
                                                     color="default"
                                                     onClick={() => handleOptionSelect(item, i)}
                                                     checked={item.checked}

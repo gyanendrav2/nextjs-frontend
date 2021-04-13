@@ -1,6 +1,54 @@
-div.slider {
-    height: 45rem !important;
+.project__slider {
+    div.slider {
+        height: 45rem !important;
+    }
+    .slider-control-centerleft,
+    .slider-control-centerright {
+        transform: translateY(25.3rem) !important;
+    }
+    .slider-control-centerleft {
+        padding-left: 5rem;
+    }
+    .slider-control-centerright {
+        padding-right: 5rem;
+    }
+    .slider-control-bottomcenter {
+        display: none;
+    }
+
+    @media (max-width: 425px) {
+        div.slider {
+            height: 11.687rem !important;
+            img {
+                height: 11.687rem !important;
+            }
+        }
+        .slider-control-centerleft,
+        .slider-control-centerright {
+            transform: translateY(9rem) !important;
+        }
+        .slider-control-centerleft {
+            padding-left: 1rem;
+        }
+        .slider-control-centerright {
+            padding-right: 1rem;
+        }
+    }
+
+    @media (min-width: 426px) and (max-width: 768px) {
+        div.slider {
+            height: 24rem !important;
+            img {
+                height: 24rem !important;
+            }
+        }
+        .slider-control-centerleft,
+        .slider-control-centerright {
+            transform: translateY(15.3rem) !important;
+        }
+    }
 }
+
 .slider {
     .slider-frame,
     img,
@@ -13,51 +61,5 @@ div.slider {
     }
     &:focus {
         outline: none;
-    }
-}
-
-.slider-control-centerleft,
-.slider-control-centerright {
-    transform: translateY(25.3rem) !important;
-}
-.slider-control-centerleft {
-    padding-left: 5rem;
-}
-.slider-control-centerright {
-    padding-right: 5rem;
-}
-.slider-control-bottomcenter {
-    display: none;
-}
-
-@media (max-width: 425px) {
-    div.slider {
-        height: 11.687rem !important;
-        img {
-            height: 11.687rem !important;
-        }
-    }
-    .slider-control-centerleft,
-    .slider-control-centerright {
-        transform: translateY(9rem) !important;
-    }
-    .slider-control-centerleft {
-        padding-left: 1rem;
-    }
-    .slider-control-centerright {
-        padding-right: 1rem;
-    }
-}
-
-@media (min-width: 426px) and (max-width: 768px) {
-    div.slider {
-        height: 24rem !important;
-        img {
-            height: 24rem !important;
-        }
-    }
-    .slider-control-centerleft,
-    .slider-control-centerright {
-        transform: translateY(15.3rem) !important;
     }
 }

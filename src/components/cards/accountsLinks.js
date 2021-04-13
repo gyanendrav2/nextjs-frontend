@@ -1,7 +1,6 @@
 import React from "react"
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
-// import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../buttons/customButton"
 import { DeleteIcon } from "../icons/deleteIcon"
@@ -11,14 +10,7 @@ const useStyles = makeStyles({
         borderBottom: `1px solid ${colors.lightGray}`,
         paddingBottom: "0.4rem",
         paddingTop: "0.4rem",
-        color: colors.lighterGray,
-    },
-    icon: {
-        backgroundColor: colors.lighterGray,
-        borderRadius: "50%",
-        width: "2.5rem",
-        height: "2.5rem",
-        color: colors.white,
+        color: (props) => (props.link ? colors.black : colors.lightGray),
     },
     button: {
         height: "2.5rem",
@@ -38,7 +30,7 @@ const useStyles = makeStyles({
 })
 
 export const AccountsLinks = ({ icon, onClick, link, onDelete }) => {
-    const classes = useStyles()
+    const classes = useStyles({ link })
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.wrapper}>
             {icon}
@@ -51,7 +43,7 @@ export const AccountsLinks = ({ icon, onClick, link, onDelete }) => {
                     onClick={onDelete}
                 />
             ) : (
-                <CustomButton label="Add a link" disableRipple externalclass={classes.button} onClick={onClick} />
+                <CustomButton label="Add a link" externalclass={classes.button} onClick={onClick} />
             )}
         </Grid>
     )

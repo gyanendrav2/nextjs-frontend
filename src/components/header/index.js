@@ -147,7 +147,7 @@ Header.propTypes = {
             id: PropTypes.number,
             name: PropTypes.string,
             pathname: PropTypes.string,
-        }).isRequired
+        })
     ),
     isAuthenticated: PropTypes.bool,
 }

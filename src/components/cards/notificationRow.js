@@ -23,12 +23,19 @@ const useStyles = makeStyles({
         borderBottom: `1px solid ${colors.lightGray}`,
         "@media (max-width: 767px)": {
             flexWrap: "wrap",
+            padding: "1rem 0",
         },
     },
     buttonContainer: {
         maxWidth: "15rem",
         marginRight: "4.125rem",
         marginLeft: "4.125rem",
+        "@media (max-width: 576px)": {
+            marginLeft: "2.25rem",
+            marginRight: "0rem",
+            marginTop: "1rem",
+            // marginLeft: "4.125rem",
+        },
     },
     declineButton: {
         backgroundColor: "transparent",
@@ -43,25 +50,29 @@ const useStyles = makeStyles({
         color: colors.black,
         height: "2.5rem",
         marginLeft: "auto",
+        width: "9rem",
+        "@media (max-width: 767px)": {
+            marginLeft: "1.25rem",
+        },
     },
     mobileDate: {
         display: "none",
         marginLeft: "4rem",
         marginTop: "0.6rem",
         color: colors.lightGray,
-        "@media (max-width: 500px)": {
+        "@media (max-width: 576px)": {
             display: "block",
         },
     },
     desktopDate: {
         display: "block",
         color: colors.lightGray,
-        "@media (max-width: 500px)": {
+        "@media (max-width: 576px)": {
             display: "none",
         },
     },
 })
-export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, isDeclinable }) => {
+export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, isDeclinable, buttonLabel }) => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.notificationWrapper}>
@@ -77,14 +88,9 @@ export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, i
                 wrap="nowrap"
                 className={classes.buttonContainer}>
                 {isDeclinable && (
-                    <CustomButton
-                        label="Decline"
-                        externalclass={classes.declineButton}
-                        disableRipple
-                        onClick={onDeclineClick}
-                    />
+                    <CustomButton label="Decline" externalclass={classes.declineButton} onClick={onDeclineClick} />
                 )}
-                <CustomButton label="Accept" externalclass={classes.acceptButton} onClick={onAcceptClick} />
+                <CustomButton label={buttonLabel} externalclass={classes.acceptButton} onClick={onAcceptClick} />
             </Grid>
             <Typography className={classes.desktopDate}>25.10.20</Typography>
         </Grid>
@@ -94,6 +100,7 @@ export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, i
 NotificationRow.defaultProps = {
     onDeclineClick: () => {},
     isDeclinable: false,
+    buttonLabel: "",
 }
 
 NotificationRow.propTypes = {
@@ -102,4 +109,5 @@ NotificationRow.propTypes = {
     onAcceptClick: PropTypes.string.isRequired,
     isDeclinable: PropTypes.bool,
     onDeclineClick: PropTypes.string,
+    buttonLabel: PropTypes.string,
 }

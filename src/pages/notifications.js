@@ -21,6 +21,10 @@ const useStyles = makeStyles({
         paddingBottom: "1.5rem",
         borderBottom: `1px solid ${colors.lightGray}`,
     },
+    modaltitle: {
+        marginTop: "1.5rem",
+        color: colors.lighterGray,
+    },
 })
 const UserNotifications = () => {
     const classes = useStyles()
@@ -33,6 +37,7 @@ const UserNotifications = () => {
                 placeholder="Add a message to the requester"
                 isTextArea
                 isOpen={showDeclineModal}
+                externalclass={classes.modaltitle}
                 onClose={() => setShowDeclineModal(false)}
             />
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
@@ -42,14 +47,21 @@ const UserNotifications = () => {
                     title="Peter Pan requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”"
                     isDeclinable
                     onDeclineClick={() => setShowDeclineModal(true)}
+                    buttonLabel="Accept"
                 />
-                <NotificationRow title="Sarah Faulson followed you" onAcceptClick={() => {}} />
+                <NotificationRow
+                    title="Sarah Faulson followed you"
+                    onAcceptClick={() => {}}
+                    buttonLabel="Follow  back"
+                />
                 <NotificationRow
                     title="Mike Magic liked your project “SiR - Hair Down (Official Video) ft. Kendrick Lamar”"
+                    buttonLabel="Follow  back"
                     onAcceptClick={() => {}}
                 />
                 <NotificationRow
                     title="You project has been uploaded “SiR - Hair Down (Official Video) ft. Kendrick Lamar”"
+                    buttonLabel="Follow  back"
                     onAcceptClick={() => {}}
                 />
             </Box>

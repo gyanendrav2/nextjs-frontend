@@ -5,7 +5,7 @@ import { TwoColGrid } from "../../components/grid/twoColGrid"
 import { HeaderWrapper } from "../../components/header/headerWrapper"
 import { colors } from "../../theme/colors"
 import { Footer } from "../../components/footer"
-import { AccountInformation } from "../../containers/userEditProfile/accountInformation.js"
+import { AccountInformation } from "../../containers/userEditProfile/accountInformation"
 import { EditOptions } from "../../containers/userEditProfile/editOptions"
 import ShowReel from "../../containers/userEditProfile/showreel"
 
@@ -14,14 +14,18 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary,
         padding: "7rem 10rem 2rem 10rem",
         "@media (min-width:200px) and (max-width:767px)": {
-            padding: "7rem 1rem 2rem 1rem",
+            padding: "6rem 0rem 2rem 1rem",
         },
         "@media (min-width:768px) and (max-width:1350px)": {
             padding: "7rem 2rem 2rem 2rem",
         },
     },
     mainTitle: {
+        marginTop: "2rem",
         marginBottom: "2rem",
+        "@media (min-width:200px) and (max-width:767px)": {
+            marginBottom: "1.5rem",
+        },
     },
     activeOption: {
         fontWeight: 800,
@@ -45,9 +49,9 @@ const useStyles = makeStyles({
         width: "100%",
     },
 
-    deleteContainer: {
-        backgroundColor: colors.white,
-    },
+    // deleteContainer: {
+    //     backgroundColor: colors.white,
+    // },
 
     radioboxWrapper: {
         margin: "2rem 0 0 0",
@@ -76,8 +80,6 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary,
         position: "relative",
     },
-    // posRelative: {
-    // },
 })
 const EditProfile = () => {
     const classes = useStyles()

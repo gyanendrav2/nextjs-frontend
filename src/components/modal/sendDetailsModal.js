@@ -22,6 +22,9 @@ const useStyles = makeStyles({
             height: "7.5rem",
             resize: "vertical",
         },
+        "@media(max-width:768px)": {
+            padding: "1rem 0",
+        },
     },
     button: {
         width: "18.375rem",

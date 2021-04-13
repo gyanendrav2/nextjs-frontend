@@ -6,7 +6,7 @@ import { CustomButton } from "../buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
-        backgroundColor: colors.lighterPrimary,
+        backgroundColor: colors.white,
         width: "100%",
     },
     submitContainer: {
@@ -21,7 +21,6 @@ const useStyles = makeStyles({
     },
     submitBtn: {
         width: "100%",
-        // padding: "1rem",
         cursor: "pointer",
     },
     Btn: {
@@ -34,7 +33,6 @@ const useStyles = makeStyles({
 
 export const UserConfirmContainer = ({ settingsPage, onConfirmClicked }) => {
     const classes = useStyles()
-    // const handleAddCategory = () => {}
 
     return (
         <Box className={classes.wrapper}>

@@ -13,6 +13,13 @@ const theme = createMuiTheme({
             lineHeight: "2.75rem",
             fontFamily: "Forno-Trial",
         },
+        h5: {
+            fontFamily: "Forno-Trial",
+            fontHeight: "bold",
+            fontSize: "1.375rem",
+            lineHeight: "2.5rem",
+            color: colors.black,
+        },
         h6: {
             fontSize: "0.875rem",
             lineHeight: "1rem",
@@ -22,8 +29,9 @@ const theme = createMuiTheme({
         },
     },
     props: {
-        MuiTab: {
-            disableRipple: true,
+        MuiButtonBase: {
+            // The properties to apply
+            disableRipple: true, // No more ripple, on the whole application 💣!
         },
     },
 })

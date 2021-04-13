@@ -38,6 +38,9 @@ const useStyles = makeStyles({
         fontWeight: (props) => (props.fontWeight ? props.fontWeight : 400),
         color: (props) => (props.labelColor ? props.labelColor : colors.black),
         marginLeft: (props) => (props.labelMargin ? props.labelMargin : "initial"),
+        // "@media (min-width:200px) and (max-width:px)": {
+        //     marginLeft: "0px",
+        // },
     },
     inputContainer: {
         width: "100%",

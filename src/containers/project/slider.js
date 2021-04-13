@@ -26,7 +26,7 @@ export const Slider = () => {
     const classes = useStyles()
 
     return (
-        <>
+        <div className="project__slider">
             <Carousel
                 renderCenterLeftControls={({ previousSlide, currentSlide }) => (
                     <SliderButton
@@ -52,7 +52,7 @@ export const Slider = () => {
                 <img src={images.fullWidthImage} className={classes.image} alt="" />
             </Carousel>
             <Box className={classes.seperator} />
-        </>
+        </div>
     )
 }
 

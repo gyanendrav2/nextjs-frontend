@@ -1,13 +1,16 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
 import classnames from "classnames"
-import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
-import { colors } from "../../../theme/colors"
+import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
         padding: "2rem",
+        "@media(max-width:576px)": {
+            padding: "1rem",
+        },
     },
     title: {
         marginBottom: "2rem",
@@ -26,6 +29,9 @@ const useStyles = makeStyles({
         color: colors.black,
         //  width: "20.187rem",
         width: "50%",
+        "@media(max-width:575px)": {
+            width: "100%",
+        },
     },
 })
 

@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { colors } from "../../../theme/colors"
 import { CustomButton } from "../../../components/buttons/customButton"
+import { TwoColCarousel } from "./twoColCarousel"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -26,6 +27,7 @@ export const UploadPhoto = (props) => {
             <Grid container alignItems="center" justify="center" className={classes.innerWrapper}>
                 <CustomButton label="Upload up to 50 photos +" externalclass={classes.button} />
             </Grid>
+            <TwoColCarousel />
         </Box>
     )
 }

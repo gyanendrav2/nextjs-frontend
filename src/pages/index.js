@@ -2,10 +2,12 @@ import axios from "axios"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import { Discovery } from "../containers/discovery"
+import { API } from "../utility/api"
+import { endpoints } from "../utility/endpoints"
 
 export default function Home({ homeData }) {
     const [data, setData] = useState({ hero: [], curatedCreators: [], featuredProjects: [] })
-
+    console.log(homeData)
     useEffect(() => {
         if (Object.keys(homeData).length > 0) {
             const newData = {
@@ -57,7 +59,7 @@ Home.propTypes = {
 }
 
 Home.getInitialProps = async () => {
-    const result = await axios.get("https://api.mocki.io/v1/58fdd8b2")
-    const data = await result.data
-    return { homeData: data }
+    // const result = await API.get(endpoints.discover)
+    // const data = await result.data
+    return { homeData: {} }
 }

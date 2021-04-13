@@ -23,7 +23,6 @@ export const Adder = ({ onAddClick }) => {
     return (
         <CustomButton
             externalclass={classes.wrapper}
-            disableRipple
             label={<PlusIcon />}
             wantFile
             onFileChange={() => {}}

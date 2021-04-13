@@ -6,9 +6,11 @@ import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
-        marginTop: "1rem",
         padding: "2rem",
         backgroundColor: colors.white,
+        "@media(max-width:576px)": {
+            padding: "1rem",
+        },
     },
     button: {
         backgroundColor: colors.lightGray,

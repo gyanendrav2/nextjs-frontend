@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { createRef } from "react"
 import PropTypes from "prop-types"
 import { Button, makeStyles } from "@material-ui/core"
@@ -145,13 +146,18 @@ const useStyles = makeStyles({
     },
     textButton: {
         backgroundColor: "transparent",
-        color: colors.pink,
+        color: (props) => (props.color ? props.color : colors.pink),
         borderRadius: 0,
         textTransform: "capitalize",
         height: "3.5rem",
         width: "content-fit",
+        "& span": {
+            fontSize: "1rem",
+            lineHeight: "1.375rem",
+            fontFamily: "Helvetica",
+        },
         "&:hover": {
-            color: colors.pink,
+            color: (props) => (props.color ? props.color : colors.pink),
             backgroundColor: "transparent",
         },
     },
@@ -253,8 +259,8 @@ const allButtons = ({ classes, handleClick, variant, label, icon, externalclass,
     }
 }
 
-export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, acceptFileTyle, ...props }) => {
-    const classes = useStyles()
+export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, acceptFileTyle, color, ...props }) => {
+    const classes = useStyles({ color })
     const input = createRef()
     const handleClick = () => {
         if (wantFile) {
@@ -291,6 +297,7 @@ CustomButton.defaultProps = {
     onFileChange: () => {},
     allowMultiple: false,
     acceptFileTyle: "image/*",
+    color: "",
 }
 
 CustomButton.propTypes = {
@@ -303,4 +310,5 @@ CustomButton.propTypes = {
     onFileChange: PropTypes.func,
     allowMultiple: PropTypes.bool,
     acceptFileTyle: PropTypes.string,
+    color: PropTypes.string,
 }

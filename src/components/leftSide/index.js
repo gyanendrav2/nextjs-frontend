@@ -88,7 +88,6 @@ export const LeftSide = () => {
                             checkedIcon={<CheckBoxIcon />}
                             icon={<i className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
-                            disableRipple
                         />
                         <Typography className={classes.checkboxText}>
                             Create personalised profile and upload your work
@@ -100,7 +99,6 @@ export const LeftSide = () => {
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}
                             inputProps={{ "aria-label": "checkbox with default color" }}
-                            disableRipple
                         />
                         <Typography className={classes.checkboxText}>
                             Build your portfolio up by categories of your needs
@@ -109,7 +107,6 @@ export const LeftSide = () => {
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
                             color="default"
-                            disableRipple
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}

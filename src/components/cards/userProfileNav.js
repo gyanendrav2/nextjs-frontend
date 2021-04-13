@@ -11,6 +11,9 @@ const useStyles = makeStyles({
         color: colors.white,
         fontSize: "1rem",
         lineHeight: "1.3rem",
+        "@media (max-width:992px)": {
+            display: "none",
+        },
     },
     autoWidth: {
         width: "auto",
@@ -57,7 +60,7 @@ export const UserProfileNav = ({ userName, profileImg, externalclass }) => {
     }
 
     const handleRoute = () => {
-        routes.push("/")
+        routes.push("/signin")
     }
     const routeSettings = () => {
         routes.push("/settings")

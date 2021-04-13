@@ -26,6 +26,9 @@ const useStyles = makeStyles({
         padding: "6.25rem 0",
         border: `1px solid ${colors.lightGray}`,
         marginBottom: "1.125rem",
+        "& svg": {
+            cursor: "pointer",
+        },
     },
     whiteBg: {
         backgroundColor: colors.white,
@@ -58,6 +61,34 @@ export const UploadVideoPhoto = () => {
     const [showAddTeamMember, setShowAddTeamMember] = useState(false)
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
+    const [photoCode, setPhotoCode] = useState([1])
+    const [photoCodeReverse, setPhotoCodeReverse] = useState([1])
+    const [photoCodeText, setPhotoCodeText] = useState([1])
+    const [photoSliderData, setPhotoSliderData] = useState([1])
+
+    const handleAddPhotoCodeData = () => {
+        const data = [...photoCode]
+        data.push(1)
+        setPhotoCode(data)
+    }
+
+    const handleAddPhotoCodeReverseData = () => {
+        const data = [...photoCodeReverse]
+        data.push(1)
+        setPhotoCodeReverse(data)
+    }
+
+    const handleAddPhotoCodeTextData = () => {
+        const data = [...photoCodeText]
+        data.push(1)
+        setPhotoCodeText(data)
+    }
+
+    const handlePhotoSliderData = () => {
+        const data = [...photoSliderData]
+        data.push(1)
+        setPhotoSliderData(data)
+    }
 
     return (
         <Box>
@@ -115,25 +146,34 @@ export const UploadVideoPhoto = () => {
                 </Grid>
                 {showAddTeamMember && <AddTeamMember />}
             </Grid>
-            <PhotoCodeBox />
+            {photoCode.map((item, i) => (
+                <PhotoCodeBox key={i} />
+            ))}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon />
+                <AddCircleIcon onClick={handleAddPhotoCodeData} />
             </Grid>
-            <PhotoCodeBox flexDirection="row-reverse" />
+            {photoCodeReverse.map((item, i) => (
+                <PhotoCodeBox key={i} flexDirection="row-reverse" />
+            ))}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon />
+                <AddCircleIcon onClick={handleAddPhotoCodeReverseData} />
             </Grid>
-            <Grid container alignItems="center" justify="center" className={classes.wrapper}>
-                <PhotoIcon className={classes.icon} />
-                <CodeIcon className={classes.icon} />
-                <TIcon className={classes.icon} />
-            </Grid>
+            {photoCodeText.map((item, i) => (
+                <Grid key={i} container alignItems="center" justify="center" className={classes.wrapper}>
+                    <PhotoIcon className={classes.icon} />
+                    <CodeIcon className={classes.icon} />
+                    <TIcon className={classes.icon} />
+                </Grid>
+            ))}
+
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon />
+                <AddCircleIcon onClick={handleAddPhotoCodeTextData} />
             </Grid>
-            <UploadPhoto />
+            {photoSliderData.map((item, i) => (
+                <UploadPhoto key={i} />
+            ))}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon />
+                <AddCircleIcon onClick={handlePhotoSliderData} />
             </Grid>
             <Grid container alignItems="center" justify="center" className={classes.socialIconContainer}>
                 <FacebookIcon className={classes.socialIcon} />
