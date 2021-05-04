@@ -251,8 +251,8 @@ export const UploadVideoPhoto = () => {
                         )}
                     </Box>
                 </Grid>
-               
-                {showAddTeamMember && <AddTeamMember />}
+
+                <AddTeamMember shouldVisible={showAddTeamMember} onAdded={() => setShowAddTeamMember(false)} />
             </Grid>
             {photoCode}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>

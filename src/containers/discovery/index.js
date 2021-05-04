@@ -46,6 +46,13 @@ const useStyles = makeStyles({
         "&:focus": {
             outline: "none",
         },
+        "@media (max-width:767px)": {
+            height: "30rem",
+        },
+        "@media (min-width:768px)": {
+            height: "37.5rem",
+        },
+
         // "@media (min-width:1600px)": {
         //     paddingBottom: "56.25%",
         // },
@@ -61,6 +68,10 @@ const useStyles = makeStyles({
         backgroundRepeat: "no-repeat",
         "&:focus": {
             outline: "none",
+        },
+        "@media (max-width:767px)": {
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
         },
     },
     title: {
@@ -103,15 +114,16 @@ const useStyles = makeStyles({
     messageWrapper: {
         position: "relative",
         top: "8.125rem",
-        marginLeft: "3.5rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-start",
         animation: "fadeIn 2s",
-        "@media (max-width:567px)": {
-            marginLeft: 0,
-            marginTop: "1rem",
+        "@media (max-width: 767px)": {
+            top: "4rem",
+        },
+        "@media (min-width:1200px)": {
+            marginLeft: "3.5rem",
         },
     },
     bigSignup: {
@@ -211,7 +223,6 @@ export const Discovery = ({ details }) => {
         arrows: false,
         slidesToScroll: 1,
         dots: false,
-        height: "100vh",
     }
     return (
         <>

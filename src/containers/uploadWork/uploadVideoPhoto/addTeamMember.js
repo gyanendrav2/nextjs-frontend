@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import PropTypes from "prop-types"
 import { Grid, makeStyles } from "@material-ui/core"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
@@ -21,7 +22,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const AddTeamMember = () => {
+export const AddTeamMember = ({ shouldVisible, onAdded }) => {
     const classes = useStyles()
     const [totalTeams, setTotalTeams] = useState([])
     const { register, handleSubmit, errors, reset } = useForm({
@@ -32,28 +33,34 @@ export const AddTeamMember = () => {
         newData.push(data)
         setTotalTeams(newData)
         reset()
+        onAdded()
     }
 
-    console.log(errors)
+    const handleDelete = (i) => {
+        const data = [...totalTeams]
+        data.splice(i, 1)
+        setTotalTeams(data)
+    }
 
     return (
         <>
-            <Teams data={totalTeams} />
-            <form onSubmit={handleSubmit(submit)}>
-                <Grid container spacing={2} className={classes.wrapper}>
-                    <Grid item xs={12} sm={12} md={6}>
-                        <InputWithLabelIcon
-                            labelColor={colors.lighterGray}
-                            fontWeight="bold"
-                            label="First and last name"
-                            placeholder="Mopper Dropper"
-                            name="name"
-                            inputRegister={register}
-                            errorMsg={errors.name}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={6}>
-                        {/* <SelectWithLabelIcon
+            {totalTeams.length > 0 && <Teams data={totalTeams} handleDelete={handleDelete} />}
+            {shouldVisible && (
+                <form onSubmit={handleSubmit(submit)}>
+                    <Grid container spacing={2} className={classes.wrapper}>
+                        <Grid item xs={12} sm={12} md={6}>
+                            <InputWithLabelIcon
+                                labelColor={colors.lighterGray}
+                                fontWeight="bold"
+                                label="First and last name"
+                                placeholder="Mopper Dropper"
+                                name="name"
+                                inputRegister={register}
+                                errorMsg={errors.name}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={6}>
+                            {/* <SelectWithLabelIcon
                             options={roleOptions}
                             labelColor={colors.lighterGray}
                             // customValue="Director"
@@ -65,41 +72,45 @@ export const AddTeamMember = () => {
                             inputRegister={register}
                             errorMsg={errors.jobRole}
                         /> */}
-                        <InputWithLabelIcon
-                            labelColor={colors.lighterGray}
-                            fontWeight="bold"
-                            label="Job role"
-                            placeholder="Gaffer"
-                            name="jobRole"
-                            inputRegister={register}
-                            errorMsg={errors.email}
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={6}>
-                        <InputWithLabelIcon
-                            labelColor={colors.lighterGray}
-                            fontWeight="bold"
-                            label="Email address"
-                            placeholder="mopper@dropper.com"
-                            name="email"
-                            inputRegister={register}
-                            errorMsg={errors.email}
-                        />
-                    </Grid>
-                    <Grid container alignItems="center" justify="flex-end">
-                        <Grid container spacing={2} className={classes.buttonGroup}>
-                            <Grid item xs={12} sm={12} md={6}>
-                                <CustomButton variant="textButton" label="cancel" fullWidth />
-                            </Grid>
-                            <Grid item xs={12} sm={12} md={6}>
-                                <CustomButton label="Confirm" type="submit" fullWidth />
+                            <InputWithLabelIcon
+                                labelColor={colors.lighterGray}
+                                fontWeight="bold"
+                                label="Job role"
+                                placeholder="Gaffer"
+                                name="jobRole"
+                                inputRegister={register}
+                                errorMsg={errors.jobRole}
+                            />
+                        </Grid>
+                        <Grid item xs={12} sm={12} md={6}>
+                            <InputWithLabelIcon
+                                labelColor={colors.lighterGray}
+                                fontWeight="bold"
+                                label="Email address"
+                                placeholder="mopper@dropper.com"
+                                name="email"
+                                inputRegister={register}
+                                errorMsg={errors.email}
+                            />
+                        </Grid>
+                        <Grid container alignItems="center" justify="flex-end">
+                            <Grid container spacing={2} className={classes.buttonGroup}>
+                                <Grid item xs={12} sm={12} md={6}>
+                                    <CustomButton variant="textButton" label="cancel" fullWidth />
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={6}>
+                                    <CustomButton label="Confirm" type="submit" fullWidth />
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
-                </Grid>
-            </form>
+                </form>
+            )}
         </>
     )
 }
 
-AddTeamMember.propTypes = {}
+AddTeamMember.propTypes = {
+    onAdded: PropTypes.func.isRequired,
+    shouldVisible: PropTypes.bool.isRequired,
+}
