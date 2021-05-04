@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Grid, makeStyles } from "@material-ui/core"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
 import { PhotoIcon } from "../../../components/icons/photoIcon"
 import { CodeIcon } from "../../../components/icons/codeIcon"
 import { colors } from "../../../theme/colors"
@@ -11,6 +11,9 @@ const useStyles = makeStyles({
         padding: "2rem",
         marginBottom: "1rem",
         color: colors.white,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
     },
     codeContainer: {
         backgroundColor: colors.lighterPrimary,
@@ -30,8 +33,11 @@ export const PhotoCodeBox = ({ flexDirection }) => {
                     <PhotoIcon className={classes.icon} />
                     <CodeIcon className={classes.icon} />
                 </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Typography variant="h2">Type a headline...</Typography>
+                    <Typography variant="h7">Insert Text...</Typography>
+                </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} lg={6}></Grid>
         </Grid>
     )
 }

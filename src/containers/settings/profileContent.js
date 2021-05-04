@@ -3,6 +3,7 @@ import React from "react"
 import classnames from "classnames"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../theme/colors"
+import { CancelSave } from "../userEditProfile/accountInformation/cancelSave"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -38,34 +39,37 @@ const useStyles = makeStyles({
 export const ProfileContent = () => {
     const classes = useStyles()
     return (
-        <Box className={classes.wrapper}>
-            <Typography variant="h6" className={classes.title}>
-                Profile
-            </Typography>
-            <Typography className={classes.inputLabel}>Account Email</Typography>
-            <InputWithLabelIcon placeholder="Email" name="username" externalclass={classes.inputStyles} />
-            <Typography className={classnames(classes.inputLabel, classes.changeTypo)}>Change Password</Typography>
-            <InputWithLabelIcon
-                placeholder="Insert current password"
-                // name="username"
-                // inputRegister={register}
-                // errorMsg={errors.username}
-                externalclass={classes.inputStyles}
-            />
-            <InputWithLabelIcon
-                placeholder="Insert new password"
-                // name="username"
-                // inputRegister={register}
-                // errorMsg={errors.username}
-                externalclass={classes.inputStyles}
-            />
-            <InputWithLabelIcon
-                placeholder="Repeat new password"
-                // name="username"
-                // inputRegister={register}
-                // errorMsg={errors.username}
-                externalclass={classes.inputStyles}
-            />
-        </Box>
+        <>
+            <Box className={classes.wrapper}>
+                <Typography variant="h6" className={classes.title}>
+                    Profile
+                </Typography>
+                <Typography className={classes.inputLabel}>Account Email</Typography>
+                <InputWithLabelIcon placeholder="Email" name="username" externalclass={classes.inputStyles} />
+                <Typography className={classnames(classes.inputLabel, classes.changeTypo)}>Change Password</Typography>
+                <InputWithLabelIcon
+                    placeholder="Insert current password"
+                    // name="username"
+                    // inputRegister={register}
+                    // errorMsg={errors.username}
+                    externalclass={classes.inputStyles}
+                />
+                <InputWithLabelIcon
+                    placeholder="Insert new password"
+                    // name="username"
+                    // inputRegister={register}
+                    // errorMsg={errors.username}
+                    externalclass={classes.inputStyles}
+                />
+                <InputWithLabelIcon
+                    placeholder="Repeat new password"
+                    // name="username"
+                    // inputRegister={register}
+                    // errorMsg={errors.username}
+                    externalclass={classes.inputStyles}
+                />
+            </Box>
+            <CancelSave />
+        </>
     )
 }

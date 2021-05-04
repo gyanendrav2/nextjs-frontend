@@ -5,23 +5,23 @@ import { TwoColGrid } from "../../components/grid/twoColGrid"
 import { HeaderWrapper } from "../../components/header/headerWrapper"
 import { colors } from "../../theme/colors"
 import { Footer } from "../../components/footer"
-import { AccountInformation } from "../../containers/userEditProfile/accountInformation"
 import { EditOptions } from "../../containers/userEditProfile/editOptions"
-import ShowReel from "../../containers/userEditProfile/showreel"
+import { NotificationContent } from "../../containers/settings/notificationContent"
+import { DeleteContent } from "../../containers/settings/deleteContent"
+import { ProfileContent } from "../../containers/settings/profileContent"
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
         padding: "7rem 10rem 2rem 10rem",
         "@media (min-width:200px) and (max-width:767px)": {
-            padding: "6rem 0rem 2rem 1rem",
+            padding: "6rem 1rem 2rem 1rem",
         },
         "@media (min-width:768px) and (max-width:1350px)": {
             padding: "7rem 2rem 2rem 2rem",
         },
     },
     mainTitle: {
-        marginTop: "2rem",
         marginBottom: "2rem",
         "@media (min-width:200px) and (max-width:767px)": {
             marginBottom: "1.5rem",
@@ -47,6 +47,10 @@ const useStyles = makeStyles({
         lineHeight: "1.375rem",
         borderBottom: `1px solid ${colors.lightGray}`,
         width: "100%",
+    },
+
+    deleteContainer: {
+        backgroundColor: colors.white,
     },
 
     radioboxWrapper: {
@@ -77,17 +81,20 @@ const useStyles = makeStyles({
         position: "relative",
     },
 })
-const EditProfile = () => {
+const Settings = () => {
     const classes = useStyles()
     const { query, push } = useRouter()
     const { editOption } = query
 
     const renderOption = () => {
-        if (editOption === "account-information") {
-            return <AccountInformation />
+        if (editOption === "profile") {
+            return <ProfileContent />
         }
-        if (editOption === "showreels-video-photos") {
-            return <ShowReel />
+        if (editOption === "notifications") {
+            return <NotificationContent />
+        }
+        if (editOption === "delete-deactivate") {
+            return <DeleteContent />
         }
     }
 
@@ -96,21 +103,26 @@ const EditProfile = () => {
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
                 <Typography variant="h4" className={classes.mainTitle}>
-                    Edit profile
+                    Settings
                 </Typography>
                 <TwoColGrid
                     externalclass={classes.whiteBg}
                     col1Children={
                         <Grid container direction="column" display="flex" className={classes.col1}>
                             <EditOptions
-                                optionName="Account Information"
-                                isActive={editOption === "account-information"}
-                                onClick={() => push("/edit-profile/account-information")}
+                                optionName="profile"
+                                isActive={editOption === "profile"}
+                                onClick={() => push("/settings/profile")}
                             />
                             <EditOptions
-                                optionName="Showreel video/photo"
-                                isActive={editOption === "showreels-video-photos"}
-                                onClick={() => push("/edit-profile/showreels-video-photos")}
+                                optionName="Notifications"
+                                isActive={editOption === "notifications"}
+                                onClick={() => push("/settings/notifications")}
+                            />
+                            <EditOptions
+                                optionName="Delete or Deactivate account"
+                                isActive={editOption === "delete-deactivate"}
+                                onClick={() => push("/settings/delete-deactivate")}
                             />
                         </Grid>
                     }
@@ -127,4 +139,4 @@ const EditProfile = () => {
     )
 }
 
-export default EditProfile
+export default Settings

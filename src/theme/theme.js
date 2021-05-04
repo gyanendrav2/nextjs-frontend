@@ -7,6 +7,11 @@ const theme = createMuiTheme({
         fontWeight: 300,
         fontStyle: "normal",
         color: colors.black,
+        h2: {
+            fontSize: "2.5rem",
+            lineHeight: "3.25rem",
+            color: colors.lighterGray,
+        },
         h4: {
             fontSize: "2rem",
             color: colors.black,
@@ -27,11 +32,17 @@ const theme = createMuiTheme({
             color: colors.lighterGray,
             fontWeight: 700,
         },
+        h7: {
+            fontSize: "1rem",
+            lineHeight: "2rem",
+            color: colors.lighterGray,
+            fontWeight: 400,
+        },
     },
     props: {
         MuiButtonBase: {
-            // The properties to apply
-            disableRipple: true, // No more ripple, on the whole application 💣!
+            // The properties to apply No more ripple, on the whole application 💣!
+            disableRipple: true,
         },
     },
 })

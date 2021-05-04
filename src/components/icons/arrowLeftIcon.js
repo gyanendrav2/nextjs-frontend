@@ -3,25 +3,22 @@ import PropTypes from "prop-types"
 
 export const ArrowLeftIcon = (props) => {
     return (
-        <svg width={40} height={40} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-            <g>
-                <circle r={19} transform="matrix(-1 0 0 1 20 20)" stroke="currentColor" strokeWidth={2} />
-                <path
-                    d="M20.8586 25.5588C20.9367 25.6369 21.0633 25.6369 21.1414 25.5588L22.2728 24.4274C22.3509 24.3493 22.3509 24.2227 22.2728 24.1446L16.7574 18.6291L15.3431 20.0433L20.8586 25.5588Z"
-                    fill="currentColor"
-                />
-                <path
-                    d="M15.3433 20.043L16.7575 21.4572L22.3436 15.871C22.3827 15.832 22.3827 15.7687 22.3436 15.7296L21.0708 14.4568C21.0318 14.4178 20.9685 14.4178 20.9294 14.4568L15.3433 20.043Z"
-                    fill="currentColor"
-                />
-            </g>
+        <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path
+                d="M11.8504 2.14142C11.9285 2.06332 12.0552 2.06332 12.1333 2.14142L14.3525 4.36065C14.4306 4.43875 14.4306 4.56539 14.3525 4.64349L4.48565 14.5104L1.98358 12.0083L11.8504 2.14142Z"
+                fill="currentColor"
+            />
+            <path
+                d="M1.98368 12.0083L4.48575 9.50623L14.4233 19.4438C14.4624 19.4829 14.4624 19.5462 14.4233 19.5852L12.0627 21.9459C12.0236 21.9849 11.9603 21.9849 11.9213 21.9459L1.98368 12.0083Z"
+                fill="currentColor"
+            />
         </svg>
     )
 }
 
 ArrowLeftIcon.defaultProps = {
-    width: 40,
-    height: 40,
+    width: 24,
+    height: 24,
 }
 
 ArrowLeftIcon.propTypes = {

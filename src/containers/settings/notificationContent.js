@@ -3,11 +3,11 @@ import React from "react"
 import { CheckedIcon } from "../../components/icons/checkedIcon"
 import { SquareIcon } from "../../components/icons/squareIcon"
 import { colors } from "../../theme/colors"
+import { CancelSave } from "../userEditProfile/accountInformation/cancelSave"
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
-        marginTop: "1rem",
         padding: "2rem",
         "@media(max-width:576px)": {
             padding: "1rem",
@@ -45,45 +45,48 @@ const useStyles = makeStyles({
 export const NotificationContent = () => {
     const classes = useStyles()
     return (
-        <Box className={classes.wrapper}>
-            <Typography variant="h6" className={classes.title}>
-                Notifications
-            </Typography>
+        <>
+            <Box className={classes.wrapper}>
+                <Typography variant="h6" className={classes.title}>
+                    Notifications
+                </Typography>
 
-            <Box className={classes.radioboxWrapper}>
-                <Box className={classes.checkboxContainer}>
-                    <Checkbox
-                        className={classes.checkBoxStyles}
-                        checkedIcon={<CheckedIcon />}
-                        icon={<SquareIcon />}
-                        color="default"
-                        inputProps={{ "aria-label": "checkbox with default color" }}
-                    />
-                    <Typography className={classes.checkboxText}>Receive notifications on project likes</Typography>
-                </Box>
-                <Box className={classes.checkboxContainer}>
-                    <Checkbox
-                        className={classes.checkBoxStyles}
-                        checkedIcon={<CheckedIcon />}
-                        icon={<SquareIcon />}
-                        color="default"
-                        inputProps={{ "aria-label": "checkbox with default color" }}
-                    />
-                    <Typography className={classes.checkboxText}>Receive notifications on new followers</Typography>
-                </Box>
-                <Box className={classes.checkboxContainer}>
-                    <Checkbox
-                        className={classes.checkBoxStyles}
-                        checkedIcon={<CheckedIcon />}
-                        icon={<SquareIcon />}
-                        color="default"
-                        inputProps={{ "aria-label": "checkbox with default color" }}
-                    />
-                    <Typography className={classes.checkboxText}>
-                        Receive notifications on project participation requests
-                    </Typography>
+                <Box className={classes.radioboxWrapper}>
+                    <Box className={classes.checkboxContainer}>
+                        <Checkbox
+                            className={classes.checkBoxStyles}
+                            checkedIcon={<CheckedIcon />}
+                            icon={<SquareIcon />}
+                            color="default"
+                            inputProps={{ "aria-label": "checkbox with default color" }}
+                        />
+                        <Typography className={classes.checkboxText}>Receive notifications on project likes</Typography>
+                    </Box>
+                    <Box className={classes.checkboxContainer}>
+                        <Checkbox
+                            className={classes.checkBoxStyles}
+                            checkedIcon={<CheckedIcon />}
+                            icon={<SquareIcon />}
+                            color="default"
+                            inputProps={{ "aria-label": "checkbox with default color" }}
+                        />
+                        <Typography className={classes.checkboxText}>Receive notifications on new followers</Typography>
+                    </Box>
+                    <Box className={classes.checkboxContainer}>
+                        <Checkbox
+                            className={classes.checkBoxStyles}
+                            checkedIcon={<CheckedIcon />}
+                            icon={<SquareIcon />}
+                            color="default"
+                            inputProps={{ "aria-label": "checkbox with default color" }}
+                        />
+                        <Typography className={classes.checkboxText}>
+                            Receive notifications on project participation requests
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+            <CancelSave />
+        </>
     )
 }

@@ -78,6 +78,7 @@ const useStyles = makeStyles({
     footer: {
         marginTop: "0!important",
     },
+
     selectCategories: {
         padding: "1.25rem",
         "@media (min-width:768px)": {

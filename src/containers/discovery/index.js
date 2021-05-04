@@ -39,13 +39,21 @@ const useStyles = makeStyles({
     },
     carouselContainer: {
         width: "100%",
-        height: "37.5rem",
+        position: "relative",
+        // overflow: "hidden",
+        // paddingBottom: "45%",
         display: "flex!important",
         "&:focus": {
             outline: "none",
         },
+        // "@media (min-width:1600px)": {
+        //     paddingBottom: "56.25%",
+        // },
     },
     carouselImage: {
+        // position: "absolute",
+        // top: 0,
+        // left: 0,
         width: "100%",
         height: "100%",
         padding: "0 2.5rem 2.5rem 2.5rem",
@@ -148,6 +156,7 @@ const useStyles = makeStyles({
 export const Discovery = ({ details }) => {
     const classes = useStyles()
     const routes = useRouter()
+    console.log(details, "details")
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
     const [totalCategories, setTotalCategories] = useState([])

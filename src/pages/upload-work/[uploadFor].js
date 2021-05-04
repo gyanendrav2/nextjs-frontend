@@ -8,21 +8,31 @@ import { colors } from "../../theme/colors"
 import { UploadVideoPhoto } from "../../containers/uploadWork/uploadVideoPhoto"
 import { uploadWorkOptions } from "../../data/uploadWorkOptions"
 import { CustomButton } from "../../components/buttons/customButton"
+import { Footer } from "../../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
-        paddingTop: "6rem",
+        paddingTop: "7rem",
         backgroundColor: colors.lighterPrimary,
         position: "relative",
+        "@media(max-width:767px)": {
+            padding: "5rem 0px 0px 0px",
+        },
     },
     colWrapper: {
         backgroundColor: colors.lighterPrimary,
     },
     col1: {
         width: "calc(100% - 27.5rem)",
+        "@media(max-width:992px)": {
+            width: "100%",
+        },
     },
     col2: {
         width: "25rem",
+        "@media(max-width:992px)": {
+            display: "none",
+        },
     },
     innerWrapper: {
         position: "sticky",
@@ -83,13 +93,20 @@ const UploadWork = () => {
                                 <Grid item xs={12} sm={12} md={6}>
                                     <CustomButton variant="borderButton" label="Confirm" fullWidth />
                                 </Grid>
-                                <CustomButton variant="textButton" label="Cancel" fullWidth disableRipple />
-                                <CustomButton variant="textButton" label="Delete work" fullWidth disableRipple />
+                                <CustomButton variant="textButton" label="Cancel" fullWidth color={colors.darkRed} />
+                                <CustomButton
+                                    variant="textButton"
+                                    label="Delete work"
+                                    fullWidth
+                                    color={colors.darkRed}
+                                />
                             </Grid>
                         </Box>
                     </Box>
                 </Grid>
             </ContentWrapper>
+
+            <Footer externalclass={classes.footer} />
         </>
     )
 }

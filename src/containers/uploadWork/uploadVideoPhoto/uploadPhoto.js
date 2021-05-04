@@ -1,5 +1,5 @@
 import React from "react"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { colors } from "../../../theme/colors"
 import { CustomButton } from "../../../components/buttons/customButton"
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const UploadPhoto = (props) => {
+export const UploadPhoto = () => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>

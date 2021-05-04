@@ -12,22 +12,29 @@ const useStyles = makeStyles({
     wrapper: {
         width: "100%",
         position: "relative",
-        paddingLeft: "7.187rem",
-        paddingRight: "7.187rem",
-        paddingBottom: "7.5rem",
-        paddingTop: "2.5rem",
-        border: `1px dashed ${colors.lightGray}`,
+        padding: "5rem 7.187rem 7.5rem 7.187rem",
+        border: `5px dashed ${colors.lightGray}`,
+        borderColor: colors.lighterGray,
+        // backgroundImage: `url(
+        //     "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='15%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e"
+        // )`,
         backgroundColor: colors.lighterPrimary,
         marginTop: "2rem",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        "@media(max-width:576px)": {
+            padding: "5rem 2rem",
+        },
     },
     button: {
         width: "18.375rem",
         height: "3.5rem",
         margin: "1rem",
+        "@media(max-width:576px)": {
+            width: "10.375rem",
+        },
     },
     fullWidth: {
         width: "100%",
@@ -56,7 +63,7 @@ const useStyles = makeStyles({
 
 export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
     const classes = useStyles()
-    const [draged, setDraged] = useState(false)
+    const [, setDraged] = useState(false)
     const [dragCounter, setDragCounter] = useState(0)
     const [files, setFiles] = useState([])
     const [reassign, setReassign] = useState(false)
@@ -113,6 +120,7 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
                 div.removeEventListener("drop", handleDrop)
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reassign])
 
     return (
@@ -134,10 +142,10 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
                         ))}
                     </Box>
                 </div>
-                <Grid container spacing={2} alignItems="center" justify="center">
+                {/* <Grid container spacing={2} alignItems="center" justify="center">
                     <CustomButton variant="cancel" label="Cancel" externalclass={classes.button} onClick={onClose} />
                     <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
-                </Grid>
+                </Grid> */}
             </Grid>
         </ModalComponent>
     )

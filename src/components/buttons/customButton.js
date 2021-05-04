@@ -298,6 +298,7 @@ CustomButton.defaultProps = {
     allowMultiple: false,
     acceptFileTyle: "image/*",
     color: "",
+    // type: "button",
 }
 
 CustomButton.propTypes = {
@@ -311,4 +312,5 @@ CustomButton.propTypes = {
     allowMultiple: PropTypes.bool,
     acceptFileTyle: PropTypes.string,
     color: PropTypes.string,
+    // type: PropTypes.string,
 }

@@ -1,28 +1,27 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-export const ArrowRightIcon = (props) => {
+export const ArrowRight = (props) => {
     return (
-        <svg width={40} height={40} viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-            <circle cx={20} cy={20} r={19} stroke="currentColor" strokeWidth={2} />
+        <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
             <path
-                d="M19.1414 25.5588C19.0633 25.6369 18.9367 25.6369 18.8586 25.5588L17.7272 24.4274C17.6491 24.3493 17.6491 24.2227 17.7272 24.1446L23.2426 18.6291L24.6569 20.0433L19.1414 25.5588Z"
+                d="M12.1499 2.14142C12.0718 2.06332 11.9452 2.06332 11.8671 2.14142L9.64784 4.36065C9.56973 4.43875 9.56973 4.56539 9.64784 4.64349L19.5147 14.5104L22.0168 12.0083L12.1499 2.14142Z"
                 fill="currentColor"
             />
             <path
-                d="M24.6567 20.043L23.2425 21.4572L17.6564 15.871C17.6173 15.832 17.6173 15.7687 17.6564 15.7296L18.9292 14.4568C18.9682 14.4178 19.0315 14.4178 19.0706 14.4568L24.6567 20.043Z"
+                d="M22.0167 12.0083L19.5146 9.50623L9.57702 19.4438C9.53797 19.4829 9.53797 19.5462 9.57702 19.5852L11.9377 21.9459C11.9767 21.9849 12.04 21.9849 12.0791 21.9459L22.0167 12.0083Z"
                 fill="currentColor"
             />
         </svg>
     )
 }
 
-ArrowRightIcon.defaultProps = {
-    width: 40,
-    height: 40,
+ArrowRight.defaultProps = {
+    width: 24,
+    height: 24,
 }
 
-ArrowRightIcon.propTypes = {
+ArrowRight.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
 }

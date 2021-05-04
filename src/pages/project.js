@@ -1,7 +1,6 @@
 import React from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
-import ReactPlayer from "react-player"
 import { colors } from "../theme/colors"
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
@@ -22,11 +21,18 @@ const useStyles = makeStyles({
             paddingTop: "3.5rem",
         },
     },
+    videoContainer: {
+        width: "100%",
+        paddingTop: "45%",
+        height: 0,
+        position: "relative",
+    },
     videoStyles: {
-        "@media(max-width:959px)": {
-            height: "15.5rem",
-            marginBottom: "15.5rem",
-        },
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        top: 0,
+        left: 0,
     },
     CreatorsAuthor: {
         display: " flex",
@@ -179,13 +185,15 @@ const Project = () => {
         <>
             <HeaderWrapper isScrollDetect={false} />
             <Box className={classes.projectwrapper}>
-                <Box className={classes.videoStyles}>
-                    <ReactPlayer
-                        width="100%"
-                        height="30rem"
-                        controls
-                        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                    />
+                <Box className={classes.videoContainer}>
+                    <Box className={classes.videoStyles}>
+                        <iframe
+                            title="Video"
+                            height="100%"
+                            width="100%"
+                            src="https://www.youtube.com/embed/8aGhZQkoFbQ"
+                        />
+                    </Box>
                 </Box>
                 <Grid className={classes.CreatorsAuthor}>
                     <Box>

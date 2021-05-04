@@ -4,7 +4,7 @@ import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import { Close, MoreVert } from "@material-ui/icons"
 import classnames from "classnames"
 import { useRouter } from "next/router"
-import ReactPlayer from "react-player"
+// import ReactPlayer from "react-player"
 import { CustomButton } from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { colors } from "../../theme/colors"
@@ -13,7 +13,7 @@ import { ReportContentWrapper } from "../../components/reportContentWrapper/repo
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
-        height: "100vh",
+        // height: "100vh",
         overflowY: "auto",
         backgroundColor: colors.black,
         padding: "2rem",
@@ -113,6 +113,19 @@ const useStyles = makeStyles({
     dialogreportcontent: {
         padding: "1rem",
     },
+    videoContainer: {
+        width: "100%",
+        paddingTop: "45%",
+        height: 0,
+        position: "relative",
+    },
+    videoStyles: {
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        top: 0,
+        left: 0,
+    },
 })
 
 export const QuickViewDailog = ({ closeModal }) => {
@@ -149,9 +162,13 @@ export const QuickViewDailog = ({ closeModal }) => {
                     <Close onClick={closeModal} className={classes.closeIcon} />
                 </Grid>
             </Grid>
-            <Grid>
-                <ReactPlayer width="100%" height="30rem" controls url="https://www.youtube.com/watch?v=ysz5S6PUM-U" />
+
+            <Grid className={classes.videoContainer}>
+                <Box className={classes.videoStyles}>
+                    <iframe title="Video" height="100%" width="100%" src="https://www.youtube.com/embed/8aGhZQkoFbQ" />
+                </Box>
             </Grid>
+
             {/* <img  objectFit: "cover"  src={images.maskGroup} alt="" /> */}
             <Grid container className={classes.infoContainer}>
                 <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
