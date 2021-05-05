@@ -232,6 +232,12 @@ export const SelectWithLabelIcon = ({
                                 <Box className={classes.hidder} onClick={() => setCustomShow(false)} />
                             </>
                         )}
+                        <input
+                            style={{ height: 0, width: 0, visibility: "hidden", position: "absolute" }}
+                            ref={inputRegister}
+                            value={customValue}
+                            {...props}
+                        />
                     </Box>
                 )
             }

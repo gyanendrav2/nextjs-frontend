@@ -63,7 +63,7 @@ export const UserProfileNav = ({ userName, profileImg, externalclass }) => {
         routes.push("/signin")
     }
     const routeSettings = () => {
-        routes.push("/settings")
+        routes.push("/settings/profile")
     }
 
     return (

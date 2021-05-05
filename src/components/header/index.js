@@ -72,6 +72,9 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
     const handleUserProfileNav = () => {
         setShowProfilenavcard(!showProfilenavcard)
     }
+    const routeSettings = () => {
+        router.push("/upload-work/upload-video-photo")
+    }
 
     return (
         <Box className={classes.header}>
@@ -119,12 +122,13 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                 )}
                 {isAuthenticated && (
                     <CustomButton
-                        wantFile
-                        allowMultiple
-                        onFileChange={(e) => console.log(e.target.files)}
+                        // wantFile
+                        // allowMultiple
+                        // onFileChange={(e) => console.log(e.target.files)}
                         className={classes.uploadBtn}
                         label="Upload work"
-                        type="file"
+                        onClick={routeSettings}
+                        // type="file"
                     />
                 )}
             </Grid>

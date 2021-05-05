@@ -25,6 +25,7 @@ const useStyles = makeStyles({
 export const AddTeamMember = ({ shouldVisible, onAdded }) => {
     const classes = useStyles()
     const [totalTeams, setTotalTeams] = useState([])
+    const [jobRole, setJobRole] = useState(roleOptions)
     const { register, handleSubmit, errors, reset } = useForm({
         resolver: yupResolver(addTeamForm),
     })
@@ -40,6 +41,22 @@ export const AddTeamMember = ({ shouldVisible, onAdded }) => {
         const data = [...totalTeams]
         data.splice(i, 1)
         setTotalTeams(data)
+    }
+
+    const handleRoles = (e, i) => {
+        const tempRoleOptions = [...jobRole]
+        const result = tempRoleOptions.map((item) => {
+            return { ...item, checked: false }
+        })
+        result[i].checked = !result[i].checked
+        setJobRole(result)
+    }
+
+    const getRoleValue = () => {
+        const data = jobRole.filter((item) => item.checked === true)
+        if (data.length) {
+            return data[0].value
+        }
     }
 
     return (
@@ -60,26 +77,19 @@ export const AddTeamMember = ({ shouldVisible, onAdded }) => {
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
-                            {/* <SelectWithLabelIcon
-                            options={roleOptions}
-                            labelColor={colors.lighterGray}
-                            // customValue="Director"
-                            placeholder="Gaffer"
-                            variantStyle="optionWithCheckboxStyle"
-                            fontWeight="bold"
-                            label="Job role"
-                            name="jobRole"
-                            inputRegister={register}
-                            errorMsg={errors.jobRole}
-                        /> */}
-                            <InputWithLabelIcon
+                            <SelectWithLabelIcon
+                                options={jobRole}
                                 labelColor={colors.lighterGray}
+                                customValue={getRoleValue()}
+                                placeholder="Gaffer"
+                                variantStyle="optionWithCheckboxStyle"
                                 fontWeight="bold"
                                 label="Job role"
-                                placeholder="Gaffer"
                                 name="jobRole"
                                 inputRegister={register}
-                                errorMsg={errors.jobRole}
+                                handleOptionSelect={handleRoles}
+                                errorMsg={errors.jobRole?.message}
+                                error={errors.jobRole ? true : false}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>

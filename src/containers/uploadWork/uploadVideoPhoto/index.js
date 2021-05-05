@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Box, Grid, makeStyles } from "@material-ui/core"
+import PropTypes from "prop-types"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { PhotoIcon } from "../../../components/icons/photoIcon"
 import { CodeIcon } from "../../../components/icons/codeIcon"
@@ -22,7 +23,7 @@ import { ModalComponent } from "../../../components/modal/modalComponent"
 import { Teams } from "./teams"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
-// import { ChipCards } from "../../../components/cards/chipCards"
+import { ChipCards } from "../../../components/cards/chipCards"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -80,9 +81,13 @@ const useStyles = makeStyles({
         overflowY: "auto",
         width: "100%",
     },
+    deleteTitle: {
+        marginTop: "2rem",
+        marginBottom: "5.312rem",
+    },
 })
 
-export const UploadVideoPhoto = () => {
+export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
     const classes = useStyles()
     const [showAddTeamMember, setShowAddTeamMember] = useState(false)
     const [showCodeModal, setShowCodeModal] = useState(false)
@@ -95,8 +100,8 @@ export const UploadVideoPhoto = () => {
     // const { register, handleSubmit, errors } = useForm({
     //     resolver: yupResolver({}),
     // })
-    // const [roleCategoriesdata, setRoleCategoriesdata] = useState([roleCategories])
-    // const [roles, setRoles] = useState([])
+    const [roleCategoriesdata, setRoleCategoriesdata] = useState(roleCategories)
+    const [roles, setRoles] = useState([])
 
     const handleAddPhotoCodeData = (i) => {
         const data = [...photoCode]
@@ -136,21 +141,22 @@ export const UploadVideoPhoto = () => {
         data.push(1)
         setPhotoSliderData(data)
     }
-    // const handleRoles = (e, i) => {
-    //     const data = [...roles]
-    //     const tempRoleOptions = [...roleCategoriesdata]
-    //     tempRoleOptions[i].checked = !tempRoleOptions[i].checked
-    //     setRoleCategoriesdata(tempRoleOptions)
-    //     if (tempRoleOptions[i].checked) {
-    //         data.push(e.value)
-    //     }
-    //     setRoles(data)
-    // }
-    // const handleChipItemDelete = (i) => {
-    //     const data = [...roles]
-    //     data.splice(i, 1)
-    //     setRoles(data)
-    // }
+    const handleRoles = (e, i) => {
+        const data = [...roles]
+        const tempRoleOptions = [...roleCategoriesdata]
+        console.log(tempRoleOptions, i)
+        tempRoleOptions[i].checked = !tempRoleOptions[i].checked
+        setRoleCategoriesdata(tempRoleOptions)
+        if (tempRoleOptions[i].checked) {
+            data.push(e.value)
+        }
+        setRoles(data)
+    }
+    const handleChipItemDelete = (i) => {
+        const data = [...roles]
+        data.splice(i, 1)
+        setRoles(data)
+    }
     return (
         <Box>
             <ModalComponent openOrNot={selectionModel} onClose={() => setSelectionModel(false)}>
@@ -169,6 +175,15 @@ export const UploadVideoPhoto = () => {
                         </Grid>
                     </Box>
                 </Box>
+            </ModalComponent>
+            <ModalComponent openOrNot={openDeleteModel} onClose={() => onDelete()}>
+                <Grid container alignItems="center" justify="center" direction="column">
+                    <Typography variant="h4">Delete or hide work</Typography>
+                    <Typography className={classes.deleteTitle}>
+                        Instead of deleting the work for all your team members, there’s a way to hide it.
+                    </Typography>
+                    <CustomButton label="Delete" />
+                </Grid>
             </ModalComponent>
             <SendDetailsModal
                 modalName="Insert code"
@@ -211,12 +226,11 @@ export const UploadVideoPhoto = () => {
                                     label="Project category"
                                     placeholder="Multiselect categories"
                                     externalclass={classnames(classes.inputHeight)}
-                                    // handleOptionSelect={handleRoles}
+                                    handleOptionSelect={handleRoles}
                                 />
-                                {/* </Grid> */}
-                                {/* <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                                <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                     <ChipCards chips={roles} onDelete={handleChipItemDelete} />
-                                </Grid> */}
+                                </Grid>
                             </Grid>
                             <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
                                 <InputWithLabelIcon
@@ -288,4 +302,9 @@ export const UploadVideoPhoto = () => {
             </Grid>
         </Box>
     )
+}
+
+UploadVideoPhoto.propTypes = {
+    openDeleteModel: PropTypes.bool.isRequired,
+    onDelete: PropTypes.func.isRequired,
 }

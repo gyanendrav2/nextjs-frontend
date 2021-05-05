@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { useRouter } from "next/router"
 import { ContentWrapper } from "../../components/contentWrapper/contentWrapper"
@@ -55,9 +55,10 @@ const UploadWork = () => {
     const routes = useRouter()
     const { query, push } = routes
     const { uploadFor } = query
+    const [openDeleteModel, setOpenDeleteModel] = useState(false)
     const renderOption = () => {
         if (uploadFor === "upload-video-photo") {
-            return <UploadVideoPhoto />
+            return <UploadVideoPhoto openDeleteModel={openDeleteModel} onDelete={()=>{setOpenDeleteModel(false)}}/>
         }
     }
     return (
@@ -99,6 +100,7 @@ const UploadWork = () => {
                                     label="Delete work"
                                     fullWidth
                                     color={colors.darkRed}
+                                    onClick={()=>setOpenDeleteModel(true)}
                                 />
                             </Grid>
                         </Box>
