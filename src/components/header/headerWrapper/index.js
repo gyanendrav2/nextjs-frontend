@@ -5,7 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import Link from "next/link"
 import { Header } from ".."
 import { icons } from "../../../assets/icons"
-import { loggedInUserNav, mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
+import { feedUserNav, loggedInUserNav, mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
 import { colors } from "../../../theme/colors"
 import { MobileMenu } from "../mobilemenu/mobileMenu"
 
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated }) => {
+export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated, feed }) => {
     const classes = useStyles({ mobileMenuIconColor })
     const [scrollTop, setScrollTop] = useState(0)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -86,12 +86,22 @@ export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoT
         return icons.logoWhite
     }
 
+    const getNavOptions = () => {
+        if (isAuthenticated) {
+            if (feed) {
+                return feedUserNav
+            }
+            return loggedInUserNav
+        }
+        return NavItemOptions
+    }
+
     return (
         <>
             <Header
                 color={textColor()}
                 bgcolor={shouldDark()}
-                NavItemOptions={isAuthenticated ? loggedInUserNav : NavItemOptions}
+                NavItemOptions={getNavOptions()}
                 isAuthenticated={isAuthenticated}
             />
             <Box style={{ backgroundColor: shouldDark() }} className={classes.mobileNavWrapper}>
@@ -117,6 +127,7 @@ HeaderWrapper.defaultProps = {
     mobileMenuIconColor: "",
     mobileLogoType: undefined,
     isAuthenticated: false,
+    feed: false,
 }
 
 HeaderWrapper.propTypes = {
@@ -124,4 +135,5 @@ HeaderWrapper.propTypes = {
     mobileMenuIconColor: PropTypes.string,
     mobileLogoType: PropTypes.string,
     isAuthenticated: PropTypes.bool,
+    feed: PropTypes.bool,
 }

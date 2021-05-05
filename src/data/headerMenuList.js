@@ -67,3 +67,30 @@ export const loggedInUserNav = [
         pathname: "/notifications",
     },
 ]
+
+export const feedUserNav = [
+    {
+        id: 1,
+        name: "Feed",
+        icon: <HomeIcon />,
+        pathname: "/",
+    },
+    {
+        id: 1,
+        name: "discover",
+        icon: <DisocoveryIcon />,
+        pathname: "/",
+    },
+    {
+        id: 2,
+        name: "Search",
+        icon: <SearchIcon />,
+        pathname: "/search",
+    },
+    {
+        id: 3,
+        name: "",
+        icon: <NotificationBellIcon />,
+        pathname: "/notifications",
+    },
+]

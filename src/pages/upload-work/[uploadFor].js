@@ -58,7 +58,14 @@ const UploadWork = () => {
     const [openDeleteModel, setOpenDeleteModel] = useState(false)
     const renderOption = () => {
         if (uploadFor === "upload-video-photo") {
-            return <UploadVideoPhoto openDeleteModel={openDeleteModel} onDelete={()=>{setOpenDeleteModel(false)}}/>
+            return (
+                <UploadVideoPhoto
+                    openDeleteModel={openDeleteModel}
+                    onDelete={() => {
+                        setOpenDeleteModel(false)
+                    }}
+                />
+            )
         }
     }
     return (
@@ -100,7 +107,7 @@ const UploadWork = () => {
                                     label="Delete work"
                                     fullWidth
                                     color={colors.darkRed}
-                                    onClick={()=>setOpenDeleteModel(true)}
+                                    onClick={() => setOpenDeleteModel(true)}
                                 />
                             </Grid>
                         </Box>
