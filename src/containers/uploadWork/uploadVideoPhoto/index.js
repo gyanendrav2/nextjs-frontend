@@ -24,6 +24,8 @@ import { Teams } from "./teams"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
 import { ChipCards } from "../../../components/cards/chipCards"
+import { useRouter } from "next/router"
+import { TrainRounded } from "@material-ui/icons"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -97,6 +99,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
     const [photoCodeText, setPhotoCodeText] = useState([1])
     const [photoSliderData, setPhotoSliderData] = useState([1])
     const [selectionModel, setSelectionModel] = useState(false)
+    const routes = useRouter()
     // const { register, handleSubmit, errors } = useForm({
     //     resolver: yupResolver({}),
     // })
@@ -182,7 +185,10 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
                     <Typography className={classes.deleteTitle}>
                         Instead of deleting the work for all your team members, there’s a way to hide it.
                     </Typography>
-                    <CustomButton label="Delete" />
+                    <CustomButton
+                        label="Delete"
+                        onClick={() => routes.push({ pathname: "/profile", query: { showNotification: true } })}
+                    />
                 </Grid>
             </ModalComponent>
             <SendDetailsModal

@@ -8,7 +8,7 @@ const useStyles = makeStyles({
         backgroundColor: colors.black,
         width: "100%",
         height: "100vh",
-        zIndex: 999,
+        zIndex: 1000,
         position: "fixed",
         display: "flex",
         alignItems: "center",

@@ -20,6 +20,8 @@ import { EyeOpenIcon } from "../components/icons/eyeOpenIcon"
 import { ReportContent } from "../components/reportContentWrapper/reportContent"
 import { AddCategory } from "../containers/userProfile/addCategory"
 import { Adder } from "../components/cards/adder"
+import { useRouter } from "next/router"
+import { NotificationCard } from "../components/cards/notificationCard"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -136,10 +138,13 @@ const useStyles = makeStyles({
 
 const User = () => {
     const classes = useStyles()
+    const { query } = useRouter()
+    const { showNotification } = query
     const [openInfo, setOpenInfo] = useState(false)
     const [openMsg, setOpenMsg] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState("All (6)")
     const [hiddenCategory, setHiddenCategory] = useState(false)
+    const [notification, setNotification] = useState(true)
     const [categories, setCategories] = useState([
         { value: "All (6)", label: "All (6)", active: true },
         { value: "Directing (3)", label: "Directing (3)", active: false },
@@ -202,6 +207,15 @@ const User = () => {
     }
     return (
         <>
+            {showNotification && (
+                <NotificationCard
+                    message="Your work has been successfully deleted!"
+                    isVisible={notification}
+                    timeout={4000}
+                    hideButton
+                    handleHideNotification={() => setNotification(!notification)}
+                />
+            )}
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
                 <UserInfo />

@@ -18,7 +18,7 @@ export const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         flexWrap: "wrap",
-        zIndex: 99,
+        zIndex: 999,
         borderLeft: `8px solid ${colors.green}`,
         animation: "fadeIn 0.3s linear",
         "@media (max-width:500px)": {
@@ -51,6 +51,7 @@ export const NotificationCard = ({
     shouldHide,
     onClick,
     handleHideNotification,
+    hideButton,
 }) => {
     const classes = useStyles()
 
@@ -74,9 +75,10 @@ export const NotificationCard = ({
         <>
             {isVisible && (
                 <Box className={classes.wrapper}>
-                    {/* <Box className=""></Box> */}
                     <Typography className={classes.msg}>{message}</Typography>
-                    <CustomButton label={buttonText} onClick={handleButtonClick} externalclass={classes.button} />
+                    {!hideButton && (
+                        <CustomButton label={buttonText} onClick={handleButtonClick} externalclass={classes.button} />
+                    )}
                     <CloseIconBig className={classes.closeIcon} onClick={handleHideNotification} />
                 </Box>
             )}
@@ -90,6 +92,7 @@ NotificationCard.defaultProps = {
     onClick: () => {},
     isVisible: false,
     timeout: 2000,
+    hideButton: false,
 }
 
 NotificationCard.propTypes = {
@@ -100,4 +103,5 @@ NotificationCard.propTypes = {
     onClick: PropTypes.func,
     isVisible: PropTypes.bool,
     timeout: PropTypes.number,
+    hideButton: PropTypes.bool,
 }
