@@ -1,4 +1,5 @@
 import { Box, Grid, makeStyles } from "@material-ui/core"
+import { useRouter } from "next/router"
 import React from "react"
 import { images } from "../assets/images"
 // import { UserProfileCard } from "../components/cards/userProfileCard"
@@ -22,13 +23,19 @@ const useStyles = makeStyles({
 
 const Feed = () => {
     const classes = useStyles()
+    const routes = useRouter()
     return (
         <Box className={classes.rootWraper}>
             <HeaderWrapper isScrollDetect={false} isAuthenticated feed />
             <ContentWrapper externalclass={classes.wrapper}>
                 <Grid container spacing={2}>
                     <Grid style={{ position: "relative" }} item xs={12} sm={12} md={4} lg={4} xl={4}>
-                        <FeedProfileCard following="15" followers="25" />
+                        <FeedProfileCard
+                            following="15"
+                            followers="25"
+                            onFollowClick={() => routes.push({ pathname: "/network", query: { tab: "following" } })}
+                            onFollowedClick={() => routes.push({ pathname: "/network", query: { tab: "followers" } })}
+                        />
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
                         <FeedUserProfileCard

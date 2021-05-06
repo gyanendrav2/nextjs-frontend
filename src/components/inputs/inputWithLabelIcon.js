@@ -61,9 +61,10 @@ export const InputWithLabelIcon = ({
     fontWeight,
     iconOnClick,
     labelMargin,
+    hideErrorMsg,
     ...props
 }) => {
-    const classes = useStyles({ error: !!errorMsg.message, labelColor, fontWeight, labelMargin })
+    const classes = useStyles({ error: !!errorMsg.message, labelColor, fontWeight, labelMargin, hideErrorMsg })
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classnames(classes.label)}>{label}</Typography>
@@ -84,7 +85,7 @@ export const InputWithLabelIcon = ({
                     </Box>
                 </Grid>
             </Grid>
-            <ErrorMessage error={errorMsg.message} />
+            {!hideErrorMsg && <ErrorMessage error={errorMsg.message} />}
         </Box>
     )
 }
@@ -106,6 +107,7 @@ InputWithLabelIcon.defaultProps = {
     fontWeight: "",
     iconOnClick: () => {},
     labelMargin: "",
+    hideErrorMsg: false,
 }
 
 InputWithLabelIcon.propTypes = {
@@ -125,4 +127,5 @@ InputWithLabelIcon.propTypes = {
     iconOnClick: PropTypes.func,
     fontWeight: PropTypes.string,
     labelMargin: PropTypes.string,
+    hideErrorMsg: PropTypes.bool,
 }
