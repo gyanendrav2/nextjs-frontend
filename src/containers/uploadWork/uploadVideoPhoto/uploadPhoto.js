@@ -25,7 +25,15 @@ export const UploadPhoto = () => {
     return (
         <Box className={classes.wrapper}>
             <Grid container alignItems="center" justify="center" className={classes.innerWrapper}>
-                <CustomButton label="Upload up to 50 photos +" externalclass={classes.button} />
+                <CustomButton
+                    label="Upload up to 50 photos +"
+                    wantFile
+                    allowMultiple
+                    onFileChange={(files) => {
+                        console.log(files)
+                    }}
+                    externalclass={classes.button}
+                />
             </Grid>
             <TwoColCarousel />
         </Box>

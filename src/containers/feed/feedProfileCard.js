@@ -8,6 +8,8 @@ const useStyles = makeStyles({
         border: `1px solid ${colors.lightGray}`,
         backgroundColor: colors.white,
         padding: "2rem",
+        position: "sticky",
+        top: "5rem",
     },
     avatar: {
         width: "6.5rem",
@@ -24,42 +26,41 @@ const useStyles = makeStyles({
         fontSize: "1",
         color: colors.lighterGray,
         textAlign: "center",
-         marginTop: "0.2rem",
-         marginBottom: "1.5rem",
+        marginTop: "0.2rem",
+        marginBottom: "1.5rem",
     },
-    follow:{
+    follow: {
         fontSize: "1rem",
         lineHeight: "1.375rem",
-        color:colors.lighterGray,
+        color: colors.lighterGray,
     },
-    followersNum:{
+    followersNum: {
         fontSize: "1rem",
         lineHeight: "1.375rem",
-        color:colors.black,
-        textDecoration:"underline"
-    }
+        color: colors.black,
+        textDecoration: "underline",
+    },
 })
 
-export const FeedProfileCard = ({ followers,
-    following}) => {
+export const FeedProfileCard = ({ followers, following }) => {
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
             <Avatar src={images.maskGroup} className={classes.avatar} />
             <Typography className={classes.title}>Brandon Landing</Typography>
             <Typography className={classes.subTitle}>Director assistant, producer</Typography>
-            <Grid container alignItems="center" justify="space-between" style={{marginTop:"1rem"}} >
+            <Grid container alignItems="center" justify="space-between" style={{ marginTop: "1rem" }}>
                 <Grid item>
                     <Typography className={classes.follow}>I follow people</Typography>
-                </Grid >
+                </Grid>
                 <Grid item>
                     <Typography className={classes.followersNum}>{following} people</Typography>
                 </Grid>
-            </Grid >
-            <Grid container alignItems="center" justify="space-between" style={{marginTop:"1rem"}} >
+            </Grid>
+            <Grid container alignItems="center" justify="space-between" style={{ marginTop: "1rem" }}>
                 <Grid item>
                     <Typography className={classes.follow}>I'm followed by people</Typography>
-                </Grid >
+                </Grid>
                 <Grid item>
                     <Typography className={classes.followersNum}>{followers} people</Typography>
                 </Grid>

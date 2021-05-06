@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     },
     wrapper: {
         maxWidth: "70rem",
-        paddingTop: "10rem",
+        paddingTop: "8rem",
         margin: "auto",
         backgroundColor: colors.lighterPrimary,
     },
@@ -27,7 +27,7 @@ const Feed = () => {
             <HeaderWrapper isScrollDetect={false} isAuthenticated feed />
             <ContentWrapper externalclass={classes.wrapper}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+                    <Grid style={{ position: "relative" }} item xs={12} sm={12} md={4} lg={4} xl={4}>
                         <FeedProfileCard following="15" followers="25" />
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
@@ -35,6 +35,41 @@ const Feed = () => {
                             image={images.maskGroup}
                             name="Mary Tooper"
                             position="Animator assistant"
+                            category="Animation"
+                            client="Nike"
+                            year="2021"
+                            time="09.10.20"
+                            description="Nike “Beginnings” commercial about key moments in James’ path"
+                        />
+                        <FeedUserProfileCard
+                            image={images.maskGroup}
+                            name="Mary Tooper"
+                            position="Animator assistant"
+                            category="Animation"
+                            client="Nike"
+                            year="2021"
+                            time="09.10.20"
+                            description="Nike “Beginnings” commercial about key moments in James’ path"
+                        />
+                        <FeedUserProfileCard
+                            image={images.maskGroup}
+                            name="Mary Tooper"
+                            position="Animator assistant"
+                            category="Animation"
+                            client="Nike"
+                            year="2021"
+                            time="09.10.20"
+                            description="Nike “Beginnings” commercial about key moments in James’ path"
+                        />
+                        <FeedUserProfileCard
+                            image={images.maskGroup}
+                            name="Mary Tooper"
+                            position="Animator assistant"
+                            category="Animation"
+                            client="Nike"
+                            year="2021"
+                            time="09.10.20"
+                            description="Nike “Beginnings” commercial about key moments in James’ path"
                         />
                         {/* <UserProfileCard
                                 // onClickProfile={handleInfo}

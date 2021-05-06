@@ -4,6 +4,7 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { ModalComponent } from "./modalComponent"
 import { CustomButton } from "../buttons/customButton"
 import { colors } from "../../theme/colors"
+import { DeleteIcon } from "../icons/deleteIcon"
 
 const useStyles = makeStyles({
     heading: {
@@ -38,6 +39,8 @@ const useStyles = makeStyles({
     },
     fullWidth: {
         width: "100%",
+        maxHeight: "90vh",
+        overflowX: "auto",
     },
     subTitle: {
         color: colors.lighterGray,
@@ -53,11 +56,26 @@ const useStyles = makeStyles({
     fileContainer: {
         width: "12.5rem",
         padding: "0.5rem",
+        position: "relative",
         "& img": {
             width: "100%",
             height: "100%",
             objectFit: "cover",
         },
+        "&:hover div": {
+            display: "flex",
+        },
+    },
+    deleteButton: {
+        display: "none",
+        width: "2.5rem",
+        height: "2.5rem",
+        backgroundColor: colors.white,
+        position: "absolute",
+        top: "1rem",
+        right: "1rem",
+        color: colors.pink,
+        cursor: "pointer",
     },
 })
 
@@ -123,9 +141,21 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reassign])
 
+    const handleFile = (i) => {
+        const newFiles = [...files]
+        newFiles.splice(i, 1)
+        setFiles(newFiles)
+    }
+
     return (
         <ModalComponent maxHeight="90vh" openOrNot={isOpen} onClose={onClose}>
-            <Grid container alignItems="center" justify="center" direction="column" className={classes.fullWidth}>
+            <Grid
+                container
+                alignItems="center"
+                justify="center"
+                direction="column"
+                wrap="nowrap"
+                className={classes.fullWidth}>
                 <Typography variant="h4" className={classes.heading}>
                     {modalName}
                 </Typography>
@@ -137,6 +167,14 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
                     <Box className={classes.fileWrapper}>
                         {files.map((item, i) => (
                             <Box className={classes.fileContainer}>
+                                <Grid
+                                    container
+                                    alignItems="center"
+                                    justify="center"
+                                    className={classes.deleteButton}
+                                    onClick={() => handleFile(i)}>
+                                    <DeleteIcon />
+                                </Grid>
                                 <img src={URL.createObjectURL(item)} alt={`img_${i}`} />
                             </Box>
                         ))}

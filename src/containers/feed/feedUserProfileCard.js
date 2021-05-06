@@ -6,17 +6,17 @@ import classnames from "classnames"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../../components/buttons/customButton"
-import { BorderLeft } from "@material-ui/icons"
+import { images } from "../../assets/images"
 
 const useStyles = makeStyles({
     wrapper: {
         border: `1px solid ${colors.lightGray}`,
         padding: "1.5rem",
-        height: "100%",
-        background:colors.white,
+        background: colors.white,
+        marginBottom: "1rem",
         "@media (max-width:766px)": {
             border: "none",
-            borderBottom: `1px solid ${colors.lightGray}`,
+            borderBottom: `1px solid ${colors.lighterGray}`,
         },
     },
     avatar: {
@@ -27,22 +27,22 @@ const useStyles = makeStyles({
         width: "6rem",
     },
     profileInfoContainer: {
-        display:"flex",
-        alignItems:"flex-start",
-        justifyContent:"center",
-        padding:"0.2rem 0.5rem 0.2rem 0.5rem",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        padding: "0.2rem 0.5rem 0.2rem 0.5rem",
         // "& p": {
         //     cursor: "pointer",
         // },
     },
-    textInfoContainer:{
-        borderRight:`1px solid ${colors.lighterGray}`,
-        paddingRight:"0.5rem",
+    textInfoContainer: {
+        borderRight: `1px solid ${colors.lighterGray}`,
+        paddingRight: "0.5rem",
     },
-    followBtnContainer:{
-        paddingLeft:"0.5rem",
-        height:"2.5rem",
-        width:"7rem",
+    followBtnContainer: {
+        paddingLeft: "0.5rem",
+        height: "2.5rem",
+        width: "7rem",
     },
     fullWidthBtn: {
         width: "100%",
@@ -63,10 +63,13 @@ const useStyles = makeStyles({
         fontSize: "16px",
         lineHeight: "22px",
     },
-    name:{
-    fontSize: "22px",
-    lineHeight: "34px",
-    color:colors.black
+    name: {
+        fontSize: "22px",
+        lineHeight: "34px",
+        color: colors.black,
+    },
+    time: {
+        color: colors.lightGray,
     },
 })
 
@@ -74,15 +77,19 @@ export const FeedUserProfileCard = ({
     image,
     name,
     category,
-    Client,
-    Year,
+    client,
+    year,
     date,
     position,
     onClickProfile,
     onMsgBtnClick,
     externalclass,
     ownProfile,
-    video
+    video,
+    followers,
+    following,
+    time,
+    description,
 }) => {
     const classes = useStyles({ externalclass })
 
@@ -95,26 +102,46 @@ export const FeedUserProfileCard = ({
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
             <Grid container alignItems="center" justify="flex-start">
-            <Grid item >
-                <Grid container alignItems="flex-start" justify="flex-start" direction="row" className={classes.profileInfoContainer}>
-                <Grid item className={classes.profilePicContainer}>
-                    <Avatar className={classes.avatar} src={image} />
+                <Grid item>
+                    <Grid
+                        container
+                        alignItems="flex-start"
+                        justify="flex-start"
+                        direction="row"
+                        className={classes.profileInfoContainer}>
+                        <Grid item className={classes.profilePicContainer}>
+                            <Avatar className={classes.avatar} src={image} />
+                        </Grid>
+                        <Grid item className={classes.textInfoContainer}>
+                            <Typography onClick={onClickProfile} className={classes.name}>
+                                {name}
+                            </Typography>
+                            <Typography className={classes.username}>{position}</Typography>
+                        </Grid>
+                    </Grid>
                 </Grid>
-                <Grid item  className={classes.textInfoContainer}>
-                    <Typography onClick={onClickProfile} className={classes.name}>{name}</Typography>
-                    <Typography className={classes.username}>{position}</Typography>
-                </Grid>
+                <Grid item className={classes.followBtnContainer}>
+                    <CustomButton
+                        variant="dropdownButton"
+                        icon={<img src={icons.arrowDropdown} alt="" />}
+                        label="Following"
+                        externalclass={classes.smallBtn}
+                    />
                 </Grid>
             </Grid>
-            <Grid item className={classes.followBtnContainer}>
-            <CustomButton
-                            variant="dropdownButton"
-                            icon={<img src={icons.arrowDropdown} alt="" />}
-                            label="Following"
-                            externalclass={classes.smallBtn}
-                        />
-            </Grid>
-            </Grid>
+            <Box>
+                <Typography variant="subtitle1">Category: {category}</Typography>
+                <Typography variant="subtitle1">Client: {client}</Typography>
+                <Grid container alignItems="center" justify="space-between">
+                    <Typography variant="subtitle1">Year: {year}</Typography>
+                    <Typography variant="subtitle1" className={classnames(classes.time)}>
+                        {time}
+                    </Typography>
+                </Grid>
+
+                <img src={images.masorny1} alt="dummy" style={{ width: "100%", height: "23rem", objectFit: "cover" }} />
+                <Typography variant="subtitle1">{description}</Typography>
+            </Box>
             {/* {!ownProfile ? (
                 <Grid container spacing={3}>
                     <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
@@ -146,9 +173,12 @@ FeedUserProfileCard.propTypes = {
     position: PropTypes.string.isRequired,
     followers: PropTypes.string.isRequired,
     following: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired,
     onClickProfile: PropTypes.func,
     onMsgBtnClick: PropTypes.func,
     externalclass: PropTypes.string,
     ownProfile: PropTypes.bool,
+    client: PropTypes.string.isRequired,
+    year: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 }

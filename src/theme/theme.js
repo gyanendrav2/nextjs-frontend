@@ -32,10 +32,10 @@ const theme = createMuiTheme({
             color: colors.lighterGray,
             fontWeight: 700,
         },
-        h7: {
+        subtitle1: {
             fontSize: "1rem",
             lineHeight: "2rem",
-            color: colors.lighterGray,
+            color: colors.black,
             fontWeight: 400,
         },
     },

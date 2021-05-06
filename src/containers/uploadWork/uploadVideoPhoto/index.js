@@ -247,9 +247,9 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
             </Grid>
             {photoCode}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <CardAdderButton />
+                <CardAdderButton onSelect={handleAddPhotoCodeData} />
             </Grid>
-            {photoCodeReverse.map((item, i) => (
+            {/* {photoCodeReverse.map((item, i) => (
                 <PhotoCodeBox key={i} flexDirection="row-reverse" />
             ))}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
@@ -265,7 +265,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
 
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
                 <AddCircleIcon onClick={() => setSelectionModel(false)} />
-            </Grid>
+            </Grid> */}
             {photoSliderData.map((item, i) => (
                 <UploadPhoto key={i} />
             ))}

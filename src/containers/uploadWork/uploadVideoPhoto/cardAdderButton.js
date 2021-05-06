@@ -17,9 +17,11 @@ const useStyles = makeStyles({
         padding: "1rem",
         backgroundColor: colors.white,
         borderRadius: "0.2rem",
+        zIndex: 2,
     },
     title: {
         fontSize: "0.9rem",
+        cursor: "pointer",
     },
     fixed: {
         position: "fixed",
@@ -32,20 +34,31 @@ const useStyles = makeStyles({
     },
 })
 
-export const CardAdderButton = ({ onClick }) => {
+export const CardAdderButton = ({ onSelect }) => {
     const classes = useStyles()
     const [showCard, setShowCard] = useState(false)
+
+    const handleSelect = (i) => {
+        onSelect(i)
+        setShowCard(false)
+    }
     return (
         <Box className={classes.btnWrapper}>
             <AddCircleIcon onClick={() => setShowCard(!showCard)} />
             {showCard && (
                 <>
                     <Grid container alignItems="center" justify="space-between" className={classes.cardWrapper}>
-                        <Typography className={classes.title}>Image Left</Typography>
-                        <Typography className={classes.title}>Image Right</Typography>
-                        <Typography className={classes.title}>Image Code Text</Typography>
+                        <Typography className={classes.title} onClick={() => handleSelect(0)}>
+                            Image Left
+                        </Typography>
+                        <Typography className={classes.title} onClick={() => handleSelect(1)}>
+                            Image Right
+                        </Typography>
+                        <Typography className={classes.title} onClick={() => handleSelect(2)}>
+                            Image Code Text
+                        </Typography>
                     </Grid>
-                    <Box className={classes.fixed} />
+                    <Box className={classes.fixed} onClick={() => setShowCard(false)} />
                 </>
             )}
         </Box>
@@ -53,5 +66,5 @@ export const CardAdderButton = ({ onClick }) => {
 }
 
 CardAdderButton.propTypes = {
-    onClick: PropTypes.func.isRequired,
+    onSelect: PropTypes.func.isRequired,
 }
