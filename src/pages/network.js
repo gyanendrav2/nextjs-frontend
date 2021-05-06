@@ -71,7 +71,7 @@ const Network = () => {
                         />
                     </Box>
                     <Grid container alignItems="center" wrap="nowrap" className={classes.searchContainer}>
-                        <Box>
+                        <Box style={{ width: "100%" }}>
                             <InputWithLabelIcon hideErrorMsg placeholder="Search users" />
                         </Box>
                         <CustomButton label="Search" externalclass={classes.searchBtn} />
