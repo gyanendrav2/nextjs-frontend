@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
 import { PhotoIcon } from "../../../components/icons/photoIcon"
 import { CodeIcon } from "../../../components/icons/codeIcon"
@@ -17,15 +17,9 @@ import { TwitterIcon } from "../../../components/icons/twitterIcon"
 import { SelectWithLabelIcon } from "../../../components/inputs/selectWithLabelIcon"
 import { roleCategories } from "../../../data/roles"
 import { AddTeamMember } from "./addTeamMember"
-import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
-import { UploadMediaModal } from "../../../components/modal/uploadMediaModal"
-import { ModalComponent } from "../../../components/modal/modalComponent"
-import { Teams } from "./teams"
-import { useForm } from "react-hook-form"
-import { yupResolver } from "@hookform/resolvers"
 import { ChipCards } from "../../../components/cards/chipCards"
-import { useRouter } from "next/router"
-import { TrainRounded } from "@material-ui/icons"
+import { AllModals } from "../allModals"
+import { CardAdderButton } from "./cardAdderButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -78,15 +72,6 @@ const useStyles = makeStyles({
         marginTop: "1.5rem",
         color: colors.lighterGray,
     },
-    modelWrapper: {
-        maxHeight: "90vh",
-        overflowY: "auto",
-        width: "100%",
-    },
-    deleteTitle: {
-        marginTop: "2rem",
-        marginBottom: "5.312rem",
-    },
 })
 
 export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
@@ -94,24 +79,39 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
     const [showAddTeamMember, setShowAddTeamMember] = useState(false)
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
-    const [photoCode, setPhotoCode] = useState([<PhotoCodeBox flexDirection="row" />])
     const [photoCodeReverse, setPhotoCodeReverse] = useState([1])
     const [photoCodeText, setPhotoCodeText] = useState([1])
     const [photoSliderData, setPhotoSliderData] = useState([1])
     const [selectionModel, setSelectionModel] = useState(false)
-    const routes = useRouter()
-    // const { register, handleSubmit, errors } = useForm({
-    //     resolver: yupResolver({}),
-    // })
     const [roleCategoriesdata, setRoleCategoriesdata] = useState(roleCategories)
     const [roles, setRoles] = useState([])
+    const [photoCode, setPhotoCode] = useState([
+        <PhotoCodeBox
+            id="content-block-1"
+            showUploadMediaModel={() => setShowUPloadMediaModal(true)}
+            showCodeModel={() => setShowCodeModal(true)}
+            flexDirection="row"
+        />,
+    ])
 
     const handleAddPhotoCodeData = (i) => {
         const data = [...photoCode]
         if (i === 0) {
-            data.push(<PhotoCodeBox flexDirection="row" />)
+            data.push(
+                <PhotoCodeBox
+                    showUploadMediaModel={() => setShowUPloadMediaModal(true)}
+                    showCodeModel={() => setShowCodeModal(true)}
+                    flexDirection="row"
+                />
+            )
         } else if (i === 1) {
-            data.push(<PhotoCodeBox flexDirection="row-reverse" />)
+            data.push(
+                <PhotoCodeBox
+                    showUploadMediaModel={() => setShowUPloadMediaModal(true)}
+                    showCodeModel={() => setShowCodeModal(true)}
+                    flexDirection="row-reverse"
+                />
+            )
         } else {
             data.push(
                 <Grid container alignItems="center" justify="center" className={classes.wrapper}>
@@ -162,56 +162,23 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
     }
     return (
         <Box>
-            <ModalComponent openOrNot={selectionModel} onClose={() => setSelectionModel(false)}>
-                <Box className={classes.modelWrapper}>
-                    <Box onClick={() => handleAddPhotoCodeData(0)}>
-                        <PhotoCodeBox flexDirection="row" />
-                    </Box>
-                    <Box onClick={() => handleAddPhotoCodeData(1)}>
-                        <PhotoCodeBox flexDirection="row-reverse" />
-                    </Box>
-                    <Box onClick={() => handleAddPhotoCodeData(2)}>
-                        <Grid container alignItems="center" justify="center" className={classes.wrapper}>
-                            <PhotoIcon className={classes.icon} />
-                            <CodeIcon className={classes.icon} />
-                            <TIcon className={classes.icon} />
-                        </Grid>
-                    </Box>
-                </Box>
-            </ModalComponent>
-            <ModalComponent openOrNot={openDeleteModel} onClose={() => onDelete()}>
-                <Grid container alignItems="center" justify="center" direction="column">
-                    <Typography variant="h4">Delete or hide work</Typography>
-                    <Typography className={classes.deleteTitle}>
-                        Instead of deleting the work for all your team members, there’s a way to hide it.
-                    </Typography>
-                    <CustomButton
-                        label="Delete"
-                        onClick={() => routes.push({ pathname: "/profile", query: { showNotification: true } })}
-                    />
-                </Grid>
-            </ModalComponent>
-            <SendDetailsModal
-                modalName="Insert code"
-                title="Embed and existing Youtube or Vimeo video code into your project"
-                isTextArea
-                hideCount
-                textAreaValue={`<iframe width="560" height="315" src="https://www.youtube.com/embed/50Twc4ghBFM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`}
-                isOpen={showCodeModal}
-                onConfirm={() => setShowCodeModal(false)}
-                onClose={() => setShowCodeModal(false)}
-                externalclass={classes.modaltitle}
-            />
-            <UploadMediaModal
-                modalName="Upload media"
-                isOpen={showUPloadMediaModal}
-                onClose={() => setShowUPloadMediaModal(false)}
+            <AllModals
+                selectionModal={selectionModel}
+                onSelectModal={() => setSelectionModel(false)}
+                handleAddPhotoCodeData={handleAddPhotoCodeData}
+                openDeleteModal={openDeleteModel}
+                showCodeModal={showCodeModal}
+                showUPloadMediaModal={showUPloadMediaModal}
+                onDelete={onDelete}
+                onConfirmSendDetails={() => setShowCodeModal(false)}
+                onCloseSendDetails={() => setShowCodeModal(false)}
+                onCloseUploadMedia={() => setShowUPloadMediaModal(false)}
             />
             <Grid container alignItems="center" justify="center" className={classes.wrapper}>
                 <PhotoIcon className={classes.icon} onClick={() => setShowUPloadMediaModal(true)} />
                 <CodeIcon className={classes.icon} onClick={() => setShowCodeModal(true)} />
             </Grid>
-            <Grid container className={classes.whiteBg}>
+            <Grid id="insert-project-name-details" container className={classes.whiteBg}>
                 <Grid item xs={12} sm={12} md={9} lg={9} xl={9}>
                     <Box>
                         <InputWithLabelIcon
@@ -272,11 +239,15 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
                     </Box>
                 </Grid>
 
-                <AddTeamMember shouldVisible={showAddTeamMember} onAdded={() => setShowAddTeamMember(false)} />
+                <AddTeamMember
+                    shouldVisible={showAddTeamMember}
+                    onCancel={() => setShowAddTeamMember(false)}
+                    onAdded={() => setShowAddTeamMember(false)}
+                />
             </Grid>
             {photoCode}
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon onClick={() => setSelectionModel(true)} />
+                <CardAdderButton />
             </Grid>
             {photoCodeReverse.map((item, i) => (
                 <PhotoCodeBox key={i} flexDirection="row-reverse" />

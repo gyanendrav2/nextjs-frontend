@@ -1,18 +1,17 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { useRouter } from "next/router"
-import { ContentWrapper } from "../../components/contentWrapper/contentWrapper"
-import { EditOptions } from "../../containers/userEditProfile/editOptions"
-import { HeaderWrapper } from "../../components/header/headerWrapper"
-import { colors } from "../../theme/colors"
-import { UploadVideoPhoto } from "../../containers/uploadWork/uploadVideoPhoto"
-import { uploadWorkOptions } from "../../data/uploadWorkOptions"
-import { CustomButton } from "../../components/buttons/customButton"
-import { Footer } from "../../components/footer"
+import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
+import { EditOptions } from "../containers/userEditProfile/editOptions"
+import { HeaderWrapper } from "../components/header/headerWrapper"
+import { colors } from "../theme/colors"
+import { UploadVideoPhoto } from "../containers/uploadWork/uploadVideoPhoto"
+import { uploadWorkOptions } from "../data/uploadWorkOptions"
+import { CustomButton } from "../components/buttons/customButton"
+import { Footer } from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
-        paddingTop: "7rem",
         backgroundColor: colors.lighterPrimary,
         position: "relative",
         "@media(max-width:767px)": {
@@ -24,6 +23,7 @@ const useStyles = makeStyles({
     },
     col1: {
         width: "calc(100% - 27.5rem)",
+        marginTop: "7rem",
         "@media(max-width:992px)": {
             width: "100%",
         },
@@ -53,24 +53,25 @@ const useStyles = makeStyles({
 const UploadWork = () => {
     const classes = useStyles()
     const routes = useRouter()
-    const { query, push } = routes
-    const { uploadFor } = query
+
+    useEffect(() => {
+        console.log("routes", routes)
+    })
+
     const [openDeleteModel, setOpenDeleteModel] = useState(false)
     const renderOption = () => {
-        if (uploadFor === "upload-video-photo") {
-            return (
-                <UploadVideoPhoto
-                    openDeleteModel={openDeleteModel}
-                    onDelete={() => {
-                        setOpenDeleteModel(false)
-                    }}
-                />
-            )
-        }
+        return (
+            <UploadVideoPhoto
+                openDeleteModel={openDeleteModel}
+                onDelete={() => {
+                    setOpenDeleteModel(false)
+                }}
+            />
+        )
     }
     return (
         <>
-            <HeaderWrapper isScrollDetect={false} />
+            <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <ContentWrapper externalclass={classes.wrapper}>
                 <Grid container justify="space-between" className={classes.colWrapper}>
                     <Box className={classes.col1}>{renderOption()}</Box>
@@ -80,8 +81,9 @@ const UploadWork = () => {
                                 <EditOptions
                                     key={i}
                                     optionName={item.optionName}
-                                    isActive={uploadFor === item.pathSlug}
-                                    onClick={() => push(`/upload-work/${item.pathSlug}`)}
+                                    // isActive={uploadFor === item.pathSlug}
+                                    href={`#${item.pathSlug}`}
+                                    // onClick={() => push(`/upload-work/${item.pathSlug}`)}
                                 />
                             ))}
                             <Grid

@@ -11,6 +11,7 @@ import { mobileNavOptions } from "../../../data/headerMenuList"
 import { SearchIcon } from "../../icons/searchIcon"
 import { CloseIconBig } from "../../icons/closeIconBig"
 import { UserProfileNav } from "../../cards/userProfileNav"
+import { useRouter } from "next/router"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -138,6 +139,11 @@ const useStyles = makeStyles({
 
 export const MobileMenu = ({ toggleMenu, onClose }) => {
     const classes = useStyles()
+    const routes = useRouter()
+
+    const routeSettings = () => {
+        routes.push("/upload-work/upload-video-photo")
+    }
 
     return (
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
@@ -171,12 +177,10 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                         </li>
                         <li className={classes.listStyle}>
                             <CustomButton
-                                wantFile
-                                allowMultiple
-                                onFileChange={(e) => console.log(e.target.files)}
-                                className={classes.button}
+                                 className={classes.button}
                                 label="Upload work"
-                                type="file"
+                                onClick={routeSettings}
+                            
                             />
                         </li>
                     </ul>

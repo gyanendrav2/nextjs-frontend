@@ -56,7 +56,7 @@ export const UserProfileNav = ({ userName, profileImg, externalclass }) => {
     const [showEditOptions, setShowEditOptions] = useState(false)
 
     const routeEditProfile = () => {
-        routes.push("/profile")
+        routes.push("/feed")
     }
 
     const handleRoute = () => {

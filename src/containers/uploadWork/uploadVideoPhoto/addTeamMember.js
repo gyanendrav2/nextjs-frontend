@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const AddTeamMember = ({ shouldVisible, onAdded }) => {
+export const AddTeamMember = ({ shouldVisible, onAdded, onCancel }) => {
     const classes = useStyles()
     const [totalTeams, setTotalTeams] = useState([])
     const [jobRole, setJobRole] = useState(roleOptions)
@@ -106,7 +106,7 @@ export const AddTeamMember = ({ shouldVisible, onAdded }) => {
                         <Grid container alignItems="center" justify="flex-end">
                             <Grid container spacing={2} className={classes.buttonGroup}>
                                 <Grid item xs={12} sm={12} md={6}>
-                                    <CustomButton variant="textButton" label="cancel" fullWidth />
+                                    <CustomButton variant="textButton" label="cancel" fullWidth onClick={onCancel} />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6}>
                                     <CustomButton label="Confirm" type="submit" fullWidth />
@@ -123,4 +123,5 @@ export const AddTeamMember = ({ shouldVisible, onAdded }) => {
 AddTeamMember.propTypes = {
     onAdded: PropTypes.func.isRequired,
     shouldVisible: PropTypes.bool.isRequired,
+    onCancel: PropTypes.func.isRequired,
 }

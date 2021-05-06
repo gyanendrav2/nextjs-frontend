@@ -122,13 +122,9 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                 )}
                 {isAuthenticated && (
                     <CustomButton
-                        // wantFile
-                        // allowMultiple
-                        // onFileChange={(e) => console.log(e.target.files)}
                         className={classes.uploadBtn}
                         label="Upload work"
                         onClick={routeSettings}
-                        // type="file"
                     />
                 )}
             </Grid>

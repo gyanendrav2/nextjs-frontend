@@ -26,18 +26,24 @@ const useStyles = makeStyles({
         width: "100%",
         borderLeft: `0.5rem solid ${colors.white}`,
         cursor: "pointer",
+        display: "block",
+        textDecoration: "none",
+        color: colors.black,
         "&:last-child": {
             borderBottom: "none",
         },
     },
 })
 
-export const EditOptions = ({ isActive, optionName, onClick }) => {
+export const EditOptions = ({ isActive, optionName, onClick, href }) => {
     const classes = useStyles()
     return (
-        <Typography className={classnames(classes.col1item, { [classes.activeOption]: isActive })} onClick={onClick}>
+        // <Typography className={classnames(classes.col1item, { [classes.activeOption]: isActive })} onClick={onClick}>
+        //     {optionName}
+        // </Typography>
+        <a href={href} className={classnames(classes.col1item, { [classes.activeOption]: isActive })}>
             {optionName}
-        </Typography>
+        </a>
     )
 }
 
@@ -45,4 +51,5 @@ EditOptions.propTypes = {
     isActive: PropTypes.bool.isRequired,
     optionName: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
+    href: PropTypes.string.isRequired,
 }
