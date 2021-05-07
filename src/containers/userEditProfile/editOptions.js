@@ -35,21 +35,36 @@ const useStyles = makeStyles({
     },
 })
 
-export const EditOptions = ({ isActive, optionName, onClick, href }) => {
+export const EditOptions = ({ isActive, optionName, onClick, href, isHref }) => {
     const classes = useStyles()
     return (
-        // <Typography className={classnames(classes.col1item, { [classes.activeOption]: isActive })} onClick={onClick}>
-        //     {optionName}
-        // </Typography>
-        <a href={href} className={classnames(classes.col1item, { [classes.activeOption]: isActive })}>
-            {optionName}
-        </a>
+        <>
+            {isHref ? (
+                <a href={href} className={classnames(classes.col1item, { [classes.activeOption]: isActive })}>
+                    {optionName}
+                </a>
+            ) : (
+                <Typography
+                    className={classnames(classes.col1item, { [classes.activeOption]: isActive })}
+                    onClick={onClick}>
+                    {optionName}
+                </Typography>
+            )}
+        </>
     )
 }
 
+EditOptions.defaultProps = {
+    isHref: false,
+    href: "",
+    isActive: false,
+    onClick: () => {},
+}
+
 EditOptions.propTypes = {
-    isActive: PropTypes.bool.isRequired,
+    isActive: PropTypes.bool,
     optionName: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    href: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    href: PropTypes.string,
+    isHref: PropTypes.bool,
 }

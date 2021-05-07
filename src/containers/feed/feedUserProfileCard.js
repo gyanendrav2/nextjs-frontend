@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
@@ -31,18 +31,15 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         justifyContent: "center",
         padding: "0.2rem 0.5rem 0.2rem 0.5rem",
-        // "& p": {
-        //     cursor: "pointer",
-        // },
     },
     textInfoContainer: {
-        borderRight: `1px solid ${colors.lighterGray}`,
-        paddingRight: "0.5rem",
+        paddingRight: "1.5rem",
+        height: "3rem",
     },
     followBtnContainer: {
-        paddingLeft: "0.5rem",
-        height: "2.5rem",
-        width: "7rem",
+        borderLeft: `1px solid ${colors.lightGray}`,
+        paddingLeft: "2rem",
+        marginTop: "-1.2rem",
     },
     fullWidthBtn: {
         width: "100%",
@@ -52,6 +49,9 @@ const useStyles = makeStyles({
     },
     smallBtn: {
         width: "100%",
+        height: "2.5rem",
+        padding: "0.5rem",
+        // borderLeft: `1px solid ${colors.lighterGray}`,
     },
     readmore: {
         cursor: "pointer",

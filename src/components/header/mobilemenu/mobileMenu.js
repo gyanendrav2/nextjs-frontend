@@ -142,7 +142,7 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
     const routes = useRouter()
 
     const routeSettings = () => {
-        routes.push("/upload-work/upload-video-photo")
+        routes.push("/upload-work")
     }
 
     return (

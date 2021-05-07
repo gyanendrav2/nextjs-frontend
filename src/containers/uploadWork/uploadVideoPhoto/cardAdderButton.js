@@ -32,6 +32,9 @@ const useStyles = makeStyles({
         width: "100%",
         height: "100vh",
     },
+    addCircleIcon:{
+        cursor:"pointer"
+    }
 })
 
 export const CardAdderButton = ({ onSelect }) => {
@@ -44,7 +47,7 @@ export const CardAdderButton = ({ onSelect }) => {
     }
     return (
         <Box className={classes.btnWrapper}>
-            <AddCircleIcon onClick={() => setShowCard(!showCard)} />
+            <AddCircleIcon onClick={() => setShowCard(!showCard)} className={classes.addCircleIcon} />
             {showCard && (
                 <>
                     <Grid container alignItems="center" justify="space-between" className={classes.cardWrapper}>
@@ -56,6 +59,9 @@ export const CardAdderButton = ({ onSelect }) => {
                         </Typography>
                         <Typography className={classes.title} onClick={() => handleSelect(2)}>
                             Image Code Text
+                        </Typography>
+                        <Typography className={classes.title} onClick={() => handleSelect(3)}>
+                            ImageGallery
                         </Typography>
                     </Grid>
                     <Box className={classes.fixed} onClick={() => setShowCard(false)} />

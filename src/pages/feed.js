@@ -1,9 +1,10 @@
-import { Box, Grid, makeStyles } from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import React from "react"
 import { images } from "../assets/images"
 // import { UserProfileCard } from "../components/cards/userProfileCard"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
+import { SeenIcon } from "../components/icons/seenIcon"
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { FeedProfileCard } from "../containers/feed/feedProfileCard"
 import { FeedUserProfileCard } from "../containers/feed/feedUserProfileCard"
@@ -19,6 +20,12 @@ const useStyles = makeStyles({
         margin: "auto",
         backgroundColor: colors.lighterPrimary,
     },
+    seenContainer: {
+        display: "block",
+        textAlign: "center",
+        margin: "4rem auto",
+    },
+    seenText: {},
 })
 
 const Feed = () => {
@@ -39,7 +46,7 @@ const Feed = () => {
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
                         <FeedUserProfileCard
-                            image={images.maskGroup}
+                            image={images.girlImage}
                             name="Mary Tooper"
                             position="Animator assistant"
                             category="Animation"
@@ -49,7 +56,21 @@ const Feed = () => {
                             description="Nike “Beginnings” commercial about key moments in James’ path"
                         />
                         <FeedUserProfileCard
-                            image={images.maskGroup}
+                            image={images.simon}
+                            name="Simon Bowell"
+                            position="Photographer"
+                            category="Photography"
+                            client="NBA"
+                            year="2020"
+                            time="09.10.20"
+                            description="LeBron James charity event photography for childrens’ hospital"
+                        />
+                        <Box className={classes.seenContainer}>
+                            <SeenIcon />
+                            <Typography className={classes.seenText}> You’ve seen the most recent posts</Typography>
+                        </Box>
+                        <FeedUserProfileCard
+                            image={images.mike}
                             name="Mary Tooper"
                             position="Animator assistant"
                             category="Animation"
@@ -59,17 +80,7 @@ const Feed = () => {
                             description="Nike “Beginnings” commercial about key moments in James’ path"
                         />
                         <FeedUserProfileCard
-                            image={images.maskGroup}
-                            name="Mary Tooper"
-                            position="Animator assistant"
-                            category="Animation"
-                            client="Nike"
-                            year="2021"
-                            time="09.10.20"
-                            description="Nike “Beginnings” commercial about key moments in James’ path"
-                        />
-                        <FeedUserProfileCard
-                            image={images.maskGroup}
+                            image={images.sarah}
                             name="Mary Tooper"
                             position="Animator assistant"
                             category="Animation"

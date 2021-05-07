@@ -20,6 +20,7 @@ import { AddTeamMember } from "./addTeamMember"
 import { ChipCards } from "../../../components/cards/chipCards"
 import { AllModals } from "../allModals"
 import { CardAdderButton } from "./cardAdderButton"
+import { CloseIconBig } from "../../../components/icons/closeIconBig"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -28,6 +29,7 @@ const useStyles = makeStyles({
         padding: "6.25rem 0",
         border: `1px solid ${colors.lightGray}`,
         marginBottom: "1.125rem",
+        position: "relative",
         "& svg": {
             cursor: "pointer",
         },
@@ -72,27 +74,46 @@ const useStyles = makeStyles({
         marginTop: "1.5rem",
         color: colors.lighterGray,
     },
+    buttonContainer: {
+        padding: "1.9rem",
+        display: "none",
+        "@media(max-width:992px)": {
+            display: "flex",
+        },
+    },
+    closeIcon: {
+        position: "absolute",
+        top: "0.5rem",
+        right: "0.5rem",
+        cursor: "pointer",
+        color: colors.lighterGray,
+        "@media (max-width:767px)": {
+            top: "0.5rem",
+            right: "0.5rem",
+        },
+    },
 })
 
-export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
+export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal }) => {
     const classes = useStyles()
     const [showAddTeamMember, setShowAddTeamMember] = useState(false)
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
     const [photoCodeReverse, setPhotoCodeReverse] = useState([1])
     const [photoCodeText, setPhotoCodeText] = useState([1])
+    // const [imageGallery, setImageGallery] = useState([1])
     const [photoSliderData, setPhotoSliderData] = useState([1])
     const [selectionModel, setSelectionModel] = useState(false)
     const [roleCategoriesdata, setRoleCategoriesdata] = useState(roleCategories)
     const [roles, setRoles] = useState([])
-    const [photoCode, setPhotoCode] = useState([
-        <PhotoCodeBox
-            id="content-block-1"
-            showUploadMediaModel={() => setShowUPloadMediaModal(true)}
-            showCodeModel={() => setShowCodeModal(true)}
-            flexDirection="row"
-        />,
-    ])
+    const [showPhotocode, setShowPhotocode] = useState(false)
+    const [photoCode, setPhotoCode] = useState([])
+
+    const handleDelete = (i) => {
+        const newData = [...photoCode]
+        newData.splice(i, 1)
+        setPhotoCode(newData)
+    }
 
     const handleAddPhotoCodeData = (i) => {
         const data = [...photoCode]
@@ -102,6 +123,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
                     showUploadMediaModel={() => setShowUPloadMediaModal(true)}
                     showCodeModel={() => setShowCodeModal(true)}
                     flexDirection="row"
+                    onDelete={() => handleDelete(i)}
                 />
             )
         } else if (i === 1) {
@@ -110,14 +132,24 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
                     showUploadMediaModel={() => setShowUPloadMediaModal(true)}
                     showCodeModel={() => setShowCodeModal(true)}
                     flexDirection="row-reverse"
+                    onDelete={() => handleDelete(i)}
                 />
+            )
+        } else if (i === 2) {
+            data.push(
+                <Grid container alignItems="center" justify="center" className={classes.wrapper}>
+                    <Box className={classes.closeIcon}>
+                        <CloseIconBig width={16} onClick={() => handleDelete(i)} />
+                    </Box>
+                    <PhotoIcon className={classes.icon} onClick={() => setShowUPloadMediaModal(true)} />
+                    <CodeIcon className={classes.icon} onClick={() => setShowCodeModal(true)} />
+                    <TIcon className={classes.icon} />
+                </Grid>
             )
         } else {
             data.push(
-                <Grid container alignItems="center" justify="center" className={classes.wrapper}>
-                    <PhotoIcon className={classes.icon} />
-                    <CodeIcon className={classes.icon} />
-                    <TIcon className={classes.icon} />
+                <Grid style={{ width: "100%" }}>
+                    <UploadPhoto onDelete={() => handleDelete(i)} />
                 </Grid>
             )
         }
@@ -173,6 +205,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
                 onConfirmSendDetails={() => setShowCodeModal(false)}
                 onCloseSendDetails={() => setShowCodeModal(false)}
                 onCloseUploadMedia={() => setShowUPloadMediaModal(false)}
+                closeDeleteModal={closeDeleteModal}
             />
             <Grid container alignItems="center" justify="center" className={classes.wrapper}>
                 <PhotoIcon className={classes.icon} onClick={() => setShowUPloadMediaModal(true)} />
@@ -249,28 +282,26 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete }) => {
             <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
                 <CardAdderButton onSelect={handleAddPhotoCodeData} />
             </Grid>
-            {/* {photoCodeReverse.map((item, i) => (
-                <PhotoCodeBox key={i} flexDirection="row-reverse" />
-            ))}
-            <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon onClick={() => setSelectionModel(false)} />
-            </Grid>
-            {photoCodeText.map((item, i) => (
-                <Grid key={i} container alignItems="center" justify="center" className={classes.wrapper}>
-                    <PhotoIcon className={classes.icon} />
-                    <CodeIcon className={classes.icon} />
-                    <TIcon className={classes.icon} />
+            <Grid container alignItems="center" justify="center" spacing={2} className={classes.buttonContainer}>
+                <Grid item xs={12} sm={6} md={6} container>
+                    <CustomButton
+                        variant="borderButton"
+                        externalclass={classes.borderButton}
+                        label="Preview"
+                        fullWidth
+                    />
                 </Grid>
-            ))}
-
-            <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon onClick={() => setSelectionModel(false)} />
-            </Grid> */}
-            {photoSliderData.map((item, i) => (
-                <UploadPhoto key={i} />
-            ))}
-            <Grid container alignItems="center" justify="flex-end" className={classes.plusIconContainer}>
-                <AddCircleIcon onClick={handlePhotoSliderData} />
+                <Grid item xs={12} sm={6} md={6}>
+                    <CustomButton variant="borderButton" label="Confirm" fullWidth />
+                </Grid>
+                <CustomButton variant="textButton" label="Cancel" fullWidth color={colors.darkRed} />
+                <CustomButton
+                    variant="textButton"
+                    label="Delete work"
+                    fullWidth
+                    color={colors.darkRed}
+                    onClick={() => setOpenDeleteModel(true)}
+                />
             </Grid>
             <Grid container alignItems="center" justify="center" className={classes.socialIconContainer}>
                 <FacebookIcon className={classes.socialIcon} />

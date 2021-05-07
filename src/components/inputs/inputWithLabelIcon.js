@@ -100,7 +100,7 @@ InputWithLabelIcon.defaultProps = {
     label: "",
     icon: "",
     inputRegister: () => {},
-    name: PropTypes.string,
+    name: "",
     errorMsg: {},
     externalclass: "",
     labelColor: "",

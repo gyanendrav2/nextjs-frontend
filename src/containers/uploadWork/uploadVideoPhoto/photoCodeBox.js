@@ -1,11 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles } from "@material-ui/core"
 import { PhotoIcon } from "../../../components/icons/photoIcon"
 import { CodeIcon } from "../../../components/icons/codeIcon"
 import { colors } from "../../../theme/colors"
-// import { Input } from "../../../components/inputs"
-//import { TextAreaInput } from "./textAreaInput"
+import { CloseIconBig } from "../../../components/icons/closeIconBig"
 
 const useStyles = makeStyles({
     whiteBg: {
@@ -16,17 +15,28 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        position: "relative",
     },
     codeContainer: {
         backgroundColor: colors.lighterPrimary,
         padding: "3.25rem 2rem",
+        "@media(max-width:415px)": {
+            padding: "1.5rem",
+        },
     },
     icon: {
         margin: "0 2rem",
+        "@media(max-width:415px)": {
+            margin: "0 0.75rem",
+        },
     },
     textContainer: {
         margin: "0 auto",
         paddingLeft: "2.5rem",
+        "@media(max-width:960px)": {
+            paddingLeft: "0px",
+            marginTop: "1.5rem",
+        },
     },
     headInput: {
         marginBottom: "2rem",
@@ -41,6 +51,9 @@ const useStyles = makeStyles({
         "&:hover": {
             border: "none",
             outline: "none",
+        },
+        "@media(max-width:600px)": {
+            fontSize: "2.1rem",
         },
     },
     headTextArea: {
@@ -58,28 +71,40 @@ const useStyles = makeStyles({
             outline: "none",
         },
     },
+    closeIcon: {
+        position: "absolute",
+        top: "0.5rem",
+        right: "0.5rem",
+        cursor: "pointer",
+        color: colors.lighterGray,
+        "@media (max-width:767px)": {
+            top: "0.5rem",
+            right: "0.5rem",
+        },
+    },
 })
 
-export const PhotoCodeBox = ({ flexDirection, id, showUploadMediaModel, showCodeModel }) => {
+export const PhotoCodeBox = ({ flexDirection, id, showUploadMediaModel, showCodeModel, onDelete }) => {
     const classes = useStyles()
+
     return (
-        <Grid id={id} className={classes.whiteBg} direction={flexDirection}>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                <Grid container alignItems="center" justify="center" className={classes.codeContainer}>
-                    <PhotoIcon className={classes.icon} onClick={showUploadMediaModel} />
-                    <CodeIcon className={classes.icon} onClick={showCodeModel} />
+        <>
+            <Grid id={id} container className={classes.whiteBg} direction={flexDirection}>
+                <Box className={classes.closeIcon}>
+                    <CloseIconBig width={16} onClick={onDelete} />
+                </Box>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid container alignItems="center" justify="center" className={classes.codeContainer}>
+                        <PhotoIcon className={classes.icon} onClick={showUploadMediaModel} />
+                        <CodeIcon className={classes.icon} onClick={showCodeModel} />
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.textContainer}>
+                    <input placeholder="Type a headline..." className={classes.headInput} style={{ border: "none" }} />
+                    <textarea className={classes.headTextArea} placeholder="Insert Text" />
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.textContainer}>
-                {/* <Typography variant="h2" className={classes.title}>Type a headline...</Typography> */}
-                <input placeholder="Type a headline..." className={classes.headInput} style={{ border: "none" }} />
-                {/* <Input placeholder="Type a headline..." externalclass={classes.headInput}></Input> */}
-                {/* <Typography style={{ fontSize: "1rem",  lineHeight: "2rem",
-            color: colors.lighterGray,
-            fontWeight: 400}}>Insert Text...</Typography> */}
-                <textarea className={classes.headTextArea} placeholder="Insert Text" />
-            </Grid>
-        </Grid>
+        </>
     )
 }
 
@@ -93,4 +118,5 @@ PhotoCodeBox.propTypes = {
     id: PropTypes.string,
     showUploadMediaModel: PropTypes.bool.isRequired,
     showCodeModel: PropTypes.bool.isRequired,
+    onDelete: PropTypes.func.isRequired,
 }

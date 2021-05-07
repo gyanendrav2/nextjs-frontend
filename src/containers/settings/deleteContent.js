@@ -34,7 +34,7 @@ export const DeleteContent = () => {
                     Would you like to delete your PXL account? Deleting your account will remove all of your projects
                     and data.
                 </Typography>
-                <Grid display="flex" alignItems="center" justify="flex-start" className={classes.deleteContainer}>
+                <Grid className={classes.deleteContainer}>
                     <CustomButton variant="textButton" label="Delete account" color={colors.darkRed} />
                     <CustomButton
                         variant="textButton"

@@ -66,9 +66,9 @@ const useStyles = makeStyles({
 })
 
 export const AllModals = ({
-    selectionModal,
-    onSelectModal,
-    handleAddPhotoCodeData,
+    // selectionModal,
+    // onSelectModal,
+    // handleAddPhotoCodeData,
     openDeleteModal,
     onDelete,
     showCodeModal,
@@ -76,6 +76,7 @@ export const AllModals = ({
     onCloseSendDetails,
     showUPloadMediaModal,
     onCloseUploadMedia,
+    closeDeleteModal
 }) => {
     const classes = useStyles()
     const routes = useRouter()
@@ -106,7 +107,7 @@ export const AllModals = ({
                     </Typography>
                     <Box className={classes.deleteWrapper} spacing={2}>
                         <Box className={classes.deletewrap}>
-                            <CustomButton label="Cancel" variant="cancel" externalclass={classes.buttonCancel} />
+                            <CustomButton label="Cancel" variant="cancel" externalclass={classes.buttonCancel} onClick={closeDeleteModal} />
                             <CustomButton
                                 label="Delete Work"
                                 externalclass={classes.buttonDelete}

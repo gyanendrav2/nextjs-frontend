@@ -40,6 +40,7 @@ const useStyles = makeStyles({
         lineHeight: "1.375rem",
         color: colors.black,
         textDecoration: "underline",
+        cursor:"pointer"
     },
 })
 

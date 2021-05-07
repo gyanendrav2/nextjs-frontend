@@ -66,6 +66,9 @@ const UploadWork = () => {
                 onDelete={() => {
                     setOpenDeleteModel(false)
                 }}
+                closeDeleteModal={() => {
+                    setOpenDeleteModel(false)
+                }}
             />
         )
     }
@@ -81,11 +84,13 @@ const UploadWork = () => {
                                 <EditOptions
                                     key={i}
                                     optionName={item.optionName}
+                                    isHref
                                     // isActive={uploadFor === item.pathSlug}
                                     href={`#${item.pathSlug}`}
                                     // onClick={() => push(`/upload-work/${item.pathSlug}`)}
                                 />
                             ))}
+
                             <Grid
                                 container
                                 alignItems="center"

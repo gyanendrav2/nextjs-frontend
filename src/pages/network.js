@@ -1,14 +1,14 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import React from "react"
+import React, { useState } from "react"
 import classnames from "classnames"
+import { useRouter } from "next/router"
 import { CustomButton } from "../components/buttons/customButton"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
 import { InputWithLabelIcon } from "../components/inputs/inputWithLabelIcon"
 import { CardWithHeader } from "../components/cards/cardWithHeader"
-import { images } from "../assets/images"
-import { useRouter } from "next/router"
+import { networkData } from "../data/networks"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -48,8 +48,26 @@ const useStyles = makeStyles({
 
 const Network = () => {
     const classes = useStyles()
-    const { query } = useRouter()
+    const { query, push } = useRouter()
     const { tab } = query
+    const [network, setNetwork] = useState(networkData)
+
+    const handleSearch = (e) => {
+        if (e.target.value === "") {
+            setNetwork(networkData)
+        } else {
+            const data = networkData.forEach((item) => {
+                if (
+                    String(item.name).toLocaleLowerCase().search(String(e.target.value).toLocaleLowerCase()) > -1 ||
+                    String(item.position).toLocaleLowerCase().search(String(e.target.value).toLocaleLowerCase()) > -1
+                ) {
+                    return item
+                }
+            })
+            setNetwork(data)
+        }
+    }
+
     return (
         <Box>
             <HeaderWrapper isScrollDetect={false} isAuthenticated feed />
@@ -62,70 +80,34 @@ const Network = () => {
                             externalclass={classnames(classes.button, classes.borderRight, {
                                 [classes.active]: tab === "following",
                             })}
+                            onClick={() => push({ pathname: "/network", query: { tab: "following" } })}
                         />
                         <CustomButton
                             label="Followers (25)"
                             externalclass={classnames(classes.button, {
                                 [classes.active]: tab === "followers",
                             })}
+                            onClick={() => push({ pathname: "/network", query: { tab: "followers" } })}
                         />
                     </Box>
                     <Grid container alignItems="center" wrap="nowrap" className={classes.searchContainer}>
                         <Box style={{ width: "100%" }}>
-                            <InputWithLabelIcon hideErrorMsg placeholder="Search users" />
+                            <InputWithLabelIcon hideErrorMsg placeholder="Search users" onChange={handleSearch} />
                         </Box>
                         <CustomButton label="Search" externalclass={classes.searchBtn} />
                     </Grid>
                 </Grid>
                 <Grid container spacing={2} style={{ marginTop: "2.5rem" }}>
-                    <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
-                        <CardWithHeader
-                            image={images.masorny1}
-                            title="Brandon Landing"
-                            buttonText="Following"
-                            subTitle="Director assistant"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
-                        <CardWithHeader
-                            image={images.masorny1}
-                            title="Brandon Landing"
-                            buttonText="Following"
-                            subTitle="Director assistant"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
-                        <CardWithHeader
-                            image={images.masorny1}
-                            title="Brandon Landing"
-                            buttonText="Following"
-                            subTitle="Director assistant"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
-                        <CardWithHeader
-                            image={images.masorny1}
-                            title="Brandon Landing"
-                            buttonText="Following"
-                            subTitle="Director assistant"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
-                        <CardWithHeader
-                            image={images.masorny1}
-                            title="Brandon Landing"
-                            buttonText="Following"
-                            subTitle="Director assistant"
-                        />
-                    </Grid>
-                    <Grid item xs={12} sm={12} md={3} lg={3} xl={3}>
-                        <CardWithHeader
-                            image={images.masorny1}
-                            title="Brandon Landing"
-                            buttonText="Following"
-                            subTitle="Director assistant"
-                        />
-                    </Grid>
+                    {network.map((item, i) => (
+                        <Grid key={i} item xs={12} sm={12} md={3} lg={3} xl={3}>
+                            <CardWithHeader
+                                image={item.image}
+                                title={item.name}
+                                buttonText={item.buttonText}
+                                subTitle={item.position}
+                            />
+                        </Grid>
+                    ))}
                 </Grid>
             </ContentWrapper>
         </Box>

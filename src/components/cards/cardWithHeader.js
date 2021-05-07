@@ -3,6 +3,8 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
+import { CustomButton } from "../buttons/customButton"
+import { ArrowDownIcon } from "../icons/arrowDownIcon"
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -73,9 +75,12 @@ export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPa
                 <Box>
                     <Typography className={classes.CreatorsAuthorName}>{title}</Typography>
                     <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
-                    <button type="submit" className={classes.CreatorsButton}>
-                        {buttonText}
-                    </button>
+                    <CustomButton
+                        variant="dropdownButton"
+                        icon={<ArrowDownIcon />}
+                        label={buttonText}
+                        externalclass={classes.CreatorsButton}
+                    />
                 </Box>
             </Box>
             {isProjectPage ? null : (

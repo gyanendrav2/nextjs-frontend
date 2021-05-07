@@ -9,8 +9,6 @@ import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
 import { UserProfileNav } from "../cards/userProfileNav"
-import { ModalComponent } from "../modal/modalComponent"
-import { UserProfileNavCard } from "../cards/userProfileNavCard"
 
 const useStyles = makeStyles({
     header: {
@@ -73,15 +71,11 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
         setShowProfilenavcard(!showProfilenavcard)
     }
     const routeSettings = () => {
-        router.push("/upload-work/upload-video-photo")
+        router.push("/upload-work")
     }
 
     return (
         <Box className={classes.header}>
-            <ModalComponent openOrNot={showProfilenavcard} onClose={handleUserProfileNav}>
-                <UserProfileNavCard />
-            </ModalComponent>
-
             <Link href="/">
                 <img
                     className={classes.logo}
@@ -121,11 +115,7 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                     />
                 )}
                 {isAuthenticated && (
-                    <CustomButton
-                        className={classes.uploadBtn}
-                        label="Upload work"
-                        onClick={routeSettings}
-                    />
+                    <CustomButton className={classes.uploadBtn} label="Upload work" onClick={routeSettings} />
                 )}
             </Grid>
         </Box>
