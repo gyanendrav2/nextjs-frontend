@@ -79,6 +79,7 @@ export const FeedUserProfileCard = ({
     category,
     client,
     year,
+    icon,
     date,
     position,
     onClickProfile,
@@ -94,10 +95,6 @@ export const FeedUserProfileCard = ({
     const classes = useStyles({ externalclass })
 
     const routes = useRouter()
-
-    // const handleRoute = () => {
-    //     routes.push("/edit-profile/account-information")
-    // }
 
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
