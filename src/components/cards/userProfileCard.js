@@ -104,12 +104,12 @@ export const UserProfileCard = ({
                 </Box>
             </Grid>
             <FollowingFollwers followers={followers} following={following} />
-            <Typography className={classes.bioText}>
+            <Box className={classes.bioText}>
                 {fullParagraph ? fullText : lessText}
                 <Typography className={classes.readmore} onClick={toggleReadmore}>
                     {fullParagraph ? "Read less" : "Read more"}
                 </Typography>
-            </Typography>
+            </Box>
             <SocialButtons />
             {!ownProfile ? (
                 <Grid container spacing={3}>

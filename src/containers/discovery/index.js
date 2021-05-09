@@ -53,6 +53,10 @@ const useStyles = makeStyles({
             height: "37.5rem",
         },
 
+        "@media (min-width:1920px)": {
+            height: "75vh",
+        },
+
         // "@media (min-width:1600px)": {
         //     paddingBottom: "56.25%",
         // },

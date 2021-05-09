@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import { useRouter } from "next/router"
 import classnames from "classnames"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
@@ -87,14 +86,10 @@ export const FeedUserProfileCard = ({
     externalclass,
     ownProfile,
     video,
-    followers,
-    following,
     time,
     description,
 }) => {
     const classes = useStyles({ externalclass })
-
-    const routes = useRouter()
 
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
@@ -168,8 +163,6 @@ FeedUserProfileCard.propTypes = {
     image: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     position: PropTypes.string.isRequired,
-    followers: PropTypes.string.isRequired,
-    following: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
     onClickProfile: PropTypes.func,
     onMsgBtnClick: PropTypes.func,

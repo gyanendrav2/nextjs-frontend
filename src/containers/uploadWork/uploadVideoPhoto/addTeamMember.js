@@ -88,8 +88,8 @@ export const AddTeamMember = ({ shouldVisible, onAdded, onCancel }) => {
                                 name="jobRole"
                                 inputRegister={register}
                                 handleOptionSelect={handleRoles}
-                                errorMsg={errors.jobRole?.message}
-                                error={errors.jobRole ? true : false}
+                                errorMsg={errors.jobRole ? errors.jobRole.message : ""}
+                                error={errors.jobRole}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>

@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     },
     innerWrapper: {
         position: "sticky",
-        top: "6rem",
+        top: "7rem",
         backgroundColor: colors.white,
         border: `1px solid ${colors.lightGray}`,
     },

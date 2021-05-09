@@ -103,6 +103,7 @@ SendDetailsModal.defaultProps = {
     externalclass: "",
     onConfirm: () => {},
     onLinkChange: () => {},
+    isTextArea: false,
 }
 
 SendDetailsModal.propTypes = {
@@ -111,7 +112,7 @@ SendDetailsModal.propTypes = {
     isOpen: PropTypes.bool.isRequired,
     onClose: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
-    isTextArea: PropTypes.bool.isRequired,
+    isTextArea: PropTypes.bool,
     textAreaValue: PropTypes.string,
     hideCount: PropTypes.bool,
     externalclass: PropTypes.string,

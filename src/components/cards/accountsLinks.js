@@ -56,7 +56,7 @@ AccountsLinks.defaultProps = {
 }
 
 AccountsLinks.propTypes = {
-    icon: PropTypes.string,
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     onClick: PropTypes.func.isRequired,
     link: PropTypes.string,
     onDelete: PropTypes.func,

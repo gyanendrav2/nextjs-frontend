@@ -30,7 +30,6 @@ const useStyles = makeStyles({
 const Feed = () => {
     const classes = useStyles()
     const routes = useRouter()
-    console.log("feedRecentData", feedRecentData)
     return (
         <Box className={classes.rootWraper}>
             <HeaderWrapper isScrollDetect={false} isAuthenticated feed />
@@ -38,16 +37,16 @@ const Feed = () => {
                 <Grid container spacing={2}>
                     <Grid item xs={12} sm={12} md={4} lg={4} xl={4} style={{ position: "relative" }}>
                         <FeedProfileCard
-                            following="15"
-                            followers="25"
+                            following={15}
+                            followers={25}
                             onFollowClick={() => routes.push({ pathname: "/network", query: { tab: "following" } })}
                             onFollowedClick={() => routes.push({ pathname: "/network", query: { tab: "followers" } })}
                         />
                     </Grid>
                     <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
-                        {
-                            feedRecentData.map((item)=>(
-                                <FeedUserProfileCard
+                        {feedRecentData.map((item, i) => (
+                            <FeedUserProfileCard
+                                key={i}
                                 image={item.image}
                                 name={item.name}
                                 icon={item.icon}
@@ -58,29 +57,27 @@ const Feed = () => {
                                 time={item.time}
                                 description={item.description}
                             />
-                            ))
-                        }
-                       
+                        ))}
+
                         <Box className={classes.seenContainer}>
                             <SeenIcon />
                             <Typography className={classes.seenText}> You’ve seen the most recent posts</Typography>
                         </Box>
-                        {
-                            feedOldData.map((item)=>(
-                        <FeedUserProfileCard
-                            image={item.image}
-                            name={item.name}
-                            icon={item.icon}
-                            position={item.position}
-                            category={item.category}
-                            client={item.client}
-                            year={item.year}
-                            time={item.time}
-                            description={item.description}
-                        />
-                        ))
-                    }
-                     </Grid>
+                        {feedOldData.map((item, i) => (
+                            <FeedUserProfileCard
+                                key={i}
+                                image={item.image}
+                                name={item.name}
+                                icon={item.icon}
+                                position={item.position}
+                                category={item.category}
+                                client={item.client}
+                                year={item.year}
+                                time={item.time}
+                                description={item.description}
+                            />
+                        ))}
+                    </Grid>
                 </Grid>
             </ContentWrapper>
         </Box>

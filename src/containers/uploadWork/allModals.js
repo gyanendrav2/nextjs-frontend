@@ -3,14 +3,14 @@ import { useRouter } from "next/router"
 import React from "react"
 import PropTypes from "prop-types"
 import { CustomButton } from "../../components/buttons/customButton"
-import { CodeIcon } from "../../components/icons/codeIcon"
-import { PhotoIcon } from "../../components/icons/photoIcon"
-import { TIcon } from "../../components/icons/tIcon"
+// import { CodeIcon } from "../../components/icons/codeIcon"
+// import { PhotoIcon } from "../../components/icons/photoIcon"
+// import { TIcon } from "../../components/icons/tIcon"
 import { ModalComponent } from "../../components/modal/modalComponent"
 import { SendDetailsModal } from "../../components/modal/sendDetailsModal"
 import { UploadMediaModal } from "../../components/modal/uploadMediaModal"
 import { colors } from "../../theme/colors"
-import { PhotoCodeBox } from "./uploadVideoPhoto/photoCodeBox"
+// import { PhotoCodeBox } from "./uploadVideoPhoto/photoCodeBox"
 
 const useStyles = makeStyles({
     modalWrapper: {
@@ -76,7 +76,7 @@ export const AllModals = ({
     onCloseSendDetails,
     showUPloadMediaModal,
     onCloseUploadMedia,
-    closeDeleteModal
+    closeDeleteModal,
 }) => {
     const classes = useStyles()
     const routes = useRouter()
@@ -107,7 +107,12 @@ export const AllModals = ({
                     </Typography>
                     <Box className={classes.deleteWrapper} spacing={2}>
                         <Box className={classes.deletewrap}>
-                            <CustomButton label="Cancel" variant="cancel" externalclass={classes.buttonCancel} onClick={closeDeleteModal} />
+                            <CustomButton
+                                label="Cancel"
+                                variant="cancel"
+                                externalclass={classes.buttonCancel}
+                                onClick={closeDeleteModal}
+                            />
                             <CustomButton
                                 label="Delete Work"
                                 externalclass={classes.buttonDelete}
@@ -142,9 +147,9 @@ export const AllModals = ({
 }
 
 AllModals.propTypes = {
-    selectionModal: PropTypes.bool.isRequired,
-    onSelectModal: PropTypes.func.isRequired,
-    handleAddPhotoCodeData: PropTypes.func.isRequired,
+    // selectionModal: PropTypes.bool.isRequired,
+    // onSelectModal: PropTypes.func.isRequired,
+    // handleAddPhotoCodeData: PropTypes.func.isRequired,
     openDeleteModal: PropTypes.bool.isRequired,
     showCodeModal: PropTypes.bool.isRequired,
     showUPloadMediaModal: PropTypes.bool.isRequired,
@@ -152,4 +157,5 @@ AllModals.propTypes = {
     onConfirmSendDetails: PropTypes.func.isRequired,
     onCloseSendDetails: PropTypes.func.isRequired,
     onCloseUploadMedia: PropTypes.func.isRequired,
+    closeDeleteModal: PropTypes.func.isRequired,
 }

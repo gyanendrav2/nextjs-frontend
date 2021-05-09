@@ -30,14 +30,7 @@ export const TextAreaInput = ({ inputRegister, error, name, placeholder, ...rest
     const classes = useStyles({ error })
     return (
         <Box className={classes.wrapper}>
-            <textarea
-                className={classes.input}
-                error={error}
-                name={name}
-                placeholder={placeholder}
-                ref={inputRegister}
-                {...rest}
-            />
+            <textarea className={classes.input} name={name} placeholder={placeholder} ref={inputRegister} {...rest} />
         </Box>
     )
 }

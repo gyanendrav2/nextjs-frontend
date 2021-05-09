@@ -72,43 +72,45 @@ const Network = () => {
         <Box>
             <HeaderWrapper isScrollDetect={false} isAuthenticated feed />
             <ContentWrapper externalclass={classes.wrapper}>
-                <Typography className={classes.heading}>Network</Typography>
-                <Grid container alignItems="center" justify="space-between">
-                    <Box className={classes.buttonGroup}>
-                        <CustomButton
-                            label="Following (15)"
-                            externalclass={classnames(classes.button, classes.borderRight, {
-                                [classes.active]: tab === "following",
-                            })}
-                            onClick={() => push({ pathname: "/network", query: { tab: "following" } })}
-                        />
-                        <CustomButton
-                            label="Followers (25)"
-                            externalclass={classnames(classes.button, {
-                                [classes.active]: tab === "followers",
-                            })}
-                            onClick={() => push({ pathname: "/network", query: { tab: "followers" } })}
-                        />
-                    </Box>
-                    <Grid container alignItems="center" wrap="nowrap" className={classes.searchContainer}>
-                        <Box style={{ width: "100%" }}>
-                            <InputWithLabelIcon hideErrorMsg placeholder="Search users" onChange={handleSearch} />
-                        </Box>
-                        <CustomButton label="Search" externalclass={classes.searchBtn} />
-                    </Grid>
-                </Grid>
-                <Grid container spacing={2} style={{ marginTop: "2.5rem" }}>
-                    {network.map((item, i) => (
-                        <Grid key={i} item xs={12} sm={12} md={3} lg={3} xl={3}>
-                            <CardWithHeader
-                                image={item.image}
-                                title={item.name}
-                                buttonText={item.buttonText}
-                                subTitle={item.position}
+                <Box>
+                    <Typography className={classes.heading}>Network</Typography>
+                    <Grid container alignItems="center" justify="space-between">
+                        <Box className={classes.buttonGroup}>
+                            <CustomButton
+                                label="Following (15)"
+                                externalclass={classnames(classes.button, classes.borderRight, {
+                                    [classes.active]: tab === "following",
+                                })}
+                                onClick={() => push({ pathname: "/network", query: { tab: "following" } })}
                             />
+                            <CustomButton
+                                label="Followers (25)"
+                                externalclass={classnames(classes.button, {
+                                    [classes.active]: tab === "followers",
+                                })}
+                                onClick={() => push({ pathname: "/network", query: { tab: "followers" } })}
+                            />
+                        </Box>
+                        <Grid container alignItems="center" wrap="nowrap" className={classes.searchContainer}>
+                            <Box style={{ width: "100%" }}>
+                                <InputWithLabelIcon hideErrorMsg placeholder="Search users" onChange={handleSearch} />
+                            </Box>
+                            <CustomButton label="Search" externalclass={classes.searchBtn} />
                         </Grid>
-                    ))}
-                </Grid>
+                    </Grid>
+                    <Grid container spacing={2} style={{ marginTop: "2.5rem" }}>
+                        {network.map((item, i) => (
+                            <Grid key={i} item xs={12} sm={12} md={3} lg={3} xl={3}>
+                                <CardWithHeader
+                                    image={item.image}
+                                    title={item.name}
+                                    buttonText={item.buttonText}
+                                    subTitle={item.position}
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Box>
             </ContentWrapper>
         </Box>
     )

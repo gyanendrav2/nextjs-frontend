@@ -98,16 +98,16 @@ export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, i
 }
 
 NotificationRow.defaultProps = {
-    onDeclineClick: () => {},
     isDeclinable: false,
     buttonLabel: "",
+    image: "",
 }
 
 NotificationRow.propTypes = {
     title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    onAcceptClick: PropTypes.string.isRequired,
+    image: PropTypes.string,
+    onAcceptClick: PropTypes.func.isRequired,
     isDeclinable: PropTypes.bool,
-    onDeclineClick: PropTypes.string,
+    onDeclineClick: PropTypes.func.isRequired,
     buttonLabel: PropTypes.string,
 }

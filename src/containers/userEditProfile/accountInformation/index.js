@@ -135,6 +135,7 @@ export const AccountInformation = () => {
                                     externalclass={classnames(classes.inputHeight)}
                                     labelColor={colors.lighterGray}
                                     placeholder="First name"
+                                    onChange={() => {}}
                                 />
                             </Grid>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
@@ -145,6 +146,7 @@ export const AccountInformation = () => {
                                     externalclass={classnames(classes.inputHeight, classes.LastName)}
                                     placeholder="Last name"
                                     labelMargin="0.6rem"
+                                    onChange={() => {}}
                                 />
                             </Grid>
                             <Grid container>
@@ -159,6 +161,7 @@ export const AccountInformation = () => {
                                         options={roleOptions}
                                         handleOptionSelect={handleRoles}
                                         externalclass={classnames(classes.inputHeight)}
+                                        onChange={() => {}}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -174,6 +177,7 @@ export const AccountInformation = () => {
                                         placeholder="Choose country"
                                         options={countryOptions}
                                         externalclass={classnames(classes.inputHeight)}
+                                        onChange={() => {}}
                                     />
                                 </Grid>
                             </Grid>
@@ -186,6 +190,7 @@ export const AccountInformation = () => {
                                         options={stateOptions}
                                         placeholder="Choose city"
                                         externalclass={classnames(classes.inputHeight)}
+                                        onChange={() => {}}
                                     />
                                 </Grid>
                             </Grid>
@@ -198,6 +203,7 @@ export const AccountInformation = () => {
                                 </Typography>
                                 {accountsData.map((item, i) => (
                                     <AccountsLinks
+                                        key={i}
                                         icon={item.icon}
                                         link={item.link}
                                         onDelete={() => handleDeleteLink(i)}

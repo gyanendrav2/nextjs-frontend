@@ -34,5 +34,5 @@ SliderButton.propTypes = {
     buttonName: PropTypes.string.isRequired,
     flexDirection: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
-    disabledButton: PropTypes.number.isRequired,
+    disabledButton: PropTypes.bool.isRequired,
 }

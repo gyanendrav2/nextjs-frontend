@@ -47,10 +47,12 @@ const UserNotifications = () => {
                     title="Peter Pan requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”"
                     isDeclinable
                     onDeclineClick={() => setShowDeclineModal(true)}
+                    onAcceptClick={() => {}}
                     buttonLabel="Accept"
                 />
                 <NotificationRow
                     title="Sarah Faulson followed you"
+                    onDeclineClick={() => {}}
                     onAcceptClick={() => {}}
                     buttonLabel="Follow  back"
                 />
@@ -58,11 +60,13 @@ const UserNotifications = () => {
                     title="Mike Magic liked your project “SiR - Hair Down (Official Video) ft. Kendrick Lamar”"
                     buttonLabel="Follow  back"
                     onAcceptClick={() => {}}
+                    onDeclineClick={() => {}}
                 />
                 <NotificationRow
                     title="You project has been uploaded “SiR - Hair Down (Official Video) ft. Kendrick Lamar”"
                     buttonLabel="Follow  back"
                     onAcceptClick={() => {}}
+                    onDeclineClick={() => {}}
                 />
             </Box>
 
