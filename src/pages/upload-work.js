@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     },
     col1: {
         width: "calc(100% - 27.5rem)",
-        marginTop: "7rem",
+        marginTop: "6.15rem",
         "@media(max-width:992px)": {
             width: "100%",
         },

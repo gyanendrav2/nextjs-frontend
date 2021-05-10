@@ -171,4 +171,5 @@ FeedUserProfileCard.propTypes = {
     client: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
 }

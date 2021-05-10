@@ -32,12 +32,6 @@ const theme = createMuiTheme({
             color: colors.lighterGray,
             fontWeight: 700,
         },
-        subtitle1: {
-            fontSize: "1rem",
-            lineHeight: "2rem",
-            color: colors.black,
-            fontWeight: 400,
-        },
     },
     props: {
         MuiButtonBase: {

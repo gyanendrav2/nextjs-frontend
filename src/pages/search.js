@@ -38,12 +38,6 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.white,
-        // "@media (max-width: 767px)": {
-        //     transform: "translateY(-36px)",
-        //     position: "absolute",
-        //     display: "block",
-        //     maxWidth: "10rem",
-        // },
     },
     results: {
         fontFamily: "Helvetica",

@@ -47,7 +47,7 @@ const useStyles = makeStyles({
             outline: "none",
         },
         "@media (max-width:767px)": {
-            height: "30rem",
+            height: "37.5rem",
         },
         "@media (min-width:768px)": {
             height: "37.5rem",
@@ -67,7 +67,7 @@ const useStyles = makeStyles({
         // left: 0,
         width: "100%",
         height: "100%",
-        padding: "0 2.5rem 2.5rem 2.5rem",
+        padding: "0 2.5rem 2.5rem 2rem",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         "&:focus": {
@@ -90,11 +90,11 @@ const useStyles = makeStyles({
         letterSpacing: "0.2rem",
         transition: "all 1s ease",
         color: colors.white,
-        "@media (min-width:479px)and(max-width:567px)": {
-            fontSize: "3.2rem",
+        "@media (min-width:360px)and(max-width:567px)": {
+            fontSize: "3rem",
             lineHeight: "3.5rem",
         },
-        "@media (max-width:478px)": {
+        "@media (max-width:359px)": {
             fontSize: "2.1rem",
             lineHeight: "3.5rem",
         },
@@ -123,11 +123,10 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         justifyContent: "flex-start",
         animation: "fadeIn 2s",
+        marginLeft: "2.5rem",
         "@media (max-width: 767px)": {
-            top: "4rem",
-        },
-        "@media (min-width:1200px)": {
-            marginLeft: "3.5rem",
+            top: "7rem",
+            marginLeft: "0",
         },
     },
     bigSignup: {
