@@ -95,7 +95,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, 
     const [selectionModel, setSelectionModel] = useState(false)
     const [photoCode, setPhotoCode] = useState([])
     const [activeElement, setActiveElement] = useState(["#upload-video-photo", "#insert-project-name-details"])
-    function isInViewport(element) {
+    const isInViewport = (element) => {
         const rect = element.getBoundingClientRect()
         return (
             rect.top >= 0 &&
