@@ -20,7 +20,7 @@ export default function Home({ homeData }) {
         }
     }, [homeData])
 
-    return <Discovery details={data} />
+    return <>{data.hero.length > 0 ? <Discovery details={data} /> : <></>}</>
 }
 
 const propsValidation = {
