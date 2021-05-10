@@ -59,12 +59,12 @@ Home.propTypes = {
     homeData: PropTypes.shape(propsValidation),
 }
 
-export const getStaticProps = async () => {
+Home.getInitialProps = async () => {
     const result = await axios.get("https://mocki.io/v1/9445d88b-a625-47b1-8251-ec710590741d")
     const data = await result.data
     // const result = await API.get(endpoints.discover)
     // const data = await result.data
     return {
-        props: { homeData: data },
+        homeData: data,
     }
 }
