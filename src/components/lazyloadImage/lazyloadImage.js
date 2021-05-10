@@ -58,7 +58,7 @@ export const LazyloadImage = ({ image, externalclass, blurhashHeight }) => {
 }
 LazyloadImage.defaultProps = {
     externalclass: "",
-    blurhashHeight: "18rem",
+    blurhashHeight: "100%",
 }
 
 LazyloadImage.propTypes = {

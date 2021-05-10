@@ -153,7 +153,7 @@ export const SelectingCategories = ({ changeTab, category, categories, onFilter 
     }
 
     return (
-        <Box>
+        <Box style={{ height: showCategories.length ? "unset" : "4.5rem" }}>
             <Box className={classes.projectButtonContainer}>
                 {showCategories &&
                     showCategories.map((eachBtn, i) => (
