@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { PhotoIcon } from "../../../components/icons/photoIcon"
@@ -88,12 +88,34 @@ const useStyles = makeStyles({
     },
 })
 
-export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal }) => {
+export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive }) => {
     const classes = useStyles()
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
     const [selectionModel, setSelectionModel] = useState(false)
     const [photoCode, setPhotoCode] = useState([])
+    const [activeElement, setActiveElement] = useState(["#upload-video-photo", "#insert-project-name-details"])
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect()
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        )
+    }
+    useEffect(() => {
+        const detectElement = () => {
+            activeElement.forEach((item) => {
+                const deviceContainer = document.querySelector(item)
+                const bounding = isInViewport(deviceContainer)
+                if (bounding) {
+                    handleCurrentActive(item)
+                }
+            })
+        }
+        window.addEventListener("scroll", detectElement)
+    }, [activeElement, handleCurrentActive])
 
     const handleDelete = (i) => {
         const newData = [...photoCode]
@@ -158,7 +180,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal }
                 onCloseUploadMedia={() => setShowUPloadMediaModal(false)}
                 closeDeleteModal={closeDeleteModal}
             />
-            <Grid container alignItems="center" justify="center" className={classes.wrapper}>
+            <Grid id="upload-video-photo" container alignItems="center" justify="center" className={classes.wrapper}>
                 <PhotoIcon className={classes.icon} onClick={() => setShowUPloadMediaModal(true)} />
                 <CodeIcon className={classes.icon} onClick={() => setShowCodeModal(true)} />
             </Grid>
@@ -201,4 +223,5 @@ UploadVideoPhoto.propTypes = {
     openDeleteModel: PropTypes.bool.isRequired,
     onDelete: PropTypes.func.isRequired,
     closeDeleteModal: PropTypes.func.isRequired,
+    handleCurrentActive: PropTypes.func.isRequired,
 }

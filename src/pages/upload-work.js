@@ -59,10 +59,12 @@ const UploadWork = () => {
     })
 
     const [openDeleteModel, setOpenDeleteModel] = useState(false)
+    const [currentActive, setCurrentActive] = useState("#upload-video-photo")
     const renderOption = () => {
         return (
             <UploadVideoPhoto
                 openDeleteModel={openDeleteModel}
+                handleCurrentActive={(item) => setCurrentActive(item)}
                 onDelete={() => {
                     setOpenDeleteModel(false)
                 }}
@@ -85,7 +87,7 @@ const UploadWork = () => {
                                     key={i}
                                     optionName={item.optionName}
                                     isHref
-                                    // isActive={uploadFor === item.pathSlug}
+                                    isActive={currentActive === item.pathSlug}
                                     href={`#${item.pathSlug}`}
                                     // onClick={() => push(`/upload-work/${item.pathSlug}`)}
                                 />
