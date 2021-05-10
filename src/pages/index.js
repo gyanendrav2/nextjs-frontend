@@ -6,6 +6,7 @@ import { Discovery } from "../containers/discovery"
 // import { endpoints } from "../utility/endpoints"
 
 export default function Home({ homeData }) {
+    console.log("homedata", homeData)
     const [data, setData] = useState({ hero: [], curatedCreators: [], featuredProjects: [] })
     useEffect(() => {
         if (Object.keys(homeData).length > 0) {
@@ -58,7 +59,7 @@ Home.propTypes = {
     homeData: PropTypes.shape(propsValidation),
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const result = await axios.get("https://mocki.io/v1/9445d88b-a625-47b1-8251-ec710590741d")
     const data = await result.data
     // const result = await API.get(endpoints.discover)
