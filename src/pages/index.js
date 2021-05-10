@@ -1,10 +1,7 @@
-// import axios from "axios"
 import fetch from "node-fetch"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import { Discovery } from "../containers/discovery"
-// import { API } from "../utility/api"
-// import { endpoints } from "../utility/endpoints"
 
 export default function Home({ homeData }) {
     console.log("homedata", homeData)
@@ -63,8 +60,6 @@ Home.propTypes = {
 Home.getInitialProps = async () => {
     const result = await fetch("https://mocki.io/v1/9445d88b-a625-47b1-8251-ec710590741d")
     const data = await result.json()
-    // const result = await API.get(endpoints.discover)
-    // const data = await result.data
     return {
         homeData: data,
     }
