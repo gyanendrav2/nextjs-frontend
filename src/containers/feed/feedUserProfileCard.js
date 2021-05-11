@@ -6,6 +6,8 @@ import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { CustomButton } from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
+import { MoreVertIcon } from "../../components/icons/moreVertIcon"
+import { ShareIcon } from "../../components/icons/shareIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -26,10 +28,14 @@ const useStyles = makeStyles({
         width: "6rem",
     },
     profileInfoContainer: {
+        position: "relative",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
         padding: "0.2rem 0.5rem 0.2rem 0.5rem",
+        "@media(max-width:767px)": {
+            padding: "0.5rem 0rem 1.5rem 0.2rem",
+        },
     },
     textInfoContainer: {
         paddingRight: "1.5rem",
@@ -39,6 +45,9 @@ const useStyles = makeStyles({
         borderLeft: `1px solid ${colors.lightGray}`,
         paddingLeft: "2rem",
         marginTop: "-1.2rem",
+        "@media(max-width:767px)": {
+            display: "none",
+        },
     },
     fullWidthBtn: {
         width: "100%",
@@ -50,7 +59,6 @@ const useStyles = makeStyles({
         width: "100%",
         height: "2.5rem",
         padding: "0.5rem",
-        // borderLeft: `1px solid ${colors.lighterGray}`,
     },
     readmore: {
         cursor: "pointer",
@@ -66,9 +74,25 @@ const useStyles = makeStyles({
         fontSize: "22px",
         lineHeight: "34px",
         color: colors.black,
+        minWidth: "12rem",
     },
     time: {
         color: colors.lightGray,
+    },
+    moreVertIcon: {
+        display: "none",
+        "@media(max-width:767px)": {
+            display: "inline",
+            height: "18px",
+            width: "4px",
+            position: "absolute",
+            top: "0",
+            right: "-2rem",
+        },
+    },
+    shareButton: {
+        width: "2.5rem",
+        backgroundColor: colors.lighterPrimary,
     },
 })
 
@@ -78,14 +102,9 @@ export const FeedUserProfileCard = ({
     category,
     client,
     year,
-    icon,
-    date,
     position,
     onClickProfile,
-    onMsgBtnClick,
     externalclass,
-    ownProfile,
-    video,
     time,
     description,
 }) => {
@@ -93,33 +112,41 @@ export const FeedUserProfileCard = ({
 
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
-            <Grid container alignItems="center" justify="flex-start">
-                <Grid item>
-                    <Grid
-                        container
-                        alignItems="flex-start"
-                        justify="flex-start"
-                        direction="row"
-                        className={classes.profileInfoContainer}>
-                        <Grid item className={classes.profilePicContainer}>
-                            <Avatar className={classes.avatar} src={image} />
-                        </Grid>
-                        <Grid item className={classes.textInfoContainer}>
-                            <Typography onClick={onClickProfile} className={classes.name}>
-                                {name}
-                            </Typography>
-                            <Typography className={classes.username}>{position}</Typography>
+            <Grid container alignItems="center" justify="space-between" wrap="nowrap">
+                <Grid container alignItems="center" justify="flex-start">
+                    <Grid item>
+                        <Grid
+                            container
+                            alignItems="flex-start"
+                            justify="flex-start"
+                            direction="row"
+                            className={classes.profileInfoContainer}>
+                            <Grid item className={classes.profilePicContainer} xs={12} sm={6}>
+                                <Avatar className={classes.avatar} src={image} />
+                            </Grid>
+                            <Grid item className={classes.textInfoContainer} xs={12} sm={6}>
+                                <Typography onClick={onClickProfile} className={classes.name}>
+                                    {name}
+                                </Typography>
+                                <Typography className={classes.position}>{position}</Typography>
+                            </Grid>
+                            <MoreVertIcon className={classes.moreVertIcon} />
                         </Grid>
                     </Grid>
+                    <Grid item className={classes.followBtnContainer}>
+                        <CustomButton
+                            variant="dropdownButton"
+                            icon={<img src={icons.arrowDropdown} alt="" />}
+                            label="Following"
+                            externalclass={classes.smallBtn}
+                        />
+                    </Grid>
                 </Grid>
-                <Grid item className={classes.followBtnContainer}>
-                    <CustomButton
-                        variant="dropdownButton"
-                        icon={<img src={icons.arrowDropdown} alt="" />}
-                        label="Following"
-                        externalclass={classes.smallBtn}
-                    />
-                </Grid>
+                <CustomButton
+                    variant="iconLargeButton"
+                    icon={<ShareIcon width={18.73} />}
+                    externalclass={classes.shareButton}
+                />
             </Grid>
             <Box>
                 <Typography variant="subtitle1">Category: {category}</Typography>
@@ -154,9 +181,7 @@ export const FeedUserProfileCard = ({
 
 FeedUserProfileCard.defaultProps = {
     onClickProfile: () => {},
-    onMsgBtnClick: () => {},
     externalclass: "",
-    ownProfile: false,
 }
 
 FeedUserProfileCard.propTypes = {
@@ -165,9 +190,7 @@ FeedUserProfileCard.propTypes = {
     position: PropTypes.string.isRequired,
     time: PropTypes.string.isRequired,
     onClickProfile: PropTypes.func,
-    onMsgBtnClick: PropTypes.func,
     externalclass: PropTypes.string,
-    ownProfile: PropTypes.bool,
     client: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,

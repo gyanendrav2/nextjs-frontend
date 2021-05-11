@@ -46,10 +46,10 @@ const useStyles = makeStyles({
         "&:focus": {
             outline: "none",
         },
-        "@media (max-width:767px)": {
-            height: "37.5rem",
-        },
-        "@media (min-width:768px)": {
+        // "@media (max-width:767px)": {
+        //     height: "37.5rem",
+        // },
+        "@media (max-width:1919px)": {
             height: "37.5rem",
         },
 
@@ -79,8 +79,8 @@ const useStyles = makeStyles({
         },
     },
     title: {
-        fontSize: "4rem",
-        lineHeight: "5rem",
+        fontSize: "4.375rem",
+        lineHeight: "5.375rem",
         marginBottom: "-0.75rem",
         display: "inline",
         padding: "0.1rem 0.5rem",
@@ -90,9 +90,9 @@ const useStyles = makeStyles({
         letterSpacing: "0.2rem",
         transition: "all 1s ease",
         color: colors.white,
-        "@media (min-width:360px)and(max-width:567px)": {
-            fontSize: "3rem",
-            lineHeight: "3.5rem",
+        "@media (max-width:567px)": {
+            fontSize: "3.125rem",
+            lineHeight: "3.625rem",
         },
         "@media (max-width:359px)": {
             fontSize: "2.1rem",
@@ -107,12 +107,12 @@ const useStyles = makeStyles({
     headings: {
         color: colors.black,
         fontSize: "2rem",
-        marginTop: "2.5rem",
+        marginTop: "1.5rem",
         fontFamily: "Forno-Trial",
         fontWeight: "900",
         lineHeight: "2.75rem",
         "@media (max-width:567px)": {
-            fontSize: "1.5rem",
+            fontSize: "1.875rem",
         },
     },
     messageWrapper: {
@@ -123,7 +123,7 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         justifyContent: "flex-start",
         animation: "fadeIn 2s",
-        marginLeft: "2.5rem",
+        marginLeft: "2.875rem",
         "@media (max-width: 767px)": {
             top: "7rem",
             marginLeft: "0",
@@ -166,16 +166,28 @@ const useStyles = makeStyles({
         lineHeight: "1rem",
         color: colors.lighterGray,
     },
+    mobileShow: {
+        display: "none",
+        "@media(max-width:767px)": {
+            display: "block",
+            fontFamily: "Forno-Trial",
+            fontWeight: "bold",
+            fontSize: "1.875rem",
+            lineHeight: "2.5rem",
+            color: colors.black,
+            marginTop: "2rem",
+        },
+    },
 })
 
-export const Discovery = ({ details }) => {
+export const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
     const classes = useStyles()
     const routes = useRouter()
     console.log(details, "details")
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
     const [totalCategories, setTotalCategories] = useState([])
-    const [activeCategory, setActiveCategory] = useState(null)
+    const [activeCategory, setActiveCategory] = useState(category)
     const [isFilterOpened, setIsFilterOpened] = useState(false)
     const cookies = useCookies(["pxl-user"])
 
@@ -231,52 +243,61 @@ export const Discovery = ({ details }) => {
         <>
             {Object.keys(cookies[0]).length === 0 && <CookieCard />}
             <Box className={classes.wrapper}>
-                <HeaderWrapper isScrollDetect={!activeCategory} featuredCardsDetails={featuredCardsDetails} />
-
+                <HeaderWrapper
+                    isAuthenticated={isAuthenticated}
+                    feed={feed}
+                    isScrollDetect={!activeCategory}
+                    featuredCardsDetails={featuredCardsDetails}
+                />
                 {activeCategory ? (
                     <HeaderCategory categoryName={activeCategory} />
                 ) : (
-                    <Slider {...settings}>
-                        {hero &&
-                            hero.map((item, index) => {
-                                return (
-                                    <div key={index} className={classes.carouselContainer}>
-                                        <div
-                                            className={classes.carouselImage}
-                                            style={{
-                                                backgroundImage: `url(${item.backgroundImage})`,
-                                            }}>
-                                            <div className={classes.messageWrapper}>
-                                                <Typography className={classes.title}>
-                                                    {item.titleLines[0]}
-                                                    <span className={classes.pinkSquare} />
-                                                </Typography>
+                    showSlider && (
+                        <Slider {...settings}>
+                            {hero &&
+                                hero.map((item, index) => {
+                                    return (
+                                        <div key={index} className={classes.carouselContainer}>
+                                            <div
+                                                className={classes.carouselImage}
+                                                style={{
+                                                    backgroundImage: `url(${item.backgroundImage})`,
+                                                }}>
+                                                <div className={classes.messageWrapper}>
+                                                    <Typography className={classes.title}>
+                                                        {item.titleLines[0]}
+                                                        <span className={classes.pinkSquare} />
+                                                    </Typography>
 
-                                                <br />
-                                                <Typography className={classes.title}>
-                                                    {item.titleLines[1]}
-                                                    <span className={classes.pinkSquare} />
-                                                </Typography>
-                                                <br />
-                                                <Typography className={classes.title}>
-                                                    {item.titleLines[2]}
-                                                    <span className={classes.pinkSquare} />
-                                                </Typography>
-                                                <Typography className={classes.subtitle}>{item.subtitle}</Typography>
-                                                <CustomButton
-                                                    label="Sign Up"
-                                                    externalclass={classes.bigSignup}
-                                                    onClick={() => routes.push("/signup")}
-                                                />
+                                                    <br />
+                                                    <Typography className={classes.title}>
+                                                        {item.titleLines[1]}
+                                                        <span className={classes.pinkSquare} />
+                                                    </Typography>
+                                                    <br />
+                                                    <Typography className={classes.title}>
+                                                        {item.titleLines[2]}
+                                                        <span className={classes.pinkSquare} />
+                                                    </Typography>
+                                                    <Typography className={classes.subtitle}>
+                                                        {item.subtitle}
+                                                    </Typography>
+                                                    <CustomButton
+                                                        label="Sign Up"
+                                                        externalclass={classes.bigSignup}
+                                                        onClick={() => routes.push("/signup")}
+                                                    />
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })}
-                    </Slider>
+                                    )
+                                })}
+                        </Slider>
+                    )
                 )}
                 <ContentWrapper>
                     <>
+                        {!activeCategory ? <Typography className={classes.mobileShow}> Discovery</Typography> : " "}
                         <SelectingCategories
                             category={activeCategory}
                             categories={totalCategories}
@@ -288,19 +309,19 @@ export const Discovery = ({ details }) => {
                                 className={classnames(classes.resultsContainer, {
                                     [classes.mobileViewResultContainer]: !isFilterOpened,
                                 })}>
-                                <Typography className={classes.results}>4 results </Typography>
+                                <Typography className={classes.results}>8 results </Typography>
                             </Box>
                         ) : (
                             " "
                         )}
                         {!activeCategory && <Typography className={classes.headings}>Featured Projects</Typography>}
                         <FeaturedCard featuredCardsDetails={featuredCardsDetails} />
-                        {!activeCategory && (
-                            <>
-                                <Typography className={classes.headings}>Curated creators</Typography>
-                                <CreationCard curatedCreators={curatedCreators} />
-                            </>
-                        )}
+                        {/* {!activeCategory && (
+                            <> */}
+                        <Typography className={classes.headings}>Curated creators</Typography>
+                        <CreationCard curatedCreators={curatedCreators} />
+                        {/* </>
+                        )} */}
                     </>
                 </ContentWrapper>
                 <Footer />
@@ -339,8 +360,18 @@ const propsValidation = {
 
 Discovery.defaultProps = {
     details: {},
+    category: null,
+    showSlider: true,
+    showCurated: false,
+    isAuthenticated: false,
+    feed: false,
 }
 
 Discovery.propTypes = {
     details: PropTypes.shape(propsValidation),
+    category: PropTypes.string,
+    showSlider: PropTypes.bool,
+    showCurated: PropTypes.bool,
+    isAuthenticated: PropTypes.bool,
+    feed: PropTypes.bool,
 }

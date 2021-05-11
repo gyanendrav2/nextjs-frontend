@@ -26,14 +26,25 @@ const useStyles = makeStyles({
     title: {
         marginLeft: "0.875rem",
         "@media (max-width:992px)": {
-            display: "none",
+            display: (props) => (props.isAuthenticated ? "none" : "block"),
         },
     },
 })
 
-export const HeadItem = ({ name, active, icon, id, color, routeName, handleMouseHover, handleMouseLeave }) => {
-    const classes = useStyles({ id, color })
+export const HeadItem = ({
+    name,
+    active,
+    icon,
+    id,
+    color,
+    routeName,
+    handleMouseHover,
+    handleMouseLeave,
+    isAuthenticated,
+}) => {
+    const classes = useStyles({ id, color, isAuthenticated })
     const router = useRouter()
+    console.log("isAuthenticated", isAuthenticated)
 
     const handleRoute = () => {
         router.push(routeName)
@@ -53,6 +64,7 @@ export const HeadItem = ({ name, active, icon, id, color, routeName, handleMouse
 HeadItem.defaultProps = {
     handleMouseHover: () => {},
     handleMouseLeave: () => {},
+    isAuthenticated: false,
 }
 
 HeadItem.propTypes = {
@@ -64,4 +76,5 @@ HeadItem.propTypes = {
     routeName: PropTypes.string.isRequired,
     handleMouseHover: PropTypes.func,
     handleMouseLeave: PropTypes.func,
+    isAuthenticated: PropTypes.bool,
 }

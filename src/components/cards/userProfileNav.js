@@ -34,6 +34,7 @@ const useStyles = makeStyles({
         marginBottom: "1.5rem",
         cursor: "pointer",
         userSelect: "none",
+        color: colors.black,
         "&:hover": {
             color: colors.pink,
         },

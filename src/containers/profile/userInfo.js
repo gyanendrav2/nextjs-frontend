@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React from "react"
+import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import { images } from "../../assets/images"
 import { PictureOverSquare } from "../../components/cards/pictureOverSquare"
@@ -30,13 +31,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const UserInfo = () => {
+export const UserInfo = ({ handleMsgClick }) => {
     const classes = useStyles()
-    const [openMsg, setOpenMsg] = useState(false)
-
-    const handleMsg = () => {
-        setOpenMsg(!openMsg)
-    }
 
     return (
         <TwoColModalGrid
@@ -50,7 +46,7 @@ export const UserInfo = () => {
                         <Typography className={classes.username}>@veritas_z</Typography>
                         <FollowingFollwers followers="15" following="15" />
                         <Box className={classes.buttonWrapper}>
-                            <CustomButton label="Message me" externalclass={classes.msgbtn} on={handleMsg} />
+                            <CustomButton label="Message me" externalclass={classes.msgbtn} onClick={handleMsgClick} />
                             <CustomButton
                                 variant="dropdownButton"
                                 icon={<img src={icons.arrowDropdown} alt="" />}
@@ -74,4 +70,6 @@ export const UserInfo = () => {
     )
 }
 
-UserInfo.propTypes = {}
+UserInfo.propTypes = {
+    handleMsgClick: PropTypes.func.isRequired,
+}

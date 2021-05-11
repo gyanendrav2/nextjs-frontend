@@ -5,7 +5,6 @@ import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
-        // marginTop: "2.5rem",
         padding: "2rem",
         paddingTop: "6rem",
         display: "flex",
@@ -13,6 +12,9 @@ const useStyles = makeStyles({
         alignItems: "center",
         flexDirection: "column",
         backgroundColor: colors.white,
+        "@media (max-width:767px)": {
+            padding: "auto 1rem 2rem 1rem",
+        },
     },
     title: {
         fontFamily: "Forno-Trial",
@@ -23,11 +25,12 @@ const useStyles = makeStyles({
         lineHeight: "2.625",
         animation: "fadeIn 1s",
         "@media (max-width:767px)": {
-            lineHeight: "normal",
+            fontSize: "2.5rem",
+            lineHeight: "3rem",
         },
-        // "@media(max-width:432px)": {
-        //     lineHeight: "4.75rem",
-        // },
+        "@media(max-width:432px)": {
+            lineHeight: "4.75rem",
+        },
     },
     subTitle: {
         textAlign: "center",
@@ -35,6 +38,10 @@ const useStyles = makeStyles({
         fontWeight: "400",
         lineHeight: "1.5",
         color: colors.black,
+        "@media (max-width:767px)": {
+            fontSize: "1.375rem",
+            lineHeight: "2.125rem",
+        },
     },
 })
 

@@ -15,19 +15,19 @@ export const networkData = [
     },
     {
         image: images.masorny1,
-        name: "venky",
+        name: "mari",
         position: "assistant",
         buttonText: "Following",
     },
     {
         image: images.masorny1,
-        name: "sam",
+        name: "john",
         position: "Director",
         buttonText: "Following",
     },
     {
         image: images.masorny1,
-        name: "tony",
+        name: "christ",
         position: "senior manager",
         buttonText: "Following",
     },

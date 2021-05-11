@@ -46,11 +46,11 @@ const useStyles = makeStyles({
         "-webkit-appearance": "none",
         "-moz-appearance": "none",
         width: "100%",
-        fontSize: "0.875rem",
+        fontSize:(props) => (props.fontSize? props.fontSize:"1rem"),
         border: "none",
         outline: "none",
         padding: "0.625rem",
-        color: (props) => (props.labelColor ? props.labelColor : colors.black),
+        color: (props) => (props.color ? props.color : colors.black),
         borderRadius: "3px",
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`,
@@ -146,6 +146,7 @@ export const SelectWithLabelIcon = ({
     options,
     variant,
     labelColor,
+    fontSize,
     bgcolor,
     variantStyle,
     customValue,
@@ -317,6 +318,7 @@ SelectWithLabelIcon.defaultProps = {
     handleOptionSelect: () => {},
     fontWeight: "",
     checkboxHoverStyle: "",
+    fontSize:"0.875rem"
 }
 
 SelectWithLabelIcon.propTypes = {
@@ -343,4 +345,5 @@ SelectWithLabelIcon.propTypes = {
     handleOptionSelect: PropTypes.func,
     fontWeight: PropTypes.string,
     checkboxHoverStyle: PropTypes.string,
+    fontSize:PropTypes.string
 }

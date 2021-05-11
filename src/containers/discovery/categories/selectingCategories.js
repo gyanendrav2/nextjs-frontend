@@ -69,6 +69,9 @@ const useStyles = makeStyles({
         marginBottom: "0.5rem",
         marginRight: "0.5rem",
         marginLeft: 0,
+        "@media (min-width:476px) and (max-width:768px)": {
+            width: "calc(25% - 0.5rem)",
+        },
         "@media (max-width:475px)": {
             width: "100%",
             marginRight: 0,
@@ -92,6 +95,7 @@ const useStyles = makeStyles({
         "@media (max-width:475px)": {
             marginLeft: "auto",
             position: "relative",
+            padding:"1rem 0"
         },
         "@media (max-width: 1094px)": {
             position: "relative",
@@ -149,7 +153,6 @@ export const SelectingCategories = ({ changeTab, category, categories, onFilter 
     const handleActiveButton = (eachBtn) => {
         changeTab(eachBtn)
         setActiveCategory(eachBtn)
-        // setShowOtherCategories(false);
     }
 
     return (

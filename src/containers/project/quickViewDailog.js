@@ -4,7 +4,6 @@ import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import { Close, MoreVert } from "@material-ui/icons"
 import classnames from "classnames"
 import { useRouter } from "next/router"
-// import ReactPlayer from "react-player"
 import { CustomButton } from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { colors } from "../../theme/colors"
@@ -13,7 +12,6 @@ import { ReportContentWrapper } from "../../components/reportContentWrapper/repo
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
-        // height: "100vh",
         overflowY: "auto",
         backgroundColor: colors.black,
         padding: "2rem",
@@ -31,16 +29,18 @@ const useStyles = makeStyles({
         },
     },
     leftAvatarContainer: {
-        maxWidth: "26rem",
+        maxWidth: "34rem",
+        "@media (max-width:768px)": {
+            flexWrap: "wrap",
+            maxWidth: "32rem",
+        },
     },
     shareButtonContainer: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        "@media(min-width:576px)": {
-            maxWidth: "8rem",
-        },
+        maxWidth: "8rem",
         "@media(max-width:412px)": {
             minWidth: "0",
         },
@@ -52,10 +52,14 @@ const useStyles = makeStyles({
     },
     headingTextWrapper: {
         marginLeft: "1rem",
-        "@media(max-width:400px)": {
-            minWidth: "10rem",
-            width: "100%",
+        "@media(max-width:768px)": {
+            marginLeft: "3.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: "12rem",
         },
+        postion: {},
     },
 
     button: {
@@ -77,6 +81,7 @@ const useStyles = makeStyles({
     infoTextHead: {
         fontSize: "1.375rem",
         color: colors.black,
+        marginBottom: "0.3rem",
     },
     infoText: {
         color: colors.black,
@@ -94,6 +99,7 @@ const useStyles = makeStyles({
         position: "sticky",
         top: 0,
         padding: "1rem 0",
+        zIndex: 1,
     },
     underlineStyle: {
         textDecoration: "underline",
@@ -113,6 +119,12 @@ const useStyles = makeStyles({
     dialogreportcontent: {
         padding: "1rem",
     },
+    reportSpamProp: {
+        "@media(max-width:767px)": {
+            padding: "1rem 0.35rem",
+        },
+    },
+
     videoContainer: {
         width: "100%",
         paddingTop: "45%",
@@ -126,6 +138,21 @@ const useStyles = makeStyles({
         top: 0,
         left: 0,
     },
+    imgContainer: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+    heading: {
+        marginLeft: "1rem",
+        fontSize: "1.375rem",
+        fontWeight: 400,
+        "@media (max-width:767px)": {
+            fontSize: "1rem",
+            marginBottom: "1rem",
+        },
+    },
 })
 
 export const QuickViewDailog = ({ closeModal }) => {
@@ -134,27 +161,32 @@ export const QuickViewDailog = ({ closeModal }) => {
     return (
         <Box className={classes.wrapper}>
             <Grid container alignItems="flex-start" justify="space-between" wrap="nowrap" className={classes.header}>
-                <Grid
-                    container
-                    alignItems="center"
-                    justify="flex-start"
-                    wrap="nowrap"
-                    className={classes.leftAvatarContainer}>
+                <Grid container alignItems="center" justify="flex-start" className={classes.leftAvatarContainer}>
                     <Grid item>
-                        <Avatar src={images.maskGroup} />
+                        <Box className={classes.imgContainer}>
+                            <Avatar src={images.maskGroup} />
+                            <Typography className={classes.heading}>
+                                SiR - Hair Down (Official Video) ft. Kendrick Lamar
+                            </Typography>
+                        </Box>
                     </Grid>
                     <Grid item className={classes.headingTextWrapper}>
-                        <Typography>SiR - Hair Down (Official Video) ft. Kendrick Lamar</Typography>
-                        <Typography>Brandon Landing 2nd AD</Typography>
+                        <Typography>Brandon Landing</Typography>
+                        <Typography className={classes.position}>2nd AD</Typography>
                     </Grid>
                 </Grid>
-                <Grid container alignItems="flex-start" justify="center" className={classes.shareButtonContainer}>
+                <Grid
+                    container
+                    alignItems="flex-start"
+                    justify="center"
+                    wrap="nowrap"
+                    className={classes.shareButtonContainer}>
                     <CustomButton
                         externalclass={classes.button}
                         disableRipple
                         label={
                             <>
-                                <MoreVert className={classes.morevert} />{" "}
+                                <MoreVert className={classes.morevert} />
                                 <Typography className={classes.shareButtonText}>Share</Typography>
                             </>
                         }
@@ -191,7 +223,10 @@ export const QuickViewDailog = ({ closeModal }) => {
                     />
                 </Grid>
             </Grid>
-            <ReportContentWrapper dialogcontentStyle={classes.dialogreportcontent} />
+            <ReportContentWrapper
+                dialogcontentStyle={classes.dialogreportcontent}
+                externalclass={classes.reportSpamProp}
+            />
         </Box>
     )
 }

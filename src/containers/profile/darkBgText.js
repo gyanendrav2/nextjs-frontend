@@ -38,10 +38,10 @@ const useStyles = makeStyles({
             marginBottom: "2rem",
         },
         "@media (min-width:576px) and (max-width:992px)": {
-            padding: "5rem 1rem 6rem 1rem!important",
+            padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:575px)": {
-            padding: "5rem 1rem 2.75rem 1rem!important",
+            padding: "2.5rem 1rem 2.5rem 1rem!important",
         },
     },
     fulldarkBg: {
@@ -54,12 +54,37 @@ const useStyles = makeStyles({
         marginBottom: "5rem",
         maxWidth: "56.25rem",
         "@media (min-width:576px) and (max-width:992px)": {
-            marginBottom: "0rem",
+            marginBottom: "0rem!important",
         },
         "@media (max-width:575px)": {
-            marginBottom: "0rem",
+            marginBottom: "0rem!important",
         },
     },
+    paragraphText:{
+        "@media (max-width:575px)": {
+            marginBottom: "0rem!important",
+        },
+    },
+    deskShow:{
+        display:"block",
+        "@media (max-width:1450px)": {
+            textAlign:"left!important",
+            width:"100%",
+        },
+        "@media (max-width:575px)": {
+            display:"none"
+        },
+    },
+    mobileShow:{
+        display:"none",
+        "@media (max-width:575px)": {
+            display:"block!important",
+            minWidth:"20rem!important",
+            marginBottom:"1.5rem!important",
+            textAlign:"left!important"
+        },
+        
+    }
 })
 
 export const DarkBgText = () => {
@@ -68,9 +93,10 @@ export const DarkBgText = () => {
         <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.fulldarkBg}>
                 <Box className={classes.fullWidthContent}>
-                    <Typography variant="h3">The writing itself</Typography>
+                    <Typography variant="h3" className={classes.deskShow}>The writing itself</Typography>
+                    <Typography variant="h3" className={classes.mobileShow}>The writing itself that I made</Typography>
                     <Box className={classes.paragraphContent}>
-                        <Typography>
+                        <Typography className={classes.paragraphText}>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not
@@ -81,7 +107,7 @@ export const DarkBgText = () => {
                         </Typography>
                         <br />
 
-                        <Typography>
+                        <Typography className={classes.paragraphText}>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not
@@ -92,7 +118,7 @@ export const DarkBgText = () => {
                         </Typography>
                         <br />
 
-                        <Typography>
+                        <Typography className={classes.paragraphText}>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                             been the industry&apos;s standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not

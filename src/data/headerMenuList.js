@@ -44,7 +44,7 @@ export const mobileNavOptions = [
 export const loggedInUserNav = [
     {
         id: 1,
-        name: "Home",
+        name: "Feed",
         icon: <HomeIcon />,
         pathname: "/",
     },
@@ -73,7 +73,7 @@ export const feedUserNav = [
         id: 1,
         name: "Feed",
         icon: <HomeIcon />,
-        pathname: "/",
+        pathname: "/feed",
     },
     {
         id: 1,

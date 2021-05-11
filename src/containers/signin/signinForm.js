@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useRouter } from "next/router"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
@@ -9,7 +10,7 @@ import { colors } from "../../theme/colors"
 import { signinFormValidation } from "../../formValidation/signin"
 import { EyeOpenIcon } from "../../components/icons/eyeOpenIcon"
 import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
-import { loginUserAPIcall } from "../../redux/actions/authAction"
+// import { loginUserAPIcall } from "../../redux/actions/authAction"
 
 const titleText = {
     fontFamily: "Forno-Trial",
@@ -109,15 +110,16 @@ const useStyles = makeStyles({
 
 export const SigninForm = () => {
     const classes = useStyles()
+    const routes = useRouter()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(signinFormValidation),
     })
     const [hideShowPassword, setHideShowPassword] = useState(false)
 
-    console.log(process.env.NEXT_PUBLIC_API_URL)
-
-    const submit = (data) => {
-        loginUserAPIcall(data)
+    const submit = () => {
+        // loginUserAPIcall(data)
+        routes.push("/categories")
+        localStorage.setItem("auth", true)
     }
 
     return (

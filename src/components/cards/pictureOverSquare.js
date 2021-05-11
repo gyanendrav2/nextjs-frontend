@@ -6,9 +6,8 @@ import { colors } from "../../theme/colors"
 const useStyles = makeStyles({
     wrapper: {
         position: "relative",
-
-        "@media (max-width: 690px)": {
-            marginLeft: "-2rem",
+        "@media (max-width: 767px)": {
+            display: (props) => (props.mobileHide ? "none" : "block"),
         },
     },
     square: {
@@ -35,8 +34,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const PictureOverSquare = ({ image }) => {
-    const classes = useStyles()
+export const PictureOverSquare = ({ image, mobileHide }) => {
+    const classes = useStyles({ mobileHide })
     return (
         <Box className={classes.wrapper}>
             <Box className={classes.square} />
@@ -45,6 +44,11 @@ export const PictureOverSquare = ({ image }) => {
     )
 }
 
+PictureOverSquare.defaultProps = {
+    mobileHide: false,
+}
+
 PictureOverSquare.propTypes = {
     image: PropTypes.string.isRequired,
+    mobileHide: PropTypes.bool,
 }

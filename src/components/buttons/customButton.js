@@ -139,10 +139,6 @@ const useStyles = makeStyles({
             color: colors.white,
             backgroundColor: colors.red,
         },
-        // "&::placeholder": {
-        //     color: colors.red,
-        //     fontSize: "1rem",
-        // },
     },
     textButton: {
         backgroundColor: "transparent",

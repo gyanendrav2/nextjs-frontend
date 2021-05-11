@@ -90,6 +90,7 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                             key={index}
                             id={item.id}
                             color={color}
+                            isAuthenticated={isAuthenticated}
                             name={item.name}
                             routeName={item.pathname}
                             active={router.pathname === item.pathname}

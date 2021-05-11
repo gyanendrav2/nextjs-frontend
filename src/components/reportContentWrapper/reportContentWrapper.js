@@ -23,6 +23,9 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "row",
+        "@media(min-width:767px)": {
+            margin: "2rem 0",
+        },
     },
     spamwrapper: {
         display: "flex",
@@ -48,6 +51,9 @@ const useStyles = makeStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "flex-start",
+        "@media(min-width:768px)": {
+            minWidth: "18rem",
+        },
     },
     spamText: {
         color: colors.black,
@@ -87,7 +93,14 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                 externalclass={classes.modaltitle}
             />
             <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
-                <Grid item xs={12} sm={8} md={8} lg={8} className={classes.reportspamwrapper} container>
+                <Grid
+                    item
+                    xs={12}
+                    sm={8}
+                    md={8}
+                    lg={8}
+                    className={classnames(classes.reportspamwrapper, externalclass)}
+                    container>
                     <Grid item xs={6} sm={4} md={3} lg={3} className={classes.spamwrapper}>
                         <>
                             <MarkSpamIcon />

@@ -12,6 +12,9 @@ const useStyles = makeStyles({
         "@media (max-width:992px)": {
             padding: "2.5rem 3rem 0rem 2rem",
         },
+        "@media (max-width:767px)": {
+            padding: "1rem 0rem 0rem 1rem",
+        },
     },
 
     bigTitle: {
@@ -21,6 +24,11 @@ const useStyles = makeStyles({
         fontSize: "2.5rem",
         lineHeight: "3.25rem",
         maxWidth: "29rem",
+        "@media (max-width:767px)": {
+            fontSize: "2.187rem",
+            lineHeight: "3.25rem"
+
+        },
     },
     teamTitle: {
         fontFamily: "Helvetica",
@@ -35,6 +43,13 @@ const useStyles = makeStyles({
         maxWidth: "100%",
         "@media(max-width:992px)": {
             marginTop: "1rem",
+        },
+    },
+    infoYear:{
+        margin: "1rem 0",
+        maxWidth: "100%",
+        "@media(max-width:992px)": {
+            marginTop: "-1rem",
         },
     },
     infoTextHead: {
@@ -75,17 +90,17 @@ export const VideoInfo = ({ teamMemberData }) => {
                     SiR - Hair Down (Official Video) ft. Kendrick Lamar
                 </Typography>
                 <Grid container>
-                    <Grid className={classes.info} item xs={12} sm={12} md={6} lg={6}>
+                    <Grid item className={classes.info} item xs={12} sm={12} md={6} lg={6}>
                         <Typography className={classes.infoTextHead}>Category:</Typography>
                         <Typography className={classnames(classes.underlineStyle, classes.infoText)}>
                             Directing
                         </Typography>
-                        <Grid className={classes.info} item xs={12} sm={4} md={6} lg={6}>
+                        <Grid className={classes.info} item xs={12} sm={12} md={6} lg={6}>
                             <Typography className={classes.infoTextHead}>Client:</Typography>
                             <Typography className={classes.infoText}>SiR, Top Dog Entertainment</Typography>
                         </Grid>
                     </Grid>
-                    <Grid className={classes.info} item xs={12} sm={4} md={6} lg={6}>
+                    <Grid item className={classes.infoYear} item xs={12} sm={12} md={6} lg={6}>
                         <Typography className={classes.infoTextHead}>Year</Typography>
                         <Typography className={classes.infoText}>2019</Typography>
                     </Grid>

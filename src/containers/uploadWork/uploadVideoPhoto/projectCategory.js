@@ -106,8 +106,8 @@ export const ProjectCategory = () => {
     }
     return (
         <Box>
-            <Grid id="insert-project-name-details" container className={classes.whiteBg}>
-                <Grid item xs={12} sm={12} md={9} lg={9} xl={9}>
+            <Grid container className={classes.whiteBg}>
+                <Grid id="insert-project-name-details" item xs={12} sm={12} md={9} lg={9} xl={9}>
                     <Box>
                         <InputWithLabelIcon
                             labelColor={colors.lighterGray}

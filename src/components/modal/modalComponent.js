@@ -6,7 +6,7 @@ import Backdrop from "@material-ui/core/Backdrop"
 import Fade from "@material-ui/core/Fade"
 import { Box, Grid } from "@material-ui/core"
 import { colors } from "../../theme/colors"
-import { icons } from "../../assets/icons"
+import { CloseIconBig } from "../icons/closeIconBig"
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -45,6 +45,7 @@ const useStyles = makeStyles((theme) =>
             top: "2rem",
             right: "2rem",
             cursor: "pointer",
+            color: "#010203",
             "@media (max-width:767px)": {
                 top: "1.5rem",
                 right: "1.5rem",
@@ -73,7 +74,7 @@ export const ModalComponent = ({ handleClose, openOrNot, children, onClose, maxH
                 <Fade in={openOrNot}>
                     <Grid container alignItems="center" direction="column" justify="center" className={classes.paper}>
                         <Box className={classes.closeIcon} onClick={onClose}>
-                            <img src={icons.close} alt="" />
+                            <CloseIconBig width={24} height={24} />
                         </Box>
                         {children}
                     </Grid>

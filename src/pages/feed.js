@@ -18,6 +18,9 @@ const useStyles = makeStyles({
         paddingTop: "8rem",
         margin: "auto",
         backgroundColor: colors.lighterPrimary,
+        "@media(max-width:767px)": {
+            paddingTop: "5rem",
+        },
     },
     seenContainer: {
         display: "block",

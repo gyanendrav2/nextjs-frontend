@@ -56,15 +56,17 @@ const Network = () => {
         if (e.target.value === "") {
             setNetwork(networkData)
         } else {
-            const data = networkData.forEach((item) => {
+            const data = networkData.filter((item) => {
                 if (
                     String(item.name).toLocaleLowerCase().search(String(e.target.value).toLocaleLowerCase()) > -1 ||
                     String(item.position).toLocaleLowerCase().search(String(e.target.value).toLocaleLowerCase()) > -1
                 ) {
                     return item
                 }
+                return null
             })
-            setNetwork(data)
+            const newData = data.filter((item) => item !== null)
+            setNetwork(newData)
         }
     }
 

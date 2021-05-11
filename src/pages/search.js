@@ -5,9 +5,10 @@ import { colors } from "../theme/colors"
 import { HeaderWrapper } from "../components/header/headerWrapper"
 import { Footer } from "../components/footer"
 import { SearchBox } from "../containers/search/searchBox"
-import { CardWithHeader } from "../components/cards/cardWithHeader"
+// import { CardWithHeader } from "../components/cards/cardWithHeader"
 import { images } from "../assets/images"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
+import { CardWithFooter } from "../components/cards/cardWithFooter"
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles({
         alignItems: "center",
         flexDirection: "column",
         backgroundColor: colors.white,
+        "@media(max-width:767px)": {
+            padding: "6rem 2rem 1.5rem 2rem",
+        },
     },
     title: {
         fontFamily: "Forno-Trial",
@@ -26,8 +30,11 @@ const useStyles = makeStyles({
         fontSize: "3.125rem",
         lineHeight: "2.625",
         animation: "fadeIn 1s",
+        "@media(max-width:767px)": {
+            fontSize: "2.5rem",
+            lineHeight: "3rem",
+        },
         "@media(max-width:503px)": {
-            lineHeight: "4.75rem",
             paddingBottom: "1rem",
         },
     },
@@ -69,17 +76,17 @@ const Search = () => {
             </Box>
             <SearchBox externalclass={classes.search} onFilter={(value) => setIsFilterOpened(value)} />
             <Box className={classnames(classes.resultsContainer, { [classes.mobileViewResult]: !isFilterOpened })}>
-                <Typography className={classes.results}>4 results</Typography>
+                <Typography className={classes.results}>8 results</Typography>
             </Box>
             <ContentWrapper>
                 <Grid container spacing={2}>
                     {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, i) => (
                         <Grid key={i} item xs={12} sm={6} md={4} lg={3} xl={3}>
-                            <CardWithHeader
+                            <CardWithFooter
                                 image={images.maskGroup}
-                                title="Brandon Landing"
-                                subTitle="Director assistant"
-                                buttonText="Follow"
+                                footerTitle="Brandon Landing"
+                                footerSubitle="Director assistant"
+                                // buttonText="Follow"
                             />
                         </Grid>
                     ))}

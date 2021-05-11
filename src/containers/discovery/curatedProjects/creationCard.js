@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     CuratorCard: {
         display: "flex",
         flexWrap: "wrap",
-        marginTop: "1.5rem",
+        marginTop: "1rem",
     },
     Container: {
         boxShadow: `0px 1px 1px ${colors.lightGray}`,

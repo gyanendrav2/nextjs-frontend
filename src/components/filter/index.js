@@ -53,8 +53,15 @@ const useStyles = makeStyles({
     secondLevelCategoryStyles: {
         color: colors.black,
     },
+    selectInput: {
+        height: "2.4rem",
+        padding: "0.9px",
+        fontWeight: "700",
+    },
     locationInput: {
         padding: "0.9px",
+        fontWeight: "700",
+        height: "2.58rem",
     },
 })
 const secondlevelCategoryItems = [
@@ -82,9 +89,11 @@ export const Filter = ({ externalclass }) => {
                         <SelectWithLabelIcon
                             label="Second level category"
                             options={secondlevelCategoryItems}
-                            externalclass={classes.locationInput}
+                            externalclass={classes.selectInput}
                             placeholder="Sports Photography"
                             labelColor={colors.lighterGray}
+                            fontWeight="700"
+                            fontSize="1rem"
                         />
                     </Grid>
                     <Grid item sm={6} xs={12} md={3} lg={3}>
@@ -94,15 +103,17 @@ export const Filter = ({ externalclass }) => {
                             placeholder="Georgia, US "
                             externalclass={classes.locationInput}
                             labelColor={colors.lighterGray}
+                            fontWeight="700"
                         />
                     </Grid>
                     <Grid item sm={6} xs={12} md={3} lg={3}>
                         <SelectWithLabelIcon
                             label="Year"
                             options={years}
-                            externalclass={classes.yearInput}
+                            externalclass={classes.selectInput}
                             placeholder="-"
                             labelColor={colors.lighterGray}
+                            fontWeight="700"
                         />
                     </Grid>
                     <Grid item sm={6} xs={12} md={3} lg={3}>
@@ -110,10 +121,11 @@ export const Filter = ({ externalclass }) => {
                             label="Sort by"
                             options={secondlevelCategoryItems}
                             variant="underlineBorder"
-                            externalclass={classes.sortInput}
+                            externalclass={classes.selectInput}
                             placeholder="A-Z"
                             labelColor={colors.lighterGray}
                             bgcolor={colors.lighterPrimary}
+                            fontWeight="700"
                         />
                     </Grid>
                 </Grid>

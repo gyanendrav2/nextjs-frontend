@@ -98,6 +98,12 @@ const useStyles = makeStyles({
             marginRight: "1rem",
         },
     },
+    player: {
+        height: "100%",
+        "@media (max-width:767px)": {
+            height: "15.5rem",
+        },
+    },
 })
 
 const Profile = () => {
@@ -126,12 +132,16 @@ const Profile = () => {
     const handleMsg = () => {
         setOpenMsg(!openMsg)
     }
+    const handleMsgClick = () => {
+        handleInfo()
+        handleMsg()
+    }
 
     return (
         <>
             <HeaderWrapper isScrollDetect={false} />
             <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
-                <UserInfo />
+                <UserInfo handleMsgClick={handleMsgClick} />
             </ModalComponent>
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
@@ -157,7 +167,7 @@ const Profile = () => {
                         <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
                             <ReactPlayer
                                 width="100%"
-                                height="100%"
+                                className={classes.player}
                                 controls
                                 url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
                             />

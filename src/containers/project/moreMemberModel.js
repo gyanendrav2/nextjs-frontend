@@ -17,8 +17,8 @@ const useStyles = makeStyles({
     wrapper: {
         position: "absolute",
         padding: "1.5rem",
-        top: "1.5rem",
-        left: "-1.5rem",
+        top: "2rem",
+        left: "0rem",
         zIndex: 2,
         display: "flex",
         flexDirection: "column",

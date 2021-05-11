@@ -19,6 +19,7 @@ const useStyles = makeStyles({
     },
     title: {
         fontSize: "1.375rem",
+        lineHeight:"2.1rem",
         color: colors.black,
         textAlign: "center",
         marginTop: "1rem",
@@ -42,6 +43,12 @@ const useStyles = makeStyles({
         textDecoration: "underline",
         cursor:"pointer"
     },
+    deskShow:{
+        display:"inline",
+        "@media(max-width:767px)":{
+            display:"none"
+    }
+}
 })
 
 export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowedClick }) => {
@@ -63,7 +70,7 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
             </Grid>
             <Grid container alignItems="center" justify="space-between" style={{ marginTop: "1rem" }}>
                 <Grid item>
-                    <Typography className={classes.follow}>I'm followed by people</Typography>
+                    <Typography className={classes.follow}>I'm followed <span className={classes.deskShow}> by people </span></Typography>
                 </Grid>
                 <Grid item>
                     <Typography className={classes.followersNum} onClick={onFollowedClick}>

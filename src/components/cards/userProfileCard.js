@@ -19,13 +19,22 @@ const useStyles = makeStyles({
             border: "none",
             borderBottom: `1px solid ${colors.lightGray}`,
         },
-        // "@media (max-width:575px)": {
-        //     padding: ,
-        // },
+        "@media (max-width:767px)": {
+            padding:"1rem 1.5rem",
+        },
     },
     avatar: {
         width: "5rem",
         height: "5rem",
+    },
+    name:{
+        fontFamily: "Helvetica",
+        fontSize: "1.375rem",
+        lineHeight: "2.125rem",
+        "@media(max-width:767px)": {
+            fontSize: "1rem",
+            lineHeight: "1.375rem",
+        },
     },
     profilePicContainer: {
         width: "6rem",
@@ -38,6 +47,10 @@ const useStyles = makeStyles({
     },
     bioText: {
         marginBottom: "1rem",
+        color: colors.black,
+        fontSize: "1rem",
+        lineHeight: "1.375rem",
+        fontFamily:"Helvetica",
         "& span": {
             textDecoration: "underline",
         },
@@ -58,7 +71,18 @@ const useStyles = makeStyles({
     },
     username: {
         color: colors.lighterGray,
+        fontSize: "1rem",
+        lineHeight: "1.375rem",
+        "@media(max-width:767px)": {
+            fontSize: "0.875rem",
+            lineHeight: "1rem",
+        },
     },
+    position:{
+        fontFamily: "Helvetica",
+        fontSize: "0.875rem",
+        lineHeight: "1rem",
+    }
 })
 
 export const UserProfileCard = ({
@@ -96,9 +120,9 @@ export const UserProfileCard = ({
                     <Avatar className={classes.avatar} src={image} onClick={onClickProfile} />
                 </Box>
                 <Box className={classes.profileInfoContainer}>
-                    <Typography onClick={onClickProfile}>{name}</Typography>
-                    <Typography className={classes.username}>{userName}</Typography>
-                    <Typography>
+                    <Typography onClick={onClickProfile} className={classes.name}>{name}</Typography>
+                    <Typography className={classes.username} >{userName}</Typography>
+                    <Typography className={classes.position}>
                         {position} &nbsp; <LocationIcon /> {location}
                     </Typography>
                 </Box>

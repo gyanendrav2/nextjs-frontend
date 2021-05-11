@@ -14,12 +14,20 @@ const useStyles = makeStyles({
         top: "5rem",
         zIndex: 2,
         backgroundColor: colors.white,
+        "@media(max-width:767px)": {
+            padding: "1.5rem 0.5rem",
+        },
+      
     },
     button: {
         margin: "0.5rem",
         width: "10.125rem",
         height: "2.5rem",
         padding: "0.562rem 1.25rem",
+        "@media(max-width:767px)": {
+            width: "9rem",
+            margin: "0.5rem 0.3rem",
+        },
     },
     hider: {
         position: "fixed",

@@ -41,6 +41,9 @@ const useStyles = makeStyles({
         "@media (max-width:992px)": {
             padding: "2.5rem 3rem 0rem 2rem",
         },
+        "@media (max-width:767px)": {
+            padding: "2.5rem 0rem 0rem 1rem",
+        },
     },
     image: {
         borderRadius: "50%",
@@ -51,7 +54,7 @@ const useStyles = makeStyles({
 
     CreatorsAuthorName: {
         fontSize: "1rem",
-        color: colors,
+        color: colors.black,
         fontFamily: "Helvetica",
         lineHeight: "1.45rem",
         cursor: "pointer",
@@ -93,10 +96,10 @@ const useStyles = makeStyles({
         padding: "8rem",
         color: colors.white,
         "@media (min-width:576px) and (max-width:992px)": {
-            padding: "5rem 1rem 6rem 1rem!important",
+            padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:575px)": {
-            padding: "5rem 1rem 2.75rem 1rem!important",
+            padding: "2.5rem 1rem 2.5rem 1rem!important",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -128,10 +131,10 @@ const useStyles = makeStyles({
         padding: "8rem 10rem",
         color: colors.black,
         "@media (min-width:576px) and (max-width:992px)": {
-            padding: "5rem 1rem 6rem 1rem!important",
+            padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:575px)": {
-            padding: "5rem 1rem 2.75rem 1rem!important",
+            padding: "2.5rem 1rem 2.5rem 1rem!important",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -169,8 +172,10 @@ const useStyles = makeStyles({
         // height: "37.187rem",
     },
     reportContentwrapper: {
-        marginTop: "9.625rem",
-        padding: "1rem",
+        marginTop: "9.5rem",
+        "& div": {
+            margin: 0,
+        },
     },
     footer: {
         marginTop: "0rem",
@@ -197,7 +202,7 @@ const Project = () => {
                 </Box>
                 <Grid className={classes.CreatorsAuthor}>
                     <Box>
-                        <img className={classes.image} src={images.maskGroup} alt="maskGroup" />
+                        <img className={classes.image} src={images.hypebeast} alt="maskGroup" />
                     </Box>
                     <Box>
                         <Typography className={classes.CreatorsAuthorName} onClick={() => routes.push("/user")}>

@@ -10,6 +10,7 @@ const useStyles = makeStyles({
     FeaturedProjectContainer: {
         display: "flex",
         flexDirection: "row",
+        marginTop:"0.875rem"
     },
     projectContainer: {
         boxShadow: `0px 1px 1px ${colors.lightGray}`,

@@ -1,5 +1,4 @@
 import React from "react"
-// import PropTypes from "prop-types";
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { images } from "../../assets/images"
 import { PictureOverSquare } from "../../components/cards/pictureOverSquare"
@@ -10,6 +9,7 @@ import { TwoColModalGrid } from "../../components/grid/twoColModalGrid"
 
 const useStyles = makeStyles({
     infoWrapper: {
+        margin: "auto",
         marginTop: "2rem",
         width: "calc(100% - 2.5rem)",
         "@media (max-width:767px)": {
@@ -40,7 +40,7 @@ export const MessageBox = () => {
     const classes = useStyles()
     return (
         <TwoColModalGrid
-            col1Children={<PictureOverSquare image={images.maskGroup} />}
+            col1Children={<PictureOverSquare mobileHide image={images.maskGroup} />}
             col2Children={
                 <Box className={classes.col2}>
                     <Box className={classes.infoWrapper}>

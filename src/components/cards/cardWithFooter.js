@@ -154,7 +154,6 @@ export const CardWithFooter = ({
                         {anonymous
                             ? showCopyBox && (
                                   <ShareCard
-                                      //   anonymousProfile
                                       onLinkCopied={() => {
                                           handleNotification()
                                           setShowCopyBox(!showCopyBox)

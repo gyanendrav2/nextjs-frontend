@@ -1,10 +1,9 @@
-import fetch from "node-fetch"
+import axios from "axios"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import { Discovery } from "../containers/discovery"
 
 export default function Home({ homeData }) {
-    console.log("homedata", homeData)
     const [data, setData] = useState({ hero: [], curatedCreators: [], featuredProjects: [] })
     useEffect(() => {
         if (Object.keys(homeData).length > 0) {
@@ -57,10 +56,10 @@ Home.propTypes = {
     homeData: PropTypes.shape(propsValidation),
 }
 
-Home.getInitialProps = async () => {
-    const result = await fetch("https://mocki.io/v1/9445d88b-a625-47b1-8251-ec710590741d")
-    const data = await result.json()
+export const getStaticProps = async () => {
+    const result = await axios.get("https://mocki.io/v1/9445d88b-a625-47b1-8251-ec710590741d")
+    const data = await result.data
     return {
-        homeData: data,
+        props: { homeData: data },
     }
 }
