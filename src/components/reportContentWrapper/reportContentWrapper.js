@@ -12,7 +12,7 @@ import { SendDetailsModal } from "../modal/sendDetailsModal"
 const useStyles = makeStyles({
     reportWrapper: {
         backgroundColor: colors.lightGray,
-        padding: (props) => (props.dialogcontentStyle ? props.dialogcontentStyle : "1rem 2rem 1rem 2rem"),
+        padding: (props) => (props.dialogcontentStyle ? props.dialogcontentStyle : "1rem 1rem 1rem 1rem"),
         display: "flex",
         "@media(max-width:767px)": {
             padding: "1rem 1rem 1rem 1rem",
@@ -72,6 +72,9 @@ const useStyles = makeStyles({
     modaltitle: {
         marginTop: "1.5rem",
         color: colors.lighterGray,
+        "@media(max-width:992px)": {
+            marginTop: "-0.5rem",
+        },
     },
 })
 
@@ -91,6 +94,7 @@ export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                 onClose={() => setShowParticipantModal(false)}
                 onConfirm={() => routes.push("/notifications")}
                 externalclass={classes.modaltitle}
+                requestTitle ="26px"
             />
             <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
                 <Grid

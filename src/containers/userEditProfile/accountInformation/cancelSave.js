@@ -6,8 +6,12 @@ import { colors } from "../../../theme/colors"
 const useStyles = makeStyles({
     wrapper: {
         marginTop: "1rem",
-        padding: "2rem",
+        padding: "2rem 1rem",
         backgroundColor: colors.white,
+        "@media(max-width:767px)": {
+            display: "flex",
+            flexDirection: "column-reverse",
+        },
     },
     buttonCancel: {
         height: "3.5rem",
@@ -20,6 +24,10 @@ const useStyles = makeStyles({
         flexWrap: "nowrap",
         "@media (max-width: 767px)": {
             flexWrap: "wrap",
+            flexDirection: "column-reverse",
+            "& div": {
+                width: "100%",
+            },
         },
     },
 })

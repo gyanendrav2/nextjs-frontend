@@ -15,6 +15,9 @@ const useStyles = makeStyles({
     },
     title: {
         paddingTop: "1rem",
+        "@media(max-width:959px)": {
+            padding: "0",
+        },
     },
     radioboxWrapper: {
         margin: "1rem 0 0 0",

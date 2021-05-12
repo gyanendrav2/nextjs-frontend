@@ -28,10 +28,7 @@ const useStyles = makeStyles({
         "&:hover": {
             borderColor: (props) => (props.error ? colors.red : colors.lightGray),
         },
-        // "&::placeholder": {
-        //     color: colors.black,
-        //     // fontSize: "1rem",
-        // },
+       
     },
     iconContainer: {
         width: "10%",
@@ -43,6 +40,9 @@ const useStyles = makeStyles({
         fontWeight: (props) => (props.fontWeight ? props.fontWeight : 400),
         color: (props) => (props.labelColor ? props.labelColor : colors.black),
         marginLeft: (props) => (props.labelMargin ? props.labelMargin : "initial"),
+        "@media(max-width:767px)":{
+            marginLeft:0
+        }
     },
     inputContainer: {
         width: "100%",
@@ -50,6 +50,7 @@ const useStyles = makeStyles({
     iconWrapper: {
         cursor: "pointer",
     },
+   
 })
 
 

@@ -29,6 +29,18 @@ const useStyles = makeStyles({
             },
         },
     },
+    modaltitle: {
+        fontFamily: "Helvetica",
+        fontSize: "1.375rem",
+        lineHeight: "2.1rem",
+        textAlign: "center",
+        color:colors.lighterGray,
+         marginBottom:"2rem",
+         "@media (max-width: 767px)": {
+            marginBottom:"1rem",
+        },
+         
+    }
 })
 
 export const ConvertVideoOrPhoto = () => {
@@ -45,6 +57,7 @@ export const ConvertVideoOrPhoto = () => {
                 textAreaValue={`<iframe width="560" height="315" src="https://www.youtube.com/embed/50Twc4ghBFM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`}
                 isOpen={codeCopyModal}
                 onClose={() => setCodeCopyModal(false)}
+                externalclass={classes.modaltitle}
             />
             <Box className={classes.wrapper}>
                 <Typography variant="h6" className={classes.title}>

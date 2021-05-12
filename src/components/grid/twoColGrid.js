@@ -2,20 +2,17 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import { Grid, makeStyles } from "@material-ui/core"
-// import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     wrapper: {
         width: "100%",
-        // backgroundColor: colors.lightGray,
-        // padding: "2rem orem",
     },
     col1: {
         width: "27.5rem",
-        "@media (min-width:200px) and (max-width:767px)": {
-            display: "none",
+        "@media (min-width:768px) and (max-width: 959px)": {
+            width: "100%",
         },
-        "@media (min-width:768px) and (max-width: 1350px)": {
+        "@media (min-width:200px) and (max-width:767px)": {
             width: "100%",
         },
     },
@@ -25,7 +22,7 @@ const useStyles = makeStyles({
         "@media (min-width:200px) and (max-width:767px)": {
             width: "100%",
         },
-        "@media (min-width:768px) and (max-width: 1350px)": {
+        "@media (min-width:768px) and (max-width: 959px)": {
             width: "100%",
         },
     },

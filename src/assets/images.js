@@ -14,6 +14,7 @@ import projectImage1 from "./images/projectImage1.png"
 import projectImage2 from "./images/projectImage2.png"
 import projectImage3 from "./images/projectImage3.png"
 import projectImage4 from "./images/projectImage4.png"
+import brandon from "./images/brandon.png"
 
 export const images = {
     signinWall,
@@ -31,5 +32,6 @@ export const images = {
     projectImage1,
     projectImage2,
     projectImage3,
-    projectImage4
+    projectImage4,
+    brandon
 }

@@ -18,7 +18,7 @@ const useStyles = makeStyles({
             border: "none",
             fontFamily: "Helvetica",
             "&::placeholder": {
-                color: colors.lighterGray,
+                color: colors.black,
                 fontSize: "1rem",
             },
         },

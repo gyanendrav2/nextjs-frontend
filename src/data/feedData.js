@@ -24,7 +24,7 @@ export const feedRecentData = [
         category:"Photography",
         client:"NBA",
         year:"2020",
-        time:"09.10.20",
+        time:"1w",
         description:"LeBron James charity event photography for childrens’ hospital"
     
     },
@@ -38,7 +38,7 @@ export const feedOldData = [
         category:"Animation",
         client:"Nike",
         year:"2021",
-        time:"09.10.20",
+        time:"1w",
         description:"Nike “Beginnings” commercial about key moments in James’ path"
     },
     {
@@ -49,7 +49,7 @@ export const feedOldData = [
         category:"Animation",
         client:"Nike",
         year:"2021",
-        time:"09.10.20",
+        time:"1m",
         description:"Nike “Beginnings” commercial about key moments in James’ path"
     
     }

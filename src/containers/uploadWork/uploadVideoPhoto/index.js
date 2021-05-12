@@ -57,6 +57,12 @@ const useStyles = makeStyles({
     },
     plusIconContainer: {
         marginBottom: "1rem",
+        "@media (max-width: 1023px)": {
+            paddingRight: "2rem",
+        },
+        "@media (max-width: 767px)": {
+            paddingRight: "1rem",
+        },
     },
     socialIconContainer: {
         padding: "4rem 0",
@@ -71,7 +77,13 @@ const useStyles = makeStyles({
     buttonContainer: {
         padding: "1.9rem",
         display: "none",
-        "@media(max-width:992px)": {
+        backgroundColor: colors.white,
+        "@media (max-width:767px)": {
+            display: "flex",
+            padding: "1rem",
+        },
+        "@media (min-width:768px) and (max-width: 1023px)": {
+            padding: "1rem 13.375rem",
             display: "flex",
         },
     },
@@ -85,6 +97,12 @@ const useStyles = makeStyles({
             top: "0.5rem",
             right: "0.5rem",
         },
+    },
+    borderButton: {
+        backgroundColor: colors.white,
+        color: colors.black,
+        border: `2px solid ${colors.black}`,
+        maxHeight: "3.125rem",
     },
 })
 
@@ -115,6 +133,9 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, 
             })
         }
         window.addEventListener("scroll", detectElement)
+        return () => {
+            window.removeEventListener("scroll", detectElement)
+        }
     }, [activeElement, handleCurrentActive])
 
     const handleDelete = (i) => {
@@ -190,7 +211,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, 
                 <CardAdderButton onSelect={handleAddPhotoCodeData} />
             </Grid>
             <Grid container alignItems="center" justify="center" spacing={2} className={classes.buttonContainer}>
-                <Grid item xs={12} sm={6} md={6} container>
+                <Grid item xs={6} sm={6} md={6} container>
                     <CustomButton
                         variant="borderButton"
                         externalclass={classes.borderButton}
@@ -198,7 +219,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, 
                         fullWidth
                     />
                 </Grid>
-                <Grid item xs={12} sm={6} md={6}>
+                <Grid item xs={6} sm={6} md={6}>
                     <CustomButton variant="borderButton" label="Confirm" fullWidth />
                 </Grid>
                 <CustomButton variant="textButton" label="Cancel" fullWidth color={colors.darkRed} />

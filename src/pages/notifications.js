@@ -1,5 +1,6 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
+import Link from "next/link"
 import { colors } from "../theme/colors"
 import { Footer } from "../components/footer"
 import { HeaderWrapper } from "../components/header/headerWrapper"
@@ -19,11 +20,18 @@ const useStyles = makeStyles({
         fontSize: "2rem",
         lineheight: "2.875rem",
         paddingBottom: "1.5rem",
+        paddingTop: "1.5rem",
         borderBottom: `1px solid ${colors.lightGray}`,
+        "@media (max-width:767px)": {
+            paddingTop: "0rem",
+        },
     },
     modaltitle: {
         marginTop: "1.5rem",
         color: colors.lighterGray,
+    },
+    link: {
+        color: colors.black,
     },
 })
 const UserNotifications = () => {
@@ -44,26 +52,51 @@ const UserNotifications = () => {
             <Box className={classes.wrapper}>
                 <Typography className={classes.mainTitle}>Notifications</Typography>
                 <NotificationRow
-                    title="Peter Pan requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”"
+                    title={
+                        <Typography>
+                            <Link className={classes.link} href="/">
+                                Peter
+                            </Link>
+                            Pan requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”
+                        </Typography>
+                    }
                     isDeclinable
                     onDeclineClick={() => setShowDeclineModal(true)}
                     onAcceptClick={() => {}}
                     buttonLabel="Accept"
                 />
                 <NotificationRow
-                    title="Sarah Faulson followed you"
+                    title={
+                        <Typography>
+                            <Link className={classes.link} href="/">
+                                Sarah
+                            </Link>
+                            Faulson followed you
+                        </Typography>
+                    }
                     onDeclineClick={() => {}}
                     onAcceptClick={() => {}}
                     buttonLabel="Follow  back"
                 />
                 <NotificationRow
-                    title="Mike Magic liked your project “SiR - Hair Down (Official Video) ft. Kendrick Lamar”"
+                    title={
+                        <Typography>
+                            <Link className={classes.link} href="/">
+                                Mike Magic
+                            </Link>
+                            liked your project “SiR - Hair Down (Official Video) ft. Kendrick Lamar”
+                        </Typography>
+                    }
                     buttonLabel="Follow  back"
                     onAcceptClick={() => {}}
                     onDeclineClick={() => {}}
                 />
                 <NotificationRow
-                    title="You project has been uploaded “SiR - Hair Down (Official Video) ft. Kendrick Lamar”"
+                    title={
+                        <Typography>
+                            You project has been uploaded “SiR - Hair Down (Official Video) ft. Kendrick Lamar”
+                        </Typography>
+                    }
                     buttonLabel="Follow  back"
                     onAcceptClick={() => {}}
                     onDeclineClick={() => {}}

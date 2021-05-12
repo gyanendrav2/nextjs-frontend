@@ -15,14 +15,15 @@ const useStyles = makeStyles({
         padding: "1.5rem",
         background: colors.white,
         marginBottom: "1rem",
-        "@media (max-width:766px)": {
-            border: "none",
-            borderBottom: `1px solid ${colors.lighterGray}`,
-        },
+        position: "relative",
     },
     avatar: {
-        width: "5rem",
-        height: "5rem",
+        width: "4rem",
+        height: "4rem",
+        "@media (max-width:767px)": {
+            width: "3.5rem",
+            height: "3.5rem",
+        },
     },
     profilePicContainer: {
         width: "6rem",
@@ -40,6 +41,7 @@ const useStyles = makeStyles({
     textInfoContainer: {
         paddingRight: "1.5rem",
         height: "3rem",
+        color: colors.black,
     },
     followBtnContainer: {
         borderLeft: `1px solid ${colors.lightGray}`,
@@ -81,18 +83,24 @@ const useStyles = makeStyles({
     },
     moreVertIcon: {
         display: "none",
+        height: "18px",
+        width: "4px",
+        position: "absolute",
+        top: "1rem",
+        right: "1rem",
         "@media(max-width:767px)": {
-            display: "inline",
-            height: "18px",
-            width: "4px",
-            position: "absolute",
-            top: "0",
-            right: "-2rem",
+            display: "block",
         },
     },
     shareButton: {
         width: "2.5rem",
         backgroundColor: colors.lighterPrimary,
+        "& hover": {
+            backgroundColor: colors.pink,
+        },
+        "@media(max-width:767px)": {
+            display: "none",
+        },
     },
 })
 
@@ -112,6 +120,7 @@ export const FeedUserProfileCard = ({
 
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
+            <MoreVertIcon className={classes.moreVertIcon} />
             <Grid container alignItems="center" justify="space-between" wrap="nowrap">
                 <Grid container alignItems="center" justify="flex-start">
                     <Grid item>
@@ -121,16 +130,15 @@ export const FeedUserProfileCard = ({
                             justify="flex-start"
                             direction="row"
                             className={classes.profileInfoContainer}>
-                            <Grid item className={classes.profilePicContainer} xs={12} sm={6}>
+                            <Grid item className={classes.profilePicContainer} xs={12} sm={3}>
                                 <Avatar className={classes.avatar} src={image} />
                             </Grid>
-                            <Grid item className={classes.textInfoContainer} xs={12} sm={6}>
+                            <Grid item className={classes.textInfoContainer} xs={12} sm={9}>
                                 <Typography onClick={onClickProfile} className={classes.name}>
                                     {name}
                                 </Typography>
                                 <Typography className={classes.position}>{position}</Typography>
                             </Grid>
-                            <MoreVertIcon className={classes.moreVertIcon} />
                         </Grid>
                     </Grid>
                     <Grid item className={classes.followBtnContainer}>
@@ -158,7 +166,11 @@ export const FeedUserProfileCard = ({
                     </Typography>
                 </Grid>
 
-                <img src={images.masorny1} alt="dummy" style={{ width: "100%", height: "23rem", objectFit: "cover" }} />
+                <img
+                    src={images.masorny1}
+                    alt="dummy"
+                    style={{ width: "100%", height: "23rem", objectFit: "cover", marginTop: "1rem" }}
+                />
                 <Typography variant="subtitle1">{description}</Typography>
             </Box>
             {/* {!ownProfile ? (

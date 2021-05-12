@@ -90,7 +90,7 @@ const useStyles = makeStyles({
         overflowY: "auto",
     },
     placeholder: {
-        color: colors.lighterGray,
+        color: props => props.placeholderColor? props.placeholderColor:colors.lighterGray,
     },
     checkBoxContainer: {
         display: "flex!important",
@@ -154,9 +154,10 @@ export const SelectWithLabelIcon = ({
     handleOptionSelect,
     fontWeight,
     checkboxHoverStyle,
+    placeholderColor,
     ...props
 }) => {
-    const classes = useStyles({ error: !!error, labelColor, bgcolor, fontWeight, checkboxHoverStyle })
+    const classes = useStyles({ error: !!error, labelColor, bgcolor, fontWeight, checkboxHoverStyle, placeholderColor })
     const [customShow, setCustomShow] = useState(false)
     const handleCustomChange = (data) => {
         customOnChange(data)
@@ -318,15 +319,14 @@ SelectWithLabelIcon.defaultProps = {
     handleOptionSelect: () => {},
     fontWeight: "",
     checkboxHoverStyle: "",
-    fontSize:"0.875rem"
+    fontSize:"0.875rem",
+    placeholderColor:colors.lighterGray
 }
 
 SelectWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    // value: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.element,
@@ -345,5 +345,6 @@ SelectWithLabelIcon.propTypes = {
     handleOptionSelect: PropTypes.func,
     fontWeight: PropTypes.string,
     checkboxHoverStyle: PropTypes.string,
-    fontSize:PropTypes.string
+    fontSize:PropTypes.string,
+    placeholderColor:PropTypes.string
 }

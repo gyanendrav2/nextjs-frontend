@@ -29,10 +29,10 @@ const useStyles = makeStyles({
         },
     },
     leftAvatarContainer: {
-        maxWidth: "34rem",
-        "@media (max-width:768px)": {
+        maxWidth: "100%",
+        "@media (max-width:1023px)": {
             flexWrap: "wrap",
-            maxWidth: "32rem",
+            // maxWidth: "32rem",
         },
     },
     shareButtonContainer: {
@@ -40,26 +40,21 @@ const useStyles = makeStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: "8rem",
-        "@media(max-width:412px)": {
-            minWidth: "0",
+        width: "8rem",
+        "@media (max-width:767px)": {
+            width: "4rem",
         },
     },
     shareButtonText: {
-        "@media(max-width:576px)": {
+        "@media(max-width:767px)": {
             display: "none",
         },
     },
     headingTextWrapper: {
-        marginLeft: "1rem",
-        "@media(max-width:768px)": {
-            marginLeft: "3.5rem",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: "12rem",
-        },
-        postion: {},
+        width: "100%",
+        marginLeft: "3.5rem",
+        display: "flex",
+        alignItems: "center",
     },
 
     button: {
@@ -68,7 +63,7 @@ const useStyles = makeStyles({
             color: colors.white,
             backgroundColor: colors.black,
         },
-        "@media(max-width:372px)": {
+        "@media(max-width:767px)": {
             minWidth: "1rem!important",
         },
     },
@@ -76,6 +71,10 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         padding: "1rem",
         marginTop: "-5px",
+        paddingBottom: "5rem",
+        "@media (max-width: 767px)": {
+            paddingBottom: "2rem",
+        },
     },
 
     infoTextHead: {
@@ -148,10 +147,17 @@ const useStyles = makeStyles({
         marginLeft: "1rem",
         fontSize: "1.375rem",
         fontWeight: 400,
+        width: "100%",
         "@media (max-width:767px)": {
             fontSize: "1rem",
             marginBottom: "1rem",
         },
+    },
+    position: {
+        marginLeft: "2rem",
+    },
+    avatar: {
+        alignSelf: "flex-start",
     },
 })
 
@@ -164,7 +170,7 @@ export const QuickViewDailog = ({ closeModal }) => {
                 <Grid container alignItems="center" justify="flex-start" className={classes.leftAvatarContainer}>
                     <Grid item>
                         <Box className={classes.imgContainer}>
-                            <Avatar src={images.maskGroup} />
+                            <Avatar src={images.maskGroup} className={classes.avatar} />
                             <Typography className={classes.heading}>
                                 SiR - Hair Down (Official Video) ft. Kendrick Lamar
                             </Typography>

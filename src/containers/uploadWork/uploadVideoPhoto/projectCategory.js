@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-// import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
         "& svg": {
             cursor: "pointer",
         },
-        "@media(max-width:576px)": {
+        "@media(max-width:767px)": {
             padding: "2.5rem 0",
         },
     },
@@ -29,6 +28,9 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         marginBottom: "1.125rem",
         padding: "2rem",
+        "@media(max-width:767px)": {
+            padding: "2rem 1rem",
+        },
     },
     icon: {
         margin: "0 2rem",
@@ -39,7 +41,7 @@ const useStyles = makeStyles({
     inputHeight: {
         height: "2.5rem",
         "@media(max-width:576px)": {
-            padding: "0px 8px",
+            // padding: "0px 8px",
         },
     },
     teamAddButton: {
@@ -121,13 +123,13 @@ export const ProjectCategory = () => {
                                 <SelectWithLabelIcon
                                     options={roleCategories}
                                     labelColor={colors.lighterGray}
-                                    // customValue="Director"
                                     variantStyle="optionWithCheckboxStyle"
                                     fontWeight="bold"
                                     label="Project category"
                                     placeholder="Multiselect categories"
                                     externalclass={classnames(classes.inputHeight)}
                                     handleOptionSelect={handleRoles}
+                                    placeholderColor={colors.black}
                                     onChange={() => {}}
                                 />
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

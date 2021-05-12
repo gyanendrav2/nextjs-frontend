@@ -104,7 +104,7 @@ NotificationRow.defaultProps = {
 }
 
 NotificationRow.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element]).isRequired,
     image: PropTypes.string,
     onAcceptClick: PropTypes.func.isRequired,
     isDeclinable: PropTypes.bool,

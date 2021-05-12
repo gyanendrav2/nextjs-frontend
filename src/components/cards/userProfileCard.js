@@ -31,6 +31,7 @@ const useStyles = makeStyles({
         fontFamily: "Helvetica",
         fontSize: "1.375rem",
         lineHeight: "2.125rem",
+        padding:"0.2rem 0",
         "@media(max-width:767px)": {
             fontSize: "1rem",
             lineHeight: "1.375rem",
@@ -61,6 +62,10 @@ const useStyles = makeStyles({
             maxWidth: "10rem",
         },
     },
+    editfullWidthBtn: {
+        width: "100%",
+        padding:"0"
+    },
     smallBtn: {
         width: "100%",
     },
@@ -73,6 +78,7 @@ const useStyles = makeStyles({
         color: colors.lighterGray,
         fontSize: "1rem",
         lineHeight: "1.375rem",
+        padding:"0.2rem 0",
         "@media(max-width:767px)": {
             fontSize: "0.875rem",
             lineHeight: "1rem",
@@ -82,6 +88,13 @@ const useStyles = makeStyles({
         fontFamily: "Helvetica",
         fontSize: "0.875rem",
         lineHeight: "1rem",
+        padding:"0.2rem 0"
+    },
+    mobilemargin:{
+        "@media (max-width:410px)": {
+           marginLeft:"1.5rem",
+           display:"inline"
+        },
     }
 })
 
@@ -123,7 +136,7 @@ export const UserProfileCard = ({
                     <Typography onClick={onClickProfile} className={classes.name}>{name}</Typography>
                     <Typography className={classes.username} >{userName}</Typography>
                     <Typography className={classes.position}>
-                        {position} &nbsp; <LocationIcon /> {location}
+                        {position} &nbsp;<span className={classes.mobilemargin}> <LocationIcon /> {location} </span>
                     </Typography>
                 </Box>
             </Grid>
@@ -152,7 +165,7 @@ export const UserProfileCard = ({
             ) : (
                 <Grid container>
                     <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                        <CustomButton label="Edit profile" externalclass={classes.fullWidthBtn} onClick={handleRoute} />
+                        <CustomButton label="Edit profile" externalclass={classes.editfullWidthBtn} onClick={handleRoute} />
                     </Grid>
                 </Grid>
             )}

@@ -166,8 +166,7 @@ export const CardWithFooter = ({
                                       hiddenCategory={categoryHidden}
                                       onLinkCopied={() => {
                                           handleNotification()
-                                          setShowCopyBox(!showCopyBox)
-                                      }}
+                                          setShowCopyBox(!showCopyBox) }}
                                   />
                               )}
                     </Box>

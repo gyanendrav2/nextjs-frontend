@@ -10,18 +10,23 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         textAlign: "center",
         width: "100%",
+        // "@media(max-width:767px)":{
+        //     marginTop:"3rem"
+        // }
     },
-
     inputWrapper: {
         maxWidth: "37.75rem",
-        margin: "auto",
+        margin: "2rem auto",
+        // "@media(max-width:767px)":{
+        //  marginTop: "3rem",
+        // }
     },
     heading: {
         marginBottom: "2.5rem",
     },
 })
 
-export const AddCategory = ({ onAddCategory }) => {
+export const AddCategory = ({ onAddCategory, closeAddcategory }) => {
     const classes = useStyles()
     const [category, setCategory] = useState({ label: "", value: "" })
     const secondlevelCategoryItems = [
@@ -48,11 +53,15 @@ export const AddCategory = ({ onAddCategory }) => {
                     customOnChange={(value) => setCategory(value)}
                 />
             </Box>
-            <UserConfirmContainer onConfirmClicked={() => onAddCategory(category)} />
+            <UserConfirmContainer
+                onConfirmClicked={() => onAddCategory(category)}
+                closeAddcategory={closeAddcategory}
+            />
         </Box>
     )
 }
 
 AddCategory.propTypes = {
     onAddCategory: PropTypes.func.isRequired,
+    closeAddcategory: PropTypes.func.isRequired,
 }

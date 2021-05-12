@@ -82,9 +82,9 @@
 }
 
 @font-face {
-    font-family: "Campton Light";
-    src: url("/fonts/Campton-LightDEMO.woff2") format("woff2"), url("/fonts/Campton-LightDEMO.woff") format("woff");
-    font-weight: 300;
+    font-family: "Campton-Medium";
+    src: url("/fonts/Campton-Medium") format("opentype");
+    font-weight:400 ;
     font-style: normal;
     font-display: swap;
 }

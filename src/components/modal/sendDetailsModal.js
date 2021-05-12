@@ -10,6 +10,18 @@ import { InputWithLabelIcon } from "../inputs/inputWithLabelIcon"
 const useStyles = makeStyles({
     heading: {
         marginTop: "4rem",
+
+        "@media(max-width:992px)": {
+            marginBottom: "2rem",
+        },
+        "@media(max-width:767px)": {
+            marginBottom: "2rem",
+        },
+        "@media(max-width:400px)": {
+            fontSize: (props) => (props.requestTitle ? props.requestTitle : "2rem"),
+            width: "100%",
+            textAlign: "left",
+        },
     },
     wrapper: {
         width: "100%",
@@ -21,6 +33,9 @@ const useStyles = makeStyles({
         "& textarea": {
             height: "7.5rem",
             resize: "vertical",
+            "@media(max-width:768px)": {
+                height: "12rem",
+            },
         },
         "@media(max-width:768px)": {
             padding: "1rem 0",
@@ -30,15 +45,43 @@ const useStyles = makeStyles({
         width: "18.375rem",
         height: "3.5rem",
         margin: "1rem",
+        "@media(max-width:767px)": {
+            margin: "0.5rem 0.5rem",
+            width: "100%",
+        },
     },
     charCount: {
         position: "absolute",
         top: "3.5rem",
         right: "8.5rem",
         color: colors.lightGray,
+        "@media(max-width:767px)": {
+            top: "2rem",
+            right: "1rem",
+        },
+        "@media(max-width:395px)": {
+            right: "1rem",
+            top: "73%",
+        },
     },
     fullWidth: {
         width: "100%",
+    },
+    buttonWrapper: {
+        "@media (max-width:767px)": {
+            flexDirection: "column-reverse",
+            width: "100%",
+            "& button": {
+                marginLeft: 0,
+                marginRight: 0,
+            },
+        },
+    },
+    wrapperTop: {
+        width: "100%",
+        maxHeight: "90vh",
+        overflowY: "auto",
+        padding: "1.125rem",
     },
 })
 
@@ -54,8 +97,9 @@ export const SendDetailsModal = ({
     onConfirm,
     onLinkChange,
     externalclass,
+    requestTitle,
 }) => {
-    const classes = useStyles()
+    const classes = useStyles({ requestTitle })
     const [description, setDescription] = useState(textAreaValue)
     const handleDescription = (e) => {
         const { value } = e.target
@@ -68,29 +112,36 @@ export const SendDetailsModal = ({
         setDescription(e.target.value)
     }
     return (
-        <ModalComponent openOrNot={isOpen} onClose={onClose}>
-            <Grid container alignItems="center" justify="center" direction="column" className={classes.fullWidth}>
-                <Typography variant="h4" className={classes.heading}>
-                    {modalName}
-                </Typography>
-                <Typography className={externalclass}>{title}</Typography>
-                <Box className={classes.wrapper}>
-                    {isTextArea ? (
-                        <>
-                            <TextArea placeholder={placeholder} value={description} onChange={handleDescription} />
-                            {!hideCount && (
-                                <Typography className={classes.charCount}>{description.length}/120</Typography>
-                            )}
-                        </>
-                    ) : (
-                        <InputWithLabelIcon placeholder="Paste URL" onChange={onLinkChange} />
-                    )}
-                </Box>
-                <Grid container spacing={2} alignItems="center" justify="center">
-                    <CustomButton variant="cancel" label="Cancel" externalclass={classes.button} onClick={onClose} />
-                    <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
+        <ModalComponent padding="0" openOrNot={isOpen} onClose={onClose}>
+            <Box className={classes.wrapperTop}>
+                <Grid container alignItems="center" justify="center" direction="column" className={classes.fullWidth}>
+                    <Typography variant="h4" className={classes.heading}>
+                        {modalName}
+                    </Typography>
+                    <Typography className={externalclass}>{title}</Typography>
+                    <Box className={classes.wrapper}>
+                        {isTextArea ? (
+                            <>
+                                <TextArea placeholder={placeholder} value={description} onChange={handleDescription} />
+                                {!hideCount && (
+                                    <Typography className={classes.charCount}>{description.length}/120</Typography>
+                                )}
+                            </>
+                        ) : (
+                            <InputWithLabelIcon placeholder="Paste URL" onChange={onLinkChange} />
+                        )}
+                    </Box>
+                    <Grid container spacing={2} alignItems="center" justify="center" className={classes.buttonWrapper}>
+                        <CustomButton
+                            variant="cancel"
+                            label="Cancel"
+                            externalclass={classes.button}
+                            onClick={onClose}
+                        />
+                        <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Box>
         </ModalComponent>
     )
 }
@@ -104,6 +155,7 @@ SendDetailsModal.defaultProps = {
     onConfirm: () => {},
     onLinkChange: () => {},
     isTextArea: false,
+    requestTitle: "2rem",
 }
 
 SendDetailsModal.propTypes = {
@@ -118,4 +170,5 @@ SendDetailsModal.propTypes = {
     externalclass: PropTypes.string,
     onConfirm: PropTypes.func,
     onLinkChange: PropTypes.func,
+    requestTitle: PropTypes.string,
 }

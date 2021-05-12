@@ -20,6 +20,9 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
         padding: "2rem",
+        "@media(max-width:767px)": {
+            padding: "1rem",
+        },
     },
     avatar: {
         width: "8.5rem",
@@ -162,6 +165,7 @@ export const AccountInformation = () => {
                                         handleOptionSelect={handleRoles}
                                         externalclass={classnames(classes.inputHeight)}
                                         onChange={() => {}}
+                                        placeholderColor={colors.black}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>

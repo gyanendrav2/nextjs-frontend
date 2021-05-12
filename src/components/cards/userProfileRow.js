@@ -38,11 +38,13 @@ const useStyles = makeStyles({
 export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {
     const classes = useStyles()
     return (
-        <Grid container wrap="nowrap">
+        <Grid container wrap="nowrap"  alignItems="center"
+        justify="center">
             <Grid
                 item
                 container
                 alignItems="center"
+                justify="center"
                 xs={col1Size}
                 sm={12}
                 md={col1Size}

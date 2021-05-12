@@ -44,7 +44,6 @@ export const HeadItem = ({
 }) => {
     const classes = useStyles({ id, color, isAuthenticated })
     const router = useRouter()
-    console.log("isAuthenticated", isAuthenticated)
 
     const handleRoute = () => {
         router.push(routeName)

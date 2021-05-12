@@ -86,7 +86,6 @@ const Search = () => {
                                 image={images.maskGroup}
                                 footerTitle="Brandon Landing"
                                 footerSubitle="Director assistant"
-                                // buttonText="Follow"
                             />
                         </Grid>
                     ))}

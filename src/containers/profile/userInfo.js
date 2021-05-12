@@ -70,6 +70,10 @@ export const UserInfo = ({ handleMsgClick }) => {
     )
 }
 
+UserInfo.defaultProps = {
+    handleMsgClick: () => {},
+}
+
 UserInfo.propTypes = {
-    handleMsgClick: PropTypes.func.isRequired,
+    handleMsgClick: PropTypes.func,
 }

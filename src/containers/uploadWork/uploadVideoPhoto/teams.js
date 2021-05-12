@@ -39,19 +39,20 @@ const useStyles = makeStyles({
 export const Teams = ({ data, handleDelete }) => {
     const classes = useStyles()
     return (
-        <Grid container>
-            <Grid item xs={12} sm={12} md={6} lg={6}>
+        <Grid container alignItems="center" justify="center">
+            <Grid item xs={12} sm={6} md={6} lg={6}>
                 <Typography className={classes.title}>Team</Typography>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6}>
+            <Grid item xs={12} sm={6} md={6} lg={6}>
                 <Typography className={classnames(classes.title, classes.inputWrapper)}>Email invitation</Typography>
             </Grid>
+            
             {data.map((item, i) => (
                 <>
-                    <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Grid item xs={12} sm={5} md={6} lg={6}>
                         <UserProfileRow image={images.masorny1} name={item.name} position={item.jobRole} />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6}>
+                    <Grid item xs={12} sm={7} md={6} lg={6}>
                         <Grid
                             container
                             alignItems="center"

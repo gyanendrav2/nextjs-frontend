@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
         position: "relative",
-        "@media(max-width:767px)": {
+        "@media(max-width:992px)": {
             padding: "5rem 0px 0px 0px",
         },
     },
@@ -23,9 +23,13 @@ const useStyles = makeStyles({
     },
     col1: {
         width: "calc(100% - 27.5rem)",
-        marginTop: "6.15rem",
+        marginTop: "7rem",
         "@media(max-width:992px)": {
             width: "100%",
+            marginTop: "2rem",
+        },
+        "@media(max-width:767px)": {
+            marginTop: "0rem",
         },
     },
     col2: {
@@ -43,10 +47,16 @@ const useStyles = makeStyles({
     borderButton: {
         backgroundColor: colors.white,
         color: colors.black,
-        border: `1px solid ${colors.black}`,
+        border: `2px solid ${colors.black}`,
+        maxHeight: "3.125rem",
     },
     buttonContainer: {
         padding: "1.9rem",
+        width: "100%",
+        margin: 0,
+        // "@media(max-width:767px)": {
+        //     backgroundColor:colors.white
+        // },
     },
 })
 
@@ -88,7 +98,7 @@ const UploadWork = () => {
                                     optionName={item.optionName}
                                     isHref
                                     isActive={currentActive === item.pathSlug}
-                                    href={`#${item.pathSlug}`}
+                                    href={item.pathSlug}
                                     // onClick={() => push(`/upload-work/${item.pathSlug}`)}
                                 />
                             ))}
@@ -108,9 +118,20 @@ const UploadWork = () => {
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6}>
-                                    <CustomButton variant="borderButton" label="Confirm" fullWidth />
+                                    <CustomButton
+                                        variant="borderButton"
+                                        label="Confirm"
+                                        style={{ height: "3.125rem" }}
+                                        fullWidth
+                                    />
                                 </Grid>
-                                <CustomButton variant="textButton" label="Cancel" fullWidth color={colors.darkRed} />
+                                <CustomButton
+                                    variant="textButton"
+                                    style={{ height: "3.125rem" }}
+                                    label="Cancel"
+                                    fullWidth
+                                    color={colors.darkRed}
+                                />
                                 <CustomButton
                                     variant="textButton"
                                     label="Delete work"

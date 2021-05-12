@@ -15,6 +15,9 @@ const useStyles = makeStyles({
         backgroundColor: colors.black,
         color: colors.white,
         cursor: "pointer",
+        "@media(max-width:767px)":{
+            height:"247px"
+        }
     },
 })
 

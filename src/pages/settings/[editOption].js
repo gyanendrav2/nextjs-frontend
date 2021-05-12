@@ -14,10 +14,13 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
         padding: "7rem 10rem 2rem 10rem",
+        "@media (min-width:960px) and (max-width:1350px)": {
+            padding: "7rem 2rem 2rem 2rem",
+        },
         "@media (min-width:200px) and (max-width:767px)": {
             padding: "6rem 1rem 2rem 1rem",
         },
-        "@media (min-width:768px) and (max-width:1350px)": {
+        "@media (min-width:768px) and (max-width:959px)": {
             padding: "7rem 2rem 2rem 2rem",
         },
     },

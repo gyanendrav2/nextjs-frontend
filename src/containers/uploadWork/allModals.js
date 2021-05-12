@@ -3,14 +3,10 @@ import { useRouter } from "next/router"
 import React from "react"
 import PropTypes from "prop-types"
 import { CustomButton } from "../../components/buttons/customButton"
-// import { CodeIcon } from "../../components/icons/codeIcon"
-// import { PhotoIcon } from "../../components/icons/photoIcon"
-// import { TIcon } from "../../components/icons/tIcon"
 import { ModalComponent } from "../../components/modal/modalComponent"
 import { SendDetailsModal } from "../../components/modal/sendDetailsModal"
 import { UploadMediaModal } from "../../components/modal/uploadMediaModal"
 import { colors } from "../../theme/colors"
-// import { PhotoCodeBox } from "./uploadVideoPhoto/photoCodeBox"
 
 const useStyles = makeStyles({
     modalWrapper: {
@@ -50,6 +46,9 @@ const useStyles = makeStyles({
     buttonDelete: {
         width: "18.5rem",
         height: "3.75rem",
+        "@media (max-width: 767px)": {
+            width: "100%",
+        },
     },
     hideBtn: {
         textTransform: "none",
@@ -57,18 +56,27 @@ const useStyles = makeStyles({
     deleteTitle: {
         marginTop: "2rem",
         marginBottom: "5.312rem",
+        "@media(max-width:767px)": {
+            marginTop: "1rem",
+            marginBottom: "2rem",
+        },
     },
     buttonCancel: {
         width: "18.5rem",
         height: "3.75rem",
         marginRight: "1.5rem",
     },
+    title: {
+        "@media(max-width:767px)": {
+            marginTop: "2rem",
+            width: "100%",
+            textAlign: "left",
+            fontSize: "28px",
+        },
+    },
 })
 
 export const AllModals = ({
-    // selectionModal,
-    // onSelectModal,
-    // handleAddPhotoCodeData,
     openDeleteModal,
     onDelete,
     showCodeModal,
@@ -82,26 +90,11 @@ export const AllModals = ({
     const routes = useRouter()
     return (
         <>
-            {/* <ModalComponent openOrNot={selectionModal} onClose={onSelectModal}>
-                <Box className={classes.modalWrapper}>
-                    <Box onClick={() => handleAddPhotoCodeData(0)}>
-                        <PhotoCodeBox flexDirection="row" />
-                    </Box>
-                    <Box onClick={() => handleAddPhotoCodeData(1)}>
-                        <PhotoCodeBox flexDirection="row-reverse" />
-                    </Box>
-                    <Box onClick={() => handleAddPhotoCodeData(2)}>
-                        <Grid container alignItems="center" justify="center" className={classes.wrapper}>
-                            <PhotoIcon className={classes.icon} />
-                            <CodeIcon className={classes.icon} />
-                            <TIcon className={classes.icon} />
-                        </Grid>
-                    </Box>
-                </Box>
-            </ModalComponent> */}
-            <ModalComponent openOrNot={openDeleteModal} onClose={onDelete}>
+            <ModalComponent padding="0" openOrNot={openDeleteModal} onClose={onDelete}>
                 <Grid container alignItems="center" justify="center" direction="column">
-                    <Typography variant="h4">Delete or hide work</Typography>
+                    <Typography variant="h4" className={classes.title}>
+                        Delete or hide work
+                    </Typography>
                     <Typography className={classes.deleteTitle}>
                         Instead of deleting the work for all your team members, there’s a way to hide it.
                     </Typography>
@@ -147,9 +140,6 @@ export const AllModals = ({
 }
 
 AllModals.propTypes = {
-    // selectionModal: PropTypes.bool.isRequired,
-    // onSelectModal: PropTypes.func.isRequired,
-    // handleAddPhotoCodeData: PropTypes.func.isRequired,
     openDeleteModal: PropTypes.bool.isRequired,
     showCodeModal: PropTypes.bool.isRequired,
     showUPloadMediaModal: PropTypes.bool.isRequired,

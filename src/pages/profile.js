@@ -49,7 +49,7 @@ const useStyles = makeStyles({
     },
     category: {
         padding: "2rem 0",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             display: "none",
         },
     },
@@ -62,6 +62,9 @@ const useStyles = makeStyles({
         cursor: "pointer",
         "& svg": {
             transform: "translateY(0.625rem)",
+        },
+        "@media(max-width:890px)": {
+            marginRight: "2rem",
         },
     },
     activeCategory: {
@@ -82,32 +85,35 @@ const useStyles = makeStyles({
     },
 
     selectCategories: {
-        padding: "1.25rem",
-        "@media (min-width:768px)": {
+        padding: "1.25rem 1rem",
+        "@media (min-width:767px)": {
             display: "none",
         },
     },
     cardContainer: {
-        "@media (max-width:768px)": {
-            paddingLeft: "1.25rem",
-            paddingRight: "1.25rem",
+        "@media (max-width:767px)": {
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
         },
+    },
+    selectedCategoryStyles: {
+        color: colors.red,
     },
     selectCategoryText: {
         display: "none",
         marginBottom: "1.25rem",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             display: "block",
-            paddingLeft: "1.25rem",
-            paddingRight: "1.25rem",
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
         },
     },
     userProfilecardStyles: {
+        // messageBoxStyles: {
+        //     marginRight: "1rem",
+        // },
         "@media (max-width:575px)": {
-            padding: "1rem",
-        },
-        messageBoxStyles: {
-            marginRight: "1rem",
+            padding: "1rem!important",
         },
     },
     addCategoryButton: {
@@ -121,6 +127,13 @@ const useStyles = makeStyles({
         "&:hover": {
             color: colors.pink,
         },
+        "@media (max-width:890px)": {
+            textAlign: "left",
+        },
+        "@media (max-width:767px)": {
+            textAlign: "left",
+            paddingLeft: "1rem",
+        },
     },
     hiddenCategory: {
         userSelect: "none",
@@ -132,6 +145,15 @@ const useStyles = makeStyles({
         marginTop: "2.5rem",
         "& svg": {
             transform: "translateY(0.3rem)",
+        },
+        "&:hover": {
+            color: colors.pink,
+        },
+    },
+    player: {
+        height: "100%",
+        "@media (max-width:767px)": {
+            height: "15.5rem",
         },
     },
 })
@@ -145,17 +167,12 @@ const User = () => {
     const [selectedCategory, setSelectedCategory] = useState("All (6)")
     const [hiddenCategory, setHiddenCategory] = useState(false)
     const [notification, setNotification] = useState(true)
+    const [hideNotification, setHideNotification] = useState(false)
     const [categories, setCategories] = useState([
         { value: "All (6)", label: "All (6)", active: true },
         { value: "Directing (3)", label: "Directing (3)", active: false },
         { value: "Production (3)", label: "Production (3)", active: false },
     ])
-
-    const handleAddNewCategory = (category) => {
-        const newCategory = [...categories]
-        newCategory.push(category)
-        setCategories(newCategory)
-    }
 
     const [data, setData] = useState([
         { id: 0, image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
@@ -201,10 +218,19 @@ const User = () => {
         const tempData = [...data]
         tempData.splice(i, 1)
         setData(tempData)
+        setHideNotification(true)
     }
     const handleAddCategory = () => {
         setAddCategory(!addCategory)
     }
+
+    const handleAddNewCategory = (category) => {
+        const newCategory = [...categories]
+        newCategory.push(category)
+        setCategories(newCategory)
+        handleAddCategory()
+    }
+
     return (
         <>
             {showNotification && (
@@ -216,12 +242,21 @@ const User = () => {
                     handleHideNotification={() => setNotification(!notification)}
                 />
             )}
+            {hideNotification && (
+                <NotificationCard
+                    message="You have successfully hidden the project."
+                    isVisible={notification}
+                    timeout={4000}
+                    hideButton
+                    handleHideNotification={() => setHideNotification(!hideNotification)}
+                />
+            )}
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
                 <UserInfo />
             </ModalComponent>
             <ModalComponent openOrNot={addCategory} onClose={handleAddCategory}>
-                <AddCategory onAddCategory={handleAddNewCategory} />
+                <AddCategory onAddCategory={handleAddNewCategory} closeAddcategory={handleAddCategory} />
             </ModalComponent>
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
@@ -233,7 +268,7 @@ const User = () => {
                             <UserProfileCard
                                 onClickProfile={handleInfo}
                                 onMsgBtnClick={handleMsg}
-                                image={images.maskGroup}
+                                image={images.brandon}
                                 name="Brandon Landing"
                                 userName="@veritas_z"
                                 followers="15"
@@ -248,7 +283,7 @@ const User = () => {
                         <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
                             <ReactPlayer
                                 width="100%"
-                                height="100%"
+                                className={classes.player}
                                 controls
                                 url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
                             />
@@ -259,6 +294,7 @@ const User = () => {
                         {categories.map((item, i) => (
                             <Typography
                                 key={i}
+                                style={{ marginBottom: "1.5rem" }}
                                 className={classnames(classes.boldText, {
                                     [classes.activeCategory]: item.active,
                                 })}
@@ -272,6 +308,7 @@ const User = () => {
                             options={categories}
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
+                            externalclass={classes.selectedCategoryStyles}
                         />
                     </Box>
                     <Box className={classes.selectCategoryText}>
@@ -281,7 +318,7 @@ const User = () => {
                         Add category section +
                     </Typography>
                     <Grid container spacing={2} className={classes.cardContainer}>
-                        <Grid item xs={12} sm={6} md={4} lg={3}>
+                        <Grid item xs={12} sm={6} md={4} lg={3} className={classes.adderContainer}>
                             <Adder onAddClick={() => {}} />
                         </Grid>
                         {data.map((item, i) => {

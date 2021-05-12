@@ -31,14 +31,14 @@ const useStyles = makeStyles({
     },
 })
 
-export const UserConfirmContainer = ({ settingsPage, onConfirmClicked }) => {
+export const UserConfirmContainer = ({ settingsPage, onConfirmClicked, closeAddcategory }) => {
     const classes = useStyles()
 
     return (
         <Box className={classes.wrapper}>
             <Grid container spacing={2} className={classes.submitContainer}>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
-                    <CustomButton variant="cancel" label="cancel" />
+                    <CustomButton variant="cancel" label="cancel" onClick={closeAddcategory} />
                 </Grid>
                 <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.submit}>
                     <CustomButton
@@ -62,4 +62,5 @@ UserConfirmContainer.defaultProps = {
 UserConfirmContainer.propTypes = {
     settingsPage: PropTypes.bool,
     onConfirmClicked: PropTypes.func.isRequired,
+    closeAddcategory: PropTypes.func.isRequired,
 }

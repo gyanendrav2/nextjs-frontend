@@ -43,7 +43,7 @@ export const CardMenuOptions = ({ onEdit, onHide, hiddenCategory, onLinkCopied }
             </Typography>
             {!hiddenCategory ? (
                 <Typography className={classes.option} onClick={onHide}>
-                    hide
+                    Hide
                 </Typography>
             ) : (
                 <Typography className={classes.option} onClick={onHide}>
@@ -69,7 +69,6 @@ CardMenuOptions.defaultProps = {
     onEdit: () => {},
     onHide: () => {},
     hiddenCategory: false,
-    // onShare: () => {},
 }
 
 CardMenuOptions.propTypes = {
@@ -77,5 +76,4 @@ CardMenuOptions.propTypes = {
     onHide: PropTypes.func,
     hiddenCategory: PropTypes.bool,
     onLinkCopied: PropTypes.func.isRequired,
-    // onShare: PropTypes.func,
 }

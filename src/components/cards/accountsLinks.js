@@ -10,16 +10,16 @@ const useStyles = makeStyles({
         borderBottom: `1px solid ${colors.lightGray}`,
         paddingBottom: "0.4rem",
         paddingTop: "0.4rem",
-        color: (props) => (props.link ? colors.black : colors.lightGray),
+        color: (props) => (props.link ? colors.black : colors.lighterGray),
     },
     button: {
         height: "2.5rem",
         padding: "0.562rem 1rem",
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.lighterPrimary,
         color: colors.black,
     },
     deleteIconButton: {
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.lighterPrimary,
     },
     link: {
         maxWidth: "14rem",
