@@ -4,7 +4,7 @@ import { Box, Grid, makeStyles } from "@material-ui/core"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { HeadItem } from "./headItem"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
@@ -110,7 +110,7 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                 {isAuthenticated && (
                     <UserProfileNav
                         userName="Brandon"
-                        profileImg={images.maskGroup}
+                        profileImg={images.brandon}
                         externalclass={classes.UserProfileNav}
                         onClick={handleUserProfileNav}
                     />

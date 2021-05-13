@@ -4,7 +4,7 @@ import { Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
-import { CustomButton } from "../../buttons/customButton"
+import  CustomButton  from "../../buttons/customButton"
 import { InputWithLabelIcon } from "../../inputs/inputWithLabelIcon"
 import { NotificationBellIcon } from "../../icons/notificationBellIcon"
 import { mobileNavOptions } from "../../../data/headerMenuList"
@@ -149,7 +149,7 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
         <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
             <Box className={classes.contentWrapper}>
                 <Grid container className={classes.headerWrapper}>
-                    <UserProfileNav userName="Brandon" profileImg={images.maskGroup} />
+                    <UserProfileNav userName="Brandon" profileImg={images.brandon} />
                     <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
                         <IconButton className={classes.NotificationButton}>
                             <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />

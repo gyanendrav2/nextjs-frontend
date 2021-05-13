@@ -2,13 +2,13 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import classnames from "classnames"
 import { colors } from "../theme/colors"
-import { HeaderWrapper } from "../components/header/headerWrapper"
-import { Footer } from "../components/footer"
+import HeaderWrapper  from "../components/header/headerWrapper"
+import  Footer  from "../components/footer"
 import { SearchBox } from "../containers/search/searchBox"
 // import { CardWithHeader } from "../components/cards/cardWithHeader"
 import { images } from "../assets/images"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
-import { CardWithFooter } from "../components/cards/cardWithFooter"
+import  CardWithFooter  from "../components/cards/cardWithFooter"
 
 const useStyles = makeStyles({
     searchWrapper: {
@@ -83,7 +83,7 @@ const Search = () => {
                     {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, i) => (
                         <Grid key={i} item xs={12} sm={6} md={4} lg={3} xl={3}>
                             <CardWithFooter
-                                image={images.maskGroup}
+                                image={images.brandon}
                                 footerTitle="Brandon Landing"
                                 footerSubitle="Director assistant"
                             />

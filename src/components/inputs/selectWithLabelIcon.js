@@ -46,7 +46,7 @@ const useStyles = makeStyles({
         "-webkit-appearance": "none",
         "-moz-appearance": "none",
         width: "100%",
-        fontSize:(props) => (props.fontSize? props.fontSize:"1rem"),
+        fontSize: (props) => (props.fontSize ? props.fontSize : "1rem"),
         border: "none",
         outline: "none",
         padding: "0.625rem",
@@ -88,9 +88,12 @@ const useStyles = makeStyles({
         zIndex: 3,
         maxHeight: "17.187rem",
         overflowY: "auto",
+        "&:hover": {
+            backgroundColor: colors.white,
+        },
     },
     placeholder: {
-        color: props => props.placeholderColor? props.placeholderColor:colors.lighterGray,
+        color: (props) => (props.placeholderColor ? props.placeholderColor : colors.lighterGray),
     },
     checkBoxContainer: {
         display: "flex!important",
@@ -135,7 +138,8 @@ const useStyles = makeStyles({
         height: "100vh",
     },
 })
-export const SelectWithLabelIcon = ({
+
+const SelectWithLabelIcon = ({
     externalclass,
     label,
     error,
@@ -319,8 +323,8 @@ SelectWithLabelIcon.defaultProps = {
     handleOptionSelect: () => {},
     fontWeight: "",
     checkboxHoverStyle: "",
-    fontSize:"0.875rem",
-    placeholderColor:colors.lighterGray
+    fontSize: "0.875rem",
+    placeholderColor: colors.lighterGray,
 }
 
 SelectWithLabelIcon.propTypes = {
@@ -345,6 +349,8 @@ SelectWithLabelIcon.propTypes = {
     handleOptionSelect: PropTypes.func,
     fontWeight: PropTypes.string,
     checkboxHoverStyle: PropTypes.string,
-    fontSize:PropTypes.string,
-    placeholderColor:PropTypes.string
+    fontSize: PropTypes.string,
+    placeholderColor: PropTypes.string,
 }
+
+export default SelectWithLabelIcon

@@ -3,7 +3,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { ArrowDownIcon } from "../icons/arrowDownIcon"
 
 const useStyles = makeStyles({

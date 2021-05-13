@@ -1,8 +1,8 @@
 import React from "react"
 import { Box, makeStyles, Typography } from "@material-ui/core"
-import { HeaderWrapper } from "../components/header/headerWrapper"
+import HeaderWrapper  from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
-import { Footer } from "../components/footer"
+import  Footer  from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         textAlign: "left",
         margin: "0 auto",
         padding: "10rem",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             padding: "1rem",
         },
     },
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         fontWeight: "900",
         fontSize: "3.125rem",
         lineHeight: "2.5",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             lineHeight: "1.25",
             marginTop: "4rem",
             marginBottom: "2rem",
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
         fontWeight: 900,
         lineHeight: "2",
         padding: "0 0 1rem 0",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             lineHeight: "1.25",
             marginTop: "2.5rem",
         },

@@ -20,7 +20,7 @@ const useStyles = makeStyles({
             lineHeight: "3.625rem",
             marginBottom: "2.5rem",
             marginTop: "7.5rem",
-            "@media (max-width:992px)": {
+            "@media (max-width:1024px)": {
                 textAlign: "center",
                 maxWidth: "100%",
                 fontSize: "2.5rem",
@@ -37,7 +37,7 @@ const useStyles = makeStyles({
             lineHeight: "2rem",
             marginBottom: "2rem",
         },
-        "@media (min-width:576px) and (max-width:992px)": {
+        "@media (min-width:576px) and (max-width:1024px)": {
             padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:575px)": {
@@ -53,7 +53,7 @@ const useStyles = makeStyles({
         paddingBotton: "5rem",
         marginBottom: "5rem",
         maxWidth: "56.25rem",
-        "@media (min-width:576px) and (max-width:992px)": {
+        "@media (min-width:576px) and (max-width:1024px)": {
             marginBottom: "0rem!important",
         },
         "@media (max-width:575px)": {
@@ -67,17 +67,17 @@ const useStyles = makeStyles({
     },
     deskShow:{
         display:"block",
-        "@media (max-width:1450px)": {
-            textAlign:"left!important",
+        "@media (min-width:1450px)": {
+            textAlign:"left",
             width:"100%",
         },
-        "@media (max-width:575px)": {
+        "@media (max-width:767px)": {
             display:"none"
         },
     },
     mobileShow:{
         display:"none",
-        "@media (max-width:575px)": {
+        "@media (max-width:767px)": {
             display:"block!important",
             minWidth:"20rem!important",
             marginBottom:"1.5rem!important",

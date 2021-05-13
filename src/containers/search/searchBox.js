@@ -2,7 +2,7 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
 import { colors } from "../../theme/colors"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { FilterIcon } from "../../components/icons/filterIcon"
 import { Filter } from "../../components/filter"
 
@@ -53,7 +53,7 @@ const useStyles = makeStyles({
     mobileFilterWrapper: {
         padding: "2rem 0",
         backgroundColor: colors.white,
-        "@media (min-width: 991px)": {
+        "@media (min-width: 1025px)": {
             display: "none",
         },
     },
@@ -73,7 +73,7 @@ const useStyles = makeStyles({
         justifyContent: "flex-end",
         position: "absolute",
         right: "2rem",
-        "@media (max-width: 990px)": {
+        "@media (max-width: 1025px)": {
             display: "none",
         },
     },
@@ -89,7 +89,7 @@ const useStyles = makeStyles({
         "@media (max-width: 600px)": {
             display: "block",
         },
-        "@media (min-width: 600px) and (max-width: 990px)": {
+        "@media (min-width: 600px) and (max-width: 1024px)": {
             maxWidth: "100%",
         },
     },

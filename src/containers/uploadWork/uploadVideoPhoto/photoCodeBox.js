@@ -16,6 +16,9 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "space-between",
         position: "relative",
+        "@media(max-width:767px)": {
+           flexDirection: props => props.rowReverseBox? "column-reverse!important":"column"
+        },
     },
     codeContainer: {
         backgroundColor: colors.lighterPrimary,
@@ -84,8 +87,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const PhotoCodeBox = ({ flexDirection, id, showUploadMediaModel, showCodeModel, onDelete }) => {
-    const classes = useStyles()
+export const PhotoCodeBox = ({ rowReverseBox, flexDirection, id, showUploadMediaModel, showCodeModel, onDelete }) => {
+    const classes = useStyles({rowReverseBox})
 
     return (
         <>
@@ -111,6 +114,7 @@ export const PhotoCodeBox = ({ flexDirection, id, showUploadMediaModel, showCode
 PhotoCodeBox.defaultProps = {
     flexDirection: "row",
     id: "",
+    rowReverseBox:false
 }
 
 PhotoCodeBox.propTypes = {
@@ -119,4 +123,5 @@ PhotoCodeBox.propTypes = {
     showUploadMediaModel: PropTypes.bool.isRequired,
     showCodeModel: PropTypes.bool.isRequired,
     onDelete: PropTypes.func.isRequired,
+    rowReverseBox:PropTypes.bool
 }

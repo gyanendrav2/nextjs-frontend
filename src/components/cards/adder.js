@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core"
 import { PlusIcon } from "../icons/plusIcon"
 import { colors } from "../../theme/colors"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {

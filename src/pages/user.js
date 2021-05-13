@@ -1,27 +1,31 @@
 import React, { useState } from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import ReactPlayer from "react-player"
 import classnames from "classnames"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
-import { HeaderWrapper } from "../components/header/headerWrapper"
-import { UserProfileCard } from "../components/cards/userProfileCard"
+import HeaderWrapper from "../components/header/headerWrapper"
+import UserProfileCard from "../components/cards/userProfileCard"
 import { images } from "../assets/images"
-import { CardWithFooter } from "../components/cards/cardWithFooter"
-import { Footer } from "../components/footer"
+import CardWithFooter from "../components/cards/cardWithFooter"
 import { colors } from "../theme/colors"
 import { ModalComponent } from "../components/modal/modalComponent"
 import { UserInfo } from "../containers/profile/userInfo"
-import { MessageBox } from "../containers/profile/messageBox"
-import { SelectWithLabelIcon } from "../components/inputs/selectWithLabelIcon"
 import { ReportContent } from "../components/reportContentWrapper/reportContent"
+import dynamic from "next/dynamic"
+
+const Footer = dynamic(() => import("../components/footer"))
+const MessageBox = dynamic(() => import("../containers/profile/messageBox"))
+const SelectWithLabelIcon = dynamic(() => import("../components/inputs/selectWithLabelIcon"))
+const ReactPlayer = dynamic(() => import("react-player"))
 
 const useStyles = makeStyles({
     wrapper: {
         paddingTop: "7rem",
-        "@media (min-width:766px) and (max-width:959px)": {
+        "@media(max-width:1024px)": {
             paddingTop: "5.5rem",
+            paddingLeft: 0,
+            paddingRight: 0,
         },
-        "@media (max-width:766px)": {
+        "@media(max-width:767px)": {
             paddingTop: "3.5rem",
             paddingLeft: 0,
             paddingRight: 0,
@@ -29,19 +33,22 @@ const useStyles = makeStyles({
     },
     profileHeader: {
         marginBottom: "1.5rem",
-        "@media (max-width:959px)": {
+        "@media (max-width:1024px)": {
             flexDirection: "column-reverse",
             marginBottom: 0,
         },
     },
     videoStyles: {
-        "@media(max-width:959px)": {
+        "@media(max-width:1024px)": {
+            height: "25.25rem",
+        },
+        "@media(max-width:767px)": {
             height: "15.5rem",
         },
     },
     category: {
         padding: "2rem 0",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             display: "none",
         },
     },
@@ -76,7 +83,7 @@ const useStyles = makeStyles({
         },
     },
     cardContainer: {
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             paddingLeft: "1.25rem",
             paddingRight: "1.25rem",
         },
@@ -84,7 +91,7 @@ const useStyles = makeStyles({
     selectCategoryText: {
         display: "none",
         marginBottom: "1.25rem",
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             display: "block",
             paddingLeft: "1.25rem",
             paddingRight: "1.25rem",
@@ -100,8 +107,11 @@ const useStyles = makeStyles({
     },
     player: {
         height: "100%",
-        "@media (max-width:767px)": {
-            height: "15.5rem",
+        "@media(min-width:768px) and (max-width:1024px)": {
+            height: "25.25rem!important",
+        },
+        "@media(max-width:767px)": {
+            height: "15.5rem!important",
         },
     },
 })
@@ -149,11 +159,11 @@ const Profile = () => {
             <ContentWrapper externalclass={classes.wrapper}>
                 <>
                     <Grid container spacing={2} className={classes.profileHeader}>
-                        <Grid item sx={12} sm={12} md={5} lg={5} xl={5}>
+                        <Grid item sx={12} sm={12} md={12} lg={5} xl={5}>
                             <UserProfileCard
                                 onClickProfile={handleInfo}
                                 onMsgBtnClick={handleMsg}
-                                image={images.maskGroup}
+                                image={images.brandon}
                                 name="Brandon Landing"
                                 userName="@veritas_z"
                                 followers="15"
@@ -164,9 +174,10 @@ const Profile = () => {
                                 externalclass={classes.userProfilecardStyles}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.videoStyles}>
+                        <Grid item xs={12} sm={12} md={12} lg={7} xl={7} className={classes.videoStyles}>
                             <ReactPlayer
                                 width="100%"
+                                height="100%"
                                 className={classes.player}
                                 controls
                                 url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
@@ -199,16 +210,14 @@ const Profile = () => {
                     <Grid container spacing={2} className={classes.cardContainer}>
                         {[1, 1, 1, 1, 1, 1, 1, 1].map((item, idx) => {
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                                <Grid item xs={12} sm={6} md={6} lg={4} xl={3} key={idx}>
                                     <CardWithFooter
                                         image="https://source.unsplash.com/random?fp=0"
                                         title="dummy data"
                                         hideFooter
                                         showMoreButton
                                         anonymous
-                                        handleClick={() => {
-                                            // setOpenModal(true);
-                                        }}
+                                        handleClick={() => {}}
                                     />
                                 </Grid>
                             )

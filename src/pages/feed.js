@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import React from "react"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
 import { SeenIcon } from "../components/icons/seenIcon"
-import { HeaderWrapper } from "../components/header/headerWrapper"
+import HeaderWrapper  from "../components/header/headerWrapper"
 import { FeedProfileCard } from "../containers/feed/feedProfileCard"
 import { FeedUserProfileCard } from "../containers/feed/feedUserProfileCard"
 import { colors } from "../theme/colors"
@@ -38,7 +38,7 @@ const Feed = () => {
             <HeaderWrapper isScrollDetect={false} isAuthenticated feed />
             <ContentWrapper externalclass={classes.wrapper}>
                 <Grid container spacing={2}>
-                    <Grid item xs={12} sm={12} md={4} lg={4} xl={4} style={{ position: "relative" }}>
+                    <Grid item xs={12} sm={12} md={12} lg={4} xl={4} style={{ position: "relative" }}>
                         <FeedProfileCard
                             following={15}
                             followers={25}
@@ -46,7 +46,7 @@ const Feed = () => {
                             onFollowedClick={() => routes.push({ pathname: "/network", query: { tab: "followers" } })}
                         />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
+                    <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
                         {feedRecentData.map((item, i) => (
                             <FeedUserProfileCard
                                 key={i}

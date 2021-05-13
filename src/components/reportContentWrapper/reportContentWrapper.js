@@ -23,7 +23,7 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "row",
-        "@media(min-width:767px)": {
+        "@media(min-width:768px)": {
             margin: "2rem 0",
         },
     },
@@ -65,14 +65,14 @@ const useStyles = makeStyles({
     reportContent: {
         display: "flex",
         justifyContent: "flex-end",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             justifyContent: "flex-start",
         },
     },
     modaltitle: {
         marginTop: "1.5rem",
         color: colors.lighterGray,
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             marginTop: "-0.5rem",
         },
     },

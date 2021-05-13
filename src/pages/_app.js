@@ -1,9 +1,10 @@
 import React from "react"
+import dynamic from "next/dynamic"
 import PropTypes from "prop-types"
 import Head from "next/head"
 import { ThemeProvider } from "@material-ui/core/styles"
 import { Provider } from "react-redux"
-import CssBaseline from "@material-ui/core/CssBaseline"
+const CssBaseline = dynamic(() => import("@material-ui/core/CssBaseline"))
 import theme from "../theme/theme"
 import { images } from "../assets/images"
 import "react-lazy-load-image-component/src/effects/blur.css"

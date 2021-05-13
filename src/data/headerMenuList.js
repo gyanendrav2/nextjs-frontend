@@ -10,7 +10,7 @@ export const NavItemOptions = [
         id: 1,
         name: "discover",
         icon: <DisocoveryIcon />,
-        pathname: "/",
+        pathname: "/categories",
     },
     {
         id: 2,
@@ -31,13 +31,13 @@ export const mobileNavOptions = [
         id: 1,
         name: "Feed",
         icon: <HomeIcon />,
-        pathname: "/",
+        pathname: "/feed",
     },
     {
         id: 2,
         name: "Discover",
         icon: <DisocoveryIcon />,
-        pathname: "/",
+        pathname: "/categories",
     },
 ]
 
@@ -46,13 +46,13 @@ export const loggedInUserNav = [
         id: 1,
         name: "Feed",
         icon: <HomeIcon />,
-        pathname: "/",
+        pathname: "/feed",
     },
     {
         id: 1,
         name: "discover",
         icon: <DisocoveryIcon />,
-        pathname: "/",
+        pathname: "/categories",
     },
     {
         id: 2,
@@ -79,7 +79,7 @@ export const feedUserNav = [
         id: 1,
         name: "discover",
         icon: <DisocoveryIcon />,
-        pathname: "/",
+        pathname: "/categories",
     },
     {
         id: 2,

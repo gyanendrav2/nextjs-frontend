@@ -15,7 +15,8 @@ const useStyles = makeStyles({
     avatar: {
         width: "6.5rem",
         height: "6.5rem",
-        margin: "auto",
+        margin: "0 auto",
+
     },
     title: {
         fontSize: "1.375rem",
@@ -55,7 +56,7 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
-            <Avatar src={images.maskGroup} className={classes.avatar} />
+            <Avatar src={images.brandon} className={classes.avatar} />
             <Typography className={classes.title}>Brandon Landing</Typography>
             <Typography className={classes.subTitle}>Director assistant, producer</Typography>
             <Grid container alignItems="center" justify="space-between" style={{ marginTop: "1rem" }}>

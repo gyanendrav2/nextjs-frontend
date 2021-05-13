@@ -1,6 +1,6 @@
 import { images } from "../assets/images"
 
-export const teamMemberData = [
+const teamMemberData = [
     {
         image: images.projectImage,
         memberName: "Keanu Heeves",
@@ -102,3 +102,5 @@ export const teamMemberData = [
         isDisable: false,
     },
 ]
+
+export default teamMemberData

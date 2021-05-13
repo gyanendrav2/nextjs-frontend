@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import classnames from "classnames"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { FollowingFollwers } from "../texts/followingFollwers"
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         border: `1px solid ${colors.lightGray}`,
         padding: "1.5rem",
         height: "100%",
-        "@media (max-width:766px)": {
+        "@media (max-width:767px)": {
             border: "none",
             borderBottom: `1px solid ${colors.lightGray}`,
         },
@@ -98,7 +98,7 @@ const useStyles = makeStyles({
     }
 })
 
-export const UserProfileCard = ({
+const UserProfileCard = ({
     image,
     name,
     userName,
@@ -164,7 +164,7 @@ export const UserProfileCard = ({
                 </Grid>
             ) : (
                 <Grid container>
-                    <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+                    <Grid item xs={12} sm={12} md={6} lg={12} xl={12}>
                         <CustomButton label="Edit profile" externalclass={classes.editfullWidthBtn} onClick={handleRoute} />
                     </Grid>
                 </Grid>
@@ -194,3 +194,5 @@ UserProfileCard.propTypes = {
     externalclass: PropTypes.string,
     ownProfile: PropTypes.bool,
 }
+
+export default UserProfileCard

@@ -13,11 +13,11 @@ const useStyles = makeStyles({
     },
     socialButton: {
         minWidth: "2.5rem",
-        // minHeight: "2.5rem",
-        // marginBottom: "1rem",
         marginRight: "2rem",
+        "@media(max-width:767px)": {
+        marginRight: "1rem",
+        },
         "@media(max-width:360px)": {
-            // marginRight: "0.5rem",
             marginBottom: "0rem",
         },
     },

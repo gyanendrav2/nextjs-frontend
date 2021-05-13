@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { ModalComponent } from "./modalComponent"
 import { TextArea } from "../inputs/textArea"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { colors } from "../../theme/colors"
 import { InputWithLabelIcon } from "../inputs/inputWithLabelIcon"
 
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     heading: {
         marginTop: "4rem",
 
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             marginBottom: "2rem",
         },
         "@media(max-width:767px)": {
@@ -33,11 +33,11 @@ const useStyles = makeStyles({
         "& textarea": {
             height: "7.5rem",
             resize: "vertical",
-            "@media(max-width:768px)": {
+            "@media(max-width:767px)": {
                 height: "12rem",
             },
         },
-        "@media(max-width:768px)": {
+        "@media(max-width:767px)": {
             padding: "1rem 0",
         },
     },
@@ -68,6 +68,7 @@ const useStyles = makeStyles({
         width: "100%",
     },
     buttonWrapper: {
+        backgroundColor:colors.lighterPrimary,
         "@media (max-width:767px)": {
             flexDirection: "column-reverse",
             width: "100%",
@@ -128,7 +129,7 @@ export const SendDetailsModal = ({
                                 )}
                             </>
                         ) : (
-                            <InputWithLabelIcon placeholder="Paste URL" onChange={onLinkChange} />
+                            <InputWithLabelIcon placeholder="https://www.youtube.com/embed/50Twc4ghBFM" onChange={onLinkChange} />
                         )}
                     </Box>
                     <Grid container spacing={2} alignItems="center" justify="center" className={classes.buttonWrapper}>

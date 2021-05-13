@@ -4,7 +4,7 @@ import { Box, Grid } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../../theme/colors"
 import { QuickViewDailog } from "../../project/quickViewDailog"
-import { CardWithFooter } from "../../../components/cards/cardWithFooter"
+import  CardWithFooter  from "../../../components/cards/cardWithFooter"
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
@@ -87,7 +87,7 @@ export const FeaturedCard = ({ featuredCardsDetails }) => {
                 {featuredCardsDetails &&
                     featuredCardsDetails.map((newData, idx) => {
                         return (
-                            <Grid item xs={12} sm={6} md={4} lg={3} key={idx}>
+                            <Grid item  xs={12} sm={6} md={6} lg={4} xl={3} key={idx}>
                                 <CardWithFooter
                                     image={newData.image}
                                     title={newData.title}

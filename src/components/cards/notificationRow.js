@@ -1,7 +1,7 @@
 import { Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
 import PropTypes from "prop-types"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
@@ -21,16 +21,22 @@ const useStyles = makeStyles({
         padding: "2rem",
         flexWrap: "nowrap",
         borderBottom: `1px solid ${colors.lightGray}`,
+        
+        "@media (max-width: 1024px)": {
+           padding:"2rem 2rem 2rem 0",
+        //    flexWrap: "wrap",
+        },
         "@media (max-width: 767px)": {
             flexWrap: "wrap",
-            padding: "1rem 0",
+            padding:"2rem 2rem 2rem 0",
+            // padding: "",
         },
     },
     buttonContainer: {
         maxWidth: "15rem",
         marginRight: "4.125rem",
         marginLeft: "4.125rem",
-        "@media (max-width: 576px)": {
+        "@media (max-width: 575px)": {
             marginLeft: "2.25rem",
             marginRight: "0rem",
             marginTop: "1rem",
@@ -43,6 +49,12 @@ const useStyles = makeStyles({
         "&:hover": {
             backgroundColor: "transparent",
         },
+        "@media (max-width: 767px)": {
+            marginLeft: "1rem",
+        },
+        "@media (max-width: 576px)": {
+            marginRight: "-1.5rem",
+        },
     },
     acceptButton: {
         backgroundColor: colors.lightGray,
@@ -52,22 +64,22 @@ const useStyles = makeStyles({
         marginLeft: "auto",
         width: "9rem",
         "@media (max-width: 767px)": {
-            marginLeft: "1.25rem",
+            marginLeft: "2.4rem",
         },
     },
     mobileDate: {
         display: "none",
-        marginLeft: "4rem",
+        marginLeft: "5rem",
         marginTop: "0.6rem",
         color: colors.lightGray,
-        "@media (max-width: 576px)": {
+        "@media (max-width: 575px)": {
             display: "block",
         },
     },
     desktopDate: {
         display: "block",
         color: colors.lightGray,
-        "@media (max-width: 576px)": {
+        "@media (max-width: 575px)": {
             display: "none",
         },
     },
@@ -77,7 +89,7 @@ export const NotificationRow = ({ title, image, onAcceptClick, onDeclineClick, i
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.notificationWrapper}>
             <Grid container alignItems="center" justify="space-between" wrap="nowrap">
-                <Avatar src={image} />
+                <Avatar src={image} className={classes.avatar} />
                 <Typography className={classes.title}>{title}</Typography>
             </Grid>
             <Typography className={classes.mobileDate}>25.10.20</Typography>

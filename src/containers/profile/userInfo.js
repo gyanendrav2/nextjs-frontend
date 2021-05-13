@@ -4,7 +4,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import { images } from "../../assets/images"
 import { PictureOverSquare } from "../../components/cards/pictureOverSquare"
 import { FollowingFollwers } from "../../components/texts/followingFollwers"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { SocialButtons } from "../../components/buttons/socialButtons"
@@ -13,7 +13,13 @@ import { TwoColModalGrid } from "../../components/grid/twoColModalGrid"
 const useStyles = makeStyles({
     infoWrapper: {
         marginTop: "2rem",
+        "@media(min-width:768px) and (max-width:1024px)": {
+            marginTop: "4rem",
+        },
+        "@media(max-width:767px)": {
+            marginTop: "4rem",
     },
+},
     msgbtn: {
         marginRight: "1.4rem",
     },
@@ -35,8 +41,8 @@ export const UserInfo = ({ handleMsgClick }) => {
     const classes = useStyles()
 
     return (
-        <TwoColModalGrid
-            col1Children={<PictureOverSquare image={images.maskGroup} />}
+        <TwoColModalGrid UserInfoMargin ="0rem"
+            col1Children={<PictureOverSquare image={images.brandon} />}
             col2Children={
                 <Box className={classes.col2}>
                     <Box className={classes.infoWrapper}>

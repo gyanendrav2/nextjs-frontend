@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
         padding: "2rem",
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             padding: "1rem",
         },
     },

@@ -39,6 +39,17 @@ const theme = createMuiTheme({
             disableRipple: true,
         },
     },
+    breakpoints: {
+        // Define custom breakpoint values.
+        // These will apply to Material-UI components that use responsive
+        values: {
+            xs: 0,
+            sm: 576,
+            md: 768,
+            lg: 1025,
+            xl: 1440,
+        },
+    },
 })
 
 export default theme

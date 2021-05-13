@@ -23,7 +23,7 @@ const useStyles = makeStyles({
         },
     },
     itemPadding: {
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             padding: "0.8rem 0.5rem 0.8rem 1rem",
             cursor: "pointer",
         },

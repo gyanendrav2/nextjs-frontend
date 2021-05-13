@@ -1,10 +1,10 @@
 import React from "react"
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
-import { HeaderWrapper } from "../components/header/headerWrapper"
+import HeaderWrapper  from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
-import { Footer } from "../components/footer"
-import { CustomButton } from "../components/buttons/customButton"
+import  Footer  from "../components/footer"
+import  CustomButton  from "../components/buttons/customButton"
 import { Error404Icon } from "../components/icons/404Icon"
 
 const useStyles = makeStyles({

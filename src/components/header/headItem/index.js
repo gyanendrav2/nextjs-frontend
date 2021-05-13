@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 
     title: {
         marginLeft: "0.875rem",
-        "@media (max-width:992px)": {
+        "@media (max-width:1024px)": {
             display: (props) => (props.isAuthenticated ? "none" : "block"),
         },
     },

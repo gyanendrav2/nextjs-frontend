@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { MoreVertIcon } from "../icons/moreVertIcon"
 import { NotificationCard } from "./notificationCard"
 import { ShareCard } from "./shareCard"
@@ -93,7 +93,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const CardWithFooter = ({
+const CardWithFooter = ({
     image,
     title,
     footerTitle,
@@ -166,7 +166,8 @@ export const CardWithFooter = ({
                                       hiddenCategory={categoryHidden}
                                       onLinkCopied={() => {
                                           handleNotification()
-                                          setShowCopyBox(!showCopyBox) }}
+                                          setShowCopyBox(!showCopyBox)
+                                      }}
                                   />
                               )}
                     </Box>
@@ -216,3 +217,5 @@ CardWithFooter.propTypes = {
     anonymous: PropTypes.bool,
     categoryHidden: PropTypes.bool,
 }
+
+export default CardWithFooter

@@ -4,7 +4,7 @@ import { Box, Grid, makeStyles } from "@material-ui/core"
 import { PhotoIcon } from "../../../components/icons/photoIcon"
 import { CodeIcon } from "../../../components/icons/codeIcon"
 import { colors } from "../../../theme/colors"
-import { CustomButton } from "../../../components/buttons/customButton"
+import  CustomButton  from "../../../components/buttons/customButton"
 import { PhotoCodeBox } from "./photoCodeBox"
 import { TIcon } from "../../../components/icons/tIcon"
 import { UploadPhoto } from "./uploadPhoto"
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         "& svg": {
             cursor: "pointer",
         },
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             padding: "2.5rem 0",
         },
     },
@@ -38,13 +38,13 @@ const useStyles = makeStyles({
     },
     icon: {
         margin: "0 2rem",
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             margin: "0 1rem",
         },
     },
     inputHeight: {
         height: "2.5rem",
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             padding: "0px 8px",
         },
     },
@@ -57,7 +57,7 @@ const useStyles = makeStyles({
     },
     plusIconContainer: {
         marginBottom: "1rem",
-        "@media (max-width: 1023px)": {
+        "@media (max-width: 1024px)": {
             paddingRight: "2rem",
         },
         "@media (max-width: 767px)": {
@@ -82,7 +82,7 @@ const useStyles = makeStyles({
             display: "flex",
             padding: "1rem",
         },
-        "@media (min-width:768px) and (max-width: 1023px)": {
+        "@media (min-width:768px) and (max-width: 1024px)": {
             padding: "1rem 13.375rem",
             display: "flex",
         },
@@ -106,7 +106,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive }) => {
+const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive }) => {
     const classes = useStyles()
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
@@ -162,6 +162,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, 
                     showCodeModel={() => setShowCodeModal(true)}
                     flexDirection="row-reverse"
                     onDelete={() => handleDelete(i)}
+                    rowReverseBox
                 />
             )
         } else if (i === 2) {
@@ -228,7 +229,7 @@ export const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, 
                     label="Delete work"
                     fullWidth
                     color={colors.darkRed}
-                    // onClick={() => setOpenDeleteModel(true)}
+                    onClick={() => setOpenDeleteModel(true)}
                 />
             </Grid>
             <Grid container alignItems="center" justify="center" className={classes.socialIconContainer}>
@@ -246,3 +247,5 @@ UploadVideoPhoto.propTypes = {
     closeDeleteModal: PropTypes.func.isRequired,
     handleCurrentActive: PropTypes.func.isRequired,
 }
+
+export default UploadVideoPhoto

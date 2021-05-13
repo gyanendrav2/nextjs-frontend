@@ -1,7 +1,8 @@
 import axios from "axios"
+import dynamic from "next/dynamic"
 import PropTypes from "prop-types"
 import React, { useEffect, useState } from "react"
-import { Discovery } from "../containers/discovery"
+const Discovery = dynamic(() => import("../containers/discovery"))
 
 export default function Home({ homeData }) {
     const [data, setData] = useState({ hero: [], curatedCreators: [], featuredProjects: [] })

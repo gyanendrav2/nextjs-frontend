@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const LeftSide = () => {
+const LeftSide = () => {
     const classes = useStyles()
     return (
         <Grid container alignItems="center" justify="flex-start" className={classes.wrapper}>
@@ -121,3 +121,5 @@ export const LeftSide = () => {
 }
 
 LeftSide.propTypes = {}
+
+export default LeftSide

@@ -117,7 +117,7 @@ export const useStyles = makeStyles({
         marginTop: "0.55rem",
     },
 })
-export const Footer = ({ externalclass }) => {
+const Footer = ({ externalclass }) => {
     const classes = useStyles()
     return (
         <>
@@ -173,3 +173,5 @@ Footer.defaultProps = {
 Footer.propTypes = {
     externalclass: PropTypes.string,
 }
+
+export default Footer

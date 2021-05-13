@@ -1,11 +1,13 @@
 import React from "react"
 import { Box, makeStyles } from "@material-ui/core"
-import { LeftSide } from "../components/leftSide"
-import { SigninForm } from "../containers/signin/signinForm"
-import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-import { Footer } from "../components/footer"
+import dynamic from "next/dynamic"
+
+const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
+const LeftSide = dynamic(() => import("../components/leftSide"))
+const SigninForm = dynamic(() => import("../containers/signin/signinForm"))
+const Footer = dynamic(() => import("../components/footer"))
 
 const useStyles = makeStyles({
     wrapper: {

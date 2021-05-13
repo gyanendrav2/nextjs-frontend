@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers"
 import { colors } from "../../theme/colors"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { forgetFormValidation } from "../../formValidation/forgetpassword"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
-        "@media(min-width:767px) and (max-width:1070px)": {
+        "@media(min-width:768px) and (max-width:1070px)": {
             padding: "10rem",
         },
         "@media(max-width:767px)": {
@@ -78,7 +78,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const ForgetPasswordForm = () => {
+const ForgetPasswordForm = () => {
     const classes = useStyles()
     const { register, handleSubmit, errors } = useForm({
         resolver: yupResolver(forgetFormValidation),
@@ -118,3 +118,5 @@ export const ForgetPasswordForm = () => {
         </Box>
     )
 }
+
+export default ForgetPasswordForm

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { colors } from "../../../theme/colors"
-import { CustomButton } from "../../../components/buttons/customButton"
+import  CustomButton  from "../../../components/buttons/customButton"
 import { TwoColCarousel } from "./twoColCarousel"
 import { CloseIconBig } from "../../../components/icons/closeIconBig"
 

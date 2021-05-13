@@ -1,6 +1,6 @@
 import React from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { colors } from "../../theme/colors"
 import { CancelSave } from "../userEditProfile/accountInformation/cancelSave"
 
@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
         padding: "2rem",
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             padding: "1rem",
         },
     },

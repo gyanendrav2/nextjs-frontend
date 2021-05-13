@@ -2,7 +2,7 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import React from "react"
 import PropTypes from "prop-types"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { ModalComponent } from "../../components/modal/modalComponent"
 import { SendDetailsModal } from "../../components/modal/sendDetailsModal"
 import { UploadMediaModal } from "../../components/modal/uploadMediaModal"
@@ -23,7 +23,7 @@ const useStyles = makeStyles({
         "& svg": {
             cursor: "pointer",
         },
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             padding: "2.5rem 0",
         },
     },
@@ -42,12 +42,26 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        "@media (max-width: 767px)": {
+            flexDirection : "column-reverse"
+        },
     },
     buttonDelete: {
         width: "18.5rem",
         height: "3.75rem",
+        border:`1px solid ${colors.black}`,
         "@media (max-width: 767px)": {
             width: "100%",
+            marginBottom:"1rem"
+        },
+    },
+    buttonCancel: {
+        width: "18.5rem",
+        height: "3.75rem",
+        marginRight: "1.5rem",
+        "@media (max-width: 767px)": {
+            width: "100%",
+            marginRight: "0rem",
         },
     },
     hideBtn: {
@@ -58,22 +72,24 @@ const useStyles = makeStyles({
         marginBottom: "5.312rem",
         "@media(max-width:767px)": {
             marginTop: "1rem",
+            padding:"0 2rem",
             marginBottom: "2rem",
         },
     },
-    buttonCancel: {
-        width: "18.5rem",
-        height: "3.75rem",
-        marginRight: "1.5rem",
-    },
     title: {
         "@media(max-width:767px)": {
-            marginTop: "2rem",
             width: "100%",
-            textAlign: "left",
+            textAlign: "center",
             fontSize: "28px",
         },
     },
+    innerWrapper:{
+        marginTop:"4rem",
+        // padding:"2rem",
+        "@media(max-width:1024px)": {
+        marginTop:"6rem",
+        }
+    }
 })
 
 export const AllModals = ({
@@ -91,7 +107,7 @@ export const AllModals = ({
     return (
         <>
             <ModalComponent padding="0" openOrNot={openDeleteModal} onClose={onDelete}>
-                <Grid container alignItems="center" justify="center" direction="column">
+                <Grid container alignItems="center" justify="center" direction="column" className={classes.innerWrapper}>
                     <Typography variant="h4" className={classes.title}>
                         Delete or hide work
                     </Typography>
@@ -99,7 +115,7 @@ export const AllModals = ({
                         Instead of deleting the work for all your team members, there’s a way to hide it.
                     </Typography>
                     <Box className={classes.deleteWrapper} spacing={2}>
-                        <Box className={classes.deletewrap}>
+                        <Grid className={classes.deletewrap} container >
                             <CustomButton
                                 label="Cancel"
                                 variant="cancel"
@@ -111,7 +127,7 @@ export const AllModals = ({
                                 externalclass={classes.buttonDelete}
                                 onClick={() => routes.push({ pathname: "/profile", query: { showNotification: true } })}
                             />
-                        </Box>
+                        </Grid>
                         <Box style={{ textAlign: "center", marginTop: "1.2rem" }}>
                             <CustomButton
                                 variant="textButton"

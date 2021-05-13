@@ -35,7 +35,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const EditOptions = ({ isActive, optionName, onClick, href, isHref }) => {
+const EditOptions = ({ isActive, optionName, onClick, href, isHref }) => {
     const classes = useStyles()
     return (
         <>
@@ -68,3 +68,6 @@ EditOptions.propTypes = {
     href: PropTypes.string,
     isHref: PropTypes.bool,
 }
+
+
+export default EditOptions

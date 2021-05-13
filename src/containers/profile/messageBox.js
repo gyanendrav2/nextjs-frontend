@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { images } from "../../assets/images"
 import { PictureOverSquare } from "../../components/cards/pictureOverSquare"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { TextArea } from "../../components/inputs/textArea"
 import { TwoColModalGrid } from "../../components/grid/twoColModalGrid"
@@ -36,11 +36,11 @@ const useStyles = makeStyles({
     },
 })
 
-export const MessageBox = () => {
+const MessageBox = () => {
     const classes = useStyles()
     return (
         <TwoColModalGrid
-            col1Children={<PictureOverSquare mobileHide image={images.maskGroup} />}
+            col1Children={<PictureOverSquare mobileHide image={images.brandon} />}
             col2Children={
                 <Box className={classes.col2}>
                     <Box className={classes.infoWrapper}>
@@ -63,3 +63,5 @@ export const MessageBox = () => {
 }
 
 MessageBox.propTypes = {}
+
+export default MessageBox

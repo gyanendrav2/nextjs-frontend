@@ -4,7 +4,7 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import Link from "next/link"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../theme/colors"
 import { signinFormValidation } from "../../formValidation/signin"
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         height: "100vh",
         backgroundColor: colors.white,
-        "@media(min-width:767px) and (max-width:1070px)": {
+        "@media(min-width:768px) and (max-width:1070px)": {
             padding: "10rem",
         },
         "@media(max-width:767px)": {
@@ -48,9 +48,9 @@ const useStyles = makeStyles({
     },
     title: {
         ...titleText,
-        "@media (max-width:767px)": {
-            display: "none",
-        },
+        // "@media (max-width:767px)": {
+        //     display: "none",
+        // },
     },
     subTitle: {
         fontFamily: "Helvetica",
@@ -108,7 +108,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const SigninForm = () => {
+const SigninForm = () => {
     const classes = useStyles()
     const routes = useRouter()
     const { register, handleSubmit, errors } = useForm({
@@ -175,3 +175,5 @@ export const SigninForm = () => {
 }
 
 SigninForm.propTypes = {}
+
+export default SigninForm

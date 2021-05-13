@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "space-between",
         zIndex: 2,
-        "@media (min-width:767px)": {
+        "@media (min-width:768px)": {
             display: "none",
         },
     },
@@ -34,7 +34,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated, feed }) => {
+const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated, feed }) => {
     const classes = useStyles({ mobileMenuIconColor })
     const [scrollTop, setScrollTop] = useState(0)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -137,3 +137,5 @@ HeaderWrapper.propTypes = {
     isAuthenticated: PropTypes.bool,
     feed: PropTypes.bool,
 }
+
+export default HeaderWrapper

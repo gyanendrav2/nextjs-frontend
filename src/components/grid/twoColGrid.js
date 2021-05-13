@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     },
     col1: {
         width: "27.5rem",
-        "@media (min-width:768px) and (max-width: 959px)": {
+        "@media (min-width:768px) and (max-width: 1024px)": {
             width: "100%",
         },
         "@media (min-width:200px) and (max-width:767px)": {
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         "@media (min-width:200px) and (max-width:767px)": {
             width: "100%",
         },
-        "@media (min-width:768px) and (max-width: 959px)": {
+        "@media (min-width:768px) and (max-width: 1024px)": {
             width: "100%",
         },
     },

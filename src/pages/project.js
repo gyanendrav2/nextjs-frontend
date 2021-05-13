@@ -2,22 +2,24 @@ import React from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import { colors } from "../theme/colors"
-import { HeaderWrapper } from "../components/header/headerWrapper"
 import { images } from "../assets/images"
-import { teamMemberData } from "../data/project"
 import { Slider } from "../containers/project/slider"
 import { SocialIcons } from "../containers/project/socialIcons"
-import { Footer } from "../components/footer"
 import { ReportContentWrapper } from "../components/reportContentWrapper/reportContentWrapper"
 import { ImageGallery } from "../components/imageGallery/imageGallery"
-import { VideoInfo } from "../containers/profile/videoInfo"
 import { DarkBgText } from "../containers/profile/darkBgText"
+import dynamic from "next/dynamic"
+import teamMemberData from "../data/project"
+
+const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
+const VideoInfo = dynamic(() => import("../containers/profile/videoInfo"))
+const Footer = dynamic(() => import("../components/footer"))
 
 const useStyles = makeStyles({
     projectwrapper: {
         backgroundColor: colors.white,
         paddingTop: "5rem",
-        "@media (max-width:992px)": {
+        "@media (max-width:1024px)": {
             paddingTop: "3.5rem",
         },
     },
@@ -38,7 +40,7 @@ const useStyles = makeStyles({
         display: " flex",
         alignItems: " center",
         padding: "2.5rem 3rem 0rem 5rem",
-        "@media (max-width:992px)": {
+        "@media (max-width:1024px)": {
             padding: "2.5rem 3rem 0rem 2rem",
         },
         "@media (max-width:767px)": {
@@ -95,7 +97,7 @@ const useStyles = makeStyles({
     contentWrapper: {
         padding: "8rem",
         color: colors.white,
-        "@media (min-width:576px) and (max-width:992px)": {
+        "@media (min-width:576px) and (max-width:1024px)": {
             padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:575px)": {
@@ -108,7 +110,7 @@ const useStyles = makeStyles({
             fontSize: "3.125rem",
             lineHeight: "3.625rem",
             marginBottom: "1.25rem",
-            "@media(max-width:992px)": {
+            "@media(max-width:1024px)": {
                 maxWidth: "100%",
                 fontSize: "2.5rem",
                 lineHeight: "3rem",
@@ -122,7 +124,7 @@ const useStyles = makeStyles({
             fontWeight: "normal",
             fontSize: "1rem",
             lineHeight: "2rem",
-            "@media (max-width:992px)": {
+            "@media (max-width:1024px)": {
                 maxWidth: "100%",
             },
         },
@@ -130,7 +132,7 @@ const useStyles = makeStyles({
     contentWrapperWhiteBg: {
         padding: "8rem 10rem",
         color: colors.black,
-        "@media (min-width:576px) and (max-width:992px)": {
+        "@media (min-width:576px) and (max-width:1024px)": {
             padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:575px)": {
@@ -143,7 +145,7 @@ const useStyles = makeStyles({
             fontSize: "3.125rem",
             lineHeight: "3.625rem",
             marginBottom: "1.25rem",
-            "@media(max-width:992px)": {
+            "@media(max-width:1024px)": {
                 maxWidth: "27.25rem",
                 fontSize: "2.5rem",
                 lineHeight: "3rem",
@@ -157,7 +159,7 @@ const useStyles = makeStyles({
             fontWeight: "normal",
             fontSize: "1rem",
             lineHeight: "2rem",
-            "@media (max-width:992px)": {
+            "@media (max-width:1024px)": {
                 maxWidth: "100%",
             },
         },

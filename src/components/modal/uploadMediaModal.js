@@ -2,7 +2,7 @@ import React, { createRef, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { ModalComponent } from "./modalComponent"
-import { CustomButton } from "../buttons/customButton"
+import  CustomButton  from "../buttons/customButton"
 import { colors } from "../../theme/colors"
 import { DeleteIcon } from "../icons/deleteIcon"
 
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             padding: "5rem 2rem",
         },
     },
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
         width: "18.375rem",
         height: "3.5rem",
         margin: "1rem",
-        "@media(max-width:576px)": {
+        "@media(max-width:575px)": {
             width: "10.375rem",
         },
     },
@@ -174,6 +174,7 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
                                         container
                                         alignItems="center"
                                         justify="center"
+                                        flexDirection="row"
                                         className={classes.deleteButton}
                                         onClick={() => handleFile(i)}>
                                         <DeleteIcon />

@@ -255,7 +255,7 @@ const allButtons = ({ classes, handleClick, variant, label, icon, externalclass,
     }
 }
 
-export const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, acceptFileTyle, color, ...props }) => {
+const CustomButton = ({ wantFile, onFileChange, allowMultiple, onClick, acceptFileTyle, color, ...props }) => {
     const classes = useStyles({ color })
     const input = createRef()
     const handleClick = () => {
@@ -310,3 +310,5 @@ CustomButton.propTypes = {
     color: PropTypes.string,
     // type: PropTypes.string,
 }
+
+export default CustomButton

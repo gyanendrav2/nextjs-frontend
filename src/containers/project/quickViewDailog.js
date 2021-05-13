@@ -4,7 +4,7 @@ import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import { Close, MoreVert } from "@material-ui/icons"
 import classnames from "classnames"
 import { useRouter } from "next/router"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { colors } from "../../theme/colors"
 import { ReportContentWrapper } from "../../components/reportContentWrapper/reportContentWrapper"
@@ -23,14 +23,14 @@ const useStyles = makeStyles({
         left: 0,
         bottom: 0,
         transition: "all 1s",
-        "@media (max-width: 768px)": {
+        "@media (max-width: 767px)": {
             padding: "1rem",
             paddingTop: 0,
         },
     },
     leftAvatarContainer: {
         maxWidth: "100%",
-        "@media (max-width:1023px)": {
+        "@media (max-width:1024px)": {
             flexWrap: "wrap",
             // maxWidth: "32rem",
         },
@@ -105,13 +105,13 @@ const useStyles = makeStyles({
     },
     fullProjectButton: {
         textAlign: "end",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             textAlign: "start",
             marginTop: "0.5rem",
         },
     },
     info: {
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             marginBottom: "1rem",
         },
     },
@@ -170,7 +170,7 @@ export const QuickViewDailog = ({ closeModal }) => {
                 <Grid container alignItems="center" justify="flex-start" className={classes.leftAvatarContainer}>
                     <Grid item>
                         <Box className={classes.imgContainer}>
-                            <Avatar src={images.maskGroup} className={classes.avatar} />
+                            <Avatar src={images.brandon} className={classes.avatar} />
                             <Typography className={classes.heading}>
                                 SiR - Hair Down (Official Video) ft. Kendrick Lamar
                             </Typography>
@@ -207,7 +207,7 @@ export const QuickViewDailog = ({ closeModal }) => {
                 </Box>
             </Grid>
 
-            {/* <img  objectFit: "cover"  src={images.maskGroup} alt="" /> */}
+            {/* <img  objectFit: "cover"  src={images.brandon} alt="" /> */}
             <Grid container className={classes.infoContainer}>
                 <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Category:</Typography>

@@ -2,19 +2,22 @@ import React, { useEffect, useState } from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { useRouter } from "next/router"
 import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
-import { EditOptions } from "../containers/userEditProfile/editOptions"
-import { HeaderWrapper } from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
-import { UploadVideoPhoto } from "../containers/uploadWork/uploadVideoPhoto"
 import { uploadWorkOptions } from "../data/uploadWorkOptions"
-import { CustomButton } from "../components/buttons/customButton"
-import { Footer } from "../components/footer"
+import dynamic from "next/dynamic"
+
+const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
+const Footer = dynamic(() => import("../components/footer"))
+const UploadVideoPhoto = dynamic(() => import("../containers/uploadWork/uploadVideoPhoto"))
+const UploadVideoPhoto = dynamic(() => import("../containers/uploadWork/uploadVideoPhoto"))
+const EditOptions = dynamic(() => import("../containers/userEditProfile/editOptions"))
+const CustomButton = dynamic(() => import("../components/buttons/customButton"))
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
         position: "relative",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             padding: "5rem 0px 0px 0px",
         },
     },
@@ -24,7 +27,7 @@ const useStyles = makeStyles({
     col1: {
         width: "calc(100% - 27.5rem)",
         marginTop: "7rem",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             width: "100%",
             marginTop: "2rem",
         },
@@ -34,7 +37,7 @@ const useStyles = makeStyles({
     },
     col2: {
         width: "25rem",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             display: "none",
         },
     },
@@ -54,9 +57,6 @@ const useStyles = makeStyles({
         padding: "1.9rem",
         width: "100%",
         margin: 0,
-        // "@media(max-width:767px)": {
-        //     backgroundColor:colors.white
-        // },
     },
 })
 
@@ -99,7 +99,6 @@ const UploadWork = () => {
                                     isHref
                                     isActive={currentActive === item.pathSlug}
                                     href={item.pathSlug}
-                                    // onClick={() => push(`/upload-work/${item.pathSlug}`)}
                                 />
                             ))}
 

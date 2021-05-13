@@ -2,10 +2,10 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import React from "react"
 import { TwoColGrid } from "../../components/grid/twoColGrid"
-import { HeaderWrapper } from "../../components/header/headerWrapper"
+import HeaderWrapper  from "../../components/header/headerWrapper"
 import { colors } from "../../theme/colors"
-import { Footer } from "../../components/footer"
-import { EditOptions } from "../../containers/userEditProfile/editOptions"
+import  Footer  from "../../components/footer"
+import  EditOptions  from "../../containers/userEditProfile/editOptions"
 import { NotificationContent } from "../../containers/settings/notificationContent"
 import { DeleteContent } from "../../containers/settings/deleteContent"
 import { ProfileContent } from "../../containers/settings/profileContent"
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
         "@media (min-width:200px) and (max-width:767px)": {
             padding: "6rem 1rem 2rem 1rem",
         },
-        "@media (min-width:768px) and (max-width:959px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             padding: "7rem 2rem 2rem 2rem",
         },
     },

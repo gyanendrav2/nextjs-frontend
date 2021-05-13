@@ -9,10 +9,10 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import { useCookies } from "react-cookie"
 import PropTypes from "prop-types"
 import { SelectingCategories } from "./categories/selectingCategories"
-import { Footer } from "../../components/footer"
+import  Footer  from "../../components/footer"
 import { colors } from "../../theme/colors"
-import { CustomButton } from "../../components/buttons/customButton"
-import { HeaderWrapper } from "../../components/header/headerWrapper"
+import  CustomButton  from "../../components/buttons/customButton"
+import HeaderWrapper  from "../../components/header/headerWrapper"
 import { HeaderCategory } from "../../components/header/headerCategory"
 import { ContentWrapper } from "../../components/contentWrapper/contentWrapper"
 import { FeaturedCard } from "./featuredProjects/featuredCard"
@@ -180,7 +180,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
+const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
     const classes = useStyles()
     const routes = useRouter()
     console.log(details, "details")
@@ -375,3 +375,5 @@ Discovery.propTypes = {
     isAuthenticated: PropTypes.bool,
     feed: PropTypes.bool,
 }
+
+export default Discovery

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
-import { SelectWithLabelIcon } from "../../../components/inputs/selectWithLabelIcon"
+import  SelectWithLabelIcon  from "../../../components/inputs/selectWithLabelIcon"
 import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
 import { images } from "../../../assets/images"
 import { TextArea } from "../../../components/inputs/textArea"
@@ -13,7 +13,7 @@ import AddIcon from "../../../components/icons/addIcon"
 import { ChipCards } from "../../../components/cards/chipCards"
 import { roleOptions } from "../../../data/roles"
 import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
-import { CustomButton } from "../../../components/buttons/customButton"
+import  CustomButton  from "../../../components/buttons/customButton"
 import { countryOptions, stateOptions } from "../../../data/usStates"
 
 const useStyles = makeStyles({
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     col1: {
         width: "11.125rem",
         position: "relative",
-        "@media(max-width:720px)": {
+        "@media(max-width:767px)": {
             width: "100%",
             marginBottom: "2rem",
         },
@@ -47,7 +47,7 @@ const useStyles = makeStyles({
     },
     col2: {
         width: "calc(100% - 11.125rem)",
-        "@media(max-width:720px)": {
+        "@media(max-width:767px)": {
             width: "100%",
         },
     },
@@ -126,7 +126,7 @@ export const AccountInformation = () => {
                 </Typography>
                 <Grid container alignItems="flex-start" justify="flex-start">
                     <Box className={classes.col1}>
-                        <Avatar className={classes.avatar} src={images.maskGroup} />
+                        <Avatar className={classes.avatar} src={images.brandon} />
                         <CustomButton className={classes.addIcon} wantFile label={<AddIcon />} />
                     </Box>
                     <Box className={classes.col2}>

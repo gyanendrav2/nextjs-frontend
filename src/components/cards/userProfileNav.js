@@ -11,7 +11,7 @@ const useStyles = makeStyles({
         color: colors.white,
         fontSize: "1rem",
         lineHeight: "1.3rem",
-        "@media (max-width:992px)": {
+        "@media (max-width:1024px)": {
             display: "none",
         },
     },

@@ -4,7 +4,7 @@ import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
-import { CustomButton } from "../../components/buttons/customButton"
+import  CustomButton  from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { MoreVertIcon } from "../../components/icons/moreVertIcon"
 import { ShareIcon } from "../../components/icons/shareIcon"
@@ -39,7 +39,7 @@ const useStyles = makeStyles({
         },
     },
     textInfoContainer: {
-        paddingRight: "1.5rem",
+        // paddingRight: "1.5rem",
         height: "3rem",
         color: colors.black,
     },
@@ -47,6 +47,7 @@ const useStyles = makeStyles({
         borderLeft: `1px solid ${colors.lightGray}`,
         paddingLeft: "2rem",
         marginTop: "-1.2rem",
+        marginLeft: "-4rem",
         "@media(max-width:767px)": {
             display: "none",
         },
@@ -130,11 +131,11 @@ export const FeedUserProfileCard = ({
                             justify="flex-start"
                             direction="row"
                             className={classes.profileInfoContainer}>
-                            <Grid item className={classes.profilePicContainer} xs={12} sm={3}>
+                            <Grid item className={classes.profilePicContainer} xs={12} sm={12} md={3} lg={3} xl={3}>
                                 <Avatar className={classes.avatar} src={image} />
                             </Grid>
-                            <Grid item className={classes.textInfoContainer} xs={12} sm={9}>
-                                <Typography onClick={onClickProfile} className={classes.name}>
+                            <Grid item className={classes.textInfoContainer} xs={12} sm={12} md={9} lg={9} xl={9}>
+                                <Typography onClick={onClickProfile} className={classes.name} >
                                     {name}
                                 </Typography>
                                 <Typography className={classes.position}>{position}</Typography>

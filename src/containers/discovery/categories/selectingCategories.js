@@ -3,7 +3,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import MoreVertIcon from "@material-ui/icons/MoreVert"
 import PropTypes from "prop-types"
 import classnames from "classnames"
-import { CustomButton } from "../../../components/buttons/customButton"
+import  CustomButton  from "../../../components/buttons/customButton"
 import { Categories } from "./categories"
 import { colors } from "../../../theme/colors"
 import { Filter } from "../../../components/filter"
@@ -17,10 +17,10 @@ const useStyles = makeStyles({
         position: "relative",
         width: "100%",
         paddingTop: "1.5rem",
-        "@media (min-width:768px) and (max-width:1023px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             justifyContent: "flex-start",
         },
-        "@media (max-width:768px)": {
+        "@media (max-width:767px)": {
             justifyContent: "flex-start",
         },
     },
@@ -51,7 +51,7 @@ const useStyles = makeStyles({
                 marginRight: 0,
             },
         },
-        "@media (min-width:476px) and (max-width:768px)": {
+        "@media (min-width:476px) and (max-width:767px)": {
             width: "calc(25% - 0.5rem)",
             display: "flow-root",
             marginBottom: "1rem",
@@ -69,7 +69,7 @@ const useStyles = makeStyles({
         marginBottom: "0.5rem",
         marginRight: "0.5rem",
         marginLeft: 0,
-        "@media (min-width:476px) and (max-width:768px)": {
+        "@media (min-width:476px) and (max-width:767px)": {
             width: "calc(25% - 0.5rem)",
         },
         "@media (max-width:475px)": {
@@ -114,7 +114,7 @@ const useStyles = makeStyles({
             paddingRight: 0,
             width: "100%",
         },
-        "@media (min-width: 476px) and (max-width:992px)": {
+        "@media (min-width: 476px) and (max-width:1024px)": {
             width: "100%",
             paddingRight: "0.5rem",
             marginTop: "1.5rem",

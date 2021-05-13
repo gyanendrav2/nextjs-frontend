@@ -9,7 +9,7 @@ import { MoreMemberModel } from "../project/moreMemberModel"
 const useStyles = makeStyles({
     profileWrapper: {
         padding: "2.5rem 3rem 2.5rem 5rem",
-        "@media (max-width:992px)": {
+        "@media (max-width:1024px)": {
             padding: "2.5rem 3rem 0rem 2rem",
         },
         "@media (max-width:767px)": {
@@ -26,8 +26,7 @@ const useStyles = makeStyles({
         maxWidth: "29rem",
         "@media (max-width:767px)": {
             fontSize: "2.187rem",
-            lineHeight: "3.25rem"
-
+            lineHeight: "3.25rem",
         },
     },
     teamTitle: {
@@ -41,14 +40,14 @@ const useStyles = makeStyles({
     info: {
         margin: "1rem 0",
         maxWidth: "100%",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             marginTop: "1rem",
         },
     },
-    infoYear:{
+    infoYear: {
         margin: "1rem 0",
         maxWidth: "100%",
-        "@media(max-width:992px)": {
+        "@media(max-width:1024px)": {
             marginTop: "-1rem",
         },
     },
@@ -70,7 +69,7 @@ const useStyles = makeStyles({
     activeMember: {
         cursor: "pointer",
         textDecoration: "underline",
-        "@media (max-width: 959px)": {
+        "@media (max-width: 1024px)": {
             marginBottom: "2.5rem",
         },
     },
@@ -79,7 +78,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const VideoInfo = ({ teamMemberData }) => {
+const VideoInfo = ({ teamMemberData }) => {
     const classes = useStyles()
     const [maxShow, setMaxShow] = useState(false)
 
@@ -145,3 +144,5 @@ VideoInfo.propTypes = {
         })
     ).isRequired,
 }
+
+export default VideoInfo
