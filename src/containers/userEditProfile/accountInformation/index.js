@@ -13,7 +13,7 @@ import AddIcon from "../../../components/icons/addIcon"
 import { ChipCards } from "../../../components/cards/chipCards"
 import { roleOptions } from "../../../data/roles"
 import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
-import  CustomButton  from "../../../components/buttons/customButton"
+import CustomButton from "../../../components/buttons/customButton"
 import { countryOptions, stateOptions } from "../../../data/usStates"
 
 const useStyles = makeStyles({

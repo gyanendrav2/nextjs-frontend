@@ -2,7 +2,7 @@ import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
-import  CustomButton  from "../buttons/customButton"
+import CustomButton from "../buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {

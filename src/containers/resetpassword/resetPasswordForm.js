@@ -7,7 +7,7 @@ import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
 import { colors } from "../../theme/colors"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { resetFormValidation } from "../../formValidation/resetpassword"
-import  CustomButton  from "../../components/buttons/customButton"
+import CustomButton from "../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {

@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import React from "react"
 import { useCookies } from "react-cookie"
 import { colors } from "../../theme/colors"
-import  CustomButton  from "../buttons/customButton"
+import CustomButton from "../buttons/customButton"
 import { CookieIcon } from "../icons/cookieIcon"
 
 const useStyles = makeStyles({

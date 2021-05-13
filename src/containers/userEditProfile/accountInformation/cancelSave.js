@@ -1,6 +1,6 @@
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import React from "react"
-import  CustomButton  from "../../../components/buttons/customButton"
+import CustomButton from "../../../components/buttons/customButton"
 import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({

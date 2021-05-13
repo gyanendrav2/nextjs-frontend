@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Box, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
-import  CustomButton  from "../../../components/buttons/customButton"
+import CustomButton from "../../../components/buttons/customButton"
 import { colors } from "../../../theme/colors"
 
 const useStyles = makeStyles({

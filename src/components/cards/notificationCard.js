@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import PropTypes from "prop-types"
 import { Box, makeStyles, Typography } from "@material-ui/core"
-import  CustomButton  from "../buttons/customButton"
+import CustomButton from "../buttons/customButton"
 import { CloseIconBig } from "../icons/closeIconBig"
 import { colors } from "../../theme/colors"
 

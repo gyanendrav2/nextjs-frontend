@@ -7,7 +7,7 @@ import { colors } from "../../../theme/colors"
 import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
 import { roleOptions } from "../../../data/roles"
 import  SelectWithLabelIcon  from "../../../components/inputs/selectWithLabelIcon"
-import  CustomButton  from "../../../components/buttons/customButton"
+import CustomButton from "../../../components/buttons/customButton"
 import { Teams } from "./teams"
 import { addTeamForm } from "../../../formValidation/teams"
 

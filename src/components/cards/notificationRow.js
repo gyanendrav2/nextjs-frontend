@@ -1,7 +1,7 @@
 import { Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import React from "react"
 import PropTypes from "prop-types"
-import  CustomButton  from "../buttons/customButton"
+import CustomButton from "../buttons/customButton"
 import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({

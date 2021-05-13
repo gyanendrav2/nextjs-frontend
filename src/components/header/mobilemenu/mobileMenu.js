@@ -4,7 +4,7 @@ import { Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
-import  CustomButton  from "../../buttons/customButton"
+import CustomButton from "../../buttons/customButton"
 import { InputWithLabelIcon } from "../../inputs/inputWithLabelIcon"
 import { NotificationBellIcon } from "../../icons/notificationBellIcon"
 import { mobileNavOptions } from "../../../data/headerMenuList"

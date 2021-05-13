@@ -1,6 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
-import  CustomButton  from "../../../components/buttons/customButton"
+import CustomButton from "../../../components/buttons/customButton"
 import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
 import { colors } from "../../../theme/colors"
 

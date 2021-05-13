@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers"
 import { colors } from "../../theme/colors"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { forgetFormValidation } from "../../formValidation/forgetpassword"
-import  CustomButton  from "../../components/buttons/customButton"
+import CustomButton from "../../components/buttons/customButton"
 
 const useStyles = makeStyles({
     wrapper: {
