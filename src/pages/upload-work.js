@@ -9,7 +9,6 @@ import dynamic from "next/dynamic"
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const Footer = dynamic(() => import("../components/footer"))
 const UploadVideoPhoto = dynamic(() => import("../containers/uploadWork/uploadVideoPhoto"))
-const UploadVideoPhoto = dynamic(() => import("../containers/uploadWork/uploadVideoPhoto"))
 const EditOptions = dynamic(() => import("../containers/userEditProfile/editOptions"))
 const CustomButton = dynamic(() => import("../components/buttons/customButton"))
 
