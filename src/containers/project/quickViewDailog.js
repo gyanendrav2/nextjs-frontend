@@ -4,10 +4,11 @@ import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import { Close, MoreVert } from "@material-ui/icons"
 import classnames from "classnames"
 import { useRouter } from "next/router"
-import  CustomButton  from "../../components/buttons/customButton"
+import CustomButton from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { colors } from "../../theme/colors"
-import { ReportContentWrapper } from "../../components/reportContentWrapper/reportContentWrapper"
+import dynamic from "next/dynamic"
+const ReportContentWrapper = dynamic(() => import("../../components/reportContentWrapper/reportContentWrapper"))
 
 const useStyles = makeStyles({
     wrapper: {

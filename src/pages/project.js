@@ -5,7 +5,6 @@ import { colors } from "../theme/colors"
 import { images } from "../assets/images"
 import { Slider } from "../containers/project/slider"
 import { SocialIcons } from "../containers/project/socialIcons"
-import { ReportContentWrapper } from "../components/reportContentWrapper/reportContentWrapper"
 import { ImageGallery } from "../components/imageGallery/imageGallery"
 import { DarkBgText } from "../containers/profile/darkBgText"
 import dynamic from "next/dynamic"
@@ -14,6 +13,7 @@ import teamMemberData from "../data/project"
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const VideoInfo = dynamic(() => import("../containers/profile/videoInfo"))
 const Footer = dynamic(() => import("../components/footer"))
+const ReportContentWrapper = dynamic(() => import("../components/reportContentWrapper/reportContentWrapper"))
 
 const useStyles = makeStyles({
     projectwrapper: {

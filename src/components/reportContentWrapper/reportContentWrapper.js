@@ -78,7 +78,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
+const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
     const classes = useStyles({ dialogcontentStyle })
     const routes = useRouter()
     const [showParticipantModal, setShowParticipantModal] = useState(false)
@@ -138,3 +138,5 @@ ReportContentWrapper.propTypes = {
     externalclass: PropTypes.string,
     dialogcontentStyle: PropTypes.string,
 }
+
+export default ReportContentWrapper

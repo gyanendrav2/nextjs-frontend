@@ -20,9 +20,5 @@ module.exports = {
         // {
         // "import/no-named-as-default": false
         // },
-        parserOptions: {
-            ecmaVersion: 2018,
-            sourceType: "module",
-        },
     },
 }
