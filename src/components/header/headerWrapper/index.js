@@ -88,12 +88,10 @@ const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, is
 
     const getNavOptions = () => {
         if (isAuthenticated) {
-            if (feed) {
-                return feedUserNav
-            }
+            return feedUserNav
+        }
         return NavItemOptions
     }
-}
 
     return (
         <>

@@ -18,11 +18,22 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        cursor: "pointer",
-        position: "relative",
+        // cursor: "url('/images/cursor.svg'), auto",
     },
     cardImageContainer: {
         position: "relative",
+        transition: "all 0.3s",
+        "&::before": {
+            content: "''",
+            width: "100%",
+            height: "100%",
+            background: (props) =>
+                props.isHovering
+                    ? "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 16.56%, rgba(0, 0, 0, 0.4) 32.46%, rgba(0, 0, 0, 0.2) 46.94%, rgba(0, 0, 0, 0) 100%)"
+                    : "transparent",
+            position: "absolute",
+            zIndex: 1,
+        },
     },
     projectImage: {
         display: "block",
@@ -32,16 +43,6 @@ const useStyles = makeStyles({
         height: "100%",
         objectFit: "cover",
         transition: "all 0.5s",
-        "&::before": {
-            content: "",
-            position: "absolute",
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            background:
-                "linear-gradient(0deg,#000000 0%,rgba(0, 0, 0, 0.8) 16.56%,rgba(0, 0, 0, 0.4) 32.46%, rgba(0, 0, 0, 0.2) 46.94%,rgba(0, 0, 0, 0) 100%);",
-        },
     },
     ProjectTitle: {
         position: "absolute",
@@ -50,6 +51,7 @@ const useStyles = makeStyles({
         color: colors.white,
         fontSize: "1rem",
         fontWeight: "500",
+        zIndex: 5,
     },
     roundImage: {
         borderRadius: "50%",
@@ -105,8 +107,8 @@ const CardWithFooter = ({
     anonymous,
     categoryHidden,
 }) => {
-    const classes = useStyles()
     const [isHovering, setisHovering] = useState(false)
+    const classes = useStyles({ isHovering })
     const [showCopyBox, setShowCopyBox] = useState(false)
     const [showNotification, setShowNotification] = useState(false)
 
@@ -139,7 +141,7 @@ const CardWithFooter = ({
                 timeout={4000}
                 handleHideNotification={handleNotification}
             />
-            <Box className={classes.cardImageContainer} onMouseLeave={handleMouseOut}>
+            <Box className={classes.cardImageContainer} onMouseEnter={handleMouseHover} onMouseLeave={handleMouseOut}>
                 {showMoreButton && (
                     <Box
                         className={classnames(classes.moreVertContainer, {
@@ -172,7 +174,7 @@ const CardWithFooter = ({
                               )}
                     </Box>
                 )}
-                <Box className={classes.projectImage} onMouseEnter={handleMouseHover}>
+                <Box className={classes.projectImage}>
                     <Box className={classes.imageContainer}>
                         <LazyloadImage image={image} externalclass={classes.image} />
                     </Box>

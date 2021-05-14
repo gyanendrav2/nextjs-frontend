@@ -4,13 +4,13 @@ import { Box, Grid } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../../theme/colors"
 import { QuickViewDailog } from "../../project/quickViewDailog"
-import  CardWithFooter  from "../../../components/cards/cardWithFooter"
+import CardWithFooter from "../../../components/cards/cardWithFooter"
 
 const useStyles = makeStyles({
     FeaturedProjectContainer: {
         display: "flex",
         flexDirection: "row",
-        marginTop:"0.875rem"
+        marginTop: "0.875rem",
     },
     projectContainer: {
         boxShadow: `0px 1px 1px ${colors.lightGray}`,
@@ -75,19 +75,22 @@ const useStyles = makeStyles({
     red: {
         background: "red",
     },
+    cursor: {
+        // cursor: "url('/images/cursor.svg'), auto",
+    },
 })
 export const FeaturedCard = ({ featuredCardsDetails }) => {
     const classes = useStyles()
     const [openModal, setOpenModal] = useState(false)
 
     return (
-        <Box>
+        <Box className={classes.cursor}>
             {openModal && <QuickViewDailog closeModal={() => setOpenModal(false)} />}
             <Grid container className={classes.FeaturedProjectContainer} spacing={2}>
                 {featuredCardsDetails &&
                     featuredCardsDetails.map((newData, idx) => {
                         return (
-                            <Grid item  xs={12} sm={6} md={6} lg={4} xl={3} key={idx}>
+                            <Grid item xs={12} sm={6} md={6} lg={4} xl={3} key={idx}>
                                 <CardWithFooter
                                     image={newData.image}
                                     title={newData.title}

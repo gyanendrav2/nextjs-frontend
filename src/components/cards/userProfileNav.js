@@ -18,10 +18,12 @@ const useStyles = makeStyles({
     autoWidth: {
         width: "auto",
         position: "relative",
+        borderTop: (props) => (props.active ? `3px solid ${colors.pink}` : "none"),
+        height: "5.5rem",
     },
     editOptionsContainer: {
         position: "absolute",
-        top: "4rem",
+        top: "5.5rem",
         left: 0,
         padding: "1.5rem",
         paddingBottom: 0,
@@ -51,8 +53,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const UserProfileNav = ({ userName, profileImg, externalclass }) => {
-    const classes = useStyles()
+export const UserProfileNav = ({ userName, profileImg, externalclass, active }) => {
+    const classes = useStyles({ active })
     const routes = useRouter()
     const [showEditOptions, setShowEditOptions] = useState(false)
 
@@ -105,10 +107,12 @@ UserProfileNav.defaultProps = {
     userName: "",
     profileImg: "",
     externalclass: "",
+    active: false,
 }
 
 UserProfileNav.propTypes = {
     userName: PropTypes.string,
     profileImg: PropTypes.string,
     externalclass: PropTypes.string,
+    active: PropTypes.bool,
 }

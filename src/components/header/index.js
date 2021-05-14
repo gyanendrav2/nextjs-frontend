@@ -9,6 +9,7 @@ import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import { images } from "../../assets/images"
 import { UserProfileNav } from "../cards/userProfileNav"
+import { gaps } from "../../theme/variables"
 
 const useStyles = makeStyles({
     header: {
@@ -16,14 +17,20 @@ const useStyles = makeStyles({
         display: "flex",
         width: "100%",
         zIndex: 99,
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
+        paddingLeft: gaps.laptop,
+        paddingRight: gaps.laptop,
         justifyContent: "space-between",
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : "transparent"),
         // transition: "all 0.2s",
+        "@media (max-width:1024px)": {
+            paddingLeft: gaps.tablet,
+            paddingRight: gaps.tablet,
+        },
         "@media (max-width:767px)": {
             visibility: "hidden",
             display: "none",
+            paddingLeft: gaps.mobile,
+            paddingRight: gaps.mobile,
         },
     },
     button: {
@@ -32,16 +39,10 @@ const useStyles = makeStyles({
         color: (props) => (props.color === colors.white ? colors.black : colors.white),
     },
     logo: {
-        height: "3rem",
+        height: "3.271rem",
         marginTop: "1.4rem",
         cursor: "pointer",
-        margin: "1.4rem auto 1rem 2.5rem",
-        "@media(min-width:768px) and (max-width:1024px)": {
-            marginLeft: "2rem",
-        },
-        "@media(max-width:767px)": {
-            marginLeft: "1rem",
-        }
+        margin: "1.4rem auto 1rem 0",
     },
     rightPart: {
         width: "auto",
@@ -52,17 +53,10 @@ const useStyles = makeStyles({
         textTransform: "capitalize",
         padding: "0.437rem 1.5rem",
         height: "2.5rem",
-        marginRight: "2.5rem",
         marginLeft: "2.5rem",
         "&:hover": {
             backgroundColor: colors.pink,
         },
-        "@media(min-width:768px) and (max-width:1024px)": {
-            marginRight: "2rem",
-        },
-        "@media(max-width:767px)": {
-            marginRight: "1rem",
-        }
     },
     UserProfileNav: {
         cursor: "pointer",
@@ -72,6 +66,7 @@ const useStyles = makeStyles({
 export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
     const classes = useStyles({ color, bgcolor })
     const router = useRouter()
+    console.log(router)
     const [hoveredActive, setHoverdActive] = useState(null)
     const [showProfilenavcard, setShowProfilenavcard] = useState(false)
 
@@ -123,6 +118,11 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
                 {isAuthenticated && (
                     <UserProfileNav
                         userName="Brandon"
+                        active={[
+                            "/settings/delete-deactivate",
+                            "/settings/notifications",
+                            "/settings/profile",
+                        ].includes(router.asPath)}
                         profileImg={images.brandon}
                         externalclass={classes.UserProfileNav}
                         onClick={handleUserProfileNav}

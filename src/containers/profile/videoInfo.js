@@ -89,7 +89,7 @@ const VideoInfo = ({ teamMemberData }) => {
                     SiR - Hair Down (Official Video) ft. Kendrick Lamar
                 </Typography>
                 <Grid container>
-                    <Grid item className={classes.info} item xs={12} sm={12} md={6} lg={6}>
+                    <Grid item className={classes.info} xs={12} sm={12} md={6} lg={6}>
                         <Typography className={classes.infoTextHead}>Category:</Typography>
                         <Typography className={classnames(classes.underlineStyle, classes.infoText)}>
                             Directing
@@ -99,7 +99,7 @@ const VideoInfo = ({ teamMemberData }) => {
                             <Typography className={classes.infoText}>SiR, Top Dog Entertainment</Typography>
                         </Grid>
                     </Grid>
-                    <Grid item className={classes.infoYear} item xs={12} sm={12} md={6} lg={6}>
+                    <Grid item className={classes.infoYear} xs={12} sm={12} md={6} lg={6}>
                         <Typography className={classes.infoTextHead}>Year</Typography>
                         <Typography className={classes.infoText}>2019</Typography>
                     </Grid>

@@ -56,7 +56,7 @@ export const HeadItem = ({
             onMouseLeave={handleMouseLeave}
             onClick={handleRoute}>
             {icon}
-            <Typography className={classes.title}>{name}</Typography>
+            {name !== "" && <Typography className={classes.title}>{name}</Typography>}
         </Box>
     )
 }

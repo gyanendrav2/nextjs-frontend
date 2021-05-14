@@ -3,15 +3,20 @@ import PropTypes from "prop-types"
 import { Box, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
+import { gaps } from "../../theme/variables"
 
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
-        paddingLeft: "2rem",
-        paddingRight: "2rem",
+        paddingLeft: gaps.laptop,
+        paddingRight: gaps.laptop,
+        "@media (max-width:1024px)": {
+            paddingLeft: gaps.tablet,
+            paddingRight: gaps.tablet,
+        },
         "@media (max-width:767px)": {
-            paddingLeft: "1rem",
-            paddingRight: "1rem",
+            paddingLeft: gaps.mobile,
+            paddingRight: gaps.mobile,
         },
     },
 })
