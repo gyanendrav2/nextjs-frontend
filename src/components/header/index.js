@@ -35,7 +35,13 @@ const useStyles = makeStyles({
         height: "3rem",
         marginTop: "1.4rem",
         cursor: "pointer",
-        marginRight: "auto",
+        margin: "1.4rem auto 1rem 2.5rem",
+        "@media(min-width:768px) and (max-width:1024px)": {
+            marginLeft: "2rem",
+        },
+        "@media(max-width:767px)": {
+            marginLeft: "1rem",
+        }
     },
     rightPart: {
         width: "auto",
@@ -46,10 +52,17 @@ const useStyles = makeStyles({
         textTransform: "capitalize",
         padding: "0.437rem 1.5rem",
         height: "2.5rem",
+        marginRight: "2.5rem",
         marginLeft: "2.5rem",
         "&:hover": {
             backgroundColor: colors.pink,
         },
+        "@media(min-width:768px) and (max-width:1024px)": {
+            marginRight: "2rem",
+        },
+        "@media(max-width:767px)": {
+            marginRight: "1rem",
+        }
     },
     UserProfileNav: {
         cursor: "pointer",
@@ -79,7 +92,7 @@ export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
             <Link href="/">
                 <img
                     className={classes.logo}
-                    src={color === colors.white ? icons.logoWhite : images.logoImage}
+                    src={color === colors.white ? icons.logoWhite : icons.logoBlack}
                     alt="PXL-logo"
                 />
             </Link>

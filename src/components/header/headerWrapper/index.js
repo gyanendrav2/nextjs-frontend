@@ -5,7 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import Link from "next/link"
 import { Header } from ".."
 import { icons } from "../../../assets/icons"
-import { feedUserNav, loggedInUserNav, mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
+import { feedUserNav, mobileNavOptions, NavItemOptions } from "../../../data/headerMenuList"
 import { colors } from "../../../theme/colors"
 import { MobileMenu } from "../mobilemenu/mobileMenu"
 
@@ -91,10 +91,9 @@ const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, is
             if (feed) {
                 return feedUserNav
             }
-            return loggedInUserNav
-        }
         return NavItemOptions
     }
+}
 
     return (
         <>

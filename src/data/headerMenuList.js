@@ -41,32 +41,32 @@ export const mobileNavOptions = [
     },
 ]
 
-export const loggedInUserNav = [
-    {
-        id: 1,
-        name: "Feed",
-        icon: <HomeIcon />,
-        pathname: "/feed",
-    },
-    {
-        id: 1,
-        name: "discover",
-        icon: <DisocoveryIcon />,
-        pathname: "/categories",
-    },
-    {
-        id: 2,
-        name: "Search",
-        icon: <SearchIcon />,
-        pathname: "/search",
-    },
-    {
-        id: 3,
-        name: "",
-        icon: <NotificationBellIcon />,
-        pathname: "/notifications",
-    },
-]
+// export const loggedInUserNav = [
+//     {
+//         id: 1,
+//         name: "Feed",
+//         icon: <HomeIcon />,
+//         pathname: "/feed",
+//     },
+//     {
+//         id: 1,
+//         name: "discover",
+//         icon: <DisocoveryIcon />,
+//         pathname: "/categories",
+//     },
+//     {
+//         id: 2,
+//         name: "Search",
+//         icon: <SearchIcon />,
+//         pathname: "/search",
+//     },
+//     {
+//         id: 3,
+//         name: "",
+//         icon: <NotificationBellIcon />,
+//         pathname: "/notifications",
+//     },
+// ]
 
 export const feedUserNav = [
     {
