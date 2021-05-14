@@ -28,7 +28,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const TwoColGrid = ({ col1Children, col2Children, externalclass }) => {
+const TwoColGrid = ({ col1Children, col2Children, externalclass }) => {
     const classes = useStyles()
     return (
         <Grid container display="flex" spacing={2} className={classnames(classes.wrapper, externalclass)}>
@@ -51,3 +51,5 @@ TwoColGrid.propTypes = {
     col2Children: PropTypes.element.isRequired,
     externalclass: PropTypes.string,
 }
+
+export default TwoColGrid

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
-import  SelectWithLabelIcon  from "../../../components/inputs/selectWithLabelIcon"
+import SelectWithLabelIcon from "../../../components/inputs/selectWithLabelIcon"
 import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
 import { images } from "../../../assets/images"
 import { TextArea } from "../../../components/inputs/textArea"
@@ -69,7 +69,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const AccountInformation = () => {
+const AccountInformation = () => {
     const classes = useStyles()
     const [roleOptionsData, setRoleOptionsData] = useState(roleOptions)
     const [roles, setRoles] = useState([])
@@ -226,3 +226,5 @@ export const AccountInformation = () => {
         </>
     )
 }
+
+export default AccountInformation

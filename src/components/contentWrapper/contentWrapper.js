@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const ContentWrapper = ({ externalclass, children }) => {
+const ContentWrapper = ({ externalclass, children }) => {
     const classes = useStyles()
     return (
         <>
@@ -34,3 +34,5 @@ ContentWrapper.propTypes = {
     children: PropTypes.element,
     externalclass: PropTypes.string,
 }
+
+export default ContentWrapper

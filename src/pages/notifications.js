@@ -2,8 +2,8 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import Link from "next/link"
 import { colors } from "../theme/colors"
-import  Footer  from "../components/footer"
-import HeaderWrapper  from "../components/header/headerWrapper"
+import Footer from "../components/footer"
+import HeaderWrapper from "../components/header/headerWrapper"
 import { NotificationRow } from "../components/cards/notificationRow"
 import { SendDetailsModal } from "../components/modal/sendDetailsModal"
 import { images } from "../assets/images"
@@ -33,8 +33,8 @@ const useStyles = makeStyles({
     },
     link: {
         color: colors.black,
-        pointer:"cursor",
-        textDecoration:"underline"
+        pointer: "cursor",
+        textDecoration: "underline",
     },
 })
 const UserNotifications = () => {
@@ -58,9 +58,9 @@ const UserNotifications = () => {
                     title={
                         <Typography>
                             <Link href="/">
-                              <span className={classes.link}>Peter Pan</span>
+                                <span className={classes.link}>Peter Pan</span>
                             </Link>
-                           &nbsp;requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”
+                            &nbsp;requested being added to your project: “Hey Brandon, your 2nd camera assistent here!”
                         </Typography>
                     }
                     isDeclinable
@@ -73,7 +73,7 @@ const UserNotifications = () => {
                     title={
                         <Typography>
                             <Link href="/">
-                               <span className={classes.link}>Sarah</span> 
+                                <span className={classes.link}>Sarah</span>
                             </Link>
                             &nbsp;Faulson followed you
                         </Typography>
@@ -85,10 +85,14 @@ const UserNotifications = () => {
                 />
                 <NotificationRow
                     title={
-                        <Typography>  Mike Magic   liked your project &nbsp;
-                         <Link href="/">
-                         <span className={classes.link}>“SiR - Hair Down (Official Video) ft. Kendrick Lamar”</span>
-                         </Link> 
+                        <Typography>
+                            {" "}
+                            Mike Magic liked your project &nbsp;
+                            <Link href="/">
+                                <span className={classes.link}>
+                                    “SiR - Hair Down (Official Video) ft. Kendrick Lamar”
+                                </span>
+                            </Link>
                         </Typography>
                     }
                     buttonLabel="Follow  back"
@@ -99,7 +103,8 @@ const UserNotifications = () => {
                 <NotificationRow
                     title={
                         <Typography>
-                             You project has been uploaded &nbsp;<span className={classes.link}>“SiR - Hair Down (Official Video) ft. Kendrick Lamar”</span> 
+                            You project has been uploaded &nbsp;
+                            <span className={classes.link}>“SiR - Hair Down (Official Video) ft. Kendrick Lamar”</span>
                         </Typography>
                     }
                     buttonLabel="Follow  back"

@@ -15,13 +15,13 @@ const useStyles = makeStyles({
         backgroundColor: colors.black,
         color: colors.white,
         cursor: "pointer",
-        "@media(max-width:767px)":{
-            height:"247px"
-        }
+        "@media(max-width:767px)": {
+            height: "247px",
+        },
     },
 })
 
-export const Adder = ({ onAddClick }) => {
+const Adder = ({ onAddClick }) => {
     const classes = useStyles()
     return (
         <CustomButton
@@ -37,3 +37,5 @@ export const Adder = ({ onAddClick }) => {
 Adder.propTypes = {
     onAddClick: PropTypes.func.isRequired,
 }
+
+export default Adder

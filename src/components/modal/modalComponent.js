@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) =>
     })
 )
 
-export const ModalComponent = ({ handleClose, openOrNot, children, onClose, maxHeight, padding }) => {
+const ModalComponent = ({ handleClose, openOrNot, children, onClose, maxHeight, padding }) => {
     const classes = useStyles({ maxHeight, padding })
 
     return (
@@ -97,3 +97,5 @@ ModalComponent.propTypes = {
     maxHeight: PropTypes.string,
     padding: PropTypes.string,
 }
+
+export default ModalComponent

@@ -60,41 +60,44 @@ const useStyles = makeStyles({
             marginBottom: "0rem!important",
         },
     },
-    paragraphText:{
+    paragraphText: {
         "@media (max-width:575px)": {
             marginBottom: "0rem!important",
         },
     },
-    deskShow:{
-        display:"block",
+    deskShow: {
+        display: "block",
         "@media (min-width:1450px)": {
-            textAlign:"left",
-            width:"100%",
+            textAlign: "left",
+            width: "100%",
         },
         "@media (max-width:767px)": {
-            display:"none"
+            display: "none",
         },
     },
-    mobileShow:{
-        display:"none",
+    mobileShow: {
+        display: "none",
         "@media (max-width:767px)": {
-            display:"block!important",
-            minWidth:"20rem!important",
-            marginBottom:"1.5rem!important",
-            textAlign:"left!important"
+            display: "block!important",
+            minWidth: "20rem!important",
+            marginBottom: "1.5rem!important",
+            textAlign: "left!important",
         },
-        
-    }
+    },
 })
 
-export const DarkBgText = () => {
+const DarkBgText = () => {
     const classes = useStyles()
     return (
         <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={12} xl={12} className={classes.fulldarkBg}>
                 <Box className={classes.fullWidthContent}>
-                    <Typography variant="h3" className={classes.deskShow}>The writing itself</Typography>
-                    <Typography variant="h3" className={classes.mobileShow}>The writing itself that I made</Typography>
+                    <Typography variant="h3" className={classes.deskShow}>
+                        The writing itself
+                    </Typography>
+                    <Typography variant="h3" className={classes.mobileShow}>
+                        The writing itself that I made
+                    </Typography>
                     <Box className={classes.paragraphContent}>
                         <Typography className={classes.paragraphText}>
                             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
@@ -133,3 +136,5 @@ export const DarkBgText = () => {
         </Grid>
     )
 }
+
+export default DarkBgText

@@ -1,7 +1,7 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import React from "react"
-import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
+import ContentWrapper  from "../components/contentWrapper/contentWrapper"
 import { SeenIcon } from "../components/icons/seenIcon"
 import HeaderWrapper  from "../components/header/headerWrapper"
 import { FeedProfileCard } from "../containers/feed/feedProfileCard"

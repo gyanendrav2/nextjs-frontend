@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
 import { useRouter } from "next/router"
-import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
 import { colors } from "../theme/colors"
 import { uploadWorkOptions } from "../data/uploadWorkOptions"
 import dynamic from "next/dynamic"
 
+const ContentWrapper = dynamic(() => import("../components/contentWrapper/contentWrapper"))
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const Footer = dynamic(() => import("../components/footer"))
 const UploadVideoPhoto = dynamic(() => import("../containers/uploadWork/uploadVideoPhoto"))

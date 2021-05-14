@@ -6,7 +6,7 @@ import classnames from "classnames"
 import { MobileFooter } from "./mobileFooter"
 import { colors } from "../../theme/colors"
 import { icons } from "../../assets/icons"
-import { ContentWrapper } from "../contentWrapper/contentWrapper"
+import ContentWrapper  from "../contentWrapper/contentWrapper"
 import { CopyrightIcon } from "../icons/copyrightIcon"
 
 export const useStyles = makeStyles({

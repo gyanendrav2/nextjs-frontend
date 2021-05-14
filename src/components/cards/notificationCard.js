@@ -43,7 +43,7 @@ export const useStyles = makeStyles({
     },
 })
 
-export const NotificationCard = ({
+const NotificationCard = ({
     isVisible,
     timeout,
     message,
@@ -105,3 +105,5 @@ NotificationCard.propTypes = {
     timeout: PropTypes.number,
     hideButton: PropTypes.bool,
 }
+
+export default NotificationCard

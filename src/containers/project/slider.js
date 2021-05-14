@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const Slider = () => {
+const Slider = () => {
     const classes = useStyles()
 
     return (
@@ -57,3 +57,5 @@ export const Slider = () => {
 }
 
 Slider.propTypes = {}
+
+export default Slider

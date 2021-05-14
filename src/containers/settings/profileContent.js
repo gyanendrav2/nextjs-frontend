@@ -36,7 +36,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const ProfileContent = () => {
+const ProfileContent = () => {
     const classes = useStyles()
     return (
         <>
@@ -73,3 +73,5 @@ export const ProfileContent = () => {
         </>
     )
 }
+
+export default ProfileContent

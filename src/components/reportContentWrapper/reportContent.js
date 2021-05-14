@@ -2,7 +2,7 @@ import { Grid, Typography } from "@material-ui/core"
 import React from "react"
 import { icons } from "../../assets/icons"
 
-export const ReportContent = () => {
+const ReportContent = () => {
     return (
         <Grid container dispaly="flex" alignItems="center" justify="flex-start">
             <img src={icons.reportContentIcon} alt="" />
@@ -10,3 +10,5 @@ export const ReportContent = () => {
         </Grid>
     )
 }
+
+export default ReportContent

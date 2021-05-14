@@ -2,20 +2,10 @@
 import React, { useState } from "react"
 import dynamic from "next/dynamic"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import ReactPlayer from "react-player"
 import classnames from "classnames"
-import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-import { ModalComponent } from "../components/modal/modalComponent"
-import { UserInfo } from "../containers/profile/userInfo"
-import { PenIcon } from "../components/icons/penIcon"
-import { EyeClosedIcon } from "../components/icons/eyeClosedIcon"
-import { EyeOpenIcon } from "../components/icons/eyeOpenIcon"
-import { ReportContent } from "../components/reportContentWrapper/reportContent"
-import { Adder } from "../components/cards/adder"
 import { useRouter } from "next/router"
-import { NotificationCard } from "../components/cards/notificationCard"
 
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const UserProfileCard = dynamic(() => import("../components/cards/userProfileCard"))
@@ -24,6 +14,16 @@ const MessageBox = dynamic(() => import("../containers/profile/messageBox"))
 const CardWithFooter = dynamic(() => import("../components/cards/cardWithFooter"))
 const SelectWithLabelIcon = dynamic(() => import("../components/inputs/selectWithLabelIcon"))
 const Footer = dynamic(() => import("../components/footer"))
+const NotificationCard = dynamic(() => import("../components/cards/notificationCard"))
+const ModalComponent = dynamic(() => import("../components/modal/modalComponent"))
+const UserInfo = dynamic(() => import("../containers/profile/userInfo"))
+const Adder = dynamic(() => import("../components/cards/adder"))
+const ContentWrapper = dynamic(() => import("../components/contentWrapper/contentWrapper"))
+const ReportContent = dynamic(() => import("../components/reportContentWrapper/reportContent"))
+const PenIcon = dynamic(() => import("../components/icons/penIcon"))
+const EyeClosedIcon = dynamic(() => import("../components/icons/eyeClosedIcon"))
+const EyeOpenIcon = dynamic(() => import("../components/icons/eyeOpenIcon"))
+const ReactPlayer = dynamic(() => import("react-player"))
 
 const useStyles = makeStyles({
     wrapper: {

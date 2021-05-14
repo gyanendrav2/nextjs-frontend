@@ -10,7 +10,6 @@ import vimeo from "./icons/vimeo.svg"
 import instagram from "./icons/instagram.svg"
 import insta from "./icons/vector1.svg"
 import arrowDropdown from "./icons/arrowDropdown.svg"
-import close from "./icons/close.svg"
 import fbBlack from "./icons/facebookBlack.svg"
 import linkedinBlack from "./icons/linkedinBlack.svg"
 import twitterBlack from "./icons/twitterBlack.svg"
@@ -28,7 +27,6 @@ export const icons = {
     instagram,
     insta,
     arrowDropdown,
-    close,
     fbBlack,
     linkedinBlack,
     twitterBlack,

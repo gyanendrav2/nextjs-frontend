@@ -1,19 +1,22 @@
 import React from "react"
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import { colors } from "../theme/colors"
 import { images } from "../assets/images"
-import { Slider } from "../containers/project/slider"
-import { SocialIcons } from "../containers/project/socialIcons"
-import { ImageGallery } from "../components/imageGallery/imageGallery"
-import { DarkBgText } from "../containers/profile/darkBgText"
 import dynamic from "next/dynamic"
 import teamMemberData from "../data/project"
+import makeStyles from "@material-ui/core/styles/makeStyles"
 
+const Box = dynamic(() => import("@material-ui/core/Box"))
+const Grid = dynamic(() => import("@material-ui/core/Grid"))
+const Typography = dynamic(() => import("@material-ui/core/Typography"))
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const VideoInfo = dynamic(() => import("../containers/profile/videoInfo"))
 const Footer = dynamic(() => import("../components/footer"))
 const ReportContentWrapper = dynamic(() => import("../components/reportContentWrapper/reportContentWrapper"))
+const Slider = dynamic(() => import("../containers/project/slider"))
+const SocialIcons = dynamic(() => import("../containers/project/socialIcons"))
+const ImageGallery = dynamic(() => import("../components/imageGallery/imageGallery"))
+const DarkBgText = dynamic(() => import("../containers/profile/darkBgText"))
 
 const useStyles = makeStyles({
     projectwrapper: {

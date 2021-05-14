@@ -1,14 +1,16 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 import React from "react"
-import { TwoColGrid } from "../../components/grid/twoColGrid"
-import HeaderWrapper  from "../../components/header/headerWrapper"
 import { colors } from "../../theme/colors"
-import  Footer  from "../../components/footer"
-import  EditOptions  from "../../containers/userEditProfile/editOptions"
-import { NotificationContent } from "../../containers/settings/notificationContent"
-import { DeleteContent } from "../../containers/settings/deleteContent"
-import { ProfileContent } from "../../containers/settings/profileContent"
+
+const HeaderWrapper = dynamic(() => import("../../components/header/headerWrapper"))
+const Footer = dynamic(() => import("../../components/footer"))
+const EditOptions = dynamic(() => import("../../containers/userEditProfile/editOptions"))
+const TwoColGrid = dynamic(() => import("../../components/grid/twoColGrid"))
+const ProfileContent = dynamic(() => import("../../containers/settings/profileContent"))
+const NotificationContent = dynamic(() => import("../../containers/settings/notificationContent"))
+const DeleteContent = dynamic(() => import("../../containers/settings/deleteContent"))
 
 const useStyles = makeStyles({
     wrapper: {

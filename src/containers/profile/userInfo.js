@@ -18,8 +18,8 @@ const useStyles = makeStyles({
         },
         "@media(max-width:767px)": {
             marginTop: "4rem",
+        },
     },
-},
     msgbtn: {
         marginRight: "1.4rem",
     },
@@ -37,11 +37,12 @@ const useStyles = makeStyles({
     },
 })
 
-export const UserInfo = ({ handleMsgClick }) => {
+const UserInfo = ({ handleMsgClick }) => {
     const classes = useStyles()
 
     return (
-        <TwoColModalGrid UserInfoMargin ="0rem"
+        <TwoColModalGrid
+            UserInfoMargin="0rem"
             col1Children={<PictureOverSquare image={images.brandon} />}
             col2Children={
                 <Box className={classes.col2}>
@@ -83,3 +84,5 @@ UserInfo.defaultProps = {
 UserInfo.propTypes = {
     handleMsgClick: PropTypes.func,
 }
+
+export default UserInfo

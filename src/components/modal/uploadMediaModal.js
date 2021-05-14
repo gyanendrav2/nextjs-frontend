@@ -1,7 +1,7 @@
 import React, { createRef, useEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
-import { ModalComponent } from "./modalComponent"
+import ModalComponent from "./modalComponent"
 import CustomButton from "../buttons/customButton"
 import { colors } from "../../theme/colors"
 import { DeleteIcon } from "../icons/deleteIcon"

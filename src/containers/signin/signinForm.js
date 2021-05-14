@@ -8,8 +8,8 @@ import CustomButton from "../../components/buttons/customButton"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { colors } from "../../theme/colors"
 import { signinFormValidation } from "../../formValidation/signin"
-import { EyeOpenIcon } from "../../components/icons/eyeOpenIcon"
-import { EyeClosedIcon } from "../../components/icons/eyeClosedIcon"
+import EyeOpenIcon from "../../components/icons/eyeOpenIcon"
+import EyeClosedIcon from "../../components/icons/eyeClosedIcon"
 // import { loginUserAPIcall } from "../../redux/actions/authAction"
 
 const titleText = {

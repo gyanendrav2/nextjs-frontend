@@ -22,7 +22,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const DeleteContent = () => {
+const DeleteContent = () => {
     const classes = useStyles()
     return (
         <>
@@ -48,3 +48,5 @@ export const DeleteContent = () => {
         </>
     )
 }
+
+export default DeleteContent

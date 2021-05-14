@@ -1,21 +1,21 @@
 import React, { useState } from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
-import { ContentWrapper } from "../components/contentWrapper/contentWrapper"
-import HeaderWrapper from "../components/header/headerWrapper"
-import UserProfileCard from "../components/cards/userProfileCard"
 import { images } from "../assets/images"
-import CardWithFooter from "../components/cards/cardWithFooter"
 import { colors } from "../theme/colors"
-import { ModalComponent } from "../components/modal/modalComponent"
-import { UserInfo } from "../containers/profile/userInfo"
-import { ReportContent } from "../components/reportContentWrapper/reportContent"
 import dynamic from "next/dynamic"
 
 const Footer = dynamic(() => import("../components/footer"))
 const MessageBox = dynamic(() => import("../containers/profile/messageBox"))
 const SelectWithLabelIcon = dynamic(() => import("../components/inputs/selectWithLabelIcon"))
 const ReactPlayer = dynamic(() => import("react-player"))
+const CardWithFooter = dynamic(() => import("../components/cards/cardWithFooter"))
+const ModalComponent = dynamic(() => import("../components/modal/modalComponent"))
+const ReportContent = dynamic(() => import("../components/reportContentWrapper/reportContent"))
+const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
+const ContentWrapper = dynamic(() => import("../components/contentWrapper/contentWrapper"))
+const UserInfo = dynamic(() => import("../containers/profile/userInfo"))
+const UserProfileCard = dynamic(() => import("../components/cards/userProfileCard"))
 
 const useStyles = makeStyles({
     wrapper: {

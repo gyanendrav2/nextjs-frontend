@@ -45,7 +45,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const NotificationContent = () => {
+const NotificationContent = () => {
     const classes = useStyles()
     return (
         <>
@@ -93,3 +93,5 @@ export const NotificationContent = () => {
         </>
     )
 }
+
+export default NotificationContent

@@ -1,13 +1,15 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
 import React from "react"
-import { TwoColGrid } from "../../components/grid/twoColGrid"
-import HeaderWrapper  from "../../components/header/headerWrapper"
 import { colors } from "../../theme/colors"
-import  Footer  from "../../components/footer"
-import { AccountInformation } from "../../containers/userEditProfile/accountInformation"
-import  EditOptions  from "../../containers/userEditProfile/editOptions"
-import ShowReel from "../../containers/userEditProfile/showreel"
+import dynamic from "next/dynamic"
+
+const HeaderWrapper = dynamic(() => import("../../components/header/headerWrapper"))
+const EditOptions = dynamic(() => import("../../containers/userEditProfile/editOptions"))
+const Footer = dynamic(() => import("../../components/footer"))
+const ShowReel = dynamic(() => import("../../containers/userEditProfile/showreel"))
+const TwoColGrid = dynamic(() => import("../../components/grid/twoColGrid"))
+const AccountInformation = dynamic(() => import("../../containers/userEditProfile/accountInformation"))
 
 const useStyles = makeStyles({
     wrapper: {

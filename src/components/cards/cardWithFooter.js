@@ -7,7 +7,7 @@ import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
 import CustomButton from "../buttons/customButton"
 import { MoreVertIcon } from "../icons/moreVertIcon"
-import { NotificationCard } from "./notificationCard"
+import NotificationCard from "./notificationCard"
 import { ShareCard } from "./shareCard"
 import { CardMenuOptions } from "./cardMenuOptions"
 
