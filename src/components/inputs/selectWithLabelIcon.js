@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         fontWeight: 400,
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`),
-        borderRadius: "3px",
+        borderRadius: "1px",
         "&:focus": {
             borderColor: (props) => (props.error ? colors.red : colors.lightGray),
         },

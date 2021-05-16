@@ -4,7 +4,7 @@ import { Box, Grid, makeStyles } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { InputWithLabelIcon } from "../inputs/inputWithLabelIcon"
-import  SelectWithLabelIcon  from "../inputs/selectWithLabelIcon"
+import SelectWithLabelIcon from "../inputs/selectWithLabelIcon"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -16,7 +16,8 @@ const useStyles = makeStyles({
         flexDirection: "row",
         flexWrap: "nowrap",
         color: colors.black,
-        padding: "1.5rem 2.3rem 2rem 1.8rem",
+        padding: "2rem 2.5rem",
+        paddingBottom: "1rem",
         transform: "translateX(-2%)",
         "@media (max-width:767px)": {
             paddingLeft: "1rem",
@@ -26,11 +27,8 @@ const useStyles = makeStyles({
             alignItems: "center",
             flexDirection: "column",
         },
-        "@media (min-width:768px) and (max-width:967px)": {
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            flexDirection: "column",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            display: "block",
         },
     },
     col1: {
@@ -38,7 +36,7 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         width: "5rem",
         // paddingRight: "1.5rem",
-        "@media (max-width:967px)": {
+        "@media (max-width:1024px)": {
             width: "100%",
             textAlign: "left",
             marginBottom: "1.5rem",
@@ -46,7 +44,7 @@ const useStyles = makeStyles({
     },
     col2: {
         width: "calc(100% - 5rem)",
-        "@media (max-width:967px)": {
+        "@media (max-width:1024px)": {
             width: "100%",
         },
     },
@@ -62,6 +60,16 @@ const useStyles = makeStyles({
         padding: "0.9px",
         fontWeight: "700",
         height: "2.58rem",
+    },
+    smallInput: {
+        "@media (min-width: 1025px)": {
+            width: "13rem",
+        },
+    },
+    sortByInput: {
+        "@media (min-width: 768px) and (max-width: 1024px)": {
+            paddingLeft: "7.5rem",
+        },
     },
 })
 const secondlevelCategoryItems = [
@@ -85,7 +93,7 @@ export const Filter = ({ externalclass }) => {
             <Box className={classes.col1}>Filter by:</Box>
             <Box className={classes.col2}>
                 <Grid container spacing={2}>
-                    <Grid item sm={6} xs={12} md={3} lg={3}>
+                    <Grid item sm={12} xs={12} md={6} lg={3}>
                         <SelectWithLabelIcon
                             label="Second level category"
                             options={secondlevelCategoryItems}
@@ -96,7 +104,7 @@ export const Filter = ({ externalclass }) => {
                             fontSize="1rem"
                         />
                     </Grid>
-                    <Grid item sm={6} xs={12} md={3} lg={3}>
+                    <Grid item sm={12} xs={12} md={6} lg={3}>
                         <InputWithLabelIcon
                             name=""
                             label="Location"
@@ -106,27 +114,31 @@ export const Filter = ({ externalclass }) => {
                             fontWeight="700"
                         />
                     </Grid>
-                    <Grid item sm={6} xs={12} md={3} lg={3}>
-                        <SelectWithLabelIcon
-                            label="Year"
-                            options={years}
-                            externalclass={classes.selectInput}
-                            placeholder="-"
-                            labelColor={colors.lighterGray}
-                            fontWeight="700"
-                        />
+                    <Grid item sm={12} xs={12} md={6} lg={3}>
+                        <Box className={classes.smallInput}>
+                            <SelectWithLabelIcon
+                                label="Year"
+                                options={years}
+                                externalclass={classes.selectInput}
+                                placeholder="-"
+                                labelColor={colors.lighterGray}
+                                fontWeight="700"
+                            />
+                        </Box>
                     </Grid>
-                    <Grid item sm={6} xs={12} md={3} lg={3}>
-                        <SelectWithLabelIcon
-                            label="Sort by"
-                            options={secondlevelCategoryItems}
-                            variant="underlineBorder"
-                            externalclass={classes.selectInput}
-                            placeholder="A-Z"
-                            labelColor={colors.lighterGray}
-                            bgcolor={colors.lighterPrimary}
-                            fontWeight="700"
-                        />
+                    <Grid item sm={12} xs={12} md={6} lg={3}>
+                        <Box className={classes.sortByInput}>
+                            <SelectWithLabelIcon
+                                label="Sort by"
+                                options={secondlevelCategoryItems}
+                                variant="underlineBorder"
+                                externalclass={classes.selectInput}
+                                placeholder="A-Z"
+                                labelColor={colors.lighterGray}
+                                bgcolor={colors.lighterPrimary}
+                                fontWeight="700"
+                            />
+                        </Box>
                     </Grid>
                 </Grid>
             </Box>

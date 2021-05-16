@@ -13,7 +13,6 @@ import { CardMenuOptions } from "./cardMenuOptions"
 
 const useStyles = makeStyles({
     cardWrapper: {
-        boxShadow: `0px 1px 1px ${colors.lightGray}`,
         flex: "1",
         display: "flex",
         flexDirection: "column",
@@ -27,10 +26,8 @@ const useStyles = makeStyles({
             content: "''",
             width: "100%",
             height: "100%",
-            background: (props) =>
-                props.isHovering
-                    ? "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 16.56%, rgba(0, 0, 0, 0.4) 32.46%, rgba(0, 0, 0, 0.2) 46.94%, rgba(0, 0, 0, 0) 100%)"
-                    : "transparent",
+            background:
+                "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 16.56%, rgba(0, 0, 0, 0.4) 32.46%, rgba(0, 0, 0, 0.2) 46.94%, rgba(0, 0, 0, 0) 100%)",
             position: "absolute",
             zIndex: 1,
         },
@@ -48,6 +45,7 @@ const useStyles = makeStyles({
         position: "absolute",
         bottom: "1rem",
         left: "1rem",
+        right: "1rem",
         color: colors.white,
         fontSize: "1rem",
         fontWeight: "500",
@@ -62,7 +60,7 @@ const useStyles = makeStyles({
         objectFit: "cover",
     },
     cardFooter: {
-        border: "1px solid rgba(0, 0, 0, 0.05)",
+        border: `1px solid ${colors.lightGray}`,
         display: "flex",
         padding: "0.75rem",
         flex: "1",
@@ -179,7 +177,7 @@ const CardWithFooter = ({
                         <LazyloadImage image={image} externalclass={classes.image} />
                     </Box>
                 </Box>
-                {isHovering && <Typography className={classes.ProjectTitle}>{title}</Typography>}
+                <Typography className={classes.ProjectTitle}>{title}</Typography>
             </Box>
             {!hideFooter && (
                 <Box className={classes.cardFooter}>

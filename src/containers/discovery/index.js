@@ -98,6 +98,10 @@ const useStyles = makeStyles({
             fontSize: "2.1rem",
             lineHeight: "3.5rem",
         },
+        "@media (min-width: 1921px)": {
+            fontSize: "8.375rem",
+            lineHeight: "9.375rem",
+        },
     },
     subtitle: {
         fontSize: "1rem",
@@ -123,10 +127,13 @@ const useStyles = makeStyles({
         alignItems: "flex-start",
         justifyContent: "flex-start",
         animation: "fadeIn 2s",
-        marginLeft: "2.875rem",
+        marginLeft: "4.437rem",
         "@media (max-width: 767px)": {
             top: "7rem",
             marginLeft: "0",
+        },
+        "@media (min-width:1921px)": {
+            marginLeft: "5.5rem",
         },
     },
     bigSignup: {

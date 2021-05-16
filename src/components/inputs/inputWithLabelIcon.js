@@ -17,10 +17,10 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         fontWeight: 400,
         backgroundColor: colors.white,
-        color:colors.black,
+        color: colors.black,
         padding: "0.6rem 0",
         fontFamily: "aino-regular",
-        borderRadius: "3px",
+        borderRadius: "1px",
         border: (props) => `solid 1px ${props.error ? colors.red : colors.lightGray}`,
         "&:focus": {
             borderColor: (props) => (props.error ? colors.red : colors.lightGray),
@@ -28,7 +28,6 @@ const useStyles = makeStyles({
         "&:hover": {
             borderColor: (props) => (props.error ? colors.red : colors.lightGray),
         },
-       
     },
     iconContainer: {
         width: "10%",
@@ -40,9 +39,9 @@ const useStyles = makeStyles({
         fontWeight: (props) => (props.fontWeight ? props.fontWeight : 400),
         color: (props) => (props.labelColor ? props.labelColor : colors.black),
         marginLeft: (props) => (props.labelMargin ? props.labelMargin : "initial"),
-        "@media(max-width:767px)":{
-            marginLeft:0
-        }
+        "@media(max-width:767px)": {
+            marginLeft: 0,
+        },
     },
     inputContainer: {
         width: "100%",
@@ -50,9 +49,7 @@ const useStyles = makeStyles({
     iconWrapper: {
         cursor: "pointer",
     },
-   
 })
-
 
 export const InputWithLabelIcon = ({
     externalclass,

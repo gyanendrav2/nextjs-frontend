@@ -1,8 +1,8 @@
 import React from "react"
 import { Box, makeStyles, Typography } from "@material-ui/core"
-import HeaderWrapper  from "../components/header/headerWrapper"
+import HeaderWrapper from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
-import  Footer  from "../components/footer"
+import Footer from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -23,7 +23,8 @@ const useStyles = makeStyles({
         fontFamily: "Forno-Trial",
         fontWeight: "900",
         fontSize: "3.125rem",
-        lineHeight: "2.5",
+        lineHeight: "3.625rem",
+        marginBottom: "2.5rem",
         "@media (max-width:767px)": {
             lineHeight: "1.25",
             marginTop: "4rem",
@@ -64,8 +65,8 @@ const Cookies = () => {
                         http://www.mysite.com (change this) (the &quot;Site&quot;). This page informs you of our
                         policies regarding the collection, use and disclosure of
                     </Typography>
-                    <Typography className={classes.update}>
-                        Personal Information we receive from users of the Site.{" "}
+                    <Typography style={{ marginBottom: "3rem" }} className={classes.update}>
+                        Personal Information we receive from users of the Site.
                     </Typography>
                     <Typography className={classes.update}>
                         We use your Personal Information only for providing and improving the Site. By using the Site,

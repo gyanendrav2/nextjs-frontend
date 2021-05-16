@@ -33,7 +33,7 @@ const useStyles = makeStyles({
     },
     projectButton: {
         height: "2.5rem",
-        marginBottom: "0.5rem",
+        // marginBottom: "0.5rem",
         marginRight: "0.5rem",
         marginLeft: 0,
         "@media (min-width:200px) and (max-width:475px)": {
@@ -66,7 +66,7 @@ const useStyles = makeStyles({
     },
     moreButton: {
         height: "2.5rem",
-        marginBottom: "0.5rem",
+        // marginBottom: "0.5rem",
         marginRight: "0.5rem",
         marginLeft: 0,
         "@media (min-width:476px) and (max-width:767px)": {
@@ -89,13 +89,12 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        paddingBottom: "0.5rem",
         position: "absolute",
         right: 0,
         "@media (max-width:475px)": {
             marginLeft: "auto",
             position: "relative",
-            padding:"1rem 0"
+            padding: "1rem 0",
         },
         "@media (max-width: 1094px)": {
             position: "relative",
