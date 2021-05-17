@@ -56,15 +56,8 @@ const useStyles = makeStyles({
         "@media (min-width:1920px)": {
             height: "75vh",
         },
-
-        // "@media (min-width:1600px)": {
-        //     paddingBottom: "56.25%",
-        // },
     },
     carouselImage: {
-        // position: "absolute",
-        // top: 0,
-        // left: 0,
         width: "100%",
         height: "100%",
         padding: "0 2.5rem 2.5rem 2rem",
@@ -111,11 +104,15 @@ const useStyles = makeStyles({
     headings: {
         color: colors.black,
         fontSize: "2rem",
-        marginTop: "1.5rem",
+        marginTop: "1.375rem",
         fontFamily: "Forno-Trial",
         fontWeight: "900",
         lineHeight: "2.75rem",
-        "@media (max-width:567px)": {
+        "@media (max-width:1024px)": {
+            marginTop: "2rem",
+
+        },
+        "@media (max-width:767px)": {
             fontSize: "1.875rem",
         },
     },
@@ -185,6 +182,20 @@ const useStyles = makeStyles({
             marginTop: "2rem",
         },
     },
+    projectAuthor: {
+        position:"absolute",
+        right:"2.5rem",
+        bottom:"4.25rem",
+        fontFamily: "Helvetica",
+        fontSize: "1rem",
+        lineHeight: "1.375rem",
+        color:colors.white,
+        opacity:"0.8"
+    },
+    projectAuthorTitle: {
+        textDecoration:"underline"
+
+    }
 })
 
 const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
@@ -295,6 +306,9 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => 
                                                         onClick={() => routes.push("/signup")}
                                                     />
                                                 </div>
+                                                <Typography className={classes.projectAuthor}>
+                                                    Work by: <span className={classes.projectAuthorTitle}>Jason Peterson</span>
+                                                </Typography>
                                             </div>
                                         </div>
                                     )

@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage }) => {
+export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage, creationCard }) => {
     const classes = useStyles()
 
     return (
@@ -77,7 +77,7 @@ export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPa
                     <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
                     <CustomButton
                         variant="dropdownButton"
-                        icon={<ArrowDownIcon />}
+                        icon={creationCard?"":<ArrowDownIcon />}
                         label={buttonText}
                         externalclass={classes.CreatorsButton}
                     />
@@ -96,6 +96,7 @@ CardWithHeader.defaultProps = {
     isProjectPage: false,
     title: "",
     subTitle: "",
+    creationCard:false
 }
 
 CardWithHeader.propTypes = {
@@ -104,4 +105,5 @@ CardWithHeader.propTypes = {
     subTitle: PropTypes.string,
     buttonText: PropTypes.string.isRequired,
     isProjectPage: PropTypes.bool,
+    creationCard:PropTypes.bool
 }

@@ -13,25 +13,27 @@ import { LocationIcon } from "../icons/locationIcon"
 const useStyles = makeStyles({
     wrapper: {
         border: `1px solid ${colors.lightGray}`,
-        padding: "1.5rem",
+        padding: "2rem",
         height: "100%",
         "@media (max-width:767px)": {
             border: "none",
             borderBottom: `1px solid ${colors.lightGray}`,
-        },
-        "@media (max-width:767px)": {
-            padding:"1rem 1.5rem",
+            padding: "1rem 1.5rem",
         },
     },
     avatar: {
         width: "5rem",
         height: "5rem",
+        "@media (max-width:767px)": {
+            width: "5.625rem",
+            height: "5.625rem",
+        },
     },
-    name:{
+    name: {
         fontFamily: "Helvetica",
         fontSize: "1.375rem",
         lineHeight: "2.125rem",
-        padding:"0.2rem 0",
+        padding: "0.2rem 0",
         "@media(max-width:767px)": {
             fontSize: "1rem",
             lineHeight: "1.375rem",
@@ -39,11 +41,17 @@ const useStyles = makeStyles({
     },
     profilePicContainer: {
         width: "6rem",
+        "@media (max-width:767px)": {
+            width: "6.5rem",
+        },
     },
     profileInfoContainer: {
         width: "calc(100% - 6rem) ",
         "& p": {
             cursor: "pointer",
+        },
+        "@media (max-width:767px)": {
+            width: "calc(100% - 6.5rem)",
         },
     },
     bioText: {
@@ -51,7 +59,7 @@ const useStyles = makeStyles({
         color: colors.black,
         fontSize: "1rem",
         lineHeight: "1.375rem",
-        fontFamily:"Helvetica",
+        fontFamily: "Helvetica",
         "& span": {
             textDecoration: "underline",
         },
@@ -64,7 +72,7 @@ const useStyles = makeStyles({
     },
     editfullWidthBtn: {
         width: "100%",
-        padding:"0"
+        padding: "0",
     },
     smallBtn: {
         width: "100%",
@@ -78,24 +86,24 @@ const useStyles = makeStyles({
         color: colors.lighterGray,
         fontSize: "1rem",
         lineHeight: "1.375rem",
-        padding:"0.2rem 0",
+        padding: "0.2rem 0",
         "@media(max-width:767px)": {
             fontSize: "0.875rem",
             lineHeight: "1rem",
         },
     },
-    position:{
+    position: {
         fontFamily: "Helvetica",
         fontSize: "0.875rem",
         lineHeight: "1rem",
-        padding:"0.2rem 0"
+        padding: "0.2rem 0",
     },
-    mobilemargin:{
+    mobilemargin: {
         "@media (max-width:410px)": {
-           marginLeft:"1.5rem",
-           display:"inline"
+            marginLeft: "1.5rem",
+            display: "inline",
         },
-    }
+    },
 })
 
 const UserProfileCard = ({
@@ -133,10 +141,16 @@ const UserProfileCard = ({
                     <Avatar className={classes.avatar} src={image} onClick={onClickProfile} />
                 </Box>
                 <Box className={classes.profileInfoContainer}>
-                    <Typography onClick={onClickProfile} className={classes.name}>{name}</Typography>
-                    <Typography className={classes.username} >{userName}</Typography>
+                    <Typography onClick={onClickProfile} className={classes.name}>
+                        {name}
+                    </Typography>
+                    <Typography className={classes.username}>{userName}</Typography>
                     <Typography className={classes.position}>
-                        {position} &nbsp;<span className={classes.mobilemargin}> <LocationIcon /> {location} </span>
+                        {position} &nbsp;
+                        <span className={classes.mobilemargin}>
+                            {" "}
+                            <LocationIcon /> {location}{" "}
+                        </span>
                     </Typography>
                 </Box>
             </Grid>
@@ -165,7 +179,11 @@ const UserProfileCard = ({
             ) : (
                 <Grid container>
                     <Grid item xs={12} sm={12} md={6} lg={12} xl={12}>
-                        <CustomButton label="Edit profile" externalclass={classes.editfullWidthBtn} onClick={handleRoute} />
+                        <CustomButton
+                            label="Edit profile"
+                            externalclass={classes.editfullWidthBtn}
+                            onClick={handleRoute}
+                        />
                     </Grid>
                 </Grid>
             )}

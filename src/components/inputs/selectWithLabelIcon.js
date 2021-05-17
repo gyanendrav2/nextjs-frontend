@@ -50,7 +50,7 @@ const useStyles = makeStyles({
         border: "none",
         outline: "none",
         padding: "0.625rem",
-        color: (props) => (props.color ? props.color : colors.black),
+        color: (props) => props.inputColor,
         borderRadius: "3px",
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         backgroundImage: `url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`,
@@ -159,9 +159,18 @@ const SelectWithLabelIcon = ({
     fontWeight,
     checkboxHoverStyle,
     placeholderColor,
+    inputColor,
     ...props
 }) => {
-    const classes = useStyles({ error: !!error, labelColor, bgcolor, fontWeight, checkboxHoverStyle, placeholderColor })
+    const classes = useStyles({
+        error: !!error,
+        labelColor,
+        bgcolor,
+        fontWeight,
+        checkboxHoverStyle,
+        placeholderColor,
+        inputColor,
+    })
     const [customShow, setCustomShow] = useState(false)
     const handleCustomChange = (data) => {
         customOnChange(data)
@@ -325,6 +334,7 @@ SelectWithLabelIcon.defaultProps = {
     checkboxHoverStyle: "",
     fontSize: "0.875rem",
     placeholderColor: colors.lighterGray,
+    inputColor: colors.black,
 }
 
 SelectWithLabelIcon.propTypes = {
@@ -351,6 +361,7 @@ SelectWithLabelIcon.propTypes = {
     checkboxHoverStyle: PropTypes.string,
     fontSize: PropTypes.string,
     placeholderColor: PropTypes.string,
+    inputColor: PropTypes.string,
 }
 
 export default SelectWithLabelIcon

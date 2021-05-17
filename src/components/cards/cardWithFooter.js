@@ -20,6 +20,7 @@ const useStyles = makeStyles({
         // cursor: "url('/images/cursor.svg'), auto",
     },
     cardImageContainer: {
+        cursor: "pointer",
         position: "relative",
         transition: "all 0.3s",
         "&::before": {
@@ -46,7 +47,7 @@ const useStyles = makeStyles({
         bottom: "1rem",
         left: "1rem",
         right: "1rem",
-        color: colors.white,
+        color: (props) => (props.isHovering ? colors.pink : colors.white),
         fontSize: "1rem",
         fontWeight: "500",
         zIndex: 5,

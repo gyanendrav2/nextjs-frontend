@@ -74,6 +74,7 @@ export const CreationCard = ({ curatedCreators }) => {
                                     title={data.name}
                                     subTitle={data.jobTitle}
                                     buttonText="Follow"
+                                    creationCard
                                 />
                             </Grid>
                         )

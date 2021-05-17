@@ -5,7 +5,8 @@ import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     followersCotainer: {
-        margin: "1rem 0",
+        margin: "1.5rem 0",
+        marginBottom: "1rem",
         "& p": {
             color: colors.lighterGray,
             marginRight: "1.5rem",

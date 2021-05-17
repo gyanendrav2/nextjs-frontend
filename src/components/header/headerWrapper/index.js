@@ -18,7 +18,7 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        zIndex: 2,
+        zIndex: 99,
         "@media (min-width:768px)": {
             display: "none",
         },

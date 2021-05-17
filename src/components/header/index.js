@@ -20,6 +20,9 @@ const useStyles = makeStyles({
         paddingLeft: gaps.laptop,
         paddingRight: gaps.laptop,
         justifyContent: "space-between",
+        top: 0,
+        left: 0,
+        right: 0,
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : "transparent"),
         // transition: "all 0.2s",
         "@media (max-width:1024px)": {
@@ -66,7 +69,7 @@ const useStyles = makeStyles({
 export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
     const classes = useStyles({ color, bgcolor })
     const router = useRouter()
-    console.log(router)
+    // console.log(router)
     const [hoveredActive, setHoverdActive] = useState(null)
     const [showProfilenavcard, setShowProfilenavcard] = useState(false)
 

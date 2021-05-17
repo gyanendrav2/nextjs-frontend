@@ -26,19 +26,9 @@ const EyeOpenIcon = dynamic(() => import("../components/icons/eyeOpenIcon"))
 const ReactPlayer = dynamic(() => import("react-player"))
 
 const useStyles = makeStyles({
-    wrapper: {
-        paddingTop: "7rem",
-        "@media (min-width:768px) and (max-width:1024px)": {
-            paddingTop: "5.5rem",
-        },
-        "@media (max-width:767px)": {
-            paddingTop: "3.5rem",
-            paddingLeft: 0,
-            paddingRight: 0,
-        },
-    },
+    wrapper: {},
     profileHeader: {
-        marginBottom: "1.5rem",
+        marginBottom: "3.5rem",
         "@media (max-width:1024px)": {
             flexDirection: "column-reverse",
             marginBottom: 0,
@@ -54,6 +44,10 @@ const useStyles = makeStyles({
     },
     category: {
         padding: "2rem 0",
+        paddingTop: 0,
+        "@media (max-width:1024px)": {
+            paddingTop: "2rem",
+        },
         "@media (max-width:767px)": {
             display: "none",
         },
@@ -90,35 +84,27 @@ const useStyles = makeStyles({
     },
 
     selectCategories: {
-        padding: "1.25rem 1rem",
+        paddingTop: "1.1rem",
         "@media (min-width:768px)": {
             display: "none",
         },
     },
-    cardContainer: {
-        "@media (max-width:767px)": {
-            paddingLeft: "1rem",
-            paddingRight: "1rem",
-        },
-    },
+    cardContainer: {},
     selectedCategoryStyles: {
         color: colors.red,
     },
     selectCategoryText: {
         display: "none",
         marginBottom: "1.25rem",
-        "@media (max-width:767px)": {
-            display: "block",
-            paddingLeft: "1rem",
-            paddingRight: "1rem",
-        },
     },
     userProfilecardStyles: {
-        // messageBoxStyles: {
-        //     marginRight: "1rem",
-        // },
-        "@media (max-width:575px)": {
+        "@media (max-width:767px)": {
             padding: "1rem!important",
+        },
+        "@media (min-width:768px) and (max-width:1024px)": {
+            marginLeft: "2rem",
+            marginRight: "2rem",
+            marginTop: "1rem",
         },
     },
     addCategoryButton: {
@@ -137,7 +123,6 @@ const useStyles = makeStyles({
         },
         "@media (max-width:767px)": {
             textAlign: "left",
-            paddingLeft: "1rem",
         },
     },
     hiddenCategory: {
@@ -162,6 +147,14 @@ const useStyles = makeStyles({
         },
         "@media(max-width:767px)": {
             height: "15.5rem!important",
+        },
+    },
+    videoWrapper: {
+        paddingTop: "7.5rem",
+        "@media (max-width:1024px)": {
+            paddingLeft: "0!important",
+            paddingRight: "0!important",
+            paddingTop: "3.5rem",
         },
     },
 })
@@ -269,36 +262,37 @@ const Profile = () => {
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
             </ModalComponent>
+            <ContentWrapper externalclass={classes.videoWrapper}>
+                <Grid container spacing={2} className={classes.profileHeader}>
+                    <Grid item xs={12} sm={12} md={12} lg={5} xl={5}>
+                        <UserProfileCard
+                            onClickProfile={handleInfo}
+                            onMsgBtnClick={handleMsg}
+                            image={images.brandon}
+                            name="Brandon Landing"
+                            userName="@veritas_z"
+                            followers="15"
+                            following="20"
+                            position="Director assistant, producer"
+                            location="USA, Ohio"
+                            bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
+                            externalclass={classes.userProfilecardStyles}
+                            ownProfile
+                        />
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={12} lg={7} xl={7} className={classes.videoStyles}>
+                        <ReactPlayer
+                            width="100%"
+                            height="100%"
+                            className={classes.player}
+                            controls
+                            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+                        />
+                    </Grid>
+                </Grid>
+            </ContentWrapper>
             <ContentWrapper externalclass={classes.wrapper}>
                 <>
-                    <Grid container spacing={2} className={classes.profileHeader}>
-                        <Grid item xs={12} sm={12} md={12} lg={5} xl={5}>
-                            <UserProfileCard
-                                onClickProfile={handleInfo}
-                                onMsgBtnClick={handleMsg}
-                                image={images.brandon}
-                                name="Brandon Landing"
-                                userName="@veritas_z"
-                                followers="15"
-                                following="20"
-                                position="Director assistant, producer"
-                                location="USA, Ohio"
-                                bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
-                                externalclass={classes.userProfilecardStyles}
-                                ownProfile
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={12} md={12} lg={7} xl={7} className={classes.videoStyles}>
-                            <ReactPlayer
-                                width="100%"
-                                height="100%"
-                                className={classes.player}
-                                controls
-                                url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-                            />
-                        </Grid>
-                    </Grid>
-
                     <Grid container alignItems="center" justify="flex-start" className={classes.category}>
                         {categories.map((item, i) => (
                             <Typography
@@ -327,12 +321,12 @@ const Profile = () => {
                         Add category section +
                     </Typography>
                     <Grid container spacing={2} className={classes.cardContainer}>
-                        <Grid item xs={12} sm={6} md={6} lg={3} xl={3} className={classes.adderContainer}>
+                        <Grid item xs={12} sm={12} md={6} lg={3} xl={3} className={classes.adderContainer}>
                             <Adder onAddClick={() => {}} />
                         </Grid>
                         {data.map((item, i) => {
                             return (
-                                <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                                <Grid item xs={12} sm={12} md={6} lg={3} key={i}>
                                     <CardWithFooter
                                         image={item.image}
                                         title={item.title}
@@ -352,7 +346,7 @@ const Profile = () => {
                         {hiddenCategory &&
                             hideData.map((item, i) => {
                                 return (
-                                    <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                                    <Grid item xs={12} sm={12} md={6} lg={3} key={i}>
                                         <CardWithFooter
                                             image={item.image}
                                             title={item.title}

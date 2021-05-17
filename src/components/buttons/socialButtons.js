@@ -6,17 +6,14 @@ import { icons } from "../../assets/icons"
 
 const useStyles = makeStyles({
     buttonContainer: {
-        marginBottom: "1rem",
+        marginBottom: "2.437rem",
         "& button": {
             marginRight: "1rem",
         },
     },
     socialButton: {
         minWidth: "2.5rem",
-        marginRight: "2rem",
-        "@media(max-width:767px)": {
         marginRight: "1rem",
-        },
         "@media(max-width:360px)": {
             marginBottom: "0rem",
         },
