@@ -6,9 +6,6 @@ const theme = createMuiTheme({
         fontFamily: "Helvetica",
         fontWeight: 300,
         fontStyle: "normal",
-        allVariants: {
-            color: colors.black,
-        },
         h2: {
             fontSize: "2.5rem",
             lineHeight: "3.25rem",
