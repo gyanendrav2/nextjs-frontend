@@ -12,13 +12,13 @@ const useStyles = makeStyles({
         color: colors.black,
         textDecoration: "underline",
         cursor: "pointer",
-        minWidth:"10rem"
+        minWidth: "10rem",
     },
     disableMember: {
         color: colors.lighterGray,
         pointerEvents: "none",
         textDecoration: "none",
-        minWidth:"10rem"
+        minWidth: "10rem",
     },
     teamImage: {
         borderRadius: "50%",
@@ -29,22 +29,21 @@ const useStyles = makeStyles({
     positionText: {
         color: colors.lighterGray,
         fontSize: "0.875rem",
-        "@media(max-Width:575px)":{
-            paddingLeft:"3rem"
-        }
+        "@media(max-Width:575px)": {
+            paddingLeft: "3rem",
+        },
     },
 })
 
 export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {
     const classes = useStyles()
     return (
-        <Grid container wrap="nowrap"  alignItems="center"
-        justify="center">
+        <Grid container wrap="nowrap" alignItems="center" justify="flex-start">
             <Grid
                 item
                 container
                 alignItems="center"
-                justify="center"
+                justify="flex-start"
                 xs={col1Size}
                 sm={12}
                 md={col1Size}

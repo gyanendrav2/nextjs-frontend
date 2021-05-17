@@ -8,9 +8,11 @@ import { MoreMemberModel } from "../project/moreMemberModel"
 
 const useStyles = makeStyles({
     profileWrapper: {
-        padding: "2.5rem 3rem 2.5rem 5rem",
+        padding: "1.875rem 3rem 2.5rem 5rem",
+        marginBottom: "6.937rem",
         "@media (max-width:1024px)": {
-            padding: "2.5rem 3rem 0rem 2rem",
+            padding: "1.875rem 3rem 0rem 2rem",
+            marginBottom: 0,
         },
         "@media (max-width:767px)": {
             padding: "1rem 0rem 0rem 1rem",
@@ -24,6 +26,10 @@ const useStyles = makeStyles({
         fontSize: "2.5rem",
         lineHeight: "3.25rem",
         maxWidth: "29rem",
+        marginBottom: "1.5rem",
+        "@media(max-width:1024px)": {
+            maxWidth: "100%",
+        },
         "@media (max-width:767px)": {
             fontSize: "2.187rem",
             lineHeight: "3.25rem",
@@ -36,20 +42,15 @@ const useStyles = makeStyles({
         fontSize: "1.375rem",
         lineHeight: "2.125rem",
         marginBottom: "0.5rem",
+        "@media (max-width:1024px)": {
+            marginTop: "2.5rem",
+        },
     },
     info: {
-        margin: "1rem 0",
         maxWidth: "100%",
-        "@media(max-width:1024px)": {
-            marginTop: "1rem",
-        },
     },
     infoYear: {
-        margin: "1rem 0",
         maxWidth: "100%",
-        "@media(max-width:1024px)": {
-            marginTop: "-1rem",
-        },
     },
     infoTextHead: {
         fontSize: "1.375rem",
@@ -57,7 +58,7 @@ const useStyles = makeStyles({
     },
     infoText: {
         color: colors.black,
-        margin: "0.1rem 0",
+        marginTop: "0.5rem",
     },
 
     teamWrapper: {
@@ -76,6 +77,9 @@ const useStyles = makeStyles({
     moreView: {
         position: "relative",
     },
+    underlineStyle: {
+        marginBottom: "1.5rem",
+    },
 })
 
 const VideoInfo = ({ teamMemberData }) => {
@@ -84,7 +88,7 @@ const VideoInfo = ({ teamMemberData }) => {
 
     return (
         <Grid container className={classes.profileWrapper}>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+            <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                 <Typography className={classes.bigTitle}>
                     SiR - Hair Down (Official Video) ft. Kendrick Lamar
                 </Typography>
@@ -105,7 +109,7 @@ const VideoInfo = ({ teamMemberData }) => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} sm={12} md={6} lg={6} xl={6} container className={classes.teamWrapper}>
+            <Grid item xs={12} sm={12} md={12} lg={6} xl={6} container className={classes.teamWrapper}>
                 <Typography className={classes.teamTitle}>Team</Typography>
                 {teamMemberData.slice(0, 5).map((item, i) => (
                     <UserProfileRow

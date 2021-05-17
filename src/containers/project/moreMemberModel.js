@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         flexDirection: "column",
         background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
         boxShadow: "0px 4px 100px rgba(0, 0, 0, 0.25)",
-        width: "34.625rem",
+        width: "100%",
         maxHeight: "26.5rem",
         overflowY: "auto",
         "@media(max-width:600px)": {

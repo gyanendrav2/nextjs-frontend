@@ -42,12 +42,12 @@ const useStyles = makeStyles({
     CreatorsAuthor: {
         display: " flex",
         alignItems: " center",
-        padding: "2.5rem 3rem 0rem 5rem",
+        padding: "1.75rem 3rem 0rem 5rem",
         "@media (max-width:1024px)": {
-            padding: "2.5rem 3rem 0rem 2rem",
+            padding: "1.75rem 3rem 0rem 2rem",
         },
         "@media (max-width:767px)": {
-            padding: "2.5rem 0rem 0rem 1rem",
+            padding: "1.75rem 0rem 0rem 1rem",
         },
     },
     image: {
@@ -133,13 +133,17 @@ const useStyles = makeStyles({
         },
     },
     contentWrapperWhiteBg: {
-        padding: "8rem 10rem",
+        maxWidth: "27.5rem",
+        padding: "8rem 0",
         color: colors.black,
+        margin: "auto",
         "@media (min-width:576px) and (max-width:1024px)": {
             padding: "6rem 2rem 6rem 2rem!important",
+            maxWidth: "100%",
         },
         "@media (max-width:575px)": {
             padding: "2.5rem 1rem 2.5rem 1rem!important",
+            maxWidth: "100%",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -221,10 +225,20 @@ const Project = () => {
                 </Grid>
                 <VideoInfo teamMemberData={teamMemberData} />
                 <Grid container>
-                    <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
+                    <Grid item xs={12} sm={12} md={12} lg={5} xl={5}>
                         <img src={images.hypebeast} className={classes.fitSizeImg} alt="" />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={7} lg={7} xl={7} className={classes.darkBg}>
+                    <Grid
+                        item
+                        container
+                        alignItems="center"
+                        justify="center"
+                        xs={12}
+                        sm={12}
+                        md={12}
+                        lg={7}
+                        xl={7}
+                        className={classes.darkBg}>
                         <Box className={classes.contentWrapper}>
                             <Typography variant="h3">Making of</Typography>
                             <Typography>
@@ -236,7 +250,17 @@ const Project = () => {
                     </Grid>
                 </Grid>
                 <Grid container>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.whiteBg}>
+                    <Grid
+                        item
+                        container
+                        alignItems="center"
+                        justify="center"
+                        xs={12}
+                        sm={12}
+                        md={12}
+                        lg={6}
+                        xl={6}
+                        className={classes.whiteBg}>
                         <Box className={classes.contentWrapperWhiteBg}>
                             <Typography variant="h3">Behind the scenes</Typography>
                             <Typography>
@@ -246,7 +270,7 @@ const Project = () => {
                             </Typography>
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Grid item xs={12} sm={12} md={12} lg={6} xl={6}>
                         <img src={images.maskGroup} className={classes.whiteBgImgFit} alt="" />
                     </Grid>
                 </Grid>
