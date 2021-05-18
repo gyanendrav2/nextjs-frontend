@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        padding: "7rem",
+        padding: "8.97rem",
         justifyContent: "center",
         alignItems: "flex-start",
         height: "100vh",
@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     formWrapper: {
         width: "100%!important",
         marginTop: "7rem",
+        paddingTop:"4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
             marginTop: "3rem",
@@ -95,6 +96,7 @@ const ResetPasswordForm = () => {
                     <InputWithLabelIcon
                         name="code"
                         placeholder="Confirmation code"
+                        placeholderColor={colors.lighterGray}
                         externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.code}
@@ -102,6 +104,7 @@ const ResetPasswordForm = () => {
                     <InputWithLabelIcon
                         name="email"
                         placeholder="Email"
+                        placeholderColor={colors.lighterGray}
                         externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.email}
@@ -109,6 +112,7 @@ const ResetPasswordForm = () => {
                     <InputWithLabelIcon
                         name="password"
                         placeholder="New password"
+                        placeholderColor={colors.lighterGray}
                         externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.password}
@@ -119,6 +123,7 @@ const ResetPasswordForm = () => {
                     <InputWithLabelIcon
                         name="confirmpassword"
                         placeholder="Confirmation new password"
+                        placeholderColor={colors.lighterGray}
                         externalclass={classes.inputStyles}
                         inputRegister={register}
                         errorMsg={errors.confirmpassword}

@@ -33,7 +33,7 @@ const useStyles = makeStyles({
         },
     },
     footer: {
-        marginTop: 0,
+        marginTop: "0!important",
     },
 })
 

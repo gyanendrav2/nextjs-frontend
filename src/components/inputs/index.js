@@ -18,15 +18,15 @@ const useStyles = makeStyles({
             border: "none",
             fontFamily: "Helvetica",
             "&::placeholder": {
-                color: colors.black,
+                color: (props) => props.placeholderColor?props.placeholderColor:colors.black,
                 fontSize: "1rem",
             },
         },
     },
 })
 
-export const Input = ({ inputRegister, error, inputName, externalclass, ...rest }) => {
-    const classes = useStyles({ error: !!error })
+export const Input = ({ inputRegister, error, inputName, externalclass, placeholderColor, ...rest }) => {
+    const classes = useStyles({ error: !!error, placeholderColor })
     return (
         <Box className={classes.wrapper}>
             <input

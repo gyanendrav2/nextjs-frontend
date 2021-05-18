@@ -71,7 +71,7 @@ const useStyles = makeStyles({
     },
     report: {
         marginTop: "3.5rem",
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.lighterPrimary+"!important",
         paddingTop: "1.812rem",
         paddingBottom: "1.812rem",
         "& p": {

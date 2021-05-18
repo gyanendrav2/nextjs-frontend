@@ -92,12 +92,13 @@ const useStyles = makeStyles({
 
     fitSizeImg: {
         width: "100%",
-        height: "100%",
-        objectFit: "cover",
-        maxWidth: " 100%",
+         height: "100%",
+         objectFit: "cover",  
+        maxWidth:" 100%",
         // "@media(max-width:767px)":{
         //     height:"453px"
         // }
+
     },
     whiteBgImgFit: {
         width: "100%",
@@ -111,7 +112,7 @@ const useStyles = makeStyles({
             padding: "6rem 2rem 6rem 2rem!important",
         },
         "@media (max-width:767px)": {
-            padding: "2.5rem 0.5rem 2.5rem 1rem!important",
+            padding: "3.5rem 0.5rem 2.5rem 1rem!important",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -189,20 +190,15 @@ const useStyles = makeStyles({
     },
     reportContentwrapper: {
         marginTop: "9.5rem",
-        padding: "1rem",
+        padding:"1rem",
         "& div": {
             margin: 0,
         },
         "@media (max-width:1024px)": {
-            padding: "1rem 1rem",
+            padding:"1rem 1rem",
         },
         "@media (max-width:767px)": {
-            padding: "1rem",
-            "& div": {
-                margin: 0,
-                paddingLeft: 0,
-                paddingRight: 0,
-            },
+            padding:"1rem 0",
         },
     },
     footer: {
@@ -211,11 +207,11 @@ const useStyles = makeStyles({
     // makingHead:{
     //     marginBottom:"1rem"
     // }
-    behindhead: {
+    behindhead:{
         "@media (max-width:767px)": {
-            marginBottom: "2rem!important",
+            marginBottom:"1.5rem!important"
         },
-    },
+    }
 })
 
 const Project = () => {
@@ -267,9 +263,7 @@ const Project = () => {
                         xl={7}
                         className={classes.darkBg}>
                         <Box className={classes.contentWrapper}>
-                            <Typography variant="h3" className={classes.makingHead}>
-                                Making of
-                            </Typography>
+                            <Typography variant="h3" className={classes.makingHead}>Making of</Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown
@@ -291,9 +285,7 @@ const Project = () => {
                         xl={6}
                         className={classes.whiteBg}>
                         <Box className={classes.contentWrapperWhiteBg}>
-                            <Typography variant="h3" className={classes.behindhead}>
-                                Behind the scenes
-                            </Typography>
+                            <Typography variant="h3" className={classes.behindhead}>Behind the scenes</Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown

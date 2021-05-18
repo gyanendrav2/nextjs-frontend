@@ -4,7 +4,6 @@ import classnames from "classnames"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
 import dynamic from "next/dynamic"
-import { ColorizeSharp } from "@material-ui/icons"
 
 const Footer = dynamic(() => import("../components/footer"))
 const MessageBox = dynamic(() => import("../containers/profile/messageBox"))
@@ -69,7 +68,7 @@ const useStyles = makeStyles({
     },
     report: {
         marginTop: "3.5rem",
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.lighterPrimary,
         paddingTop: "1.812rem",
         paddingBottom: "1.812rem",
         "& p": {
@@ -169,10 +168,10 @@ const Profile = () => {
     return (
         <>
             <HeaderWrapper isScrollDetect={false} />
-            <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
+            <ModalComponent padding="0" openOrNot={openInfo} onClose={handleInfo}>
                 <UserInfo handleMsgClick={handleMsgClick} />
             </ModalComponent>
-            <ModalComponent openOrNot={openMsg} onClose={handleMsg}>
+            <ModalComponent padding="0" openOrNot={openMsg} onClose={handleMsg}>
                 <MessageBox />
             </ModalComponent>
             <ContentWrapper externalclass={classes.wrapper}>

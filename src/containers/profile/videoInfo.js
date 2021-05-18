@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import { useRouter } from "next/router"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../theme/colors"
 import { UserProfileRow } from "../../components/cards/userProfileRow"
 import { MoreMemberModel } from "../project/moreMemberModel"
-import { useRouter } from "next/router"
 
 const useStyles = makeStyles({
     profileWrapper: {
@@ -63,7 +63,6 @@ const useStyles = makeStyles({
         "@media (max-width:767px)": {
             marginTop: "1rem",
         },
-
     },
     infoTextHead: {
         fontSize: "1.375rem",
@@ -93,7 +92,7 @@ const useStyles = makeStyles({
     underlineStyle: {
         marginBottom: "1.5rem",
         textDecoration: "underline",
-        cursor:"pointer",
+        cursor: "pointer",
     },
 })
 
@@ -102,7 +101,7 @@ const VideoInfo = ({ teamMemberData }) => {
     const [maxShow, setMaxShow] = useState(false)
     const routes = useRouter()
 
-    const handleRoute = () =>{
+    const handleRoute = () => {
         routes.push("/categories")
     }
 
@@ -115,7 +114,9 @@ const VideoInfo = ({ teamMemberData }) => {
                 <Grid container>
                     <Grid item className={classes.info} xs={12} sm={12} md={6} lg={6}>
                         <Typography className={classes.infoTextHead}>Category:</Typography>
-                        <Typography className={classnames(classes.underlineStyle, classes.infoText)} onClick={handleRoute}>
+                        <Typography
+                            className={classnames(classes.underlineStyle, classes.infoText)}
+                            onClick={handleRoute}>
                             Directing
                         </Typography>
                         <Grid className={classes.info} item xs={12} sm={12} md={6} lg={6}>

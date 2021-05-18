@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        padding: "7rem",
+        padding: "8.937rem",
         justifyContent: "center",
         alignItems: "flex-start",
         height: "100vh",
@@ -42,6 +42,7 @@ const useStyles = makeStyles({
     },
     formWrapper: {
         width: "100%",
+        paddingTop:"4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
         },
@@ -138,6 +139,7 @@ const SigninForm = () => {
                         inputRegister={register}
                         name="email"
                         placeholder="Email"
+                        placeholderColor={colors.lighterGray}
                         errorMsg={errors.email}
                         externalclass={classes.inputStyles}
                     />
@@ -146,6 +148,7 @@ const SigninForm = () => {
                         inputRegister={register}
                         name="password"
                         placeholder="Password"
+                        placeholderColor={colors.lighterGray}
                         errorMsg={errors.password}
                         type={hideShowPassword ? "text" : "password"}
                         icon={hideShowPassword ? <EyeOpenIcon /> : <EyeClosedIcon />}

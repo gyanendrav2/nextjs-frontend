@@ -24,7 +24,7 @@ export const useStyles = makeStyles({
             width: "100%",
             alignItems: "center!important",
         },
-        "@media(max-width:600px)": {
+        "@media(max-width:767px)": {
             display: "none!important",
         },
     },
@@ -37,11 +37,11 @@ export const useStyles = makeStyles({
         },
     },
     spec: {
-        marginRight: " 6rem",
+        marginRight: "3rem",
         cursor: "pointer",
         color: colors.white,
         "@media (min-width:576px) and (max-width:781px)": {
-            marginLeft: "1.5rem",
+            marginLeft: "3.75rem",
             marginRight: "1rem",
         },
     },
@@ -66,7 +66,7 @@ export const useStyles = makeStyles({
     footerImage: {
         display: "flex",
         "@media(min-width:576px) and (max-width:781px)": {
-            marginBottom: "2rem",
+            marginBottom: "3rem",
         },
     },
     copyRightcontainer: {
@@ -79,7 +79,6 @@ export const useStyles = makeStyles({
             alignItems: "flex-start",
             justifyContent: "flex-start",
             flexDirection: "column-reverse",
-            // marginLeft: "0.5rem",
         },
     },
     aboutusContainer: {
@@ -91,7 +90,6 @@ export const useStyles = makeStyles({
         "@media (min-width:576px) and (max-width:781px)": {
             paddingBottom: "1rem",
             marginLeft: "-2.7rem",
-            marginTop: "1rem",
             alignItems: "flex-start",
             justifyContent: "flex-start",
         },
@@ -110,6 +108,7 @@ export const useStyles = makeStyles({
         "@media (min-width:576px) and (max-width:781px)": {
             marginLeft: "0.5rem",
             minWidth: "10rem",
+            transform: "translateY(15px)",
         },
     },
     copyrightIcon: {

@@ -60,12 +60,12 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         lineHeight: "1.375rem",
         fontFamily: "Helvetica",
-        maxWidth:"30.687rem",
+        maxWidth: "30.687rem",
         "& span": {
             textDecoration: "underline",
         },
         "@media (max-width:1024px)": {
-            maxWidth:"30.687rem",
+            maxWidth: "30.687rem",
         },
     },
     fullWidthBtn: {
@@ -93,7 +93,6 @@ const useStyles = makeStyles({
         padding: "0.2rem 0",
         "@media(max-width:767px)": {
             fontSize: "0.875rem",
-            lineHeight: "1rem",
         },
     },
     position: {
@@ -102,15 +101,15 @@ const useStyles = makeStyles({
         lineHeight: "1rem",
         padding: "0.2rem 0",
     },
-    mobilemargin: {
-        "@media (max-width:410px)": {
-            marginLeft: "1.5rem",
-            display: "inline",
+    buttonContainer: {
+        maxWidth: "30.687rem",
+    },
+    locPostion: {
+        "@media (max-width:767px)": {
+            display: "block",
+            marginBottom: "0.5rem",
         },
     },
-    buttonContainer:{
-        maxWidth:"30.687rem",
-    }
 })
 
 const UserProfileCard = ({
@@ -152,13 +151,12 @@ const UserProfileCard = ({
                         {name}
                     </Typography>
                     <Typography className={classes.username}>{userName}</Typography>
-                    <Typography className={classes.position}>
-                        {position} &nbsp;
-                        <span className={classes.mobilemargin}>
-                            {" "}
-                            <LocationIcon /> {location}{" "}
+                    <Box className={classes.position}>
+                        <span className={classes.locPostion}>{position}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <span>
+                            <LocationIcon /> {location}
                         </span>
-                    </Typography>
+                    </Box>
                 </Box>
             </Grid>
             <FollowingFollwers followers={followers} following={following} />

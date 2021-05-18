@@ -63,6 +63,7 @@ export const InputWithLabelIcon = ({
     iconOnClick,
     labelMargin,
     hideErrorMsg,
+    placeholderColor,
     ...props
 }) => {
     const classes = useStyles({ error: !!errorMsg.message, labelColor, fontWeight, labelMargin, hideErrorMsg })
@@ -78,7 +79,7 @@ export const InputWithLabelIcon = ({
                 tabIndex="0"
                 className={classnames(classes.wrapper, externalclass)}>
                 <Box className={classes.inputContainer}>
-                    <Input error={!!errorMsg.message} inputRegister={inputRegister} inputName={name} {...props} />
+                    <Input error={!!errorMsg.message} inputRegister={inputRegister} inputName={name} {...props} placeholderColor={placeholderColor} />
                 </Box>
                 <Grid container alignItems="center" justify="center" className={classes.iconContainer}>
                     <Box onClick={iconOnClick} className={classes.iconWrapper}>
@@ -109,6 +110,7 @@ InputWithLabelIcon.defaultProps = {
     iconOnClick: () => {},
     labelMargin: "",
     hideErrorMsg: false,
+    placeholderColor:colors.black
 }
 
 InputWithLabelIcon.propTypes = {
@@ -120,6 +122,7 @@ InputWithLabelIcon.propTypes = {
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    placeholderColor:PropTypes.oneOf([PropTypes.string, PropTypes.object]),
     inputRegister: PropTypes.func,
     name: PropTypes.string,
     errorMsg: PropTypes.shape({ message: PropTypes.string }),

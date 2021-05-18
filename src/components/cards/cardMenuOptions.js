@@ -16,6 +16,7 @@ const useStyles = makeStyles({
         padding: "1rem",
         background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
         boxShadow: "0px 4px 100px rgba(0, 0, 0, 0.25)",
+        zIndex: 20,
     },
     option: {
         marginBottom: "1.5rem",

@@ -85,7 +85,7 @@ const useStyles = makeStyles({
         position: "absolute",
         top: "1rem",
         right: "1rem",
-        zIndex: 1,
+        zIndex: 20,
         display: "none",
     },
     moreVertButton: {

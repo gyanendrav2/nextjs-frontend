@@ -29,11 +29,42 @@ const useStyles = makeStyles({
         margin: "2rem 0",
     },
     username: {
-        color: colors.lightGray,
+        color: colors.lighterGray,
         fontSize: "1.375rem",
+        marginBottom: "1rem",
+        "@media(max-width:767px)": {
+            textAlign: "center",
+        },
     },
     name: {
         fontSize: "2.5rem",
+        "@media(max-width:767px)": {
+            fontSize: "2.187rem",
+            textAlign: "center",
+        },
+    },
+    position: {
+        fontSize: "1rem",
+        "@media(max-width:767px)": {
+            textAlign: "center",
+        },
+    },
+    followStyles: {
+        "@media(max-width:767px)": {
+            textAlign: "center",
+            width: "100%",
+            justifyContent: "center",
+        },
+    },
+    buttonWrapper: {
+        "@media (max-width:767px)": {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            "& button": {
+                width: "100%",
+            },
+        },
     },
 })
 
@@ -51,7 +82,8 @@ const UserInfo = ({ handleMsgClick }) => {
                             Brandon Landing
                         </Typography>
                         <Typography className={classes.username}>@veritas_z</Typography>
-                        <FollowingFollwers followers="15" following="15" />
+                        <Typography className={classes.position}>Director, assistant</Typography>
+                        <FollowingFollwers followers="15" following="15" externalclass={classes.followStyles} />
                         <Box className={classes.buttonWrapper}>
                             <CustomButton label="Message me" externalclass={classes.msgbtn} onClick={handleMsgClick} />
                             <CustomButton

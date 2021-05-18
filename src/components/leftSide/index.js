@@ -15,7 +15,6 @@ const useStyles = makeStyles({
         width: "100%",
     },
     titleWrapper: {
-        marginLeft: "-0.4rem",
         marginTop: "5.5rem",
     },
     title: {
@@ -47,6 +46,7 @@ const useStyles = makeStyles({
         alignItems: "center",
     },
     checkBoxStyles: {
+        fontSize: "1rem",
         "&.MuiIconButton-root": {
             "&:hover": {
                 backgroundColor: "unset",
@@ -58,8 +58,10 @@ const useStyles = makeStyles({
             },
         },
     },
+
     checkboxText: {
         fontSize: "0.9rem",
+        marginLeft: "1rem",
     },
 })
 

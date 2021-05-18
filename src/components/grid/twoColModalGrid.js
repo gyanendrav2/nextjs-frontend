@@ -5,13 +5,16 @@ import { Box, Grid, makeStyles } from "@material-ui/core"
 const useStyles = makeStyles({
     wrapper: {
         maxHeight: "90vh",
+        overflowY: "auto",
+        overflowX: "hidden",
+        padding: "1.25rem",
     },
     col1: {
         width: "18rem",
         position: "relative",
         "@media (max-width:767px)": {
             width: "100%",
-            margin: props => props.UserInfoMargin? props.UserInfoMargin:"2rem",
+            margin: (props) => (props.UserInfoMargin ? props.UserInfoMargin : "2rem"),
         },
     },
 
@@ -24,7 +27,7 @@ const useStyles = makeStyles({
 })
 
 export const TwoColModalGrid = ({ col1Children, col2Children, UserInfoMargin }) => {
-    const classes = useStyles({UserInfoMargin})
+    const classes = useStyles({ UserInfoMargin })
     return (
         <Grid container className={classes.wrapper}>
             <Box className={classes.col1}>{col1Children}</Box>
@@ -32,14 +35,12 @@ export const TwoColModalGrid = ({ col1Children, col2Children, UserInfoMargin }) 
         </Grid>
     )
 }
-TwoColModalGrid.defaultProps ={
-    UserInfoMargin:""
+TwoColModalGrid.defaultProps = {
+    UserInfoMargin: "",
 }
-
-
 
 TwoColModalGrid.propTypes = {
     col1Children: PropTypes.element.isRequired,
     col2Children: PropTypes.element.isRequired,
-    UserInfoMargin:PropTypes.string
+    UserInfoMargin: PropTypes.string,
 }

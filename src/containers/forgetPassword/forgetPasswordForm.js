@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        padding: "7rem",
+        padding: "8.97rem",
         justifyContent: "center",
         alignItems: "flex-start",
         height: "100vh",
@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     },
     formWrapper: {
         width: "100%",
+        paddingTop:"4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
         },

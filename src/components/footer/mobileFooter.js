@@ -10,7 +10,7 @@ import { icons } from "../../assets/icons"
 const useStyles = makeStyles({
     mobilefooterWrapper: {
         display: "none",
-        "@media (max-width:600px)": {
+        "@media (max-width:767px)": {
             height: "16.375rem",
             marginTop: "2.5rem",
             width: "100%",

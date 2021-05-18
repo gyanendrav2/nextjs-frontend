@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
+import classnames from "classnames"
 import { Grid, makeStyles, Typography } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     followersCotainer: {
-        margin: "1.5rem 0",
-        marginBottom: "1rem",
+        margin: "1rem 0 2rem 0",
         "& p": {
             color: colors.lighterGray,
             marginRight: "1.5rem",
@@ -18,10 +18,14 @@ const useStyles = makeStyles({
     },
 })
 
-export const FollowingFollwers = ({ following, followers }) => {
+export const FollowingFollwers = ({ following, followers, externalclass }) => {
     const classes = useStyles()
     return (
-        <Grid container alignItems="center" justify="flex-start" className={classes.followersCotainer}>
+        <Grid
+            container
+            alignItems="center"
+            justify="flex-start"
+            className={classnames(classes.followersCotainer, externalclass)}>
             <Typography>
                 <span>{following}</span> following
             </Typography>
@@ -32,7 +36,12 @@ export const FollowingFollwers = ({ following, followers }) => {
     )
 }
 
+FollowingFollwers.defaultProps = {
+    externalclass: "",
+}
+
 FollowingFollwers.propTypes = {
     following: PropTypes.string.isRequired,
     followers: PropTypes.string.isRequired,
+    externalclass: PropTypes.string,
 }

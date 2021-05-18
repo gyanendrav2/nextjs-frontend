@@ -25,7 +25,7 @@ const useStyles = makeStyles({
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        padding: "7rem",
+        padding: "8.937rem",
         justifyContent: "center",
         alignItems: "flex-start",
         height: "100vh",
@@ -40,6 +40,7 @@ const useStyles = makeStyles({
     },
     formWrapper: {
         width: "100%",
+        paddingTop:"4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
         },
@@ -142,6 +143,7 @@ const SignupForm = () => {
                 <form onSubmit={handleSubmit(submit)}>
                     <InputWithLabelIcon
                         placeholder="Username"
+                        placeholderColor ={colors.lighterGray}
                         name="username"
                         inputRegister={register}
                         errorMsg={errors.username}
@@ -149,6 +151,7 @@ const SignupForm = () => {
                     />
                     <InputWithLabelIcon
                         placeholder="Email address"
+                        placeholderColor ={colors.lighterGray}
                         name="email"
                         inputRegister={register}
                         errorMsg={errors.email}
@@ -156,6 +159,7 @@ const SignupForm = () => {
                     />
                     <InputWithLabelIcon
                         placeholder="Password"
+                        placeholderColor ={colors.lighterGray}
                         name="password"
                         inputRegister={register}
                         errorMsg={errors.password}

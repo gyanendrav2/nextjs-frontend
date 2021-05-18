@@ -135,7 +135,7 @@ export const FeedUserProfileCard = ({
                                 <Avatar className={classes.avatar} src={image} />
                             </Grid>
                             <Grid item className={classes.textInfoContainer} xs={12} sm={12} md={9} lg={9} xl={9}>
-                                <Typography onClick={onClickProfile} className={classes.name} >
+                                <Typography onClick={onClickProfile} className={classes.name}>
                                     {name}
                                 </Typography>
                                 <Typography className={classes.position}>{position}</Typography>
