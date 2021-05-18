@@ -24,6 +24,7 @@ const useStyles = makeStyles({
         left: 0,
         bottom: 0,
         transition: "all 1s",
+        // scrollbarColor:colors.black,
         "@media (max-width: 767px)": {
             padding: "1rem",
             paddingTop: 0,
@@ -70,11 +71,13 @@ const useStyles = makeStyles({
     },
     infoContainer: {
         backgroundColor: colors.white,
-        padding: "1rem",
+        padding: "2rem",
         marginTop: "-5px",
         paddingBottom: "5rem",
         "@media (max-width: 767px)": {
             paddingBottom: "2rem",
+            marginTop: "4rem",
+            padding: "2rem 1rem",
         },
     },
 
@@ -93,6 +96,8 @@ const useStyles = makeStyles({
     },
     closeIcon: {
         cursor: "pointer",
+        // height:"1.185rem",
+        // width:"1.185rem"
     },
     header: {
         backgroundColor: colors.black,
@@ -100,9 +105,14 @@ const useStyles = makeStyles({
         top: 0,
         padding: "1rem 0",
         zIndex: 1,
+        "@media(min-width:768px) and (max-width:1024px)":{
+            display:"flex",
+            alignItems:"Center"
+        }
     },
     underlineStyle: {
         textDecoration: "underline",
+        cursor:"pointer"
     },
     fullProjectButton: {
         textAlign: "end",
@@ -113,7 +123,7 @@ const useStyles = makeStyles({
     },
     info: {
         "@media(max-width:1024px)": {
-            marginBottom: "1rem",
+            marginBottom: "1.5rem",
         },
     },
     dialogreportcontent: {
@@ -134,6 +144,7 @@ const useStyles = makeStyles({
     videoStyles: {
         width: "100%",
         height: "100%",
+        minHeight: "228px",
         position: "absolute",
         top: 0,
         left: 0,
@@ -165,6 +176,10 @@ const useStyles = makeStyles({
 export const QuickViewDailog = ({ closeModal }) => {
     const classes = useStyles()
     const routes = useRouter()
+
+    const handleRouting = () =>{
+        routes.push("/categories")
+    }
     return (
         <Box className={classes.wrapper}>
             <Grid container alignItems="flex-start" justify="space-between" wrap="nowrap" className={classes.header}>
@@ -210,19 +225,19 @@ export const QuickViewDailog = ({ closeModal }) => {
 
             {/* <img  objectFit: "cover"  src={images.brandon} alt="" /> */}
             <Grid container className={classes.infoContainer}>
-                <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
+                <Grid className={classes.info} item xs={12} sm={4} md={4} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Category:</Typography>
-                    <Typography className={classnames(classes.underlineStyle, classes.infoText)}>Directing</Typography>
+                    <Typography className={classnames(classes.underlineStyle, classes.infoText)} onClick={handleRouting}>Directing</Typography>
                 </Grid>
-                <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
+                <Grid className={classes.info} item xs={12} sm={4} md={4} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Year</Typography>
                     <Typography className={classes.infoText}>2019</Typography>
                 </Grid>
-                <Grid className={classes.info} item xs={12} sm={4} md={3} lg={3} xl={3}>
+                <Grid className={classes.info} item xs={12} sm={4} md={4} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Client:</Typography>
                     <Typography className={classes.infoText}>SiR, Top Dog Entertainment</Typography>
                 </Grid>
-                <Grid item className={classes.fullProjectButton} xs={12} sm={4} md={3} lg={3} xl={3}>
+                <Grid item className={classes.fullProjectButton} xs={12} sm={4} md={4} lg={3} xl={3}>
                     <CustomButton
                         label="See full project"
                         onClick={() => routes.push("/project")}

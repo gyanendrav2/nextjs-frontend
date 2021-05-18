@@ -11,6 +11,8 @@ const useStyles = makeStyles({
         position: "fixed",
         bottom: "2.5rem",
         right: "2.5rem",
+        display:"flex",
+        flexDirection:"column",
         zIndex: 9,
         maxWidth: "27.5rem",
         padding: "1.5rem",
@@ -19,12 +21,14 @@ const useStyles = makeStyles({
     },
     cookieButton: {
         backgroundColor: colors.black,
-        border: `1px solid ${colors.pink}`,
-        height: "1.375rem",
-        padding: "1rem 1.5rem",
-        marginTop: "1.4rem",
+        border: `2px solid ${colors.pink}`,
+        height: "2.5rem",
+        // padding: "1rem 1.5rem",
+        marginTop: "1rem",
+        cursor:"pointer",
+        width:"9.75rem",
         "&:hover": {
-            backgroundColor: colors.white,
+            backgroundColor: colors.pink,
             color: colors.black,
         },
     },
@@ -32,8 +36,9 @@ const useStyles = makeStyles({
         color: colors.white,
         fontSize: "0.75rem",
         lineHeight: "1.25rem",
-        marginTop: "1rem",
+        marginTop: "0.9rem",
         fontFamily: "Campton Light",
+        fontWeight:"400",
     },
     cookiesPage: {
         cursor: "pointer",
@@ -55,7 +60,9 @@ export const CookieCard = () => {
     return (
         <>
             <Box className={classes.wrapper}>
+                <Box style={{display:"block"}}>
                 <CookieIcon />
+                </Box>
                 <Typography component="span" className={classes.title}>
                     Pxl may use cookies, web beacons, tracking pixels, and other tracking technologies when you visit
                     our website to help customize the Site and improve your experience. Read more about cookies and

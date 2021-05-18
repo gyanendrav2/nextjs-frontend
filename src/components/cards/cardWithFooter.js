@@ -30,7 +30,7 @@ const useStyles = makeStyles({
             background:
                 "linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0.8) 16.56%, rgba(0, 0, 0, 0.4) 32.46%, rgba(0, 0, 0, 0.2) 46.94%, rgba(0, 0, 0, 0) 100%)",
             position: "absolute",
-            zIndex: 1,
+             zIndex: 1,
         },
     },
     projectImage: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles({
         color: (props) => (props.isHovering ? colors.pink : colors.white),
         fontSize: "1rem",
         fontWeight: "500",
-        zIndex: 5,
+        zIndex: 2,
     },
     roundImage: {
         borderRadius: "50%",

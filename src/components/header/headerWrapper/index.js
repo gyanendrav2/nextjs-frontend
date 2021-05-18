@@ -19,18 +19,22 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "space-between",
         zIndex: 99,
+        height:"73px",
+        // "@media(min-width:768px) and (max-width:1024px)":{   
+        // height:"80px"
+        // },
         "@media (min-width:768px)": {
             display: "none",
         },
     },
     mobileLogo: {
-        width: "3rem",
+        width: "4rem",
+        height:"2.562rem",
         marginLeft: "1rem",
     },
     menuIcon: {
         fontSize: "2rem",
         color: (props) => (props.mobileMenuIconColor ? props.mobileMenuIconColor : colors.white),
-        // color: colors.white,
     },
 })
 

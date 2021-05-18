@@ -14,7 +14,7 @@ const useStyles = makeStyles({
             fontWeight: 400,
             backgroundColor: colors.white,
             color: colors.black,
-            padding: "0.5rem 1.125rem",
+            padding: "0.625rem",
             border: "none",
             fontFamily: "Helvetica",
             "&::placeholder": {

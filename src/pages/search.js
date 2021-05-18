@@ -6,7 +6,7 @@ import { colors } from "../theme/colors"
 import { SearchBox } from "../containers/search/searchBox"
 // import { CardWithHeader } from "../components/cards/cardWithHeader"
 import { images } from "../assets/images"
-import ContentWrapper  from "../components/contentWrapper/contentWrapper"
+import ContentWrapper from "../components/contentWrapper/contentWrapper"
 import dynamic from "next/dynamic"
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const CardWithFooter = dynamic(() => import("../components/cards/cardWithFooter"))
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         flexDirection: "column",
         backgroundColor: colors.white,
         "@media(max-width:767px)": {
-            padding: "6rem 2rem 1.5rem 2rem",
+            padding: "4.5rem 2rem 0rem 2rem",
         },
     },
     title: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
         textAlign: "center",
         color: colors.black,
         fontSize: "3.125rem",
-        lineHeight: "2.625",
+        margin: "2.5rem auto 2rem auto",
         animation: "fadeIn 1s",
         "@media(max-width:767px)": {
             fontSize: "2.5rem",
@@ -83,11 +83,12 @@ const Search = () => {
             <ContentWrapper>
                 <Grid container spacing={2}>
                     {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, i) => (
-                        <Grid key={i} item xs={12} sm={6} md={4} lg={3} xl={3}>
+                        <Grid key={i} item xs={12} sm={6} md={6} lg={3} xl={3}>
                             <CardWithFooter
                                 image={images.brandon}
                                 footerTitle="Brandon Landing"
                                 footerSubitle="Director assistant"
+                                title="SiR - Hair Down (Official Video) ft. Kendrick Lamar"
                             />
                         </Grid>
                     ))}

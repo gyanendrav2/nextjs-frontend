@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         flexDirection: "row",
         flexWrap: "nowrap",
         color: colors.black,
-        padding: "2rem 2.5rem",
+        padding: (props) => props.padding,
         paddingBottom: "1rem",
         transform: "translateX(-2%)",
         "@media (max-width:767px)": {
@@ -35,7 +35,6 @@ const useStyles = makeStyles({
         color: colors.black,
         fontSize: "1rem",
         width: "5rem",
-        // paddingRight: "1.5rem",
         "@media (max-width:1024px)": {
             width: "100%",
             textAlign: "left",
@@ -85,8 +84,8 @@ const years = [
     { value: "4", label: "2023" },
 ]
 
-export const Filter = ({ externalclass }) => {
-    const classes = useStyles()
+export const Filter = ({ externalclass, padding }) => {
+    const classes = useStyles({ padding })
 
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
@@ -120,7 +119,7 @@ export const Filter = ({ externalclass }) => {
                                 label="Year"
                                 options={years}
                                 externalclass={classes.selectInput}
-                                placeholder="-"
+                                placeholder="2019"
                                 labelColor={colors.lighterGray}
                                 fontWeight="700"
                             />
@@ -148,8 +147,10 @@ export const Filter = ({ externalclass }) => {
 
 Filter.defaultProps = {
     externalclass: "",
+    padding: "2rem 2.5rem",
 }
 
 Filter.propTypes = {
     externalclass: PropTypes.string,
+    padding: PropTypes.string,
 }

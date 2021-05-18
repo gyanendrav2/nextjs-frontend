@@ -6,7 +6,7 @@ import classnames from "classnames"
 import { MobileFooter } from "./mobileFooter"
 import { colors } from "../../theme/colors"
 import { icons } from "../../assets/icons"
-import ContentWrapper  from "../contentWrapper/contentWrapper"
+import ContentWrapper from "../contentWrapper/contentWrapper"
 import { CopyrightIcon } from "../icons/copyrightIcon"
 
 export const useStyles = makeStyles({
@@ -87,6 +87,7 @@ export const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-end",
         flexDirection: "row",
+        cursor: "context-menu",
         "@media (min-width:576px) and (max-width:781px)": {
             paddingBottom: "1rem",
             marginLeft: "-2.7rem",

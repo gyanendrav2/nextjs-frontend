@@ -7,10 +7,22 @@
         transform: translateY(25.3rem) !important;
     }
     .slider-control-centerleft {
-        padding-left: 5rem;
+        padding-left: 6.4rem;
+        @media (max-width: 1024px) {
+            padding-left: 2rem;
+        }
+        @media (max-width: 767px) {
+            padding-left: 1rem;
+        }
     }
     .slider-control-centerright {
-        padding-right: 5rem;
+        padding-right: 6.4rem;
+        @media (max-width: 1024px) {
+            padding-right: 2rem;
+        }
+        @media (max-width: 767px) {
+            padding-right: 1rem;
+        }
     }
     .slider-control-bottomcenter {
         display: none;

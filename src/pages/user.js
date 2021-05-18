@@ -4,6 +4,7 @@ import classnames from "classnames"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
 import dynamic from "next/dynamic"
+import { ColorizeSharp } from "@material-ui/icons"
 
 const Footer = dynamic(() => import("../components/footer"))
 const MessageBox = dynamic(() => import("../containers/profile/messageBox"))
@@ -20,15 +21,15 @@ const UserProfileCard = dynamic(() => import("../components/cards/userProfileCar
 const useStyles = makeStyles({
     wrapper: {
         paddingTop: "7rem",
-        "@media(max-width:1024px)": {
+        "@media(min-width:768px) and (max-width:1024px)": {
             paddingTop: "5.5rem",
-            paddingLeft: 0,
-            paddingRight: 0,
+            paddingLeft: "0!important",
+            paddingRight: "0!important",
         },
         "@media(max-width:767px)": {
             paddingTop: "3.5rem",
-            paddingLeft: 0,
-            paddingRight: 0,
+              paddingLeft: "0!important",
+            paddingRight: "0!important",
         },
     },
     profileHeader: {
@@ -48,6 +49,9 @@ const useStyles = makeStyles({
     },
     category: {
         padding: "2rem 0",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            padding: "0 2rem",
+        },
         "@media (max-width:767px)": {
             display: "none",
         },
@@ -72,17 +76,27 @@ const useStyles = makeStyles({
             lineHeight: 0.7,
             marginLeft: "0.5rem",
         },
+        "@media (min-width:768px) and (max-width:1024px)": {
+            marginTop:"2rem",
+        },
+        // "@media (max-width:767px)": {
+        //     display: "none",
+        // },
     },
     footer: {
         marginTop: "0!important",
     },
     selectCategories: {
         padding: "1.25rem",
+        color:`${colors.lighterGray}!important`,
         "@media (min-width:768px)": {
             display: "none",
         },
     },
     cardContainer: {
+        "@media (min-width:768px) and (max-width:1024px)": {
+            padding: "2rem",
+        },
         "@media (max-width:767px)": {
             paddingLeft: "1.25rem",
             paddingRight: "1.25rem",
@@ -98,12 +112,12 @@ const useStyles = makeStyles({
         },
     },
     userProfilecardStyles: {
-        "@media (max-width:575px)": {
-            padding: "1rem",
-        },
-        messageBoxStyles: {
-            marginRight: "1rem",
-        },
+        // "@media (max-width:575px)": {
+        //     padding: "1rem",
+        // },
+        // messageBoxStyles: {
+        //     marginRight: "1rem",
+        // },
     },
     player: {
         height: "100%",
@@ -114,6 +128,11 @@ const useStyles = makeStyles({
             height: "15.5rem!important",
         },
     },
+    userCardstyle:{
+        "@media(min-width:768px) and (max-width:1024px)": {
+            padding:"1rem 2rem"
+        }, 
+    }
 })
 
 const Profile = () => {
@@ -160,6 +179,7 @@ const Profile = () => {
                 <>
                     <Grid container spacing={2} className={classes.profileHeader}>
                         <Grid item sx={12} sm={12} md={12} lg={5} xl={5}>
+                            <Box className={classes.userCardstyle}>
                             <UserProfileCard
                                 onClickProfile={handleInfo}
                                 onMsgBtnClick={handleMsg}
@@ -173,6 +193,7 @@ const Profile = () => {
                                 bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
                                 externalclass={classes.userProfilecardStyles}
                             />
+                            </Box>
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={7} xl={7} className={classes.videoStyles}>
                             <ReactPlayer
@@ -202,6 +223,7 @@ const Profile = () => {
                             options={categories}
                             value={selectedCategory}
                             onChange={(e) => setSelectedCategory(e.target.value)}
+                            inputColor={colors.lighterGray}
                         />
                     </Box>
                     <Box className={classes.selectCategoryText}>
@@ -210,7 +232,7 @@ const Profile = () => {
                     <Grid container spacing={2} className={classes.cardContainer}>
                         {[1, 1, 1, 1, 1, 1, 1, 1].map((item, idx) => {
                             return (
-                                <Grid item xs={12} sm={6} md={6} lg={4} xl={3} key={idx}>
+                                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={idx}>
                                     <CardWithFooter
                                         image="https://source.unsplash.com/random?fp=0"
                                         title="dummy data"

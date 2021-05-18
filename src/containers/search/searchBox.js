@@ -33,7 +33,7 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.lighterPrimary,
-        padding: "2rem",
+        padding: "1.5rem",
         position: "relative",
         "@media (max-width: 767px)": {
             padding: "1rem",
@@ -41,7 +41,9 @@ const useStyles = makeStyles({
     },
     filterWrapper: {
         // padding: "2rem",
-        // backgroundColor: colors.white,
+        backgroundColor: colors.lighterPrimary,
+        paddingLeft: "2.5rem",
+        paddingRight: "2.5rem",
     },
 
     searchInput: {
@@ -159,6 +161,11 @@ const useStyles = makeStyles({
     search: {
         transform: "none!important",
         width: "100%!important",
+        margin: "auto",
+        borderTop: `1px solid ${colors.lightGray}`,
+        "@media(max-width:1024px)": {
+            borderTop: "none",
+        },
     },
 })
 
@@ -175,8 +182,6 @@ export const SearchBox = ({ onFilter }) => {
     return (
         <>
             <Grid container alignItems="center" justifycontent="center" className={classes.searchContainer}>
-                {/* <Grid item sm={12} md={3} lg={2}></Grid>
-                <Grid item sm={12} md={6} lg={8}> */}
                 <Grid
                     container
                     alignItems="center"
@@ -223,7 +228,9 @@ export const SearchBox = ({ onFilter }) => {
                     />
                 </Grid>
             </Box>
-            <Box className={classes.filterWrapper}>{showFilter && <Filter externalclass={classes.search} />}</Box>
+            <Box className={classes.filterWrapper}>
+                {showFilter && <Filter padding="2rem 0" externalclass={classes.search} />}
+            </Box>
         </>
     )
 }

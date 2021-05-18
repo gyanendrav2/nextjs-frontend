@@ -5,8 +5,8 @@ import { images } from "../../assets/images"
 const Images = [
     { id: 1, image: images.masorny1 },
     { id: 2, image: images.masorny2 },
-    { id: 3, image: images.masorny2 },
-    { id: 4, image: images.masorny1 },
+    // { id: 3, image: images.masorny2 },
+    // { id: 4, image: images.masorny1 },
 ]
 
 const ImageGallery = () => {

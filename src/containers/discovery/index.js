@@ -83,23 +83,27 @@ const useStyles = makeStyles({
         letterSpacing: "0.2rem",
         transition: "all 1s ease",
         color: colors.white,
+        "@media (min-width: 1921px)": {
+            fontSize: "8.375rem",
+            lineHeight: "9.375rem",
+        },
         "@media (max-width:567px)": {
             fontSize: "3.125rem",
-            lineHeight: "3.625rem",
+            lineHeight: "4rem",
         },
         "@media (max-width:359px)": {
             fontSize: "2.1rem",
             lineHeight: "3.5rem",
         },
-        "@media (min-width: 1921px)": {
-            fontSize: "8.375rem",
-            lineHeight: "9.375rem",
-        },
+       
     },
     subtitle: {
         fontSize: "1rem",
         marginBottom: "1.5rem",
         marginTop: "2.3rem",
+        "@media (max-width:767px)": {
+            maxWidth:"13rem",
+        },
     },
     headings: {
         color: colors.black,
@@ -125,7 +129,11 @@ const useStyles = makeStyles({
         justifyContent: "flex-start",
         animation: "fadeIn 2s",
         marginLeft: "4.437rem",
-        "@media (max-width: 767px)": {
+        "@media(min-width:568px) and (max-width: 767px)": {
+            top: "5rem",
+            marginLeft: "2.437rem",
+        },
+        "@media (max-width: 567px)": {
             top: "7rem",
             marginLeft: "0",
         },
@@ -190,12 +198,27 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         lineHeight: "1.375rem",
         color:colors.white,
-        opacity:"0.8"
+        opacity:"0.8",
+        "@media(max-width:1024px)":{
+            bottom:"2.25rem",
+        },
+        "@media(max-width:767px)":{
+            display:"none"
+        }
     },
     projectAuthorTitle: {
         textDecoration:"underline"
-
-    }
+    },
+    projectAuthorMobile:{
+        "@media(min-width:768px)":{
+            display:"none"
+        },
+        marginTop:"2rem",
+        opacity:"0.8"
+    },
+    projectAuthorTitleMobile: {
+        textDecoration:"underline"
+    },
 })
 
 const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
@@ -305,6 +328,9 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => 
                                                         externalclass={classes.bigSignup}
                                                         onClick={() => routes.push("/signup")}
                                                     />
+                                                     <Typography className={classes.projectAuthorMobile}>
+                                                    Work by: <span className={classes.projectAuthorTitleMobile}>Jason Peterson</span>
+                                                </Typography>
                                                 </div>
                                                 <Typography className={classes.projectAuthor}>
                                                     Work by: <span className={classes.projectAuthorTitle}>Jason Peterson</span>

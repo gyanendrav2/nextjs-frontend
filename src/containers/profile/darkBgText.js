@@ -66,10 +66,12 @@ const useStyles = makeStyles({
         },
     },
     deskShow: {
-        display: "block",
-        "@media (min-width:1450px)": {
-            textAlign: "left",
-            width: "100%",
+     
+        "@media (min-width:768px)": {
+            textAlign: "left!important",
+            width: "100%!important",
+            display: "block!important",
+            maxWidth: "56.25rem!important",
         },
         "@media (max-width:767px)": {
             display: "none",
@@ -80,7 +82,7 @@ const useStyles = makeStyles({
         "@media (max-width:767px)": {
             display: "block!important",
             minWidth: "20rem!important",
-            marginBottom: "1.5rem!important",
+            marginBottom: "2rem!important",
             textAlign: "left!important",
         },
     },

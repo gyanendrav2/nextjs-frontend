@@ -27,8 +27,8 @@ const useStyles = makeStyles({
         width: "100%",
         maxHeight: "26.5rem",
         overflowY: "auto",
-        "@media(max-width:600px)": {
-            width: "100%",
+        "@media(max-width:767px)": {
+            width: "21.437rem",
         },
     },
 })
@@ -45,8 +45,8 @@ export const MoreMemberModel = ({ onClose, data }) => {
                         name={item.memberName}
                         isDisable={item.isDisable}
                         position={item.position}
-                        col1Size={8}
-                        col2Size={4}
+                        col1Size={6}
+                        col2Size={6}
                     />
                 ))}
             </Box>

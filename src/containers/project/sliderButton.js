@@ -10,6 +10,10 @@ const useStyles = makeStyles({
     buttonName: {
         paddingLeft: "1.5rem",
         paddingRight: "1.5rem",
+        "@media(max-width:767px)":{
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
+        }
     },
 })
 

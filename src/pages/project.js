@@ -23,7 +23,10 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         paddingTop: "5rem",
         "@media (max-width:1024px)": {
-            paddingTop: "3.5rem",
+            paddingTop: "5.5rem",
+        },
+        "@media (max-width:767px)": {
+            paddingTop: "4rem",
         },
     },
     videoContainer: {
@@ -42,7 +45,7 @@ const useStyles = makeStyles({
     CreatorsAuthor: {
         display: " flex",
         alignItems: " center",
-        padding: "1.75rem 3rem 0rem 5rem",
+        padding: "2.75rem 0rem 0rem 8.75rem",
         "@media (max-width:1024px)": {
             padding: "1.75rem 3rem 0rem 2rem",
         },
@@ -91,6 +94,10 @@ const useStyles = makeStyles({
         width: "100%",
         height: "100%",
         objectFit: "cover",
+        maxWidth: " 100%",
+        // "@media(max-width:767px)":{
+        //     height:"453px"
+        // }
     },
     whiteBgImgFit: {
         width: "100%",
@@ -100,11 +107,11 @@ const useStyles = makeStyles({
     contentWrapper: {
         padding: "8rem",
         color: colors.white,
-        "@media (min-width:576px) and (max-width:1024px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             padding: "6rem 2rem 6rem 2rem!important",
         },
-        "@media (max-width:575px)": {
-            padding: "2.5rem 1rem 2.5rem 1rem!important",
+        "@media (max-width:767px)": {
+            padding: "2.5rem 0.5rem 2.5rem 1rem!important",
         },
         "& h3": {
             fontFamily: "Forno-Trial",
@@ -117,7 +124,7 @@ const useStyles = makeStyles({
                 maxWidth: "100%",
                 fontSize: "2.5rem",
                 lineHeight: "3rem",
-                marginBottom: "0.7rem",
+                marginBottom: "2rem",
             },
         },
         "& p": {
@@ -182,12 +189,32 @@ const useStyles = makeStyles({
     },
     reportContentwrapper: {
         marginTop: "9.5rem",
+        padding: "1rem",
         "& div": {
             margin: 0,
         },
+        "@media (max-width:1024px)": {
+            padding: "1rem 1rem",
+        },
+        "@media (max-width:767px)": {
+            padding: "1rem",
+            "& div": {
+                margin: 0,
+                paddingLeft: 0,
+                paddingRight: 0,
+            },
+        },
     },
     footer: {
-        marginTop: "0rem",
+        marginTop: "0rem!important",
+    },
+    // makingHead:{
+    //     marginBottom:"1rem"
+    // }
+    behindhead: {
+        "@media (max-width:767px)": {
+            marginBottom: "2rem!important",
+        },
     },
 })
 
@@ -226,7 +253,7 @@ const Project = () => {
                 <VideoInfo teamMemberData={teamMemberData} />
                 <Grid container>
                     <Grid item xs={12} sm={12} md={12} lg={5} xl={5}>
-                        <img src={images.hypebeast} className={classes.fitSizeImg} alt="" />
+                        <img src={images.hypebeast} className={classes.fitSizeImg} alt="darkBgImage" />
                     </Grid>
                     <Grid
                         item
@@ -240,7 +267,9 @@ const Project = () => {
                         xl={7}
                         className={classes.darkBg}>
                         <Box className={classes.contentWrapper}>
-                            <Typography variant="h3">Making of</Typography>
+                            <Typography variant="h3" className={classes.makingHead}>
+                                Making of
+                            </Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown
@@ -262,7 +291,9 @@ const Project = () => {
                         xl={6}
                         className={classes.whiteBg}>
                         <Box className={classes.contentWrapperWhiteBg}>
-                            <Typography variant="h3">Behind the scenes</Typography>
+                            <Typography variant="h3" className={classes.behindhead}>
+                                Behind the scenes
+                            </Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown

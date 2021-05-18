@@ -23,6 +23,10 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "row",
+        "@media(min-width:1024px)": {
+            justifyContent: "center",
+            margin: "2rem 0",
+        },
         "@media(min-width:768px)": {
             margin: "2rem 0",
         },
@@ -94,31 +98,31 @@ const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                 onClose={() => setShowParticipantModal(false)}
                 onConfirm={() => routes.push("/notifications")}
                 externalclass={classes.modaltitle}
-                requestTitle ="26px"
+                requestTitle="26px"
             />
             <Grid container className={classnames(classes.reportWrapper, externalclass, dialogcontentStyle)}>
                 <Grid
                     item
                     xs={12}
-                    sm={8}
-                    md={8}
+                    sm={7}
+                    md={7}
                     lg={8}
                     className={classnames(classes.reportspamwrapper, externalclass)}
                     container>
-                    <Grid item xs={6} sm={4} md={3} lg={3} className={classes.spamwrapper}>
+                    <Grid item xs={6} sm={5} md={5} lg={3} className={classes.spamwrapper}>
                         <>
                             <MarkSpamIcon />
                             <Typography className={classes.spamText}>Mark as spam</Typography>
                         </>
                     </Grid>
-                    <Grid item xs={6} sm={8} md={9} lg={9} className={classes.spamwrapper}>
+                    <Grid item xs={6} sm={7} md={7} lg={9} className={classes.spamwrapper}>
                         <>
                             <ReportContentIcon />
                             <Typography className={classes.spamText}>Report content</Typography>
                         </>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={4} md={4} lg={4} className={classes.requestwrapper}>
+                <Grid item xs={12} sm={5} md={5} lg={4} className={classes.requestwrapper}>
                     <Grid className={classes.reqspamwrapper}>
                         <RequestPartIcon />
                         <Typography className={classes.spamText} onClick={() => setShowParticipantModal(true)}>

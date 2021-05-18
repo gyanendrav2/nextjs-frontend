@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { useRouter } from "next/router"
 import { Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
@@ -11,19 +12,18 @@ import { mobileNavOptions } from "../../../data/headerMenuList"
 import { SearchIcon } from "../../icons/searchIcon"
 import { CloseIconBig } from "../../icons/closeIconBig"
 import { UserProfileNav } from "../../cards/userProfileNav"
-import { useRouter } from "next/router"
 
 const useStyles = makeStyles({
     wrapper: {
         position: "fixed",
-        left: 0,
+        left: "20%",
         top: 0,
         height: "100vh",
-        width: "100%",
+        width: "80%",
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
-        zIndex: 3,
+        zIndex: 100,
         "@media (min-width: 768px)": {
             display: "none",
         },
@@ -85,7 +85,7 @@ const useStyles = makeStyles({
         transition: "all 1s",
     },
     contentWrapper: {
-        width: "80%",
+        width: "100%",
         backgroundColor: colors.black,
         height: "100vh",
         display: "flex",
@@ -135,6 +135,18 @@ const useStyles = makeStyles({
             backgroundColor: colors.pink,
         },
     },
+    shadowbg: {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        width: "100%",
+        height: "100vh",
+        zIndex: 6,
+        backgroundColor: "rgba(0,0,0,0.5)",
+        animation: "fadeIn 1s linear",
+    },
 })
 
 export const MobileMenu = ({ toggleMenu, onClose }) => {
@@ -146,47 +158,45 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
     }
 
     return (
-        <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
-            <Box className={classes.contentWrapper}>
-                <Grid container className={classes.headerWrapper}>
-                    <UserProfileNav userName="Brandon" profileImg={images.brandon} />
-                    <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
-                        <IconButton className={classes.NotificationButton}>
-                            <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
-                        </IconButton>
-                        <IconButton className={classes.closeButton} onClick={onClose}>
-                            <CloseIconBig className={classes.closeIcon} />
-                        </IconButton>
+        <>
+            <Box className={classnames(classes.wrapper, toggleMenu ? classes.show : classes.hide)}>
+                <Box className={classes.contentWrapper}>
+                    <Grid container className={classes.headerWrapper}>
+                        <UserProfileNav userName="Brandon" profileImg={images.brandon} />
+                        <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
+                            <IconButton className={classes.NotificationButton}>
+                                <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
+                            </IconButton>
+                            <IconButton className={classes.closeButton} onClick={onClose}>
+                                <CloseIconBig className={classes.closeIcon} />
+                            </IconButton>
+                        </Grid>
                     </Grid>
-                </Grid>
-                <Box className={classes.menuWrapper}>
-                    <ul className={classes.unorderedList}>
-                        {mobileNavOptions.map((item, i) => (
-                            <li key={i} className={classes.listStyle}>
-                                {item.icon}
-                                <Typography className={classes.title}>{item.name}</Typography>
+                    <Box className={classes.menuWrapper}>
+                        <ul className={classes.unorderedList}>
+                            {mobileNavOptions.map((item, i) => (
+                                <li key={i} className={classes.listStyle}>
+                                    {item.icon}
+                                    <Typography className={classes.title}>{item.name}</Typography>
+                                </li>
+                            ))}
+                            <li className={classes.listStyle}>
+                                <InputWithLabelIcon
+                                    name=""
+                                    placeholder="Search"
+                                    icon={<SearchIcon />}
+                                    externalclass={classes.input}
+                                />
                             </li>
-                        ))}
-                        <li className={classes.listStyle}>
-                            <InputWithLabelIcon
-                                name=""
-                                placeholder="Search"
-                                icon={<SearchIcon />}
-                                externalclass={classes.input}
-                            />
-                        </li>
-                        <li className={classes.listStyle}>
-                            <CustomButton
-                                 className={classes.button}
-                                label="Upload work"
-                                onClick={routeSettings}
-                            
-                            />
-                        </li>
-                    </ul>
+                            <li className={classes.listStyle}>
+                                <CustomButton className={classes.button} label="Upload work" onClick={routeSettings} />
+                            </li>
+                        </ul>
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+            {toggleMenu && <Box className={classnames({ [classes.shadowbg]: toggleMenu })} onClick={onClose} />}
+        </>
     )
 }
 

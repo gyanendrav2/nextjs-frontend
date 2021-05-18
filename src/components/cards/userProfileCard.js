@@ -18,7 +18,7 @@ const useStyles = makeStyles({
         "@media (max-width:767px)": {
             border: "none",
             borderBottom: `1px solid ${colors.lightGray}`,
-            padding: "1rem 1.5rem",
+            padding: "1rem",
         },
     },
     avatar: {
@@ -60,8 +60,12 @@ const useStyles = makeStyles({
         fontSize: "1rem",
         lineHeight: "1.375rem",
         fontFamily: "Helvetica",
+        maxWidth:"30.687rem",
         "& span": {
             textDecoration: "underline",
+        },
+        "@media (max-width:1024px)": {
+            maxWidth:"30.687rem",
         },
     },
     fullWidthBtn: {
@@ -104,6 +108,9 @@ const useStyles = makeStyles({
             display: "inline",
         },
     },
+    buttonContainer:{
+        maxWidth:"30.687rem",
+    }
 })
 
 const UserProfileCard = ({
@@ -163,7 +170,7 @@ const UserProfileCard = ({
             </Box>
             <SocialButtons />
             {!ownProfile ? (
-                <Grid container spacing={3}>
+                <Grid container spacing={3} className={classnames(classes.buttonContainer, externalclass)}>
                     <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
                         <CustomButton label="Message me" externalclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
                     </Grid>

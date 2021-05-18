@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         display: " flex",
         alignItems: " center",
         border: "1px solid rgba(0, 0, 0, 0.05)",
-        padding: "0.5rem",
+        padding: "0.75rem",
         height: "100%",
     },
     image: {
@@ -31,6 +31,9 @@ const useStyles = makeStyles({
         width: "5.5rem",
         height: "5.5rem",
         objectFit: "cover",
+        "@media(max-width:1024px)":{
+            margin: "0rem 1.125rem 0rem 0rem",
+        }
     },
     CreatorsAuthorName: {
         fontSize: "1rem",
