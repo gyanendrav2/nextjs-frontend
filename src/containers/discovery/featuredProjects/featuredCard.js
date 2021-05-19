@@ -78,10 +78,19 @@ const useStyles = makeStyles({
     cursor: {
         // cursor: "url('/images/cursor.svg'), auto",
     },
+    quickOverflowHidden:{
+        overflowY:"hidden"
+    }
 })
 export const FeaturedCard = ({ featuredCardsDetails }) => {
     const classes = useStyles()
     const [openModal, setOpenModal] = useState(false)
+
+    if(openModal){
+        document.body.classList.add('quickOverflowHidden')
+    }else{
+        document.body.classList.remove('quickOverflowHidden')
+    }
 
     return (
         <Box className={classes.cursor}>

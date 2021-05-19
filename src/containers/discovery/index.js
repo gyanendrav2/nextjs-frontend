@@ -95,14 +95,14 @@ const useStyles = makeStyles({
             fontSize: "2.1rem",
             lineHeight: "3.5rem",
         },
-       
+
     },
     subtitle: {
         fontSize: "1rem",
         marginBottom: "1.5rem",
         marginTop: "2.3rem",
         "@media (max-width:767px)": {
-            maxWidth:"13rem",
+            maxWidth: "13rem",
         },
     },
     headings: {
@@ -191,40 +191,40 @@ const useStyles = makeStyles({
         },
     },
     projectAuthor: {
-        position:"absolute",
-        right:"2.5rem",
-        bottom:"4.25rem",
+        position: "absolute",
+        right: "2.5rem",
+        bottom: "4.25rem",
         fontFamily: "Helvetica",
         fontSize: "1rem",
         lineHeight: "1.375rem",
-        color:colors.white,
-        opacity:"0.8",
-        "@media(max-width:1024px)":{
-            bottom:"2.25rem",
+        color: colors.white,
+        opacity: "0.8",
+        "@media(max-width:1024px)": {
+            bottom: "2.25rem",
         },
-        "@media(max-width:767px)":{
-            display:"none"
+        "@media(max-width:767px)": {
+            display: "none"
         }
     },
     projectAuthorTitle: {
-        textDecoration:"underline"
+        textDecoration: "underline"
     },
-    projectAuthorMobile:{
-        "@media(min-width:768px)":{
-            display:"none"
+    projectAuthorMobile: {
+        "@media(min-width:768px)": {
+            display: "none"
         },
-        marginTop:"2rem",
-        opacity:"0.8"
+        marginTop: "2rem",
+        opacity: "0.8"
     },
     projectAuthorTitleMobile: {
-        textDecoration:"underline"
+        textDecoration: "underline"
     },
 })
 
 const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
     const classes = useStyles()
     const routes = useRouter()
-    console.log(details, "details")
+    // console.log(details, "details")
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
     const [totalCategories, setTotalCategories] = useState([])
@@ -328,9 +328,9 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => 
                                                         externalclass={classes.bigSignup}
                                                         onClick={() => routes.push("/signup")}
                                                     />
-                                                     <Typography className={classes.projectAuthorMobile}>
-                                                    Work by: <span className={classes.projectAuthorTitleMobile}>Jason Peterson</span>
-                                                </Typography>
+                                                    <Typography className={classes.projectAuthorMobile}>
+                                                        Work by: <span className={classes.projectAuthorTitleMobile}>Jason Peterson</span>
+                                                    </Typography>
                                                 </div>
                                                 <Typography className={classes.projectAuthor}>
                                                     Work by: <span className={classes.projectAuthorTitle}>Jason Peterson</span>

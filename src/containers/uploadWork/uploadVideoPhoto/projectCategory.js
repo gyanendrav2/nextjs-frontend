@@ -4,7 +4,7 @@ import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { InputWithLabelIcon } from "../../../components/inputs/inputWithLabelIcon"
 import CustomButton from "../../../components/buttons/customButton"
-import  SelectWithLabelIcon  from "../../../components/inputs/selectWithLabelIcon"
+import SelectWithLabelIcon from "../../../components/inputs/selectWithLabelIcon"
 import { roleCategories } from "../../../data/roles"
 import { AddTeamMember } from "./addTeamMember"
 import { ChipCards } from "../../../components/cards/chipCards"
@@ -39,10 +39,13 @@ const useStyles = makeStyles({
         },
     },
     inputHeight: {
-        height: "2.5rem",
+        overflowY: "hidden",
         "@media(max-width:575px)": {
             // padding: "0px 8px",
         },
+    },
+    selectHeight: {
+        overflowY: "hidden",
     },
     teamAddButton: {
         backgroundColor: colors.white,
@@ -127,7 +130,6 @@ export const ProjectCategory = () => {
                                     fontWeight="bold"
                                     label="Project category"
                                     placeholder="Multiselect categories"
-                                    externalclass={classnames(classes.inputHeight)}
                                     handleOptionSelect={handleRoles}
                                     placeholderColor={colors.black}
                                     onChange={() => {}}

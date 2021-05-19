@@ -40,6 +40,7 @@ const AddCategory = ({ onAddCategory, closeAddcategory }) => {
                 <SelectWithLabelIcon
                     options={secondlevelCategoryItems}
                     labelColor={colors.lighterGray}
+                    customHeight="3.5rem"
                     placeholder="Choose category"
                     variantStyle="bigOptionStyle"
                     custom

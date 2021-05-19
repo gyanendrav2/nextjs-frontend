@@ -17,16 +17,17 @@ const useStyles = makeStyles({
             padding: "0.625rem",
             border: "none",
             fontFamily: "Helvetica",
+            height: (props) => props.height,
             "&::placeholder": {
-                color: (props) => props.placeholderColor?props.placeholderColor:colors.black,
+                color: (props) => (props.placeholderColor ? props.placeholderColor : colors.black),
                 fontSize: "1rem",
             },
         },
     },
 })
 
-export const Input = ({ inputRegister, error, inputName, externalclass, placeholderColor, ...rest }) => {
-    const classes = useStyles({ error: !!error, placeholderColor })
+export const Input = ({ inputRegister, error, inputName, externalclass, placeholderColor, height, ...rest }) => {
+    const classes = useStyles({ error: !!error, placeholderColor, height })
     return (
         <Box className={classes.wrapper}>
             <input
@@ -48,6 +49,7 @@ Input.defaultProps = {
     inputRegister: () => {},
     inputName: "",
     externalclass: "",
+    placeholderColor: "",
 }
 
 Input.propTypes = {
@@ -60,4 +62,6 @@ Input.propTypes = {
     inputRegister: PropTypes.func,
     inputName: PropTypes.string,
     externalclass: PropTypes.string,
+    placeholderColor: PropTypes.string,
+    height: PropTypes.number.isRequired,
 }

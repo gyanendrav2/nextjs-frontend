@@ -9,6 +9,7 @@ import { colors } from "../../theme/colors"
 const useStyles = makeStyles({
     rootWrapper: {
         width: "100%",
+        overflow: "hidden",
     },
     wrapper: {
         width: "100%",
@@ -18,9 +19,9 @@ const useStyles = makeStyles({
         fontWeight: 400,
         backgroundColor: colors.white,
         color: colors.black,
-        padding: "0.6rem 0",
         fontFamily: "aino-regular",
         borderRadius: "1px",
+        overflowY: "hidden",
         border: (props) => `solid 1px ${props.error ? colors.red : colors.lightGray}`,
         "&:focus": {
             borderColor: (props) => (props.error ? colors.red : colors.lightGray),
@@ -34,7 +35,7 @@ const useStyles = makeStyles({
         paddingRight: "1rem",
     },
     label: {
-        marginBottom: "0.22rem",
+        marginBottom: "0.2rem",
         fontSize: "0.85rem",
         fontWeight: (props) => (props.fontWeight ? props.fontWeight : 400),
         color: (props) => (props.labelColor ? props.labelColor : colors.black),
@@ -64,6 +65,7 @@ export const InputWithLabelIcon = ({
     labelMargin,
     hideErrorMsg,
     placeholderColor,
+    height,
     ...props
 }) => {
     const classes = useStyles({ error: !!errorMsg.message, labelColor, fontWeight, labelMargin, hideErrorMsg })
@@ -79,7 +81,14 @@ export const InputWithLabelIcon = ({
                 tabIndex="0"
                 className={classnames(classes.wrapper, externalclass)}>
                 <Box className={classes.inputContainer}>
-                    <Input error={!!errorMsg.message} inputRegister={inputRegister} inputName={name} {...props} placeholderColor={placeholderColor} />
+                    <Input
+                        error={!!errorMsg.message}
+                        inputRegister={inputRegister}
+                        inputName={name}
+                        height={height}
+                        {...props}
+                        placeholderColor={placeholderColor}
+                    />
                 </Box>
                 <Grid container alignItems="center" justify="center" className={classes.iconContainer}>
                     <Box onClick={iconOnClick} className={classes.iconWrapper}>
@@ -110,7 +119,8 @@ InputWithLabelIcon.defaultProps = {
     iconOnClick: () => {},
     labelMargin: "",
     hideErrorMsg: false,
-    placeholderColor:colors.black
+    placeholderColor: colors.black,
+    height: "2.5rem",
 }
 
 InputWithLabelIcon.propTypes = {
@@ -122,7 +132,7 @@ InputWithLabelIcon.propTypes = {
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    placeholderColor:PropTypes.oneOf([PropTypes.string, PropTypes.object]),
+    placeholderColor: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
     inputRegister: PropTypes.func,
     name: PropTypes.string,
     errorMsg: PropTypes.shape({ message: PropTypes.string }),
@@ -132,4 +142,5 @@ InputWithLabelIcon.propTypes = {
     fontWeight: PropTypes.string,
     labelMargin: PropTypes.string,
     hideErrorMsg: PropTypes.bool,
+    height: PropTypes.string,
 }

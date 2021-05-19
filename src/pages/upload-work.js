@@ -14,7 +14,7 @@ const CustomButton = dynamic(() => import("../components/buttons/customButton"))
 
 const useStyles = makeStyles({
     wrapper: {
-        backgroundColor: colors.lighterPrimary,
+        backgroundColor: colors.lighterPrimary + "!important",
         position: "relative",
         "@media(max-width:1024px)": {
             padding: "5rem 0px 0px 0px",
@@ -47,8 +47,8 @@ const useStyles = makeStyles({
         border: `1px solid ${colors.lightGray}`,
     },
     borderButton: {
-        backgroundColor: colors.white,
-        color: colors.black,
+        backgroundColor: `${colors.white}!important`,
+        color: `${colors.black}!important`,
         border: `2px solid ${colors.black}`,
         maxHeight: "3.125rem",
     },
@@ -57,16 +57,13 @@ const useStyles = makeStyles({
         width: "100%",
         margin: 0,
     },
+    footer: {
+        marginTop: "0!important",
+    },
 })
 
 const UploadWork = () => {
     const classes = useStyles()
-    const routes = useRouter()
-
-    useEffect(() => {
-        console.log("routes", routes)
-    })
-
     const [openDeleteModel, setOpenDeleteModel] = useState(false)
     const [currentActive, setCurrentActive] = useState("#upload-video-photo")
     const renderOption = () => {

@@ -25,7 +25,7 @@ const ContentWrapper = ({ externalclass, children }) => {
     const classes = useStyles()
     return (
         <>
-            <Box className={classnames(classes.wrapper, externalclass)}>{children}</Box>
+            <Box className={classnames(externalclass, classes.wrapper)}>{children}</Box>
         </>
     )
 }

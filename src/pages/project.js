@@ -242,7 +242,7 @@ const Project = () => {
                         </Typography>
                         <Typography className={classes.CreatorsAuthorJobTitle}>Director assistant</Typography>
                         <button type="button" className={classes.CreatorsButton}>
-                            follow
+                            Follow
                         </button>
                     </Box>
                 </Grid>

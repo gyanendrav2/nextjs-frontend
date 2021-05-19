@@ -43,7 +43,6 @@ const useStyles = makeStyles({
         },
     },
     inputHeight: {
-        height: "2.5rem",
         "@media(max-width:575px)": {
             padding: "0px 8px",
         },
@@ -99,20 +98,21 @@ const useStyles = makeStyles({
         },
     },
     borderButton: {
-        backgroundColor: colors.white,
+        backgroundColor: `${colors.white}!important`,
         color: colors.black,
         border: `2px solid ${colors.black}`,
         maxHeight: "3.125rem",
     },
 })
 
-const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive }) => {
+const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive, setOpenDeleteModel }) => {
     const classes = useStyles()
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
     const [selectionModel, setSelectionModel] = useState(false)
     const [photoCode, setPhotoCode] = useState([])
     const [activeElement, setActiveElement] = useState(["#upload-video-photo", "#insert-project-name-details"])
+
     const isInViewport = (element) => {
         const rect = element.getBoundingClientRect()
         return (
@@ -246,6 +246,7 @@ UploadVideoPhoto.propTypes = {
     onDelete: PropTypes.func.isRequired,
     closeDeleteModal: PropTypes.func.isRequired,
     handleCurrentActive: PropTypes.func.isRequired,
+    setOpenDeleteModel: PropTypes.func.isRequired,
 }
 
 export default UploadVideoPhoto

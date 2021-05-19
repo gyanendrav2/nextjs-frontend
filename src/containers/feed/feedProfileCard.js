@@ -16,11 +16,10 @@ const useStyles = makeStyles({
         width: "6.5rem",
         height: "6.5rem",
         margin: "0 auto",
-
     },
     title: {
         fontSize: "1.375rem",
-        lineHeight:"2.1rem",
+        lineHeight: "2.1rem",
         color: colors.black,
         textAlign: "center",
         marginTop: "1rem",
@@ -42,14 +41,14 @@ const useStyles = makeStyles({
         lineHeight: "1.375rem",
         color: colors.black,
         textDecoration: "underline",
-        cursor:"pointer"
+        cursor: "pointer",
     },
-    deskShow:{
-        display:"inline",
-        "@media(max-width:767px)":{
-            display:"none"
-    }
-}
+    deskShow: {
+        display: "inline",
+        "@media(max-width:767px)": {
+            display: "none",
+        },
+    },
 })
 
 export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowedClick }) => {
@@ -57,25 +56,39 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
     return (
         <Box className={classes.wrapper}>
             <Avatar src={images.brandon} className={classes.avatar} />
-            <Typography className={classes.title}>Brandon Landing</Typography>
-            <Typography className={classes.subTitle}>Director assistant, producer</Typography>
-            <Grid container alignItems="center" justify="space-between" style={{ marginTop: "1rem" }}>
+            <Typography className={classes.title}> Brandon Landing </Typography>
+            <Typography className={classes.subTitle}> Director assistant, producer </Typography>
+            <Grid
+                container
+                alignItems="center"
+                justify="space-between"
+                style={{
+                    marginTop: "1rem",
+                }}>
                 <Grid item>
-                    <Typography className={classes.follow}>I follow people</Typography>
+                    <Typography className={classes.follow}> I follow people </Typography>
                 </Grid>
                 <Grid item>
                     <Typography className={classes.followersNum} onClick={onFollowClick}>
-                        {following} people
+                        {following}
+                        people
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container alignItems="center" justify="space-between" style={{ marginTop: "1rem" }}>
+            <Grid
+                container
+                alignItems="center"
+                justify="space-between"
+                style={{
+                    marginTop: "1rem",
+                }}>
                 <Grid item>
-                    <Typography className={classes.follow}>I'm followed <span className={classes.deskShow}> by people </span></Typography>
+                    <Typography className={classes.follow}> I'm followed <span className={classes.deskShow}> by people </span>
+                    </Typography>
                 </Grid>
                 <Grid item>
-                    <Typography className={classes.followersNum} onClick={onFollowedClick}>
-                        {followers} people
+                    <Typography className={classes.followersNum} onClick={onFollowedClick}> {followers}
+                        people
                     </Typography>
                 </Grid>
             </Grid>
