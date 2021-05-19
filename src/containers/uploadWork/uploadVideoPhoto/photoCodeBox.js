@@ -17,28 +17,35 @@ const useStyles = makeStyles({
         justifyContent: "space-between",
         position: "relative",
         "@media(max-width:767px)": {
-           flexDirection: props => props.rowReverseBox? "column-reverse!important":"column"
+            flexDirection: (props) => (props.rowReverseBox ? "column-reverse!important" : "column"),
         },
     },
     codeContainer: {
         backgroundColor: colors.lighterPrimary,
-        padding: "3.25rem 2rem",
+        padding: "3.25rem 0",
         "@media(max-width:415px)": {
             padding: "1.5rem",
         },
     },
     icon: {
-        margin: "0 2rem",
+        margin: "0 1rem",
         "@media(max-width:415px)": {
             margin: "0 0.75rem",
         },
     },
     textContainer: {
         margin: "0 auto",
-        paddingLeft: "2.5rem",
+        paddingLeft: (props) => props.pl,
         "@media(max-width:960px)": {
             paddingLeft: "0px",
             marginTop: "1.5rem",
+        },
+        "@media(max-width:767px)": {
+            paddingLeft: "0!important",
+        },
+        "@media (min-width:1025px) and (max-width:1439px)": {
+            marginTop: "1rem",
+            paddingLeft: "0!important",
         },
     },
     headInput: {
@@ -62,6 +69,9 @@ const useStyles = makeStyles({
     headTextArea: {
         border: "none",
         fontSize: "1rem",
+        resize: "none",
+        width: "100%",
+        fontFamily: "Helvetica",
         "&::placeholder": {
             color: `${colors.lighterGray}!important`,
         },
@@ -85,10 +95,23 @@ const useStyles = makeStyles({
             right: "0.5rem",
         },
     },
+    mobileWidth: {
+        "@media (max-width: 767px)": {
+            width: "100%",
+        },
+    },
 })
 
-export const PhotoCodeBox = ({ rowReverseBox, flexDirection, id, showUploadMediaModel, showCodeModel, onDelete }) => {
-    const classes = useStyles({rowReverseBox})
+export const PhotoCodeBox = ({
+    rowReverseBox,
+    flexDirection,
+    id,
+    showUploadMediaModel,
+    showCodeModel,
+    onDelete,
+    pl,
+}) => {
+    const classes = useStyles({ rowReverseBox, pl })
 
     return (
         <>
@@ -96,15 +119,15 @@ export const PhotoCodeBox = ({ rowReverseBox, flexDirection, id, showUploadMedia
                 <Box className={classes.closeIcon}>
                     <CloseIconBig width={16} onClick={onDelete} />
                 </Box>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+                <Grid item xs={12} sm={12} md={5} lg={12} xl={6} className={classes.mobileWidth}>
                     <Grid container alignItems="center" justify="center" className={classes.codeContainer}>
                         <PhotoIcon className={classes.icon} onClick={showUploadMediaModel} />
                         <CodeIcon className={classes.icon} onClick={showCodeModel} />
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} md={6} lg={6} xl={6} className={classes.textContainer}>
+                <Grid item xs={12} sm={12} md={7} lg={12} xl={6} className={classes.textContainer}>
                     <input placeholder="Type a headline..." className={classes.headInput} style={{ border: "none" }} />
-                    <textarea className={classes.headTextArea} placeholder="Insert Text" />
+                    <textarea className={classes.headTextArea} placeholder="Insert Text..." />
                 </Grid>
             </Grid>
         </>
@@ -114,7 +137,8 @@ export const PhotoCodeBox = ({ rowReverseBox, flexDirection, id, showUploadMedia
 PhotoCodeBox.defaultProps = {
     flexDirection: "row",
     id: "",
-    rowReverseBox:false
+    rowReverseBox: false,
+    pl: "0",
 }
 
 PhotoCodeBox.propTypes = {
@@ -123,5 +147,6 @@ PhotoCodeBox.propTypes = {
     showUploadMediaModel: PropTypes.bool.isRequired,
     showCodeModel: PropTypes.bool.isRequired,
     onDelete: PropTypes.func.isRequired,
-    rowReverseBox:PropTypes.bool
+    rowReverseBox: PropTypes.bool,
+    pl: PropTypes.string,
 }

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary + "!important",
         position: "relative",
         "@media(max-width:1024px)": {
-            padding: "5rem 0px 0px 0px",
+            padding: "6rem 0px 0px 0px",
         },
     },
     colWrapper: {

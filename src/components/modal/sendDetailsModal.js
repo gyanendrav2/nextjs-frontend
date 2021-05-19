@@ -25,8 +25,6 @@ const useStyles = makeStyles({
     },
     wrapper: {
         width: "100%",
-        paddingLeft: "7.187rem",
-        paddingRight: "7.187rem",
         paddingBottom: "7.5rem",
         paddingTop: "2.5rem",
         position: "relative",
@@ -68,7 +66,7 @@ const useStyles = makeStyles({
         width: "100%",
     },
     buttonWrapper: {
-        backgroundColor:colors.lighterPrimary,
+        backgroundColor: colors.lighterPrimary,
         "@media (max-width:767px)": {
             flexDirection: "column-reverse",
             width: "100%",
@@ -129,7 +127,10 @@ export const SendDetailsModal = ({
                                 )}
                             </>
                         ) : (
-                            <InputWithLabelIcon placeholder="https://www.youtube.com/embed/50Twc4ghBFM" onChange={onLinkChange} />
+                            <InputWithLabelIcon
+                                placeholder="https://www.youtube.com/embed/50Twc4ghBFM"
+                                onChange={onLinkChange}
+                            />
                         )}
                     </Box>
                     <Grid container spacing={2} alignItems="center" justify="center" className={classes.buttonWrapper}>

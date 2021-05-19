@@ -43,16 +43,16 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         "@media (max-width: 767px)": {
-            flexDirection : "column-reverse"
+            flexDirection: "column-reverse",
         },
     },
     buttonDelete: {
         width: "18.5rem",
         height: "3.75rem",
-        border:`1px solid ${colors.black}`,
+        border: `1px solid ${colors.black}`,
         "@media (max-width: 767px)": {
             width: "100%",
-            marginBottom:"1rem"
+            marginBottom: "1rem",
         },
     },
     buttonCancel: {
@@ -72,7 +72,7 @@ const useStyles = makeStyles({
         marginBottom: "5.312rem",
         "@media(max-width:767px)": {
             marginTop: "1rem",
-            padding:"0 2rem",
+            padding: "0 2rem",
             marginBottom: "2rem",
         },
     },
@@ -83,13 +83,13 @@ const useStyles = makeStyles({
             fontSize: "28px",
         },
     },
-    innerWrapper:{
-        marginTop:"4rem",
+    innerWrapper: {
+        marginTop: "4rem",
         // padding:"2rem",
         "@media(max-width:1024px)": {
-        marginTop:"6rem",
-        }
-    }
+            marginTop: "6rem",
+        },
+    },
 })
 
 export const AllModals = ({
@@ -107,7 +107,12 @@ export const AllModals = ({
     return (
         <>
             <ModalComponent padding="0" openOrNot={openDeleteModal} onClose={onDelete}>
-                <Grid container alignItems="center" justify="center" direction="column" className={classes.innerWrapper}>
+                <Grid
+                    container
+                    alignItems="center"
+                    justify="center"
+                    direction="column"
+                    className={classes.innerWrapper}>
                     <Typography variant="h4" className={classes.title}>
                         Delete or hide work
                     </Typography>
@@ -115,7 +120,7 @@ export const AllModals = ({
                         Instead of deleting the work for all your team members, there’s a way to hide it.
                     </Typography>
                     <Box className={classes.deleteWrapper} spacing={2}>
-                        <Grid className={classes.deletewrap} container >
+                        <Grid className={classes.deletewrap} container>
                             <CustomButton
                                 label="Cancel"
                                 variant="cancel"

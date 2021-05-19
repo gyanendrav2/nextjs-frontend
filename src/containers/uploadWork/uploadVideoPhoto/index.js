@@ -37,7 +37,7 @@ const useStyles = makeStyles({
         padding: "2rem",
     },
     icon: {
-        margin: "0 2rem",
+        margin: "0 1rem",
         "@media(max-width:575px)": {
             margin: "0 1rem",
         },
@@ -152,6 +152,7 @@ const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleC
                     showUploadMediaModel={() => setShowUPloadMediaModal(true)}
                     showCodeModel={() => setShowCodeModal(true)}
                     flexDirection="row"
+                    pl="2rem"
                     onDelete={() => handleDelete(i)}
                 />
             )
