@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         margin: "auto",
         backgroundColor: colors.lighterPrimary,
         "@media(max-width:767px)": {
-            paddingTop: "5rem",
+            paddingTop: "5.812rem",
         },
     },
     seenContainer: {
@@ -27,7 +27,9 @@ const useStyles = makeStyles({
         textAlign: "center",
         margin: "4rem auto",
     },
-    seenText: {},
+    seenText: {
+        color: colors.black,
+    },
 })
 
 const Feed = () => {

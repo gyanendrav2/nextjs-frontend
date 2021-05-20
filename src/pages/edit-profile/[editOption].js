@@ -14,6 +14,7 @@ const AccountInformation = dynamic(() => import("../../containers/userEditProfil
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
+        minHeight: "100vh",
         padding: "8rem 9.687rem 2rem 9.687rem",
         "@media (min-width:960px) and (max-width:1350px)": {
             padding: "8rem 2rem 2rem 2rem",

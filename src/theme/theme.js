@@ -31,6 +31,9 @@ const theme = createMuiTheme({
             color: colors.lighterGray,
             fontWeight: 700,
         },
+        subtitle1: {
+            color: colors.black,
+        },
     },
     props: {
         MuiButtonBase: {

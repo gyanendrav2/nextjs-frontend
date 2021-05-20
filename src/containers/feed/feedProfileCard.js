@@ -55,45 +55,47 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
     const classes = useStyles()
     return (
         <Box className={classes.wrapper}>
-            <Avatar src={images.brandon} className={classes.avatar} />
-            <Typography className={classes.title}> Brandon Landing </Typography>
-            <Typography className={classes.subTitle}> Director assistant, producer </Typography>
-            <Grid
-                container
-                alignItems="center"
-                justify="space-between"
-                style={{
-                    marginTop: "1rem",
-                }}>
-                <Grid item>
-                    <Typography className={classes.follow}> I follow people </Typography>
+            <Box style={{ maxWidth: "20.312rem", margin: "auto" }}>
+                <Avatar src={images.brandon} className={classes.avatar} />
+                <Typography className={classes.title}> Brandon Landing </Typography>
+                <Typography className={classes.subTitle}> Director assistant, producer </Typography>
+                <Grid
+                    container
+                    alignItems="center"
+                    justify="space-between"
+                    style={{
+                        marginTop: "1rem",
+                    }}>
+                    <Grid item>
+                        <Typography className={classes.follow}> I follow people </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography className={classes.followersNum} onClick={onFollowClick}>
+                            {following}
+                            people
+                        </Typography>
+                    </Grid>
                 </Grid>
-                <Grid item>
-                    <Typography className={classes.followersNum} onClick={onFollowClick}>
-                        {following}
-                        people
-                    </Typography>
+                <Grid
+                    container
+                    alignItems="center"
+                    justify="space-between"
+                    style={{
+                        marginTop: "1rem",
+                    }}>
+                    <Grid item>
+                        <Typography className={classes.follow}>
+                            I&apos;m followed <span className={classes.deskShow}> by people </span>
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography className={classes.followersNum} onClick={onFollowedClick}>
+                            {followers}
+                            people
+                        </Typography>
+                    </Grid>
                 </Grid>
-            </Grid>
-            <Grid
-                container
-                alignItems="center"
-                justify="space-between"
-                style={{
-                    marginTop: "1rem",
-                }}>
-                <Grid item>
-                    <Typography className={classes.follow}>
-                        I&apos;m followed <span className={classes.deskShow}> by people </span>
-                    </Typography>
-                </Grid>
-                <Grid item>
-                    <Typography className={classes.followersNum} onClick={onFollowedClick}>
-                        {followers}
-                        people
-                    </Typography>
-                </Grid>
-            </Grid>
+            </Box>
         </Box>
     )
 }

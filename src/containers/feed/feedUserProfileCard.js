@@ -62,6 +62,7 @@ const useStyles = makeStyles({
         width: "100%",
         height: "2.5rem",
         padding: "0.5rem",
+        backgroundColor: colors.lighterPrimary,
     },
     readmore: {
         cursor: "pointer",
@@ -94,7 +95,11 @@ const useStyles = makeStyles({
         },
     },
     shareButton: {
+        minWidth: "2.5rem",
+        minHeight: "2.5rem",
         width: "2.5rem",
+        height: "2.5rem",
+        transform: "translateY(-10px)",
         backgroundColor: colors.lighterPrimary,
         "& hover": {
             backgroundColor: colors.pink,
@@ -172,7 +177,9 @@ export const FeedUserProfileCard = ({
                     alt="dummy"
                     style={{ width: "100%", height: "23rem", objectFit: "cover", marginTop: "1rem" }}
                 />
-                <Typography variant="subtitle1">{description}</Typography>
+                <Typography variant="subtitle1" style={{ lineHeight: "1.375rem" }}>
+                    {description}
+                </Typography>
             </Box>
             {/* {!ownProfile ? (
                 <Grid container spacing={3}>
