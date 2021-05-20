@@ -7,7 +7,11 @@ const useStyles = makeStyles({
     wrapper: {
         marginTop: "1rem",
         padding: "2rem 1rem",
+        border: `1px solid ${colors.lightGray}`,
         backgroundColor: colors.white,
+        "@media(max-width:1024px)": {
+            padding: "2rem",
+        },
         "@media(max-width:767px)": {
             display: "flex",
             flexDirection: "column-reverse",
@@ -24,6 +28,7 @@ const useStyles = makeStyles({
         flexWrap: "nowrap",
         "@media (max-width: 767px)": {
             flexWrap: "wrap",
+            padding: "0.5rem 0",
             flexDirection: "column-reverse",
             "& div": {
                 width: "100%",

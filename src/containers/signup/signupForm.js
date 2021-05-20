@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     },
     formWrapper: {
         width: "100%",
-        paddingTop:"4rem",
+        paddingTop: "4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
         },
@@ -143,7 +143,7 @@ const SignupForm = () => {
                 <form onSubmit={handleSubmit(submit)}>
                     <InputWithLabelIcon
                         placeholder="Username"
-                        placeholderColor ={colors.lighterGray}
+                        placeholderColor={colors.lighterGray}
                         name="username"
                         inputRegister={register}
                         errorMsg={errors.username}
@@ -151,7 +151,7 @@ const SignupForm = () => {
                     />
                     <InputWithLabelIcon
                         placeholder="Email address"
-                        placeholderColor ={colors.lighterGray}
+                        placeholderColor={colors.lighterGray}
                         name="email"
                         inputRegister={register}
                         errorMsg={errors.email}
@@ -159,7 +159,7 @@ const SignupForm = () => {
                     />
                     <InputWithLabelIcon
                         placeholder="Password"
-                        placeholderColor ={colors.lighterGray}
+                        placeholderColor={colors.lighterGray}
                         name="password"
                         inputRegister={register}
                         errorMsg={errors.password}

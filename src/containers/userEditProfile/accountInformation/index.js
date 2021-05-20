@@ -59,6 +59,7 @@ const useStyles = makeStyles({
     },
     LastName: {
         marginLeft: "8px",
+        width: "calc(100% - 8px)",
         "@media (min-width:200px) and (max-width:767px)": {
             marginLeft: "0",
         },
@@ -208,6 +209,7 @@ const AccountInformation = () => {
                                 {accountsData.map((item, i) => (
                                     <AccountsLinks
                                         key={i}
+                                        hideBorder={i === accountsData.length - 1}
                                         icon={item.icon}
                                         link={item.link}
                                         onDelete={() => handleDeleteLink(i)}

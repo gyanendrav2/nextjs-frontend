@@ -1,11 +1,11 @@
 import React from "react"
 import { Box, Grid, makeStyles } from "@material-ui/core"
-import PropTypes from "prop-types"
+// import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 import { CardWithHeader } from "../../components/cards/cardWithHeader"
 
 const useStyles = makeStyles({
-  FollowCard: {
+    FollowCard: {
         display: "flex",
         flexWrap: "wrap",
         marginTop: "1.5rem",
@@ -60,15 +60,17 @@ const useStyles = makeStyles({
     },
 })
 
-export const FeedFollowerCard = ({ data  }) => {
+// eslint-disable-next-line react/prop-types
+export const FeedFollowerCard = ({ data }) => {
     const classes = useStyles()
     return (
         <Box className={classes.FollowCard}>
             <Grid container spacing={2}>
                 {data &&
+                    // eslint-disable-next-line react/prop-types
                     data.map((item, i) => {
                         return (
-                            <Grid item xs={12} sm={6} md={4} lg={3}>
+                            <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
                                 <CardWithHeader
                                     image={item.image}
                                     feedProjectImage={item.projectImage}
@@ -85,12 +87,15 @@ export const FeedFollowerCard = ({ data  }) => {
     )
 }
 
-FeedFollowerCard.defaultProps = {   
+FeedFollowerCard.defaultProps = {
+    // image: "",
+    // name: "",
+    // jobTitle: "",
 }
 
 FeedFollowerCard.propTypes = {
-            // key=PropTypes.number,
-            image: PropTypes.string,
-            name: PropTypes.string,
-            jobTitle: PropTypes.string,
+    // image: PropTypes.string,
+    // name: PropTypes.string,
+    // jobTitle: PropTypes.string,
+    // data: PropTypes.any,
 }

@@ -46,7 +46,6 @@ export const Teams = ({ data, handleDelete }) => {
             <Grid item xs={12} sm={6} md={6} lg={6}>
                 <Typography className={classnames(classes.title, classes.inputWrapper)}>Email invitation</Typography>
             </Grid>
-            
             {data.map((item, i) => (
                 <>
                     <Grid item xs={12} sm={5} md={6} lg={6}>

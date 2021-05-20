@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
+import dynamic from "next/dynamic"
 import PropTypes from "prop-types"
 import axios from "axios"
-import dynamic from "next/dynamic"
+
 const Discovery = dynamic(() => import("../containers/discovery"))
 
 const Categories = ({ categories }) => {

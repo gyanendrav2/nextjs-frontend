@@ -21,14 +21,14 @@ const useStyles = makeStyles({
         padding: "2rem",
         flexWrap: "nowrap",
         borderBottom: `1px solid ${colors.lightGray}`,
-        
+
         "@media (max-width: 1024px)": {
-           padding:"2rem 2rem 2rem 0",
-        //    flexWrap: "wrap",
+            padding: "2rem 2rem 2rem 0",
+            //    flexWrap: "wrap",
         },
         "@media (max-width: 767px)": {
             flexWrap: "wrap",
-            padding:"2rem 2rem 2rem 0",
+            padding: "2rem 2rem 2rem 0",
             // padding: "",
         },
     },

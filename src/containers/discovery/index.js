@@ -40,15 +40,10 @@ const useStyles = makeStyles({
     carouselContainer: {
         width: "100%",
         position: "relative",
-        // overflow: "hidden",
-        // paddingBottom: "45%",
         display: "flex!important",
         "&:focus": {
             outline: "none",
         },
-        // "@media (max-width:767px)": {
-        //     height: "37.5rem",
-        // },
         "@media (max-width:1919px)": {
             height: "37.5rem",
         },
@@ -95,7 +90,6 @@ const useStyles = makeStyles({
             fontSize: "2.1rem",
             lineHeight: "3.5rem",
         },
-
     },
     subtitle: {
         fontSize: "1rem",
@@ -114,7 +108,6 @@ const useStyles = makeStyles({
         lineHeight: "2.75rem",
         "@media (max-width:1024px)": {
             marginTop: "2rem",
-
         },
         "@media (max-width:767px)": {
             fontSize: "1.875rem",
@@ -203,21 +196,21 @@ const useStyles = makeStyles({
             bottom: "2.25rem",
         },
         "@media(max-width:767px)": {
-            display: "none"
-        }
+            display: "none",
+        },
     },
     projectAuthorTitle: {
-        textDecoration: "underline"
+        textDecoration: "underline",
     },
     projectAuthorMobile: {
         "@media(min-width:768px)": {
-            display: "none"
+            display: "none",
         },
         marginTop: "2rem",
-        opacity: "0.8"
+        opacity: "0.8",
     },
     projectAuthorTitleMobile: {
-        textDecoration: "underline"
+        textDecoration: "underline",
     },
 })
 
@@ -329,11 +322,15 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => 
                                                         onClick={() => routes.push("/signup")}
                                                     />
                                                     <Typography className={classes.projectAuthorMobile}>
-                                                        Work by: <span className={classes.projectAuthorTitleMobile}>Jason Peterson</span>
+                                                        Work by:
+                                                        <span className={classes.projectAuthorTitleMobile}>
+                                                            Jason Peterson
+                                                        </span>
                                                     </Typography>
                                                 </div>
                                                 <Typography className={classes.projectAuthor}>
-                                                    Work by: <span className={classes.projectAuthorTitle}>Jason Peterson</span>
+                                                    Work by:
+                                                    <span className={classes.projectAuthorTitle}>Jason Peterson</span>
                                                 </Typography>
                                             </div>
                                         </div>

@@ -1,13 +1,13 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
+import dynamic from "next/dynamic"
 import classnames from "classnames"
 import { colors } from "../theme/colors"
-
 import { SearchBox } from "../containers/search/searchBox"
 // import { CardWithHeader } from "../components/cards/cardWithHeader"
 import { images } from "../assets/images"
 import ContentWrapper from "../components/contentWrapper/contentWrapper"
-import dynamic from "next/dynamic"
+
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const CardWithFooter = dynamic(() => import("../components/cards/cardWithFooter"))
 const Footer = dynamic(() => import("../components/footer"))
@@ -74,11 +74,14 @@ const Search = () => {
         <Box>
             <HeaderWrapper isScrollDetect={false} />
             <Box className={classes.searchWrapper}>
-                <Typography className={classes.title}>Search the markets</Typography>
+                <Typography className={classes.title}> Search the markets </Typography>
             </Box>
             <SearchBox externalclass={classes.search} onFilter={(value) => setIsFilterOpened(value)} />
-            <Box className={classnames(classes.resultsContainer, { [classes.mobileViewResult]: !isFilterOpened })}>
-                <Typography className={classes.results}>8 results</Typography>
+            <Box
+                className={classnames(classes.resultsContainer, {
+                    [classes.mobileViewResult]: !isFilterOpened,
+                })}>
+                <Typography className={classes.results}> 8 results </Typography>
             </Box>
             <ContentWrapper>
                 <Grid container spacing={2}>

@@ -32,9 +32,9 @@ const useStyles = makeStyles({
         width: "100%",
         height: "100vh",
     },
-    addCircleIcon:{
-        cursor:"pointer"
-    }
+    addCircleIcon: {
+        cursor: "pointer",
+    },
 })
 
 export const CardAdderButton = ({ onSelect }) => {

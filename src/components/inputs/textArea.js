@@ -40,7 +40,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, height,...props }) => {
+export const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, height, ...props }) => {
     const classes = useStyles({ height })
     return (
         <Box className={classes.rootWrapper}>
@@ -60,7 +60,6 @@ TextArea.defaultProps = {
     label: "",
     type: "text",
     name: "",
-    // onChange: () => {},
     placeholder: "",
     // value: "",
     height: "17rem",

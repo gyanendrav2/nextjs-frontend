@@ -83,11 +83,13 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
                     marginTop: "1rem",
                 }}>
                 <Grid item>
-                    <Typography className={classes.follow}> I'm followed <span className={classes.deskShow}> by people </span>
+                    <Typography className={classes.follow}>
+                        I&apos;m followed <span className={classes.deskShow}> by people </span>
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Typography className={classes.followersNum} onClick={onFollowedClick}> {followers}
+                    <Typography className={classes.followersNum} onClick={onFollowedClick}>
+                        {followers}
                         people
                     </Typography>
                 </Grid>

@@ -17,7 +17,6 @@ const useStyles = makeStyles({
         "@media(max-width:767px)": {
             padding: "1.5rem 0.5rem",
         },
-      
     },
     button: {
         margin: "0.5rem",

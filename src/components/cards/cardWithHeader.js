@@ -31,9 +31,9 @@ const useStyles = makeStyles({
         width: "5.5rem",
         height: "5.5rem",
         objectFit: "cover",
-        "@media(max-width:1024px)":{
+        "@media(max-width:1024px)": {
             margin: "0rem 1.125rem 0rem 0rem",
-        }
+        },
     },
     CreatorsAuthorName: {
         fontSize: "1rem",
@@ -80,7 +80,7 @@ export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPa
                     <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
                     <CustomButton
                         variant="dropdownButton"
-                        icon={creationCard?"":<ArrowDownIcon />}
+                        icon={creationCard ? "" : <ArrowDownIcon />}
                         label={buttonText}
                         externalclass={classes.CreatorsButton}
                     />
@@ -99,7 +99,7 @@ CardWithHeader.defaultProps = {
     isProjectPage: false,
     title: "",
     subTitle: "",
-    creationCard:false
+    creationCard: false,
 }
 
 CardWithHeader.propTypes = {
@@ -108,5 +108,5 @@ CardWithHeader.propTypes = {
     subTitle: PropTypes.string,
     buttonText: PropTypes.string.isRequired,
     isProjectPage: PropTypes.bool,
-    creationCard:PropTypes.bool
+    creationCard: PropTypes.bool,
 }

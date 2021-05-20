@@ -18,10 +18,17 @@ const useStyles = makeStyles({
         marginTop: "1rem",
         "@media(max-width:767px)": {
             padding: "2rem 0rem",
+            paddingBottom: "1rem",
         },
     },
     buttonGroup: {
         maxWidth: "15rem",
+        "& button": {
+            height: "2.5rem",
+        },
+        "@media (max-width:767px)": {
+            maxWidth: "100%",
+        },
     },
     btnContainer: {
         display: "flex",
@@ -31,6 +38,9 @@ const useStyles = makeStyles({
             alignItems: "center",
             justifyContent: "center",
         },
+    },
+    cancelBtn: {
+        width: "2rem",
     },
 })
 
@@ -117,10 +127,16 @@ export const AddTeamMember = ({ shouldVisible, onAdded, onCancel }) => {
                         </Grid>
                         <Grid container className={classes.btnContainer}>
                             <Grid container spacing={2} className={classes.buttonGroup}>
-                                <Grid item xs={12} sm={12} md={6}>
-                                    <CustomButton variant="textButton" label="cancel" fullWidth onClick={onCancel} />
+                                <Grid item xs={4} sm={12} md={6}>
+                                    <CustomButton
+                                        variant="textButton"
+                                        label="cancel"
+                                        fullWidth
+                                        onClick={onCancel}
+                                        externalclass={classes.cancelBtn}
+                                    />
                                 </Grid>
-                                <Grid item xs={12} sm={12} md={6}>
+                                <Grid item xs={4} sm={12} md={6}>
                                     <CustomButton label="Confirm" type="submit" fullWidth />
                                 </Grid>
                             </Grid>

@@ -29,8 +29,8 @@ const useStyles = makeStyles({
     positionText: {
         color: colors.lighterGray,
         fontSize: "0.875rem",
-        textOverflow:"ellipsis",
-        minWidth:"10rem",
+        textOverflow: "ellipsis",
+        minWidth: "10rem",
         "@media(max-Width:768px)": {
             paddingLeft: "3rem",
         },

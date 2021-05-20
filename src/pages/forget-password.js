@@ -1,10 +1,10 @@
 import React from "react"
 import { Box, makeStyles } from "@material-ui/core"
-import HeaderWrapper  from "../components/header/headerWrapper"
+import dynamic from "next/dynamic"
+import HeaderWrapper from "../components/header/headerWrapper"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-import  Footer  from "../components/footer"
-import dynamic from "next/dynamic"
+import Footer from "../components/footer"
 
 const ForgetPasswordForm = dynamic(() => import("../containers/forgetPassword/forgetPasswordForm"))
 const LeftSide = dynamic(() => import("../components/leftSide"))

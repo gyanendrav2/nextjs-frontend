@@ -1,16 +1,16 @@
 import React from "react"
 import dynamic from "next/dynamic"
+import { Provider } from "react-redux"
+import "react-lazy-load-image-component/src/effects/blur.css"
 import PropTypes from "prop-types"
 import Head from "next/head"
 import { ThemeProvider } from "@material-ui/core/styles"
-import { Provider } from "react-redux"
-const CssBaseline = dynamic(() => import("@material-ui/core/CssBaseline"))
 import theme from "../theme/theme"
-import { images } from "../assets/images"
-import "react-lazy-load-image-component/src/effects/blur.css"
 import "../styles/index.scss"
-// import { Loader } from "../components/loader/loader"
+import { images } from "../assets/images"
 import { store } from "../redux/store/store"
+
+const CssBaseline = dynamic(() => import("@material-ui/core/CssBaseline"))
 
 export default function MyApp(props) {
     const { Component, pageProps } = props
@@ -37,7 +37,6 @@ export default function MyApp(props) {
                 <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
                 <meta name="description" content="Web site created using next js" />
             </Head>
-            {/* {isLoading && <Loader />} */}
             <Provider store={store}>
                 <ThemeProvider theme={theme}>
                     {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

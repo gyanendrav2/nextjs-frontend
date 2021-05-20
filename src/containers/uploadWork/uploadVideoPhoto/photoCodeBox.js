@@ -111,7 +111,10 @@ export const PhotoCodeBox = ({
     onDelete,
     pl,
 }) => {
-    const classes = useStyles({ rowReverseBox, pl })
+    const classes = useStyles({
+        rowReverseBox,
+        pl,
+    })
 
     return (
         <>
@@ -125,8 +128,14 @@ export const PhotoCodeBox = ({
                         <CodeIcon className={classes.icon} onClick={showCodeModel} />
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={12} md={7} lg={12} xl={6} className={classes.textContainer}>
-                    <input placeholder="Type a headline..." className={classes.headInput} style={{ border: "none" }} />
+                <Grid item xs={12} sm={12} md={7} lg={6} xl={6} className={classes.textContainer}>
+                    <input
+                        placeholder="Type a headline..."
+                        className={classes.headInput}
+                        style={{
+                            border: "none",
+                        }}
+                    />
                     <textarea className={classes.headTextArea} placeholder="Insert Text..." />
                 </Grid>
             </Grid>

@@ -9,8 +9,8 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
         padding: "2rem",
-        "@media(max-width:575px)": {
-            padding: "1rem",
+        "@media(max-width:767px)": {
+            padding: "1.25rem",
         },
     },
     title: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
         color: colors.black,
         //  width: "20.187rem",
         width: "50%",
-        "@media(max-width:575px)": {
+        "@media(max-width:767px)": {
             width: "100%",
         },
     },
@@ -45,10 +45,16 @@ const ProfileContent = () => {
                     Profile
                 </Typography>
                 <Typography className={classes.inputLabel}>Account Email</Typography>
-                <InputWithLabelIcon placeholder="Email" name="username" externalclass={classes.inputStyles} />
+                <InputWithLabelIcon
+                    placeholder="Email"
+                    // name="email"
+                    placeholderColor={colors.lightGray}
+                    externalclass={classes.inputStyles}
+                />
                 <Typography className={classnames(classes.inputLabel, classes.changeTypo)}>Change Password</Typography>
                 <InputWithLabelIcon
                     placeholder="Insert current password"
+                    placeholderColor={colors.lightGray}
                     // name="username"
                     // inputRegister={register}
                     // errorMsg={errors.username}
@@ -56,6 +62,7 @@ const ProfileContent = () => {
                 />
                 <InputWithLabelIcon
                     placeholder="Insert new password"
+                    placeholderColor={colors.lightGray}
                     // name="username"
                     // inputRegister={register}
                     // errorMsg={errors.username}
@@ -63,6 +70,7 @@ const ProfileContent = () => {
                 />
                 <InputWithLabelIcon
                     placeholder="Repeat new password"
+                    placeholderColor={colors.lightGray}
                     // name="username"
                     // inputRegister={register}
                     // errorMsg={errors.username}

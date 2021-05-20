@@ -8,6 +8,7 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.white,
         padding: "2rem",
+        border: `1px solid ${colors.lightGray}`,
         "@media(max-width:575px)": {
             padding: "1rem",
         },
@@ -16,9 +17,18 @@ const useStyles = makeStyles({
         textAlign: "left",
         paddingBottom: "1.5rem",
     },
+    btnStyles: {
+        height: "2.5rem",
+    },
     deleteContainer: {
         marginTop: "0.5rem",
         marginLeft: "-0.5rem",
+        "@media(max-width:575px)": {
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            justifyContent: "center",
+        },
     },
 })
 
@@ -38,7 +48,7 @@ const DeleteContent = () => {
                     <CustomButton variant="textButton" label="Delete account" color={colors.darkRed} />
                     <CustomButton
                         variant="textButton"
-                        label="Deactivate account"
+                        label="Deactivate your account"
                         externalclass={classes.btnStyles}
                         color={colors.darkRed}
                     />

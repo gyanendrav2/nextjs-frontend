@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
+import dynamic from "next/dynamic"
 import { Box, Grid, makeStyles } from "@material-ui/core"
-import { useRouter } from "next/router"
 import { colors } from "../theme/colors"
 import { uploadWorkOptions } from "../data/uploadWorkOptions"
-import dynamic from "next/dynamic"
 
 const ContentWrapper = dynamic(() => import("../components/contentWrapper/contentWrapper"))
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
@@ -14,7 +13,7 @@ const CustomButton = dynamic(() => import("../components/buttons/customButton"))
 
 const useStyles = makeStyles({
     wrapper: {
-        backgroundColor: colors.lighterPrimary + "!important",
+        backgroundColor: `${colors.lighterPrimary}!important`,
         position: "relative",
         "@media(max-width:1024px)": {
             padding: "6rem 0px 0px 0px",
@@ -25,7 +24,7 @@ const useStyles = makeStyles({
     },
     col1: {
         width: "calc(100% - 27.5rem)",
-        marginTop: "7rem",
+        marginTop: "8rem",
         "@media(max-width:1024px)": {
             width: "100%",
             marginTop: "2rem",
@@ -42,7 +41,7 @@ const useStyles = makeStyles({
     },
     innerWrapper: {
         position: "sticky",
-        top: "7rem",
+        top: "8rem",
         backgroundColor: colors.white,
         border: `1px solid ${colors.lightGray}`,
     },

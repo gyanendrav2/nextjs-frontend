@@ -1,5 +1,4 @@
 import React from "react"
-// import PropTypes from "prop-types"
 import Carousel from "nuka-carousel"
 import { Grid, makeStyles } from "@material-ui/core"
 import { images } from "../../../assets/images"

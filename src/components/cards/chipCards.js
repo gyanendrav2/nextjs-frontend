@@ -21,12 +21,6 @@ const useStyles = makeStyles({
         marginRight: "0.5rem",
         marginBottom: "0.5rem",
     },
-    // chipbox: {
-    //     display: "flex",
-    //     alignItems: "center",
-    //     justifyContent: "center",
-    //     backgroundColor: colors.lightGray,
-    // },
     title: {
         color: colors.black,
     },

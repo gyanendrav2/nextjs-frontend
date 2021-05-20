@@ -35,9 +35,9 @@ const useStyles = makeStyles({
         height: "2.5rem",
         marginRight: "1rem",
         marginLeft: 0,
-        "@media(max-width:1024px)":{
+        "@media(max-width:1024px)": {
             marginBottom: "1.187rem",
-            maxWidth:"10.25rem",
+            maxWidth: "10.25rem",
         },
         "@media (min-width:200px) and (max-width:475px)": {
             width: "calc(50% - 0.25rem)",

@@ -1,7 +1,7 @@
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import  SelectWithLabelIcon  from "../../components/inputs/selectWithLabelIcon"
+import SelectWithLabelIcon from "../../components/inputs/selectWithLabelIcon"
 import { UserConfirmContainer } from "../../components/userConfirmContainer/userConfirmContainer"
 import { colors } from "../../theme/colors"
 

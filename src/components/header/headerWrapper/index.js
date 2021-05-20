@@ -19,8 +19,8 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "space-between",
         zIndex: 99,
-        height:"73px",
-        // "@media(min-width:768px) and (max-width:1024px)":{   
+        height: "73px",
+        // "@media(min-width:768px) and (max-width:1024px)":{
         // height:"80px"
         // },
         "@media (min-width:768px)": {
@@ -29,7 +29,7 @@ const useStyles = makeStyles({
     },
     mobileLogo: {
         width: "4rem",
-        height:"2.562rem",
+        height: "2.562rem",
         marginLeft: "1rem",
     },
     menuIcon: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles({
     },
 })
 
-const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated, feed }) => {
+const HeaderWrapper = ({ isScrollDetect, mobileMenuIconColor, mobileLogoType, isAuthenticated }) => {
     const classes = useStyles({ mobileMenuIconColor })
     const [scrollTop, setScrollTop] = useState(0)
     const [mobileMenu, setMobileMenu] = useState(false)
@@ -128,7 +128,7 @@ HeaderWrapper.defaultProps = {
     mobileMenuIconColor: "",
     mobileLogoType: undefined,
     isAuthenticated: false,
-    feed: false,
+    // feed: false,
 }
 
 HeaderWrapper.propTypes = {
@@ -136,7 +136,7 @@ HeaderWrapper.propTypes = {
     mobileMenuIconColor: PropTypes.string,
     mobileLogoType: PropTypes.string,
     isAuthenticated: PropTypes.bool,
-    feed: PropTypes.bool,
+    // feed: PropTypes.bool,
 }
 
 export default HeaderWrapper

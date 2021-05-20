@@ -1,11 +1,11 @@
 /* eslint-disable max-lines */
 import React, { useState } from "react"
+import { useRouter } from "next/router"
 import dynamic from "next/dynamic"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-import { useRouter } from "next/router"
 
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const UserProfileCard = dynamic(() => import("../components/cards/userProfileCard"))
@@ -71,7 +71,7 @@ const useStyles = makeStyles({
     },
     report: {
         marginTop: "3.5rem",
-        backgroundColor: colors.lighterPrimary+"!important",
+        backgroundColor: `${colors.lighterPrimary}!important`,
         paddingTop: "1.812rem",
         paddingBottom: "1.812rem",
         "& p": {

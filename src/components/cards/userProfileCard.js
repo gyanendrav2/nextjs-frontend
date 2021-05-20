@@ -71,7 +71,7 @@ const useStyles = makeStyles({
     fullWidthBtn: {
         width: "100%",
         "@media(max-width:460px)": {
-            maxWidth: "10rem",
+            maxWidth: "12rem",
         },
     },
     editfullWidthBtn: {
@@ -169,10 +169,10 @@ const UserProfileCard = ({
             <SocialButtons />
             {!ownProfile ? (
                 <Grid container spacing={3} className={classnames(classes.buttonContainer, externalclass)}>
-                    <Grid item xs={6} sm={8} md={8} lg={8} xl={8}>
+                    <Grid item xs={7} sm={7} md={8} lg={8} xl={8}>
                         <CustomButton label="Message me" externalclass={classes.fullWidthBtn} onClick={onMsgBtnClick} />
                     </Grid>
-                    <Grid item xs={6} sm={4} md={4} lg={4} xl={4}>
+                    <Grid item xs={5} sm={5} md={4} lg={4} xl={4}>
                         <CustomButton
                             variant="dropdownButton"
                             icon={<img src={icons.arrowDropdown} alt="" />}

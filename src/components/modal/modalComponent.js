@@ -13,9 +13,15 @@ const useStyles = makeStyles((theme) =>
         modal: {
             display: "flex",
             alignItems: "center",
+            marginTop: "1rem",
             justifyContent: "center",
             paddingLeft: "1rem",
             paddingRight: "1rem",
+            "@media(max-width:1024px)": {
+                alignItems: "flex-start",
+                marginTop: "1rem",
+                height: "100vh",
+            },
         },
         paper: {
             backgroundColor: theme.palette.background.paper,
@@ -28,9 +34,9 @@ const useStyles = makeStyles((theme) =>
             marginLeft: "auto",
             marginRight: "auto",
             position: "relative",
-            "@media (max-width:500px)": {
+            "@media (max-width:767px)": {
                 padding: "18px",
-                maxWidth: "94%",
+                maxWidth: "100%",
             },
             "&:focus": {
                 outline: "none",
@@ -61,7 +67,6 @@ const ModalComponent = ({ handleClose, openOrNot, children, onClose, maxHeight, 
     return (
         <Box>
             <Modal
-                // eslint-disable-next-line prettier/prettier
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}

@@ -69,5 +69,4 @@ EditOptions.propTypes = {
     isHref: PropTypes.bool,
 }
 
-
 export default EditOptions

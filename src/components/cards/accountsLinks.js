@@ -7,7 +7,7 @@ import { DeleteIcon } from "../icons/deleteIcon"
 
 const useStyles = makeStyles({
     wrapper: {
-        borderBottom: `1px solid ${colors.lightGray}`,
+        borderBottom: (props) => (props.hideBorder ? "none" : `1px solid ${colors.lightGray}`),
         paddingBottom: "0.4rem",
         paddingTop: "0.4rem",
         color: (props) => (props.link ? colors.black : colors.lighterGray),
@@ -29,8 +29,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const AccountsLinks = ({ icon, onClick, link, onDelete }) => {
-    const classes = useStyles({ link })
+export const AccountsLinks = ({ icon, onClick, link, onDelete, hideBorder }) => {
+    const classes = useStyles({ link, hideBorder })
     return (
         <Grid container alignItems="center" justify="space-between" className={classes.wrapper}>
             {icon}
@@ -53,6 +53,7 @@ AccountsLinks.defaultProps = {
     icon: "",
     link: "",
     onDelete: () => {},
+    hideBorder: false,
 }
 
 AccountsLinks.propTypes = {
@@ -60,4 +61,5 @@ AccountsLinks.propTypes = {
     onClick: PropTypes.func.isRequired,
     link: PropTypes.string,
     onDelete: PropTypes.func,
+    hideBorder: PropTypes.bool,
 }

@@ -10,9 +10,10 @@ import { InputWithLabelIcon } from "../inputs/inputWithLabelIcon"
 const useStyles = makeStyles({
     heading: {
         marginTop: "4rem",
-
+        textAlign: "center",
         "@media(max-width:1024px)": {
-            marginBottom: "2rem",
+            marginTop: "4rem",
+            marginBottom: "0rem",
         },
         "@media(max-width:767px)": {
             marginBottom: "2rem",
@@ -20,7 +21,7 @@ const useStyles = makeStyles({
         "@media(max-width:400px)": {
             fontSize: (props) => (props.requestTitle ? props.requestTitle : "2rem"),
             width: "100%",
-            textAlign: "left",
+            textAlign: "center",
         },
     },
     wrapper: {
@@ -35,14 +36,18 @@ const useStyles = makeStyles({
                 height: "12rem",
             },
         },
+        "@media(max-width:1024px)": {
+            padding: "2rem 1rem 3.5rem 1rem",
+        },
         "@media(max-width:767px)": {
-            padding: "1rem 0",
+            padding: "1rem 0 0 0",
         },
     },
     button: {
         width: "18.375rem",
         height: "3.5rem",
-        margin: "1rem",
+        marginLeft: "0.5rem",
+        marginRight: "0.5rem",
         "@media(max-width:767px)": {
             margin: "0.5rem 0.5rem",
             width: "100%",
@@ -50,8 +55,8 @@ const useStyles = makeStyles({
     },
     charCount: {
         position: "absolute",
-        top: "3.5rem",
-        right: "8.5rem",
+        top: "3rem",
+        right: "2rem",
         color: colors.lightGray,
         "@media(max-width:767px)": {
             top: "2rem",
@@ -67,9 +72,12 @@ const useStyles = makeStyles({
     },
     buttonWrapper: {
         backgroundColor: colors.lighterPrimary,
+        padding: "2rem",
+
         "@media (max-width:767px)": {
             flexDirection: "column-reverse",
             width: "100%",
+            margin: "0",
             "& button": {
                 marginLeft: 0,
                 marginRight: 0,
@@ -81,6 +89,9 @@ const useStyles = makeStyles({
         maxHeight: "90vh",
         overflowY: "auto",
         padding: "1.125rem",
+        "@media (max-width: 767px)": {
+            paddingBottom: 0,
+        },
     },
 })
 
@@ -112,36 +123,42 @@ export const SendDetailsModal = ({
     }
     return (
         <ModalComponent padding="0" openOrNot={isOpen} onClose={onClose}>
-            <Box className={classes.wrapperTop}>
-                <Grid container alignItems="center" justify="center" direction="column" className={classes.fullWidth}>
-                    <Typography variant="h4" className={classes.heading}>
-                        {modalName}
-                    </Typography>
-                    <Typography className={externalclass}>{title}</Typography>
-                    <Box className={classes.wrapper}>
-                        {isTextArea ? (
-                            <>
-                                <TextArea placeholder={placeholder} value={description} onChange={handleDescription} />
-                                {!hideCount && (
-                                    <Typography className={classes.charCount}>{description.length}/120</Typography>
-                                )}
-                            </>
-                        ) : (
-                            <InputWithLabelIcon
-                                placeholder="https://www.youtube.com/embed/50Twc4ghBFM"
-                                onChange={onLinkChange}
-                            />
-                        )}
-                    </Box>
-                    <Grid container spacing={2} alignItems="center" justify="center" className={classes.buttonWrapper}>
-                        <CustomButton
-                            variant="cancel"
-                            label="Cancel"
-                            externalclass={classes.button}
-                            onClick={onClose}
-                        />
-                        <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
+            <Box width="100%" style={{ overflowX: "hidden", overflowY: "auto", maxHeight: "90vh" }}>
+                <Box className={classes.wrapperTop}>
+                    <Grid
+                        container
+                        alignItems="center"
+                        justify="center"
+                        direction="column"
+                        className={classes.fullWidth}>
+                        <Typography variant="h4" className={classes.heading}>
+                            {modalName}
+                        </Typography>
+                        <Typography className={externalclass}>{title}</Typography>
+                        <Box className={classes.wrapper}>
+                            {isTextArea ? (
+                                <>
+                                    <TextArea
+                                        placeholder={placeholder}
+                                        value={description}
+                                        onChange={handleDescription}
+                                    />
+                                    {!hideCount && (
+                                        <Typography className={classes.charCount}>{description.length}/120</Typography>
+                                    )}
+                                </>
+                            ) : (
+                                <InputWithLabelIcon
+                                    placeholder="https://www.youtube.com/embed/50Twc4ghBFM"
+                                    onChange={onLinkChange}
+                                />
+                            )}
+                        </Box>
                     </Grid>
+                </Box>
+                <Grid container spacing={2} alignItems="center" justify="center" className={classes.buttonWrapper}>
+                    <CustomButton variant="cancel" label="Cancel" externalclass={classes.button} onClick={onClose} />
+                    <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
                 </Grid>
             </Box>
         </ModalComponent>

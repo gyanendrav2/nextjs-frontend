@@ -37,10 +37,10 @@ const useStyles = makeStyles({
             lineHeight: "2rem",
             marginBottom: "2rem",
         },
-        "@media (min-width:576px) and (max-width:1024px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             padding: "6rem 2rem 6rem 2rem!important",
         },
-        "@media (max-width:575px)": {
+        "@media (max-width:767px)": {
             padding: "2.5rem 1rem 2.5rem 1rem!important",
         },
     },
@@ -66,7 +66,6 @@ const useStyles = makeStyles({
         },
     },
     deskShow: {
-     
         "@media (min-width:768px)": {
             textAlign: "left!important",
             width: "100%!important",

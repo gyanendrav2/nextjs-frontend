@@ -20,13 +20,17 @@ const useStyles = makeStyles({
     },
     title: { marginBottom: "1.5rem" },
     wrap: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        "& button": {
+            width: "100%",
+        },
         flexWrap: "nowrap",
         "@media (max-width:767px)": {
-            flexWrap: "wrap",
+            display: "block",
             flexDirection: "column",
-            "& button": {
-                width: "100%",
-            },
+            width: "100%",
         },
     },
     modaltitle: {
@@ -34,13 +38,20 @@ const useStyles = makeStyles({
         fontSize: "1.375rem",
         lineHeight: "2.1rem",
         textAlign: "center",
-        color:colors.lighterGray,
-         marginBottom:"2rem",
-         "@media (max-width: 767px)": {
-            marginBottom:"1rem",
+        color: colors.lighterGray,
+        marginBottom: "2rem",
+        "@media (max-width: 767px)": {
+            marginBottom: "1rem",
         },
-         
-    }
+    },
+    textStyles: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        "@media (max-width: 767px)": {
+            margin: "1rem auto",
+        },
+    },
 })
 
 export const ConvertVideoOrPhoto = () => {
@@ -63,14 +74,20 @@ export const ConvertVideoOrPhoto = () => {
                 <Typography variant="h6" className={classes.title}>
                     COVER VIDEO OR PHOTO
                 </Typography>
-                <Grid container alignItems="center" justify="space-between" className={classes.wrap}>
-                    <CustomButton
-                        label="Copy embed video"
-                        externalclass={classes.button}
-                        onClick={() => setCodeCopyModal(true)}
-                    />
-                    <Typography>or</Typography>
-                    <CustomButton label="Upload a photo" wantFile externalclass={classes.button} />
+                <Grid container className={classes.wrap}>
+                    <Grid item sm={12} md={5} lg={5} xl={5}>
+                        <CustomButton
+                            label="Copy embed video"
+                            externalclass={classes.button}
+                            onClick={() => setCodeCopyModal(true)}
+                        />
+                    </Grid>
+                    <Grid item sm={12} md={2} lg={2} xl={2} className={classes.textStyles}>
+                        <Typography>or</Typography>
+                    </Grid>
+                    <Grid item sm={12} md={5} lg={5} xl={5}>
+                        <CustomButton label="Upload a photo" wantFile externalclass={classes.button} />
+                    </Grid>
                 </Grid>
             </Box>
         </>

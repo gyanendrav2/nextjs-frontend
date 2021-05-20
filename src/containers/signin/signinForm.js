@@ -42,7 +42,7 @@ const useStyles = makeStyles({
     },
     formWrapper: {
         width: "100%",
-        paddingTop:"4rem",
+        paddingTop: "4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
         },

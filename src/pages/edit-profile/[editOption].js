@@ -1,8 +1,8 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import { useRouter } from "next/router"
+import dynamic from "next/dynamic"
 import React from "react"
 import { colors } from "../../theme/colors"
-import dynamic from "next/dynamic"
 
 const HeaderWrapper = dynamic(() => import("../../components/header/headerWrapper"))
 const EditOptions = dynamic(() => import("../../containers/userEditProfile/editOptions"))
@@ -14,18 +14,21 @@ const AccountInformation = dynamic(() => import("../../containers/userEditProfil
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
-        padding: "7rem 7rem 2rem 8rem",
-        "@media(min-width:768px) and (max-width:1024px)": {
-            padding: "7rem 2rem 2rem 2rem",
+        padding: "8rem 9.687rem 2rem 9.687rem",
+        "@media (min-width:960px) and (max-width:1350px)": {
+            padding: "8rem 2rem 2rem 2rem",
         },
-        "@media(max-width:767px)": {
-            padding: "4rem 0rem 0rem 1rem",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            padding: "8rem 2rem 2rem 2rem",
+        },
+        "@media (min-width:200px) and (max-width:767px)": {
+            padding: "6rem 1rem 2rem 1rem",
         },
     },
     mainTitle: {
-        marginTop: "2rem",
-        marginBottom: "2rem",
-        "@media (min-width:200px) and (max-width:767px)": {
+        // marginTop: "2rem",
+        marginBottom: "1.5rem",
+        "@media (max-width:767px)": {
             marginBottom: "1.5rem",
         },
     },
@@ -77,6 +80,9 @@ const useStyles = makeStyles({
     whiteBg: {
         backgroundColor: colors.lighterPrimary,
         position: "relative",
+    },
+    footer: {
+        marginTop: "0rem!important",
     },
 })
 const EditProfile = () => {

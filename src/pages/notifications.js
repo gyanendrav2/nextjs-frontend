@@ -10,9 +10,9 @@ import { images } from "../assets/images"
 
 const useStyles = makeStyles({
     wrapper: {
-        padding: "7rem 10rem 2rem 10rem",
+        padding: "8rem 10rem 2rem 10rem",
         "@media (max-width:1024px)": {
-            padding: "7rem 0rem 1rem 2rem",
+            padding: "8rem 0rem 1rem 2rem",
         },
     },
     mainTitle: {
@@ -86,7 +86,6 @@ const UserNotifications = () => {
                 <NotificationRow
                     title={
                         <Typography>
-                            {" "}
                             Mike Magic liked your project &nbsp;
                             <Link href="/">
                                 <span className={classes.link}>

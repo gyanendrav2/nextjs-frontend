@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import dynamic from "next/dynamic"
 import classnames from "classnames"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-import dynamic from "next/dynamic"
 
 const Footer = dynamic(() => import("../components/footer"))
 const MessageBox = dynamic(() => import("../containers/profile/messageBox"))
@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         },
         "@media(max-width:767px)": {
             paddingTop: "3.5rem",
-              paddingLeft: "0!important",
+            paddingLeft: "0!important",
             paddingRight: "0!important",
         },
     },
@@ -68,7 +68,7 @@ const useStyles = makeStyles({
     },
     report: {
         marginTop: "3.5rem",
-        backgroundColor: colors.lighterPrimary,
+        backgroundColor: `${colors.lighterPrimary}!important`,
         paddingTop: "1.812rem",
         paddingBottom: "1.812rem",
         "& p": {
@@ -76,18 +76,15 @@ const useStyles = makeStyles({
             marginLeft: "0.5rem",
         },
         "@media (min-width:768px) and (max-width:1024px)": {
-            marginTop:"2rem",
+            marginTop: "2rem",
         },
-        // "@media (max-width:767px)": {
-        //     display: "none",
-        // },
     },
     footer: {
         marginTop: "0!important",
     },
     selectCategories: {
         padding: "1.25rem",
-        color:`${colors.lighterGray}!important`,
+        color: `${colors.lighterGray}!important`,
         "@media (min-width:768px)": {
             display: "none",
         },
@@ -127,11 +124,11 @@ const useStyles = makeStyles({
             height: "15.5rem!important",
         },
     },
-    userCardstyle:{
+    userCardstyle: {
         "@media(min-width:768px) and (max-width:1024px)": {
-            padding:"1rem 2rem"
-        }, 
-    }
+            padding: "1rem 2rem",
+        },
+    },
 })
 
 const Profile = () => {
@@ -179,19 +176,19 @@ const Profile = () => {
                     <Grid container spacing={2} className={classes.profileHeader}>
                         <Grid item sx={12} sm={12} md={12} lg={5} xl={5}>
                             <Box className={classes.userCardstyle}>
-                            <UserProfileCard
-                                onClickProfile={handleInfo}
-                                onMsgBtnClick={handleMsg}
-                                image={images.brandon}
-                                name="Brandon Landing"
-                                userName="@veritas_z"
-                                followers="15"
-                                following="20"
-                                position="Director assistant, producer"
-                                location="USA, Ohio"
-                                bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
-                                externalclass={classes.userProfilecardStyles}
-                            />
+                                <UserProfileCard
+                                    onClickProfile={handleInfo}
+                                    onMsgBtnClick={handleMsg}
+                                    image={images.brandon}
+                                    name="Brandon Landing"
+                                    userName="@veritas_z"
+                                    followers="15"
+                                    following="20"
+                                    position="Director assistant, producer"
+                                    location="USA, Ohio"
+                                    bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
+                                    externalclass={classes.userProfilecardStyles}
+                                />
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={12} md={12} lg={7} xl={7} className={classes.videoStyles}>

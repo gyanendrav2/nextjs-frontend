@@ -11,13 +11,20 @@ const useStyles = makeStyles({
         position: "fixed",
         bottom: "2.5rem",
         right: "2.5rem",
-        display:"flex",
-        flexDirection:"column",
+        display: "flex",
+        flexDirection: "column",
         zIndex: 9,
         maxWidth: "27.5rem",
         padding: "1.5rem",
         backgroundColor: colors.black,
         boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.5)",
+        "@media(max-width:1024px)": {
+            right: "2rem",
+        },
+        "@media(max-width:767px)": {
+            right: "0.5rem",
+            maxWidth: "18rem",
+        },
     },
     cookieButton: {
         backgroundColor: colors.black,
@@ -25,8 +32,8 @@ const useStyles = makeStyles({
         height: "2.5rem",
         // padding: "1rem 1.5rem",
         marginTop: "1rem",
-        cursor:"pointer",
-        width:"9.75rem",
+        cursor: "pointer",
+        width: "9.75rem",
         "&:hover": {
             backgroundColor: colors.pink,
             color: colors.black,
@@ -38,7 +45,7 @@ const useStyles = makeStyles({
         lineHeight: "1.25rem",
         marginTop: "0.9rem",
         fontFamily: "Campton Light",
-        fontWeight:"400",
+        fontWeight: "400",
     },
     cookiesPage: {
         cursor: "pointer",
@@ -60,8 +67,8 @@ export const CookieCard = () => {
     return (
         <>
             <Box className={classes.wrapper}>
-                <Box style={{display:"block"}}>
-                <CookieIcon />
+                <Box style={{ display: "block" }}>
+                    <CookieIcon />
                 </Box>
                 <Typography component="span" className={classes.title}>
                     Pxl may use cookies, web beacons, tracking pixels, and other tracking technologies when you visit

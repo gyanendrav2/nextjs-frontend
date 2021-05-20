@@ -1,8 +1,8 @@
 import React from "react"
+import dynamic from "next/dynamic"
 import { Box, makeStyles } from "@material-ui/core"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
-import dynamic from "next/dynamic"
 
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const LeftSide = dynamic(() => import("../components/leftSide"))

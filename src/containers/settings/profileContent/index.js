@@ -1,16 +1,16 @@
-import React from "react"
-import { CancelSave } from "../../userEditProfile/accountInformation/cancelSave"
-// import PropTypes from "prop-types"
-// import { Box } from "@material-ui/core"
+// import React from "react"
+// import { CancelSave } from "../../userEditProfile/accountInformation/cancelSave"
+// // import PropTypes from "prop-types"
+// // import { Box } from "@material-ui/core"
 
-const ProfileContent = () => {
-    return (
-        <>
-            <CancelSave />
-        </>
-    )
-}
+// const ProfileContent = () => {
+//     return (
+//         <>
+//             <CancelSave />
+//         </>
+//     )
+// }
 
-ProfileContent.propTypes = {}
+// ProfileContent.propTypes = {}
 
-export default ProfileContent
+// export default ProfileContent

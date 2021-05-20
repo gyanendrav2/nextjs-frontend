@@ -15,20 +15,20 @@ const DeleteContent = dynamic(() => import("../../containers/settings/deleteCont
 const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
-        padding: "7rem 10rem 2rem 10rem",
+        padding: "8rem 9.687rem 2rem 9.687rem",
         "@media (min-width:960px) and (max-width:1350px)": {
-            padding: "7rem 2rem 2rem 2rem",
+            padding: "8rem 2rem 2rem 2rem",
+        },
+        "@media (min-width:768px) and (max-width:1024px)": {
+            padding: "8rem 2rem 2rem 2rem",
         },
         "@media (min-width:200px) and (max-width:767px)": {
             padding: "6rem 1rem 2rem 1rem",
         },
-        "@media (min-width:768px) and (max-width:1024px)": {
-            padding: "7rem 2rem 2rem 2rem",
-        },
     },
     mainTitle: {
-        marginBottom: "2rem",
-        "@media (min-width:200px) and (max-width:767px)": {
+        marginBottom: "1.5rem",
+        "@media (max-width:767px)": {
             marginBottom: "1.5rem",
         },
     },
@@ -85,6 +85,9 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary,
         position: "relative",
     },
+    footer: {
+        marginTop: "0rem!important",
+    },
 })
 const Settings = () => {
     const classes = useStyles()
@@ -115,7 +118,7 @@ const Settings = () => {
                     col1Children={
                         <Grid container direction="column" display="flex" className={classes.col1}>
                             <EditOptions
-                                optionName="profile"
+                                optionName="Profile"
                                 isActive={editOption === "profile"}
                                 onClick={() => push("/settings/profile")}
                             />

@@ -111,7 +111,7 @@ const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleC
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
     const [selectionModel, setSelectionModel] = useState(false)
     const [photoCode, setPhotoCode] = useState([])
-    const [activeElement, setActiveElement] = useState(["#upload-video-photo", "#insert-project-name-details"])
+    const [activeElement] = useState(["#upload-video-photo", "#insert-project-name-details"])
 
     const isInViewport = (element) => {
         const rect = element.getBoundingClientRect()

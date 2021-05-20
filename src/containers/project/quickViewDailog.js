@@ -2,12 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Box, Avatar, Grid, makeStyles, Typography } from "@material-ui/core"
 import { Close, MoreVert } from "@material-ui/icons"
+import dynamic from "next/dynamic"
 import classnames from "classnames"
 import { useRouter } from "next/router"
 import CustomButton from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { colors } from "../../theme/colors"
-import dynamic from "next/dynamic"
+
 const ReportContentWrapper = dynamic(() => import("../../components/reportContentWrapper/reportContentWrapper"))
 
 const useStyles = makeStyles({
@@ -105,14 +106,14 @@ const useStyles = makeStyles({
         top: 0,
         padding: "1rem 0",
         zIndex: 1,
-        "@media(min-width:768px) and (max-width:1024px)":{
-            display:"flex",
-            alignItems:"Center"
-        }
+        "@media(min-width:768px) and (max-width:1024px)": {
+            display: "flex",
+            alignItems: "Center",
+        },
     },
     underlineStyle: {
         textDecoration: "underline",
-        cursor:"pointer"
+        cursor: "pointer",
     },
     fullProjectButton: {
         textAlign: "end",
@@ -127,7 +128,10 @@ const useStyles = makeStyles({
         },
     },
     dialogreportcontent: {
-        padding: "1rem",
+        padding: "1rem 1rem 1rem 1.75rem ",
+        "@media(max-width:767px)": {
+            padding: "1rem  1rem 1rem 2rem",
+        },
     },
     reportSpamProp: {
         "@media(max-width:767px)": {
@@ -177,7 +181,7 @@ export const QuickViewDailog = ({ closeModal }) => {
     const classes = useStyles()
     const routes = useRouter()
 
-    const handleRouting = () =>{
+    const handleRouting = () => {
         routes.push("/categories")
     }
     return (
@@ -227,7 +231,11 @@ export const QuickViewDailog = ({ closeModal }) => {
             <Grid container className={classes.infoContainer}>
                 <Grid className={classes.info} item xs={12} sm={4} md={4} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Category:</Typography>
-                    <Typography className={classnames(classes.underlineStyle, classes.infoText)} onClick={handleRouting}>Directing</Typography>
+                    <Typography
+                        className={classnames(classes.underlineStyle, classes.infoText)}
+                        onClick={handleRouting}>
+                        Directing
+                    </Typography>
                 </Grid>
                 <Grid className={classes.info} item xs={12} sm={4} md={4} lg={3} xl={3}>
                     <Typography className={classes.infoTextHead}>Year</Typography>

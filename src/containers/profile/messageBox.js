@@ -6,6 +6,7 @@ import CustomButton from "../../components/buttons/customButton"
 import { InputWithLabelIcon } from "../../components/inputs/inputWithLabelIcon"
 import { TextArea } from "../../components/inputs/textArea"
 import { TwoColModalGrid } from "../../components/grid/twoColModalGrid"
+import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     infoWrapper: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles({
         "@media (max-width:767px)": {
             width: "100%",
             maxHeight: "90vh",
+            marginTop: "0",
         },
     },
     name: {
@@ -32,7 +34,6 @@ const useStyles = makeStyles({
     submit: {},
     submitBtn: {
         width: "100%",
-        // padding: "1rem",
     },
 })
 
@@ -42,10 +43,14 @@ const MessageBox = () => {
         <TwoColModalGrid
             col1Children={<PictureOverSquare mobileHide image={images.brandon} />}
             col2Children={
-                <Box className={classes.col2}>
+                <Box>
                     <Box className={classes.infoWrapper}>
                         <Typography className={classes.name}>Message Me</Typography>
-                        <InputWithLabelIcon name="" placeholder="Email address" />
+                        <InputWithLabelIcon
+                            name="email"
+                            placeholderColor={colors.lighterGray}
+                            placeholder="Email address"
+                        />
                         <TextArea placeholder="Message" />
                         <Grid container spacing={2} className={classes.submitContainer}>
                             <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>

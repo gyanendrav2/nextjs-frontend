@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     formWrapper: {
         width: "100%!important",
         marginTop: "7rem",
-        paddingTop:"4rem",
+        paddingTop: "4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
             marginTop: "3rem",
