@@ -58,10 +58,24 @@ const useStyles = makeStyles({
             },
         },
     },
-
     checkboxText: {
         fontSize: "0.9rem",
         marginLeft: "1rem",
+    },
+    projectAuthor: {
+        paddingTop: "7.5rem",
+        paddingBottom: "2.5rem",
+        fontFamily: "Helvetica",
+        fontSize: "1rem",
+        lineHeight: "1.375rem",
+        color: "#1B1B1B",
+        opacity: "0.8",
+        "@media(max-width:1024px)": {
+            bottom: "2.25rem",
+        },
+    },
+    projectAuthorTitle: {
+        textDecoration: "underline",
     },
 })
 
@@ -117,6 +131,9 @@ const LeftSide = () => {
                         <Typography className={classes.checkboxText}>Use smart search to find inspiration</Typography>
                     </Box>
                 </Box>
+                <Typography className={classes.projectAuthor}>
+                    Work by: <span className={classes.projectAuthorTitle}>Jason Peterson</span>
+                </Typography>
             </Box>
         </Grid>
     )

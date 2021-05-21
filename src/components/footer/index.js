@@ -19,7 +19,7 @@ export const useStyles = makeStyles({
         fontSize: "1rem",
         justifyContent: " space-between",
         flexWrap: "wrap",
-        "@media (min-width:576px) and (max-width:781px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             height: "9.5rem",
             width: "100%",
             alignItems: "center!important",
@@ -32,7 +32,7 @@ export const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
-        "@media (min-width:576px) and (max-width:781px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             alignItems: "flex-start",
         },
     },
@@ -40,8 +40,8 @@ export const useStyles = makeStyles({
         marginRight: "3rem",
         cursor: "pointer",
         color: colors.white,
-        "@media (min-width:576px) and (max-width:781px)": {
-            marginLeft: "3.75rem",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            marginLeft: "3rem",
             marginRight: "1rem",
         },
     },
@@ -49,7 +49,7 @@ export const useStyles = makeStyles({
         margin: "auto 3.437rem",
         cursor: "pointer",
         color: colors.white,
-        "@media (min-width:576px) and (max-width:781px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             margin: "0rem",
             marginLeft: "3.2rem",
         },
@@ -57,15 +57,15 @@ export const useStyles = makeStyles({
     Images: {
         margin: "auto auto auto 1.5rem",
         cursor: "pointer",
-        "@media (max-width:781px)": {
-            margin: "auto auto auto 0.5rem",
+        "@media (max-width:1024px)": {
+            margin: "auto auto auto 0rem",
             padding: "0.625rem",
             alignItems: "center",
         },
     },
     footerImage: {
         display: "flex",
-        "@media(min-width:576px) and (max-width:781px)": {
+        "@media(min-width:768px) and (max-width:1024px)": {
             marginBottom: "3rem",
         },
     },
@@ -73,8 +73,7 @@ export const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        cursor: "pointer",
-        "@media (min-width:576px) and (max-width:781px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             display: "flex",
             alignItems: "flex-start",
             justifyContent: "flex-start",
@@ -87,7 +86,7 @@ export const useStyles = makeStyles({
         justifyContent: "flex-end",
         flexDirection: "row",
         cursor: "context-menu",
-        "@media (min-width:576px) and (max-width:781px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             paddingBottom: "1rem",
             marginLeft: "-2.7rem",
             alignItems: "flex-start",
@@ -98,14 +97,11 @@ export const useStyles = makeStyles({
         fontSize: "1rem",
         color: colors.white,
         lineHeight: "1.375rem",
-        display: "flex",
-        alignItems: "center",
         fontFamily: "Helvetica",
-        justifyContent: "flex-start",
         "& span": {
             fontSize: "2rem",
         },
-        "@media (min-width:576px) and (max-width:781px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             marginLeft: "0.5rem",
             minWidth: "10rem",
             transform: "translateY(15px)",
@@ -115,6 +111,12 @@ export const useStyles = makeStyles({
         fontSize: "1.2rem",
         marginRight: "0.5rem",
         marginTop: "0.55rem",
+    },
+    copyrightTxt: {
+        cursor: "pointer",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
     },
 })
 const Footer = ({ externalclass }) => {
@@ -128,10 +130,12 @@ const Footer = ({ externalclass }) => {
 
                         <Grid item sm={3} md={3} lg={3}>
                             <Link href="/">
-                                <Typography className={classes.copyright}>
-                                    <CopyrightIcon width={12} height={22} className={classes.copyrightIcon} />
-                                    Copyright PXL
-                                </Typography>
+                                <Box className={classes.copyright}>
+                                    <Typography className={classes.copyrightTxt}>
+                                        <CopyrightIcon width={12} height={22} className={classes.copyrightIcon} />
+                                        Copyright PXL
+                                    </Typography>
+                                </Box>
                             </Link>
                         </Grid>
 

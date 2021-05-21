@@ -9,6 +9,7 @@ import { colors } from "../theme/colors"
 import { InputWithLabelIcon } from "../components/inputs/inputWithLabelIcon"
 import { CardWithHeader } from "../components/cards/cardWithHeader"
 import { networkData } from "../data/networks"
+import Footer from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -26,6 +27,9 @@ const useStyles = makeStyles({
     buttonGroup: {
         border: `1px solid ${colors.lightGray}`,
         maxWidth: "19.125rem",
+        "@media(max-width:767px)": {
+            marginBottom: "2rem",
+        },
     },
     button: {
         height: "2.5rem",
@@ -40,6 +44,10 @@ const useStyles = makeStyles({
     },
     searchContainer: {
         width: "27.375rem",
+        border: `1px solid ${colors.lightGray}`,
+    },
+    searchInput: {
+        border: "none!important",
     },
     active: {
         backgroundColor: colors.lighterPrimary,
@@ -77,7 +85,7 @@ const Network = () => {
                 <Box>
                     <Typography className={classes.heading}>Network</Typography>
                     <Grid container alignItems="center" justify="space-between">
-                        <Box className={classes.buttonGroup}>
+                        <Grid className={classes.buttonGroup}>
                             <CustomButton
                                 label="Following (15)"
                                 externalclass={classnames(classes.button, classes.borderRight, {
@@ -92,17 +100,23 @@ const Network = () => {
                                 })}
                                 onClick={() => push({ pathname: "/network", query: { tab: "followers" } })}
                             />
-                        </Box>
+                        </Grid>
                         <Grid container alignItems="center" wrap="nowrap" className={classes.searchContainer}>
                             <Box style={{ width: "100%" }}>
-                                <InputWithLabelIcon hideErrorMsg placeholder="Search users" onChange={handleSearch} />
+                                <InputWithLabelIcon
+                                    hideErrorMsg
+                                    placeholder="Search users"
+                                    onChange={handleSearch}
+                                    placeholderColor={colors.lighterGray}
+                                    externalclass={classes.searchInput}
+                                />
                             </Box>
                             <CustomButton label="Search" externalclass={classes.searchBtn} />
                         </Grid>
                     </Grid>
                     <Grid container spacing={2} style={{ marginTop: "2.5rem" }}>
                         {network.map((item, i) => (
-                            <Grid key={i} item xs={12} sm={12} md={3} lg={3} xl={3}>
+                            <Grid key={i} item xs={12} sm={12} md={6} lg={3} xl={3}>
                                 <CardWithHeader
                                     image={item.image}
                                     title={item.name}
@@ -114,6 +128,7 @@ const Network = () => {
                     </Grid>
                 </Box>
             </ContentWrapper>
+            <Footer />
         </Box>
     )
 }

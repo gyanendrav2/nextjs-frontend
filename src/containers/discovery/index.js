@@ -102,10 +102,10 @@ const useStyles = makeStyles({
     headings: {
         color: colors.black,
         fontSize: "2rem",
-        marginTop: "1.375rem",
+        marginTop: "2.5rem",
+        marginBottom: "1rem",
         fontFamily: "Forno-Trial",
         fontWeight: "900",
-        lineHeight: "2.75rem",
         "@media (max-width:1024px)": {
             marginTop: "2rem",
         },
@@ -151,11 +151,14 @@ const useStyles = makeStyles({
 
     resultsContainer: {
         maxWidth: "100%",
-        height: "4rem",
+        padding: "2rem 0",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.white,
+        "@media (max-width: 767px)": {
+            padding: 0,
+        },
     },
     mobileViewResultContainer: {
         "@media (max-width: 575px)": {
@@ -214,7 +217,7 @@ const useStyles = makeStyles({
     },
 })
 
-const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => {
+const Discovery = ({ details, category, showSlider, isAuthenticated, feed, hideCurated }) => {
     const classes = useStyles()
     const routes = useRouter()
     // console.log(details, "details")
@@ -360,12 +363,12 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed }) => 
                         )}
                         {!activeCategory && <Typography className={classes.headings}>Featured Projects</Typography>}
                         <FeaturedCard featuredCardsDetails={featuredCardsDetails} />
-                        {/* {!activeCategory && (
-                            <> */}
-                        <Typography className={classes.headings}>Curated creators</Typography>
-                        <CreationCard curatedCreators={curatedCreators} />
-                        {/* </>
-                        )} */}
+                        {!hideCurated && (
+                            <>
+                                <Typography className={classes.headings}>Curated creators</Typography>
+                                <CreationCard curatedCreators={curatedCreators} />
+                            </>
+                        )}
                     </>
                 </ContentWrapper>
                 <Footer />
@@ -409,6 +412,7 @@ Discovery.defaultProps = {
     showCurated: false,
     isAuthenticated: false,
     feed: false,
+    hideCurated: false,
 }
 
 Discovery.propTypes = {
@@ -418,6 +422,7 @@ Discovery.propTypes = {
     showCurated: PropTypes.bool,
     isAuthenticated: PropTypes.bool,
     feed: PropTypes.bool,
+    hideCurated: PropTypes.bool,
 }
 
 export default Discovery

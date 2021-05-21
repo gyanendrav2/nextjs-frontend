@@ -16,7 +16,6 @@ const useStyles = makeStyles({
         flexWrap: "wrap",
         position: "relative",
         width: "100%",
-        paddingTop: "1.5rem",
         "@media (min-width:768px) and (max-width:1024px)": {
             justifyContent: "flex-start",
         },
@@ -39,7 +38,7 @@ const useStyles = makeStyles({
             marginBottom: "1.187rem",
             maxWidth: "10.25rem",
         },
-        "@media (min-width:200px) and (max-width:475px)": {
+        "@media (max-width:575px)": {
             width: "calc(50% - 0.25rem)",
             display: "flow-root",
             marginBottom: "1rem",
@@ -181,7 +180,7 @@ export const SelectingCategories = ({ changeTab, category, categories, onFilter 
                             <Box>More</Box>
                         </>
                     }
-                    externalclass={classnames(classes.moreButton)}
+                    externalclass={classnames(classes.moreButton, { [classes.activeButton]: showOtherCategories })}
                     onClick={handleShowMore}
                 />
                 {showOtherCategories && (

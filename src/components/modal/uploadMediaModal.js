@@ -46,6 +46,12 @@ const useStyles = makeStyles({
     },
     subTitle: {
         color: colors.lighterGray,
+        fontSize: "1.375rem",
+        // lineHeight: "2.125rem",
+    },
+    subTitleTwo: {
+        color: colors.lighterGray,
+        fontSize: "1rem",
     },
     perPhoto: {
         color: colors.lighterGray,
@@ -164,7 +170,7 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
                     </Typography>
                     <div onMouseEnter={() => setReassign(reassign + 1)} ref={dropRef} className={classes.wrapper}>
                         <Typography className={classes.subTitle}>Drag and drop</Typography>
-                        <Typography className={classes.subTitle}>or</Typography>
+                        <Typography className={classes.subTitleTwo}>or</Typography>
                         <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
                         <Typography className={classes.perPhoto}>*(5MB per photo)</Typography>
                         <Box className={classes.fileWrapper}>

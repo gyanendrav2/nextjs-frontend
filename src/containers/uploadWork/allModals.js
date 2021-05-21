@@ -74,6 +74,7 @@ const useStyles = makeStyles({
             marginTop: "1rem",
             padding: "0 2rem",
             marginBottom: "2rem",
+            textAlign: "center",
         },
     },
     title: {
@@ -88,6 +89,9 @@ const useStyles = makeStyles({
         // padding:"2rem",
         "@media(max-width:1024px)": {
             marginTop: "6rem",
+        },
+        "@media(max-width:768px)": {
+            marginTop: "4rem",
         },
     },
 })

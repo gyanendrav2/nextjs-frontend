@@ -16,7 +16,6 @@ const useStyles = makeStyles({
         flexWrap: "wrap",
         position: "relative",
         width: "100%",
-        paddingTop: "1.5rem",
         "@media (min-width:768px) and (max-width:1024px)": {
             justifyContent: "flex-start",
         },
@@ -38,7 +37,7 @@ const useStyles = makeStyles({
         "@media (min-width: 768px) and (max-width:1024px)": {
             marginBottom: "0.5rem",
         },
-        "@media (min-width:200px) and (max-width:475px)": {
+        "@media (max-width:475px)": {
             width: "calc(50% - 0.25rem)",
             display: "flow-root",
             "& span": {

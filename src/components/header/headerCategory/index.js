@@ -6,7 +6,8 @@ import { colors } from "../../../theme/colors"
 const useStyles = makeStyles({
     wrapper: {
         padding: "2rem",
-        paddingTop: "6rem",
+        paddingTop: "8rem",
+        paddingBottom: "2.5rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -22,7 +23,6 @@ const useStyles = makeStyles({
         textAlign: "center",
         color: colors.black,
         fontSize: "3.125rem",
-        lineHeight: "2.625",
         animation: "fadeIn 1s",
         "@media (max-width:767px)": {
             fontSize: "2.5rem",

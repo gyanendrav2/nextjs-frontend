@@ -13,8 +13,8 @@ const useStyles = makeStyles({
         height: "100vh",
         flexDirection: "column",
         backgroundColor: colors.white,
-        "@media (max-width:600px)": {
-            height: "140vh",
+        "@media (max-width:767px)": {
+            height: "142vh",
         },
     },
     wrapperContent: {
@@ -52,7 +52,7 @@ const Custom404 = () => {
                 direction="column"
                 wrap="nowrap"
                 className={classes.wrapper}>
-                <HeaderWrapper isScrollDetect={false} mobileMenuIconColor={colors.black} />
+                <HeaderWrapper isScrollDetect={false} mobileMenuIconColor={colors.white} />
                 <Grid
                     container
                     alignItems="center"

@@ -17,6 +17,7 @@ const useStyles = makeStyles({
         justifyContent: "space-between",
         position: "relative",
         "@media(max-width:767px)": {
+            padding: "2.5rem 1rem",
             flexDirection: (props) => (props.rowReverseBox ? "column-reverse!important" : "column"),
         },
     },

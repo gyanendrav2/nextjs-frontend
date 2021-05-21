@@ -10,7 +10,7 @@ export const NavItemOptions = [
         id: 1,
         name: "discover",
         icon: <DisocoveryIcon />,
-        pathname: "/categories",
+        pathname: "/",
     },
     {
         id: 2,

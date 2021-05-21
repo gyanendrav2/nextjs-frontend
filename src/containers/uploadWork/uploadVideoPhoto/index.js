@@ -65,6 +65,12 @@ const useStyles = makeStyles({
     },
     socialIconContainer: {
         padding: "4rem 0",
+        "@media (max-width: 1024px)": {
+            padding: "3rem 0 7.625rem 0",
+        },
+        "@media (max-width: 767px)": {
+            padding: "2.5rem 0 8.625rem 0",
+        },
     },
     socialIcon: {
         margin: "0.75rem",
@@ -74,16 +80,16 @@ const useStyles = makeStyles({
         color: colors.lighterGray,
     },
     buttonContainer: {
-        padding: "1.9rem",
+        padding: "1.9rem 0",
         display: "none",
         backgroundColor: colors.white,
-        "@media (max-width:767px)": {
-            display: "flex",
-            padding: "1rem",
-        },
         "@media (min-width:768px) and (max-width: 1024px)": {
             padding: "1rem 13.375rem",
             display: "flex",
+        },
+        "@media (max-width:767px)": {
+            display: "flex",
+            padding: "1rem",
         },
     },
     closeIcon: {
@@ -97,11 +103,23 @@ const useStyles = makeStyles({
             right: "0.5rem",
         },
     },
-    borderButton: {
+    previewButton: {
         backgroundColor: `${colors.white}!important`,
         color: colors.black,
         border: `2px solid ${colors.black}`,
         maxHeight: "3.125rem",
+        "@media (max-width:1024px)": {
+            // width: "10.187rem",
+        },
+    },
+    confirmButton: {
+        backgroundColor: `${colors.black}!important`,
+        color: colors.white,
+        border: `2px solid ${colors.black}`,
+        maxHeight: "3.125rem",
+        "@media (max-width:1024px)": {
+            // width: "10.187rem",
+        },
     },
 })
 
@@ -216,13 +234,18 @@ const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleC
                 <Grid item xs={6} sm={6} md={6} container>
                     <CustomButton
                         variant="borderButton"
-                        externalclass={classes.borderButton}
+                        externalclass={classes.previewButton}
                         label="Preview"
                         fullWidth
                     />
                 </Grid>
                 <Grid item xs={6} sm={6} md={6}>
-                    <CustomButton variant="borderButton" label="Confirm" fullWidth />
+                    <CustomButton
+                        variant="borderButton"
+                        externalclass={classes.confirmButton}
+                        label="Confirm"
+                        fullWidth
+                    />
                 </Grid>
                 <CustomButton variant="textButton" label="Cancel" fullWidth color={colors.darkRed} />
                 <CustomButton

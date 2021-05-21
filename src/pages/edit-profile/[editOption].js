@@ -16,18 +16,17 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary,
         minHeight: "100vh",
         padding: "8rem 9.687rem 2rem 9.687rem",
-        "@media (min-width:960px) and (max-width:1350px)": {
-            padding: "8rem 2rem 2rem 2rem",
+        "@media (min-width:1025px) and (max-width:1350px)": {
+            padding: "8rem 2rem 2rem 2.5rem",
         },
         "@media (min-width:768px) and (max-width:1024px)": {
             padding: "8rem 2rem 2rem 2rem",
         },
-        "@media (min-width:200px) and (max-width:767px)": {
+        "@media (max-width:767px)": {
             padding: "6rem 1rem 2rem 1rem",
         },
     },
     mainTitle: {
-        // marginTop: "2rem",
         marginBottom: "1.5rem",
         "@media (max-width:767px)": {
             marginBottom: "1.5rem",

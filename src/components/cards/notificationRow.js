@@ -17,19 +17,18 @@ const useStyles = makeStyles({
         lineHeight: "1.375rem",
     },
     notificationWrapper: {
-        marginBottom: "2rem",
         padding: "2rem",
         flexWrap: "nowrap",
         borderBottom: `1px solid ${colors.lightGray}`,
-
         "@media (max-width: 1024px)": {
             padding: "2rem 2rem 2rem 0",
+            marginBottom: "0",
             //    flexWrap: "wrap",
         },
-        "@media (max-width: 767px)": {
+        "@media (max-width:767px)": {
             flexWrap: "wrap",
-            padding: "2rem 2rem 2rem 0",
-            // padding: "",
+            padding: "1.25rem 1rem 1.25rem 0",
+            marginBottom: "0rem",
         },
     },
     buttonContainer: {
@@ -40,7 +39,6 @@ const useStyles = makeStyles({
             marginLeft: "2.25rem",
             marginRight: "0rem",
             marginTop: "1rem",
-            // marginLeft: "4.125rem",
         },
     },
     declineButton: {
@@ -63,6 +61,7 @@ const useStyles = makeStyles({
         height: "2.5rem",
         marginLeft: "auto",
         width: "9rem",
+        textTransform: "none",
         "@media (max-width: 767px)": {
             marginLeft: "2.4rem",
         },

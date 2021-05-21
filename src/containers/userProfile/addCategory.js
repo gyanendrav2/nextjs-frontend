@@ -14,9 +14,15 @@ const useStyles = makeStyles({
     inputWrapper: {
         maxWidth: "37.75rem",
         margin: "2rem auto",
+        "@media(max-width:767px)": {
+            width: "95%",
+        },
     },
     heading: {
         marginBottom: "2.5rem",
+    },
+    categoryselect: {
+        width: "100%",
     },
 })
 
@@ -46,6 +52,7 @@ const AddCategory = ({ onAddCategory, closeAddcategory }) => {
                     custom
                     customValue={category.label}
                     customOnChange={(value) => setCategory(value)}
+                    externalclass={classes.categoryselect}
                 />
             </Box>
             <UserConfirmContainer

@@ -44,7 +44,7 @@ const useStyles = makeStyles({
         fontSize: "0.75rem",
         lineHeight: "1.25rem",
         marginTop: "0.9rem",
-        fontFamily: "Campton Light",
+        fontFamily: "campton-light",
         fontWeight: "400",
     },
     cookiesPage: {

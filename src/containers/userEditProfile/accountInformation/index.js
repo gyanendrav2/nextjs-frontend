@@ -60,7 +60,7 @@ const useStyles = makeStyles({
     LastName: {
         marginLeft: "8px",
         width: "calc(100% - 8px)",
-        "@media (min-width:200px) and (max-width:767px)": {
+        "@media (max-width:767px)": {
             marginLeft: "0",
         },
     },
@@ -138,7 +138,7 @@ const AccountInformation = () => {
                                     label="First Name"
                                     externalclass={classnames(classes.inputHeight)}
                                     labelColor={colors.lighterGray}
-                                    placeholder="First name"
+                                    placeholder="Brandon"
                                     onChange={() => {}}
                                 />
                             </Grid>
@@ -148,7 +148,7 @@ const AccountInformation = () => {
                                     labelColor={colors.lighterGray}
                                     label="Last Name"
                                     externalclass={classnames(classes.inputHeight, classes.LastName)}
-                                    placeholder="Last name"
+                                    placeholder="Landing"
                                     labelMargin="0.6rem"
                                     onChange={() => {}}
                                 />
@@ -159,7 +159,7 @@ const AccountInformation = () => {
                                         fontWeight="700"
                                         labelColor={colors.lighterGray}
                                         label="Add a role"
-                                        placeholder="Director"
+                                        placeholder="Gaffer"
                                         variantStyle="optionWithCheckboxStyle"
                                         checkboxHoverStyle={colors.white}
                                         options={roleOptions}
@@ -179,7 +179,7 @@ const AccountInformation = () => {
                                         fontWeight="700"
                                         labelColor={colors.lighterGray}
                                         label="Choose country"
-                                        placeholder="Choose country"
+                                        placeholder="US"
                                         options={countryOptions}
                                         externalclass={classnames(classes.inputHeight)}
                                         onChange={() => {}}
@@ -193,7 +193,7 @@ const AccountInformation = () => {
                                         labelColor={colors.lighterGray}
                                         label="Choose city"
                                         options={stateOptions}
-                                        placeholder="Choose city"
+                                        placeholder="Ohio"
                                         externalclass={classnames(classes.inputHeight)}
                                         onChange={() => {}}
                                     />

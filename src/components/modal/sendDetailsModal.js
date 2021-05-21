@@ -40,7 +40,7 @@ const useStyles = makeStyles({
             padding: "2rem 1rem 3.5rem 1rem",
         },
         "@media(max-width:767px)": {
-            padding: "1rem 0 0 0",
+            padding: "1.5rem 0 0 0",
         },
     },
     button: {
@@ -59,12 +59,8 @@ const useStyles = makeStyles({
         right: "2rem",
         color: colors.lightGray,
         "@media(max-width:767px)": {
-            top: "2rem",
+            top: "83%",
             right: "1rem",
-        },
-        "@media(max-width:395px)": {
-            right: "1rem",
-            top: "73%",
         },
     },
     fullWidth: {
@@ -73,7 +69,6 @@ const useStyles = makeStyles({
     buttonWrapper: {
         backgroundColor: colors.lighterPrimary,
         padding: "2rem",
-
         "@media (max-width:767px)": {
             flexDirection: "column-reverse",
             width: "100%",

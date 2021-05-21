@@ -19,6 +19,7 @@ const useStyles = makeStyles({
         margin: 0,
         fontSize: "1rem",
         fontWeight: 400,
+        textOverflow: "ellipses",
         backgroundColor: (props) => (props.bgcolor ? props.bgcolor : colors.white),
         border: (props) => (props.error ? `solid 1px ${colors.red}` : `solid 1px ${colors.lightGray}`),
         borderRadius: "1px",

@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         flexWrap: "nowrap",
         color: colors.black,
         padding: (props) => props.padding,
-        paddingBottom: "1rem",
+        paddingBottom: "1rem!important",
         transform: "translateX(-2%)",
         "@media (max-width:767px)": {
             paddingLeft: "1rem",
@@ -34,7 +34,8 @@ const useStyles = makeStyles({
     col1: {
         color: colors.black,
         fontSize: "1rem",
-        width: "5rem",
+        width: "7.25rem",
+        marginTop: "0.625rem",
         "@media (max-width:1024px)": {
             width: "100%",
             textAlign: "left",
@@ -42,7 +43,7 @@ const useStyles = makeStyles({
         },
     },
     col2: {
-        width: "calc(100% - 5rem)",
+        width: "calc(100% - 7.25rem)",
         "@media (max-width:1024px)": {
             width: "100%",
         },
@@ -62,12 +63,17 @@ const useStyles = makeStyles({
     },
     smallInput: {
         "@media (min-width: 1025px)": {
-            width: "13rem",
+            maxWidth: "13rem",
         },
     },
     sortByInput: {
         "@media (min-width: 768px) and (max-width: 1024px)": {
             paddingLeft: "7.5rem",
+        },
+
+        "@media (min-width:1025px)": {
+            maxWidth: "13.125rem",
+            marginLeft: "auto",
         },
     },
 })

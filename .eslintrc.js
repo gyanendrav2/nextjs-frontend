@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 module.exports = {
     globals: {
         window: true,
@@ -7,6 +6,15 @@ module.exports = {
         navigator: true,
         localStorage: true,
     },
+    parser: "@babel/eslint-parser",
+    parserOptions: {
+        sourceType: "module",
+        allowImportExportEverywhere: true,
+        requireConfigFile: false,
+        babelOptions: {
+            presets: ["@babel/preset-react"],
+        },
+    },
     extends: ["@prismx/eslint-config", "@prismx/eslint-config/react", "@prismx/eslint-config/prettier"],
     rules: {
         "react/jsx-filename-extension": [1, { extensions: [".js", ".jsx"] }],
@@ -14,7 +22,6 @@ module.exports = {
             "error",
             {
                 endOfLine: "auto",
-            
             },
         ],
         // {

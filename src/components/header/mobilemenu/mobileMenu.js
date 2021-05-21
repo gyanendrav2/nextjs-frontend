@@ -16,10 +16,10 @@ import { UserProfileNav } from "../../cards/userProfileNav"
 const useStyles = makeStyles({
     wrapper: {
         position: "fixed",
-        left: "20%",
+        left: "25%",
         top: 0,
         height: "100vh",
-        width: "80%",
+        width: "75%",
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end",
@@ -42,8 +42,8 @@ const useStyles = makeStyles({
     unorderedList: {
         padding: 0,
         display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+        alignItems: "flex-start",
+        marginTop: "6rem",
         textAlign: "center",
         flexDirection: "column",
         width: "100%",
@@ -51,7 +51,6 @@ const useStyles = makeStyles({
     },
     listStyle: {
         display: "flex",
-        alignItems: "left",
         width: "100%",
         marginBottom: "3.125rem",
         color: colors.white,
@@ -91,7 +90,8 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "center",
         flexDirection: "column",
-        padding: "1rem 1.5rem 1.5rem 1.5rem",
+        padding: "0rem 1.5rem 1.5rem 1.5rem",
+        marginTop: "-0.5rem",
     },
     headerWrapper: {
         justifyContent: "space-between",
@@ -115,9 +115,11 @@ const useStyles = makeStyles({
     input: {
         backgroundColor: "transparent",
         padding: "0.3rem 0",
-        borderColor: colors.lightGray,
+        borderColor: `${colors.lightGray}!important`,
+        borderRadius: "1px",
         "& input": {
             backgroundColor: "transparent",
+            borderColor: `${colors.lightGray}!important`,
         },
         "& svg": {
             marginTop: "0.3rem",
@@ -184,8 +186,10 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                                 <InputWithLabelIcon
                                     name=""
                                     placeholder="Search"
+                                    placeholderColor={colors.lighterGray}
                                     icon={<SearchIcon />}
                                     externalclass={classes.input}
+                                    borderColor={colors.lightGray}
                                 />
                             </li>
                             <li className={classes.listStyle}>

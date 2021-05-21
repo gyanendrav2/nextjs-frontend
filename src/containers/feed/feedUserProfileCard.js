@@ -177,7 +177,7 @@ export const FeedUserProfileCard = ({
                     alt="dummy"
                     style={{ width: "100%", height: "23rem", objectFit: "cover", marginTop: "1rem" }}
                 />
-                <Typography variant="subtitle1" style={{ lineHeight: "1.375rem" }}>
+                <Typography variant="subtitle1" style={{ lineHeight: "1.375rem", marginTop: "0.5rem" }}>
                     {description}
                 </Typography>
             </Box>

@@ -21,7 +21,6 @@ const useStyles = makeStyles({
         textAlign: "center",
         color: colors.black,
         fontSize: "3.125rem",
-        lineHeight: "2.625",
         animation: "fadeIn 1s",
         "@media(max-width:432px)": {
             lineHeight: "4.75rem",

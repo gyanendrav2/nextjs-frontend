@@ -10,18 +10,19 @@ import { images } from "../assets/images"
 
 const useStyles = makeStyles({
     wrapper: {
-        padding: "8rem 10rem 2rem 10rem",
+        padding: "8rem 9.687rem 2rem 9.687rem",
         "@media (max-width:1024px)": {
             padding: "8rem 0rem 1rem 2rem",
+        },
+        "@media (max-width:767px)": {
+            padding: "6rem 1rem 2rem 1rem",
         },
     },
     mainTitle: {
         fontFamily: "Forno-Trial",
         fontWeight: 900,
         fontSize: "2rem",
-        lineheight: "2.875rem",
         paddingBottom: "1.5rem",
-        paddingTop: "1.5rem",
         borderBottom: `1px solid ${colors.lightGray}`,
         "@media (max-width:767px)": {
             paddingTop: "0rem",
@@ -30,6 +31,10 @@ const useStyles = makeStyles({
     modaltitle: {
         marginTop: "1.5rem",
         color: colors.lighterGray,
+        "@media (max-width:767px)": {
+            marginTop: "0",
+            textAlign: "center",
+        },
     },
     link: {
         color: colors.black,

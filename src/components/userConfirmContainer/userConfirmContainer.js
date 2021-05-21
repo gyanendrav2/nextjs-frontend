@@ -18,6 +18,12 @@ const useStyles = makeStyles({
         margin: "0 auto",
         padding: "2rem 0",
         marginTop: "8.5rem",
+        "@media(max-width:1024px)": {
+            marginTop: "3.5rem",
+        },
+        "@media(max-width:767px)": {
+            marginTop: "1rem",
+        },
     },
     submitBtn: {
         width: "100%",

@@ -76,8 +76,9 @@ const useStyles = makeStyles({
     modaltitle: {
         marginTop: "1.5rem",
         color: colors.lighterGray,
-        "@media(max-width:1024px)": {
-            marginTop: "-0.5rem",
+        "@media(max-width:767px)": {
+            textAlign: "center",
+            marginTop: "0",
         },
     },
 })

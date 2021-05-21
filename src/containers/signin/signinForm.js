@@ -119,7 +119,7 @@ const SigninForm = () => {
 
     const submit = () => {
         // loginUserAPIcall(data)
-        routes.push("/categories")
+        routes.push("/feed")
         localStorage.setItem("auth", true)
     }
 

@@ -21,7 +21,14 @@ const Categories = ({ categories }) => {
     return (
         <>
             {data.hero.length > 0 ? (
-                <Discovery isAuthenticated feed showSlider={false} category="Discover work" details={data} />
+                <Discovery
+                    isAuthenticated
+                    feed
+                    hideCurated
+                    showSlider={false}
+                    category="Discover work"
+                    details={data}
+                />
             ) : (
                 <></>
             )}

@@ -12,14 +12,14 @@ const useStyles = makeStyles({
         "@media (min-width:768px) and (max-width: 1024px)": {
             width: "100%",
         },
-        "@media (min-width:200px) and (max-width:767px)": {
+        "@media  (max-width:767px)": {
             width: "100%",
         },
     },
 
     col2: {
         width: "calc(100% - 27.5rem)",
-        "@media (min-width:200px) and (max-width:767px)": {
+        "@media (max-width:767px)": {
             width: "100%",
         },
         "@media (min-width:768px) and (max-width: 1024px)": {

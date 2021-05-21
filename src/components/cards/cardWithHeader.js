@@ -52,7 +52,7 @@ const useStyles = makeStyles({
         color: colors.blackPrimary,
         border: " none",
         outline: "none",
-        width: "5rem",
+        minWidth: "4.937rem",
         height: "2rem",
     },
     image_container: {

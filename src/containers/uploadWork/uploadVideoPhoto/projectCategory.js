@@ -40,9 +40,10 @@ const useStyles = makeStyles({
     },
     inputHeight: {
         overflowY: "hidden",
-        "@media(max-width:575px)": {
-            // padding: "0px 8px",
-        },
+
+        // "@media(max-width:575px)": {
+        //        padding: "0px!important",
+        // },
     },
     selectHeight: {
         overflowY: "hidden",
@@ -53,6 +54,10 @@ const useStyles = makeStyles({
         height: "2.5rem",
         border: `1px solid ${colors.black}`,
         marginTop: "1.5rem",
+        "&:hover": {
+            color: colors.black,
+            backgroundColor: colors.pink,
+        },
     },
     plusIconContainer: {
         marginBottom: "1rem",
@@ -133,6 +138,7 @@ export const ProjectCategory = () => {
                                     handleOptionSelect={handleRoles}
                                     placeholderColor={colors.black}
                                     onChange={() => {}}
+                                    // externalclass={classnames(classes.inputHeight)}
                                 />
                                 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                     <ChipCards chips={roles} onDelete={handleChipItemDelete} />
@@ -181,8 +187,3 @@ export const ProjectCategory = () => {
         </Box>
     )
 }
-
-// ProjectCategory.propTypes = {
-//     openDeleteModel: PropTypes.bool.isRequired,
-//     onDelete: PropTypes.func.isRequired,
-// }

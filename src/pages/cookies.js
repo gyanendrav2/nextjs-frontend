@@ -14,9 +14,12 @@ const useStyles = makeStyles({
         color: colors.black,
         textAlign: "left",
         margin: "0 auto",
-        padding: "10rem",
+        padding: "10.5rem 16.875rem 10rem 16.875rem",
+        "@media (max-width:1024px)": {
+            padding: "10.5rem 2rem 2rem 2rem",
+        },
         "@media (max-width:767px)": {
-            padding: "1rem",
+            padding: "4rem 1rem 1rem 1rem",
         },
     },
     mainTitle: {
@@ -56,7 +59,7 @@ const Cookies = () => {
     return (
         <>
             <Box className={classes.wrapper}>
-                <HeaderWrapper isScrollDetect={false} mobileMenuIconColor={colors.black} />
+                <HeaderWrapper isScrollDetect={false} mobileMenuIconColor={colors.white} />
                 <Box className={classes.wrapperContent}>
                     <Typography className={classes.mainTitle}>Cookie and privacy policy</Typography>
                     <Typography className={classes.update}>Last updated: (add date) </Typography>

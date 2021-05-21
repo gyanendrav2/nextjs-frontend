@@ -256,7 +256,7 @@ const Profile = () => {
             <ModalComponent openOrNot={openInfo} onClose={handleInfo}>
                 <UserInfo />
             </ModalComponent>
-            <ModalComponent openOrNot={addCategory} onClose={handleAddCategory}>
+            <ModalComponent padding="0" openOrNot={addCategory} onClose={handleAddCategory}>
                 <AddCategory onAddCategory={handleAddNewCategory} closeAddcategory={handleAddCategory} />
             </ModalComponent>
             <ModalComponent openOrNot={openMsg} onClose={handleMsg}>

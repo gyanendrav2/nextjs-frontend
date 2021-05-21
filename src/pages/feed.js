@@ -8,6 +8,7 @@ import { FeedProfileCard } from "../containers/feed/feedProfileCard"
 import { FeedUserProfileCard } from "../containers/feed/feedUserProfileCard"
 import { colors } from "../theme/colors"
 import { feedRecentData, feedOldData } from "../data/feedData"
+import Footer from "../components/footer"
 
 const useStyles = makeStyles({
     rootWraper: {
@@ -85,6 +86,7 @@ const Feed = () => {
                     </Grid>
                 </Grid>
             </ContentWrapper>
+            <Footer />
         </Box>
     )
 }

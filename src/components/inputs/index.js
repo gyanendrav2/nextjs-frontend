@@ -17,6 +17,7 @@ const useStyles = makeStyles({
             padding: "0.625rem",
             border: "none",
             fontFamily: "Helvetica",
+            textOverflow: "ellipsis",
             height: (props) => props.height,
             "&::placeholder": {
                 color: (props) => (props.placeholderColor ? props.placeholderColor : colors.black),

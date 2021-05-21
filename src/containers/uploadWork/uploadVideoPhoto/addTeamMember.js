@@ -112,6 +112,7 @@ export const AddTeamMember = ({ shouldVisible, onAdded, onCancel }) => {
                                 handleOptionSelect={handleRoles}
                                 errorMsg={errors.jobRole ? errors.jobRole.message : ""}
                                 error={errors.jobRole}
+                                placeholderColor={colors.black}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6}>
