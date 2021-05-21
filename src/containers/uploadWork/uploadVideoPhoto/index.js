@@ -123,7 +123,7 @@ const useStyles = makeStyles({
     },
 })
 
-const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive, setOpenDeleteModel }) => {
+const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleCurrentActive }) => {
     const classes = useStyles()
     const [showCodeModal, setShowCodeModal] = useState(false)
     const [showUPloadMediaModal, setShowUPloadMediaModal] = useState(false)
@@ -215,7 +215,7 @@ const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleC
                 openDeleteModal={openDeleteModel}
                 showCodeModal={showCodeModal}
                 showUPloadMediaModal={showUPloadMediaModal}
-                onDelete={onDelete}
+                onDelete={closeDeleteModal}
                 onConfirmSendDetails={() => setShowCodeModal(false)}
                 onCloseSendDetails={() => setShowCodeModal(false)}
                 onCloseUploadMedia={() => setShowUPloadMediaModal(false)}
@@ -253,7 +253,7 @@ const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleC
                     label="Delete work"
                     fullWidth
                     color={colors.darkRed}
-                    onClick={() => setOpenDeleteModel(true)}
+                    onClick={onDelete}
                 />
             </Grid>
             <Grid container alignItems="center" justify="center" className={classes.socialIconContainer}>
@@ -270,7 +270,6 @@ UploadVideoPhoto.propTypes = {
     onDelete: PropTypes.func.isRequired,
     closeDeleteModal: PropTypes.func.isRequired,
     handleCurrentActive: PropTypes.func.isRequired,
-    setOpenDeleteModel: PropTypes.func.isRequired,
 }
 
 export default UploadVideoPhoto

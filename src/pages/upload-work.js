@@ -16,7 +16,7 @@ const useStyles = makeStyles({
         backgroundColor: `${colors.lighterPrimary}!important`,
         position: "relative",
         "@media(max-width:1024px)": {
-            padding: "6rem 0px 0px 0px",
+            padding: "6rem 0px 0px 0px!important",
         },
     },
     colWrapper: {
@@ -71,7 +71,7 @@ const UploadWork = () => {
                 openDeleteModel={openDeleteModel}
                 handleCurrentActive={(item) => setCurrentActive(item)}
                 onDelete={() => {
-                    setOpenDeleteModel(false)
+                    setOpenDeleteModel(true)
                 }}
                 closeDeleteModal={() => {
                     setOpenDeleteModel(false)
