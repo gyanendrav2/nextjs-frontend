@@ -41,6 +41,7 @@ const useStyles = makeStyles({
         width: "100%",
         position: "relative",
         display: "flex!important",
+        marginBottom: "1.5rem",
         "&:focus": {
             outline: "none",
         },
@@ -184,6 +185,7 @@ const useStyles = makeStyles({
             lineHeight: "2.5rem",
             color: colors.black,
             marginTop: "2rem",
+            marginBottom: "1rem",
         },
     },
     projectAuthor: {
@@ -279,7 +281,7 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed, hideC
     return (
         <>
             {Object.keys(cookies[0]).length === 0 && <CookieCard />}
-            <Box className={classes.wrapper}>
+            <Box className={`discovery__wrapper ${classes.wrapper}`}>
                 <HeaderWrapper
                     isAuthenticated={isAuthenticated}
                     feed={feed}

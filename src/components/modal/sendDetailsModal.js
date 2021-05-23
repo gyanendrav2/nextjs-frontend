@@ -110,11 +110,11 @@ export const SendDetailsModal = ({
         const { value } = e.target
         if (!hideCount) {
             if (value.length <= 120) {
-                setDescription(e.target.value)
-                return
+                setDescription(value)
             }
+        } else {
+            setDescription(value)
         }
-        setDescription(e.target.value)
     }
     return (
         <ModalComponent padding="0" openOrNot={isOpen} onClose={onClose}>

@@ -80,6 +80,7 @@ const useStyles = makeStyles({
     },
     smallBtn: {
         width: "100%",
+        backgroundColor: colors.lighterPrimary,
     },
     readmore: {
         cursor: "pointer",

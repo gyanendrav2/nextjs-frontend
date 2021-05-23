@@ -19,16 +19,15 @@ const useStyles = makeStyles({
         padding: (props) => props.padding,
         paddingBottom: "1rem!important",
         transform: "translateX(-2%)",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            display: "block",
+        },
         "@media (max-width:767px)": {
-            paddingLeft: "1rem",
-            paddingRight: "1rem",
+            padding: "2rem 1rem!important",
             display: "flex",
             justifyContent: "flex-start",
             alignItems: "center",
             flexDirection: "column",
-        },
-        "@media (min-width:768px) and (max-width:1024px)": {
-            display: "block",
         },
     },
     col1: {

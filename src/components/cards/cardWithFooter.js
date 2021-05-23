@@ -104,6 +104,7 @@ const CardWithFooter = ({
     handleHide,
     anonymous,
     categoryHidden,
+    onFooterHeadingClick,
 }) => {
     const [isHovering, setisHovering] = useState(false)
     const classes = useStyles({ isHovering })
@@ -131,7 +132,7 @@ const CardWithFooter = ({
         handleShowCopyBox()
     }
     return (
-        <Box className={classes.cardWrapper} onClick={handleClick}>
+        <Box className={classes.cardWrapper}>
             <NotificationCard
                 message="You have successfully copied!"
                 buttonText="Unhide"
@@ -139,7 +140,11 @@ const CardWithFooter = ({
                 timeout={4000}
                 handleHideNotification={handleNotification}
             />
-            <Box className={classes.cardImageContainer} onMouseEnter={handleMouseHover} onMouseLeave={handleMouseOut}>
+            <Box
+                className={classes.cardImageContainer}
+                onMouseEnter={handleMouseHover}
+                onMouseLeave={handleMouseOut}
+                onClick={handleClick}>
                 {showMoreButton && (
                     <Box
                         className={classnames(classes.moreVertContainer, {
@@ -184,7 +189,7 @@ const CardWithFooter = ({
                     <Box className={classes.imageContainer}>
                         <img className={classes.roundImage} src={image} alt={title} />
                     </Box>
-                    <Box>
+                    <Box style={{ cursor: "pointer" }} onClick={onFooterHeadingClick}>
                         <Typography className={classes.projectAuthorName}>{footerTitle}</Typography>
                         <Typography className={classes.projectAuthorJobTitle}>{footerSubitle}</Typography>
                     </Box>
@@ -203,6 +208,7 @@ CardWithFooter.defaultProps = {
     handleHide: () => {},
     anonymous: false,
     categoryHidden: false,
+    onFooterHeadingClick: () => {},
 }
 
 CardWithFooter.propTypes = {
@@ -216,6 +222,7 @@ CardWithFooter.propTypes = {
     handleHide: PropTypes.func,
     anonymous: PropTypes.bool,
     categoryHidden: PropTypes.bool,
+    onFooterHeadingClick: PropTypes.func,
 }
 
 export default CardWithFooter

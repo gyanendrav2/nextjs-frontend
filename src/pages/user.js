@@ -20,6 +20,7 @@ const UserProfileCard = dynamic(() => import("../components/cards/userProfileCar
 const useStyles = makeStyles({
     wrapper: {
         paddingTop: "7rem",
+        overflowX: "hidden",
         "@media(min-width:768px) and (max-width:1024px)": {
             paddingTop: "5.5rem",
             paddingLeft: "0!important",
@@ -90,12 +91,14 @@ const useStyles = makeStyles({
         },
     },
     cardContainer: {
+        width: "100%",
+        margin: 0,
         "@media (min-width:768px) and (max-width:1024px)": {
             padding: "2rem",
         },
         "@media (max-width:767px)": {
-            paddingLeft: "1.25rem",
-            paddingRight: "1.25rem",
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
         },
     },
     selectCategoryText: {
@@ -127,6 +130,12 @@ const useStyles = makeStyles({
     userCardstyle: {
         "@media(min-width:768px) and (max-width:1024px)": {
             padding: "1rem 2rem",
+        },
+    },
+    itemWrapper: {
+        "@media (max-width:767px)": {
+            paddingLeft: "0!important",
+            paddingRight: "0!important",
         },
     },
 })
@@ -228,7 +237,15 @@ const Profile = () => {
                     <Grid container spacing={2} className={classes.cardContainer}>
                         {[1, 1, 1, 1, 1, 1, 1, 1].map((item, idx) => {
                             return (
-                                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={idx}>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={12}
+                                    md={6}
+                                    lg={4}
+                                    xl={3}
+                                    key={idx}
+                                    className={classes.itemWrapper}>
                                     <CardWithFooter
                                         image="https://source.unsplash.com/random?fp=0"
                                         title="dummy data"

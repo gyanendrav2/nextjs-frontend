@@ -22,7 +22,7 @@ const useStyles = makeStyles({
             right: "2rem",
         },
         "@media(max-width:767px)": {
-            right: "0.5rem",
+            right: "1rem",
             maxWidth: "18rem",
         },
     },

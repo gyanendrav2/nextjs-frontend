@@ -132,7 +132,7 @@ InputWithLabelIcon.propTypes = {
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    placeholderColor: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
+    placeholderColor: PropTypes.string,
     inputRegister: PropTypes.func,
     name: PropTypes.string,
     errorMsg: PropTypes.shape({ message: PropTypes.string }),
@@ -142,5 +142,5 @@ InputWithLabelIcon.propTypes = {
     fontWeight: PropTypes.string,
     labelMargin: PropTypes.string,
     hideErrorMsg: PropTypes.bool,
-    height: PropTypes.string,
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }

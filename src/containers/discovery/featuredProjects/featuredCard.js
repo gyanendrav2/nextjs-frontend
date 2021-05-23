@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
+import { useRouter } from "next/router"
 import { Box, Grid } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../../theme/colors"
@@ -75,26 +76,27 @@ const useStyles = makeStyles({
     red: {
         background: "red",
     },
-    cursor: {
-        // cursor: "url('/images/cursor.svg'), auto",
-    },
-    quickOverflowHidden: {
-        overflowY: "hidden",
-    },
 })
 export const FeaturedCard = ({ featuredCardsDetails }) => {
     const classes = useStyles()
+    const routes = useRouter()
     const [openModal, setOpenModal] = useState(false)
 
-    if (openModal) {
-        document.body.classList.add("quickOverflowHidden")
-    } else {
-        document.body.classList.remove("quickOverflowHidden")
+    const handleModelOpen = () => {
+        setOpenModal(true)
+        const element = document.querySelector(".discovery__wrapper")
+        element.style = "overflow:hidden;height:100vh"
+    }
+
+    const handleModelClose = () => {
+        const element = document.querySelector(".discovery__wrapper")
+        element.style = "overflow:unset;height:unset"
+        setOpenModal(false)
     }
 
     return (
-        <Box className={classes.cursor}>
-            {openModal && <QuickViewDailog closeModal={() => setOpenModal(false)} />}
+        <Box>
+            {openModal && <QuickViewDailog closeModal={handleModelClose} />}
             <Grid container className={classes.FeaturedProjectContainer} spacing={2}>
                 {featuredCardsDetails &&
                     featuredCardsDetails.map((newData, idx) => {
@@ -106,9 +108,8 @@ export const FeaturedCard = ({ featuredCardsDetails }) => {
                                     hideFooter={false}
                                     footerTitle={newData.author.name}
                                     footerSubitle={newData.author.jobTitle}
-                                    handleClick={() => {
-                                        setOpenModal(true)
-                                    }}
+                                    handleClick={handleModelOpen}
+                                    onFooterHeadingClick={() => routes.push("/user")}
                                 />
                             </Grid>
                         )
