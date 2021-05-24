@@ -3,6 +3,7 @@ import { Box, makeStyles, Typography } from "@material-ui/core"
 import HeaderWrapper from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
 import Footer from "../components/footer"
+import classnames from "classnames"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -15,11 +16,11 @@ const useStyles = makeStyles({
         textAlign: "left",
         margin: "0 auto",
         padding: "10.5rem 16.875rem 10rem 16.875rem",
-        "@media (max-width:1024px)": {
+        "@media (min-width:768px) and (max-width:1024px)": {
             padding: "10.5rem 2rem 2rem 2rem",
         },
         "@media (max-width:767px)": {
-            padding: "4rem 1rem 1rem 1rem",
+            padding: "4rem 1rem 4rem 1rem",
         },
     },
     mainTitle: {
@@ -29,7 +30,8 @@ const useStyles = makeStyles({
         lineHeight: "3.625rem",
         marginBottom: "2.5rem",
         "@media (max-width:767px)": {
-            lineHeight: "1.25",
+            lineHeight: "2.5rem",
+            fontSize: "2.5rem",
             marginTop: "4rem",
             marginBottom: "2rem",
         },
@@ -52,6 +54,12 @@ const useStyles = makeStyles({
         width: "100%",
         marginTop: 0,
     },
+    persInfo: {
+        marginBottom: "3rem",
+        "@media (max-width:767px)": {
+            marginBottom: "1rem",
+        },
+    },
 })
 
 const Cookies = () => {
@@ -68,7 +76,7 @@ const Cookies = () => {
                         http://www.mysite.com (change this) (the &quot;Site&quot;). This page informs you of our
                         policies regarding the collection, use and disclosure of
                     </Typography>
-                    <Typography style={{ marginBottom: "3rem" }} className={classes.update}>
+                    <Typography className={classnames(classes.update, classes.persInfo)}>
                         Personal Information we receive from users of the Site.
                     </Typography>
                     <Typography className={classes.update}>

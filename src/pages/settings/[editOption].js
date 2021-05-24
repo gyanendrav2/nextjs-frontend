@@ -24,7 +24,7 @@ const useStyles = makeStyles({
             padding: "8rem 2rem 2rem 2rem",
         },
         "@media (max-width:767px)": {
-            padding: "6rem 1rem 2rem 1rem",
+            padding: "7rem 1rem 2rem 1rem",
         },
     },
     mainTitle: {

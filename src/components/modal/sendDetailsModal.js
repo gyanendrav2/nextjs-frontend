@@ -73,6 +73,7 @@ const useStyles = makeStyles({
             flexDirection: "column-reverse",
             width: "100%",
             margin: "0",
+            padding: "2rem 1rem",
             "& button": {
                 marginLeft: 0,
                 marginRight: 0,

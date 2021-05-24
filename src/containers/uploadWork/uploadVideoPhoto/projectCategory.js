@@ -101,7 +101,6 @@ export const ProjectCategory = () => {
     const handleRoles = (e, i) => {
         const data = [...roles]
         const tempRoleOptions = [...roleCategoriesdata]
-        // console.log(tempRoleOptions, i)
         tempRoleOptions[i].checked = !tempRoleOptions[i].checked
         setRoleCategoriesdata(tempRoleOptions)
         if (tempRoleOptions[i].checked) {

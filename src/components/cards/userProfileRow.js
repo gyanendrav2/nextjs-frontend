@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
+import { Grid, makeStyles, Typography } from "@material-ui/core"
 import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
@@ -13,6 +13,9 @@ const useStyles = makeStyles({
         textDecoration: "underline",
         cursor: "pointer",
         minWidth: "10rem",
+        "@media (max-width:767px)": {
+            minWidth: "auto",
+        },
     },
     disableMember: {
         color: colors.lighterGray,
@@ -31,13 +34,13 @@ const useStyles = makeStyles({
         fontSize: "0.875rem",
         textOverflow: "ellipsis",
         minWidth: "10rem",
-        "@media(max-Width:768px)": {
+        "@media(max-Width:767px)": {
             paddingLeft: "3rem",
         },
     },
 })
 
-export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size }) => {
+export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col2Size, externalPositionClass }) => {
     const classes = useStyles()
     return (
         <Grid container wrap="nowrap" alignItems="center" justify="flex-start">
@@ -68,11 +71,15 @@ export const UserProfileRow = ({ image, name, position, isDisable, col1Size, col
                 md={col2Size}
                 lg={col2Size}
                 xl={col2Size}
-                className={classes.disabledTeamContainer}>
+                className={classnames(classes.disabledTeamContainer, externalPositionClass)}>
                 <Typography className={classes.positionText}>{position}</Typography>
             </Grid>
         </Grid>
     )
+}
+
+UserProfileRow.defaultProps = {
+    externalPositionClass: "",
 }
 
 UserProfileRow.propTypes = {
@@ -82,4 +89,5 @@ UserProfileRow.propTypes = {
     isDisable: PropTypes.bool.isRequired,
     col1Size: PropTypes.number.isRequired,
     col2Size: PropTypes.number.isRequired,
+    externalPositionClass: PropTypes.string,
 }

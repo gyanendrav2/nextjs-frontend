@@ -41,7 +41,7 @@ const useStyles = makeStyles({
         color: (props) => (props.labelColor ? props.labelColor : colors.black),
         marginLeft: (props) => (props.labelMargin ? props.labelMargin : "initial"),
         "@media(max-width:767px)": {
-            marginLeft: 0,
+            marginLeft: "0!Important",
         },
     },
     inputContainer: {

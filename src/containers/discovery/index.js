@@ -222,7 +222,6 @@ const useStyles = makeStyles({
 const Discovery = ({ details, category, showSlider, isAuthenticated, feed, hideCurated }) => {
     const classes = useStyles()
     const routes = useRouter()
-    // console.log(details, "details")
     const { hero, curatedCreators, featuredProjects } = details
     const [featuredCardsDetails, setFeaturedCardsDetails] = useState([])
     const [totalCategories, setTotalCategories] = useState([])

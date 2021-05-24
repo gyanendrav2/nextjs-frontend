@@ -40,7 +40,6 @@ const useStyles = makeStyles({
         position: "absolute",
         top: "5.5rem",
         left: "5.5rem",
-        // curson:"pointer",
         "&:hover": {
             backgroundColor: "transparent",
         },
@@ -62,6 +61,7 @@ const useStyles = makeStyles({
         width: "calc(100% - 8px)",
         "@media (max-width:767px)": {
             marginLeft: "0",
+            width: "100%",
         },
     },
     accountsTitle: {

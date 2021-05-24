@@ -189,7 +189,6 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                                     placeholderColor={colors.lighterGray}
                                     icon={<SearchIcon />}
                                     externalclass={classes.input}
-                                    borderColor={colors.lightGray}
                                 />
                             </li>
                             <li className={classes.listStyle}>

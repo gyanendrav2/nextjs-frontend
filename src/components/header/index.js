@@ -69,7 +69,6 @@ const useStyles = makeStyles({
 export const Header = ({ color, bgcolor, NavItemOptions, isAuthenticated }) => {
     const classes = useStyles({ color, bgcolor })
     const router = useRouter()
-    // console.log(router)
     const [hoveredActive, setHoverdActive] = useState(null)
     const [showProfilenavcard, setShowProfilenavcard] = useState(false)
 

@@ -23,7 +23,7 @@ const useStyles = makeStyles({
             padding: "8rem 2rem 2rem 2rem",
         },
         "@media (max-width:767px)": {
-            padding: "6rem 1rem 2rem 1rem",
+            padding: "7rem 1rem 2rem 1rem",
         },
     },
     mainTitle: {
@@ -80,6 +80,9 @@ const useStyles = makeStyles({
     whiteBg: {
         backgroundColor: colors.lighterPrimary,
         position: "relative",
+        "@media(max-width:767px)": {
+            margin: "0",
+        },
     },
     footer: {
         marginTop: "0rem!important",

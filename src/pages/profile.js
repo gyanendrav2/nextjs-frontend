@@ -26,7 +26,9 @@ const EyeOpenIcon = dynamic(() => import("../components/icons/eyeOpenIcon"))
 const ReactPlayer = dynamic(() => import("react-player"))
 
 const useStyles = makeStyles({
-    wrapper: {},
+    wrapper: {
+        overflow: "hidden",
+    },
     profileHeader: {
         marginBottom: "3.5rem",
         "@media (max-width:1024px)": {
@@ -151,6 +153,7 @@ const useStyles = makeStyles({
     },
     videoWrapper: {
         paddingTop: "7.5rem",
+        overflowX: "hidden",
         "@media (max-width:1024px)": {
             paddingLeft: "0!important",
             paddingRight: "0!important",

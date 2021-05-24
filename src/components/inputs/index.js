@@ -64,5 +64,5 @@ Input.propTypes = {
     inputName: PropTypes.string,
     externalclass: PropTypes.string,
     placeholderColor: PropTypes.string,
-    height: PropTypes.number.isRequired,
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 }

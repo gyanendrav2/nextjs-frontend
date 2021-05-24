@@ -5,6 +5,7 @@ import ModalComponent from "./modalComponent"
 import CustomButton from "../buttons/customButton"
 import { colors } from "../../theme/colors"
 import { DeleteIcon } from "../icons/deleteIcon"
+import CancelConfirm from "../cards/cancelConfirm"
 
 const useStyles = makeStyles({
     heading: {
@@ -42,7 +43,6 @@ const useStyles = makeStyles({
         width: "100%",
         maxHeight: "90vh",
         overflowX: "auto",
-        padding: "1.235rem",
     },
     subTitle: {
         color: colors.lighterGray,
@@ -158,39 +158,42 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
     return (
         <ModalComponent padding="0" maxHeight="90vh" openOrNot={isOpen} onClose={onClose}>
             <Box className={classes.modelWrapper}>
-                <Grid
-                    container
-                    alignItems="center"
-                    justify="center"
-                    direction="column"
-                    wrap="nowrap"
-                    className={classes.fullWidth}>
-                    <Typography variant="h4" className={classes.heading}>
-                        {modalName}
-                    </Typography>
-                    <div onMouseEnter={() => setReassign(reassign + 1)} ref={dropRef} className={classes.wrapper}>
-                        <Typography className={classes.subTitle}>Drag and drop</Typography>
-                        <Typography className={classes.subTitleTwo}>or</Typography>
-                        <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
-                        <Typography className={classes.perPhoto}>*(5MB per photo)</Typography>
-                        <Box className={classes.fileWrapper}>
-                            {files.map((item, i) => (
-                                <Box className={classes.fileContainer}>
-                                    <Grid
-                                        container
-                                        alignItems="center"
-                                        justify="center"
-                                        flexDirection="row"
-                                        className={classes.deleteButton}
-                                        onClick={() => handleFile(i)}>
-                                        <DeleteIcon />
-                                    </Grid>
-                                    <img src={URL.createObjectURL(item)} alt={`img_${i}`} />
-                                </Box>
-                            ))}
-                        </Box>
-                    </div>
-                </Grid>
+                <Box width="100%" style={{ padding: "1.235rem" }}>
+                    <Grid
+                        container
+                        alignItems="center"
+                        justify="center"
+                        direction="column"
+                        wrap="nowrap"
+                        className={classes.fullWidth}>
+                        <Typography variant="h4" className={classes.heading}>
+                            {modalName}
+                        </Typography>
+                        <div onMouseEnter={() => setReassign(reassign + 1)} ref={dropRef} className={classes.wrapper}>
+                            <Typography className={classes.subTitle}>Drag and drop</Typography>
+                            <Typography className={classes.subTitleTwo}>or</Typography>
+                            <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
+                            <Typography className={classes.perPhoto}>*(5MB per photo)</Typography>
+                            <Box className={classes.fileWrapper}>
+                                {files.map((item, i) => (
+                                    <Box className={classes.fileContainer}>
+                                        <Grid
+                                            container
+                                            alignItems="center"
+                                            justify="center"
+                                            flexDirection="row"
+                                            className={classes.deleteButton}
+                                            onClick={() => handleFile(i)}>
+                                            <DeleteIcon />
+                                        </Grid>
+                                        <img src={URL.createObjectURL(item)} alt={`img_${i}`} />
+                                    </Box>
+                                ))}
+                            </Box>
+                        </div>
+                    </Grid>
+                </Box>
+                <CancelConfirm onClose={() => {}} onConfirm={() => {}} />
             </Box>
         </ModalComponent>
     )

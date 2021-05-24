@@ -146,7 +146,7 @@ const useStyles = makeStyles({
         borderRadius: 0,
         textTransform: "capitalize",
         height: "3.5rem",
-        width: "content-fit",
+        // width: "content-fit",
         "& span": {
             fontSize: "1rem",
             lineHeight: "1.375rem",

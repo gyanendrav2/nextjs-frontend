@@ -55,7 +55,7 @@ const useStyles = makeStyles({
         marginTop: "1.5rem",
     },
     plusIconContainer: {
-        marginBottom: "1rem",
+        marginBottom: "3rem",
         "@media (max-width: 1024px)": {
             paddingRight: "2rem",
         },
@@ -82,6 +82,8 @@ const useStyles = makeStyles({
     buttonContainer: {
         padding: "1.9rem 0",
         display: "none",
+        width: "100%",
+        margin: 0,
         backgroundColor: colors.white,
         "@media (min-width:768px) and (max-width: 1024px)": {
             padding: "1rem 13.375rem",
@@ -119,6 +121,11 @@ const useStyles = makeStyles({
         maxHeight: "3.125rem",
         "@media (max-width:1024px)": {
             // width: "10.187rem",
+        },
+    },
+    cancelBtn: {
+        "@media(max-width:767px)": {
+            marginTop: "2rem",
         },
     },
 })
@@ -247,7 +254,13 @@ const UploadVideoPhoto = ({ openDeleteModel, onDelete, closeDeleteModal, handleC
                         fullWidth
                     />
                 </Grid>
-                <CustomButton variant="textButton" label="Cancel" fullWidth color={colors.darkRed} />
+                <CustomButton
+                    variant="textButton"
+                    label="Cancel"
+                    fullWidth
+                    color={colors.darkRed}
+                    externalclass={classes.cancelBtn}
+                />
                 <CustomButton
                     variant="textButton"
                     label="Delete work"
