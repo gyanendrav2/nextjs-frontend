@@ -326,14 +326,14 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed, hideC
                                                         onClick={() => routes.push("/signup")}
                                                     />
                                                     <Typography className={classes.projectAuthorMobile}>
-                                                        Work by:
+                                                        Work by:&nbsp;
                                                         <span className={classes.projectAuthorTitleMobile}>
                                                             Jason Peterson
                                                         </span>
                                                     </Typography>
                                                 </div>
                                                 <Typography className={classes.projectAuthor}>
-                                                    Work by:
+                                                    Work by:&nbsp;
                                                     <span className={classes.projectAuthorTitle}>Jason Peterson</span>
                                                 </Typography>
                                             </div>

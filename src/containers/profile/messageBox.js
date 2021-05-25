@@ -27,9 +27,15 @@ const useStyles = makeStyles({
     submitContainer: {
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-betweem",
+        justifyContent: "space-between",
         marginTop: "2rem",
         marginBottom: "3rem",
+        "@media (max-width:767px)": {
+            display: "flex",
+            flexDirection: "column-reverse",
+            justifyContent: "space-between",
+            alignItems: "inherit",
+        },
     },
     submit: {},
     submitBtn: {

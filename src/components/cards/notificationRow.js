@@ -62,8 +62,12 @@ const useStyles = makeStyles({
         marginLeft: "auto",
         width: "9rem",
         textTransform: "none",
+        "@media (max-width: 1025px)": {
+            width: "auto",
+        },
         "@media (max-width: 767px)": {
             marginLeft: "2.4rem",
+            width: "auto",
         },
     },
     mobileDate: {

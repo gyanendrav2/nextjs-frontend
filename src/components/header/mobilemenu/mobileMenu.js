@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useRouter } from "next/router"
-import { Box, Grid, IconButton, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { colors } from "../../../theme/colors"
 import { images } from "../../../assets/images"
@@ -71,10 +71,10 @@ const useStyles = makeStyles({
             marginLeft: "0.5rem",
         },
     },
-    icon: {
-        fontSize: "2rem",
-        color: colors.white,
-    },
+    // icon: {
+    //     fontSize: "2rem",
+    //     color: colors.white,
+    // },
     show: {
         transform: "translateX(0)",
         transition: "all 1s",
@@ -115,10 +115,10 @@ const useStyles = makeStyles({
     input: {
         backgroundColor: "transparent",
         padding: "0.3rem 0",
-        borderColor: `${colors.lightGray}!important`,
         borderRadius: "1px",
         "& input": {
             backgroundColor: "transparent",
+            color: colors.white,
             borderColor: `${colors.lightGray}!important`,
         },
         "& svg": {
@@ -158,6 +158,9 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
     const routeSettings = () => {
         routes.push("/upload-work")
     }
+    // const handleRoute = (item) => {
+    //     routes.push(item.pathname)
+    // }
 
     return (
         <>
@@ -166,12 +169,12 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                     <Grid container className={classes.headerWrapper}>
                         <UserProfileNav userName="Brandon" profileImg={images.brandon} />
                         <Grid container alignItems="center" justifycontent="space-around" className={classes.autoWidth}>
-                            <IconButton className={classes.NotificationButton}>
+                            <Box className={classes.NotificationButton}>
                                 <NotificationBellIcon activecolor={colors.pink} className={classes.icon} />
-                            </IconButton>
-                            <IconButton className={classes.closeButton} onClick={onClose}>
+                            </Box>
+                            <Box className={classes.closeButton} onClick={onClose}>
                                 <CloseIconBig className={classes.closeIcon} />
-                            </IconButton>
+                            </Box>
                         </Grid>
                     </Grid>
                     <Box className={classes.menuWrapper}>
@@ -179,14 +182,16 @@ export const MobileMenu = ({ toggleMenu, onClose }) => {
                             {mobileNavOptions.map((item, i) => (
                                 <li key={i} className={classes.listStyle}>
                                     {item.icon}
-                                    <Typography className={classes.title}>{item.name}</Typography>
+                                    <Typography className={classes.title} onClick={() => routes.push(item.pathname)}>
+                                        {item.name}
+                                    </Typography>
                                 </li>
                             ))}
                             <li className={classes.listStyle}>
                                 <InputWithLabelIcon
                                     name=""
                                     placeholder="Search"
-                                    placeholderColor={colors.lighterGray}
+                                    placeholderColor={colors.lightGray}
                                     icon={<SearchIcon />}
                                     externalclass={classes.input}
                                 />

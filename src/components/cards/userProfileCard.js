@@ -81,6 +81,9 @@ const useStyles = makeStyles({
     smallBtn: {
         width: "100%",
         backgroundColor: colors.lighterPrimary,
+        "@media(max-width:767px)": {
+            width: "auto",
+        },
     },
     readmore: {
         cursor: "pointer",

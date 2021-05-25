@@ -28,7 +28,10 @@ const useStyles = makeStyles({
         maxHeight: "26.5rem",
         overflowY: "auto",
         "@media(max-width:767px)": {
-            width: "21.437rem",
+            width: "96%",
+        },
+        "@media(max-Width:375px)": {
+            width: "96%",
         },
     },
 })

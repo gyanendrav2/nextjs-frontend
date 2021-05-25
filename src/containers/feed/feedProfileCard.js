@@ -71,8 +71,7 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
                     </Grid>
                     <Grid item>
                         <Typography className={classes.followersNum} onClick={onFollowClick}>
-                            {following}
-                            people
+                            {following}&nbsp;people
                         </Typography>
                     </Grid>
                 </Grid>
@@ -90,8 +89,7 @@ export const FeedProfileCard = ({ followers, following, onFollowClick, onFollowe
                     </Grid>
                     <Grid item>
                         <Typography className={classes.followersNum} onClick={onFollowedClick}>
-                            {followers}
-                            people
+                            {followers}&nbsp;people
                         </Typography>
                     </Grid>
                 </Grid>

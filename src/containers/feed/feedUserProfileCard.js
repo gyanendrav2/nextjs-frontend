@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
@@ -16,6 +16,9 @@ const useStyles = makeStyles({
         background: colors.white,
         marginBottom: "1rem",
         position: "relative",
+        "@media(max-width:767px)": {
+            padding: "0.5rem 1rem",
+        },
     },
     avatar: {
         width: "4rem",
@@ -27,6 +30,7 @@ const useStyles = makeStyles({
     },
     profilePicContainer: {
         width: "6rem",
+        marginBottom: "0.5rem",
     },
     profileInfoContainer: {
         position: "relative",
@@ -39,9 +43,11 @@ const useStyles = makeStyles({
         },
     },
     textInfoContainer: {
-        // paddingRight: "1.5rem",
         height: "3rem",
         color: colors.black,
+        "@media(max-width:767px)": {
+            marginLeft: "-2px",
+        },
     },
     followBtnContainer: {
         borderLeft: `1px solid ${colors.lightGray}`,
@@ -60,6 +66,7 @@ const useStyles = makeStyles({
     },
     smallBtn: {
         width: "100%",
+        minWidth: "7.375rem",
         height: "2.5rem",
         padding: "0.5rem",
         backgroundColor: colors.lighterPrimary,
@@ -71,12 +78,11 @@ const useStyles = makeStyles({
     },
     position: {
         color: colors.lighterGray,
-        fontSize: "16px",
-        lineHeight: "22px",
+        fontSize: "1rem",
     },
     name: {
-        fontSize: "22px",
-        lineHeight: "34px",
+        fontSize: "1.375rem",
+        lineHeight: "2.125rem",
         color: colors.black,
         minWidth: "12rem",
     },
@@ -124,6 +130,12 @@ export const FeedUserProfileCard = ({
 }) => {
     const classes = useStyles({ externalclass })
 
+    const [showUnfollow, setShowUnfollow] = useState(false)
+
+    const handleFollow = () => {
+        setShowUnfollow(true)
+    }
+
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
             <MoreVertIcon className={classes.moreVertIcon} />
@@ -148,12 +160,24 @@ export const FeedUserProfileCard = ({
                         </Grid>
                     </Grid>
                     <Grid item className={classes.followBtnContainer}>
+                        {/* {!showUnfollow && ( */}
                         <CustomButton
                             variant="dropdownButton"
                             icon={<img src={icons.arrowDropdown} alt="" />}
                             label="Following"
                             externalclass={classes.smallBtn}
+                            // onClick={handleFollow}
                         />
+                        {/* )} */}
+                        {showUnfollow && (
+                            <CustomButton
+                                variant="dropdownButton"
+                                icon={<img src={icons.arrowDropdown} alt="" />}
+                                label="Follow"
+                                externalclass={classes.smallBtn}
+                                onClick={handleFollow}
+                            />
+                        )}
                     </Grid>
                 </Grid>
                 <CustomButton

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React from "react"
 import { useRouter } from "next/router"
 import makeStyles from "@material-ui/core/styles/makeStyles"
@@ -187,31 +188,32 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         // height: "37.187rem",
     },
-    reportContentwrapper: {
-        marginTop: "9.5rem",
-        padding: "1rem 2rem 1rem 1rem",
-        "& div": {
-            margin: 0,
-        },
-        "@media (max-width:1024px)": {
-            padding: "1rem 1rem",
-        },
-        "@media (max-width:767px)": {
-            padding: "1rem 0",
-        },
-    },
+    // reportContentwrapper: {
+    //     marginTop: "9.5rem",
+    //     padding: "1rem 2rem 1rem 1rem",
+    //     "& div": {
+    //         margin: 0,
+    //     },
+    //     "@media (max-width:1024px)": {
+    //         padding: "1rem 1rem",
+    //     },
+    //     "@media (max-width:767px)": {
+    //         padding: "1rem 0",
+    //     },
+    // },
     footer: {
         marginTop: "0rem!important",
     },
-    //  makingHead:{
-    //       "@media (max-width:767px)": {
-    //     marginTop:"1.5rem!important"
-    // },
-    // },
-    behindhead: {
-        // "@media (max-width:767px)": {
-        //     marginBottom:"1.5rem!important"
-        // },
+    dialogreportcontent: {
+        padding: "0rem 1rem 0rem 1.75rem ",
+        "@media(max-width:767px)": {
+            padding: "0rem  1rem 0rem 2rem",
+        },
+    },
+    reportSpamProp: {
+        "@media(max-width:767px)": {
+            padding: "1rem 0.35rem 1rem 0.35rem",
+        },
     },
 })
 
@@ -288,9 +290,7 @@ const Project = () => {
                         xl={6}
                         className={classes.whiteBg}>
                         <Box className={classes.contentWrapperWhiteBg}>
-                            <Typography variant="h3" className={classes.behindhead}>
-                                Behind the scenes
-                            </Typography>
+                            <Typography variant="h3">Behind the scenes</Typography>
                             <Typography>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has been the industry&apos;s standard dummy text ever since the 1500s, when an unknown
@@ -306,7 +306,10 @@ const Project = () => {
                 <Slider />
                 <ImageGallery />
                 <SocialIcons />
-                <ReportContentWrapper externalclass={classes.reportContentwrapper} />
+                <ReportContentWrapper
+                    externalclass={classes.reportSpamProp}
+                    dialogcontentStyle={classes.dialogreportcontent}
+                />
                 <Footer externalclass={classes.footer} />
             </Box>
         </>

@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography } from "@material-ui/core"
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import React, { useState } from "react"
 import classnames from "classnames"
 import { useRouter } from "next/router"
@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         padding: (props) => (props.dialogcontentStyle ? props.dialogcontentStyle : "1rem 1rem 1rem 1rem"),
         display: "flex",
         "@media(max-width:767px)": {
-            padding: "1rem 1rem 1rem 1rem",
+            padding: "0rem 1rem 1rem 0rem",
         },
     },
     reportspamwrapper: {
@@ -23,12 +23,13 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-start",
         flexDirection: "row",
-        "@media(min-width:1024px)": {
+        margin: "1.812rem 0",
+        "@media(max-width:1024px)": {
             justifyContent: "center",
             margin: "2rem 0",
         },
-        "@media(min-width:768px)": {
-            margin: "2rem 0",
+        "@media(max-width:767px)": {
+            margin: "0",
         },
     },
     spamwrapper: {
@@ -55,8 +56,9 @@ const useStyles = makeStyles({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "flex-start",
-        "@media(min-width:768px)": {
-            minWidth: "18rem",
+        minWidth: "18rem",
+        "@media(max-width:767px)": {
+            marginLeft: "0.4rem",
         },
     },
     spamText: {
@@ -74,10 +76,8 @@ const useStyles = makeStyles({
         },
     },
     modaltitle: {
-        marginTop: "1.5rem",
         color: colors.lighterGray,
         "@media(max-width:767px)": {
-            textAlign: "center",
             marginTop: "0",
         },
     },
@@ -124,12 +124,12 @@ const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                     </Grid>
                 </Grid>
                 <Grid item xs={12} sm={5} md={5} lg={4} className={classes.requestwrapper}>
-                    <Grid className={classes.reqspamwrapper}>
+                    <Box className={classes.reqspamwrapper}>
                         <RequestPartIcon />
                         <Typography className={classes.spamText} onClick={() => setShowParticipantModal(true)}>
                             Request participation in the project
                         </Typography>
-                    </Grid>
+                    </Box>
                 </Grid>
             </Grid>
         </>

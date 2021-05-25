@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
@@ -54,6 +54,7 @@ const useStyles = makeStyles({
         outline: "none",
         minWidth: "4.937rem",
         height: "2rem",
+        width: (props) => props.followBtnWith,
     },
     image_container: {
         width: "100%",
@@ -64,10 +65,49 @@ const useStyles = makeStyles({
         height: "100%",
         objectFit: "cover",
     },
+    dropdownWrapper: {
+        position: "relative",
+    },
+    dropdownOption: {
+        position: "absolute",
+        backgroundColor: colors.white,
+        boxShadow: "0px 10px 60px rgba(0, 0, 0, 0.4)",
+        color: colors.darkRed,
+        padding: "0.312rem 1.75rem",
+        zIndex: 1,
+        cursor: "pointer",
+    },
 })
 
-export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPage, creationCard }) => {
-    const classes = useStyles()
+export const CardWithHeader = ({
+    image,
+    title,
+    subTitle,
+    buttonText,
+    isProjectPage,
+    creationCard,
+    followBtnWith,
+    showFollowBtnDrowdown,
+}) => {
+    const classes = useStyles({ followBtnWith })
+    const [showDropdown, setShowDropdown] = useState(false)
+    const [followBtnText, setFollowBtnText] = useState(buttonText)
+    const [isDropdown, setIsDropdown] = useState(creationCard)
+
+    const handleDropdown = () => {
+        if (showFollowBtnDrowdown && followBtnText === buttonText) {
+            setShowDropdown(!showDropdown)
+        } else {
+            setFollowBtnText(buttonText)
+            setIsDropdown(false)
+        }
+    }
+
+    const handlefollow = () => {
+        setShowDropdown(false)
+        setFollowBtnText("Follow")
+        setIsDropdown(true)
+    }
 
     return (
         <Box className={classes.Container}>
@@ -75,15 +115,21 @@ export const CardWithHeader = ({ image, title, subTitle, buttonText, isProjectPa
                 <Box>
                     <img className={classes.image} src={image} alt={title} />
                 </Box>
-                <Box>
+                <Box className={classes.dropdownWrapper}>
                     <Typography className={classes.CreatorsAuthorName}>{title}</Typography>
                     <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
                     <CustomButton
                         variant="dropdownButton"
-                        icon={creationCard ? "" : <ArrowDownIcon />}
-                        label={buttonText}
+                        icon={isDropdown ? "" : <ArrowDownIcon />}
+                        label={followBtnText}
                         externalclass={classes.CreatorsButton}
+                        onClick={handleDropdown}
                     />
+                    {showDropdown && (
+                        <Box className={classes.dropdownOption}>
+                            <Typography onClick={handlefollow}>Unfollow</Typography>
+                        </Box>
+                    )}
                 </Box>
             </Box>
             {isProjectPage ? null : (
@@ -100,6 +146,8 @@ CardWithHeader.defaultProps = {
     title: "",
     subTitle: "",
     creationCard: false,
+    followBtnWith: "auto",
+    showFollowBtnDrowdown: false,
 }
 
 CardWithHeader.propTypes = {
@@ -109,4 +157,6 @@ CardWithHeader.propTypes = {
     buttonText: PropTypes.string.isRequired,
     isProjectPage: PropTypes.bool,
     creationCard: PropTypes.bool,
+    followBtnWith: PropTypes.string,
+    showFollowBtnDrowdown: PropTypes.bool,
 }

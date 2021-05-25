@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
+import classnames from "classnames"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import ModalComponent from "./modalComponent"
 import { TextArea } from "../inputs/textArea"
@@ -13,10 +14,10 @@ const useStyles = makeStyles({
         textAlign: "center",
         "@media(max-width:1024px)": {
             marginTop: "4rem",
-            marginBottom: "0rem",
+            marginBottom: "1.5rem",
         },
         "@media(max-width:767px)": {
-            marginBottom: "2rem",
+            marginBottom: "2.5rem",
         },
         "@media(max-width:400px)": {
             fontSize: (props) => (props.requestTitle ? props.requestTitle : "2rem"),
@@ -89,6 +90,19 @@ const useStyles = makeStyles({
             paddingBottom: 0,
         },
     },
+    modalTitle: {
+        fontFamily: "Helvetica",
+        fontSize: "1rem",
+        color: colors.lighterGray,
+        "@media (min-width: 768px) and (max-width: 1024px)": {
+            fontSize: "1.375rem",
+        },
+        "@media (max-width: 767px)": {
+            fontSize: "1rem",
+            textAlign: "center",
+            color: colors.lighterGray,
+        },
+    },
 })
 
 export const SendDetailsModal = ({
@@ -130,7 +144,7 @@ export const SendDetailsModal = ({
                         <Typography variant="h4" className={classes.heading}>
                             {modalName}
                         </Typography>
-                        <Typography className={externalclass}>{title}</Typography>
+                        <Typography className={classnames(externalclass, classes.modalTitle)}>{title}</Typography>
                         <Box className={classes.wrapper}>
                             {isTextArea ? (
                                 <>

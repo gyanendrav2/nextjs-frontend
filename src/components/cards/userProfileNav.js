@@ -31,6 +31,11 @@ const useStyles = makeStyles({
         zIndex: 2,
         backgroundColor: colors.white,
         width: "18.125rem",
+        "@media (max-width:1024px)": {
+            right: "-10.5rem",
+            left: "unset",
+            top: "5.75rem",
+        },
     },
     editOption: {
         marginBottom: "1.5rem",

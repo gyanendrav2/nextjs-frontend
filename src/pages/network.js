@@ -13,7 +13,10 @@ import Footer from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
-        paddingTop: "7.5rem",
+        paddingTop: "9.687rem",
+        "@media(max-width:1024px)": {
+            paddingTop: "7rem",
+        },
     },
     heading: {
         fontSize: "3.125rem",
@@ -26,7 +29,7 @@ const useStyles = makeStyles({
     },
     buttonGroup: {
         border: `1px solid ${colors.lightGray}`,
-        maxWidth: "19.125rem",
+        // maxWidth: "19.125rem",
         "@media(max-width:767px)": {
             marginBottom: "2rem",
         },
@@ -35,6 +38,7 @@ const useStyles = makeStyles({
         height: "2.5rem",
         backgroundColor: colors.white,
         color: colors.black,
+        minWidth: "9.375rem",
     },
     borderRight: {
         borderRight: `1px solid ${colors.lightGray}`,
@@ -114,7 +118,7 @@ const Network = () => {
                             <CustomButton label="Search" externalclass={classes.searchBtn} />
                         </Grid>
                     </Grid>
-                    <Grid container spacing={2} style={{ marginTop: "2.5rem" }}>
+                    <Grid container spacing={2} style={{ marginTop: "2rem" }}>
                         {network.map((item, i) => (
                             <Grid key={i} item xs={12} sm={12} md={6} lg={3} xl={3}>
                                 <CardWithHeader
@@ -122,6 +126,8 @@ const Network = () => {
                                     title={item.name}
                                     buttonText={item.buttonText}
                                     subTitle={item.position}
+                                    followBtnWith="7.375rem"
+                                    showFollowBtnDrowdown
                                 />
                             </Grid>
                         ))}

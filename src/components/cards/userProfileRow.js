@@ -6,7 +6,7 @@ import { colors } from "../../theme/colors"
 
 const useStyles = makeStyles({
     disabledTeamContainer: {
-        marginBottom: "0.7rem",
+        marginBottom: "0.6rem",
     },
     activeMember: {
         color: colors.black,
@@ -36,6 +36,9 @@ const useStyles = makeStyles({
         minWidth: "10rem",
         "@media(max-Width:767px)": {
             paddingLeft: "3rem",
+        },
+        "@media(max-Width:375px)": {
+            minWidth: "8rem",
         },
     },
 })

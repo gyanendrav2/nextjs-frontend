@@ -34,9 +34,22 @@ const useStyles = makeStyles({
         height: "2.5rem",
         marginRight: "1rem",
         marginLeft: 0,
+        "& span": {
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+        },
         "@media (min-width:768px) and (max-width:1024px)": {
             marginBottom: "1.187rem",
-            maxWidth: "10.25rem",
+            maxWidth: "100%",
+            width: "calc(25% - 0.75rem)",
+            // display: "flow-root",
+            // "&:last-child": {
+            //     marginRight: 0,
+            // },
+            "&:nth-child(4n)": {
+                marginRight: 0,
+            },
         },
         "@media (max-width:767px)": {
             maxWidth: "100%",
@@ -44,7 +57,6 @@ const useStyles = makeStyles({
             display: "flow-root",
             marginBottom: "1rem",
             marginRight: "0.5rem",
-
             "& span": {
                 whiteSpace: "nowrap",
                 overflow: "hidden",

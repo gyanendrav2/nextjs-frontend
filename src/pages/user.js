@@ -77,7 +77,10 @@ const useStyles = makeStyles({
             marginLeft: "0.5rem",
         },
         "@media (min-width:768px) and (max-width:1024px)": {
-            marginTop: "2rem",
+            marginTop: "1rem",
+        },
+        "@media (max-width:767px)": {
+            marginTop: "3.5rem",
         },
     },
     footer: {
@@ -94,7 +97,7 @@ const useStyles = makeStyles({
         width: "100%",
         margin: 0,
         "@media (min-width:768px) and (max-width:1024px)": {
-            padding: "2rem",
+            padding: "2rem 1.5rem",
         },
         "@media (max-width:767px)": {
             paddingLeft: "1rem",
@@ -136,6 +139,10 @@ const useStyles = makeStyles({
         "@media (max-width:767px)": {
             paddingLeft: "0!important",
             paddingRight: "0!important",
+            paddingBottom: "1rem!important",
+            "&:last-child": {
+                paddingBottom: "0!important",
+            },
         },
     },
 })

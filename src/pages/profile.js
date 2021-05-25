@@ -91,7 +91,9 @@ const useStyles = makeStyles({
             display: "none",
         },
     },
-    cardContainer: {},
+    cardContainer: {
+        "@media (min-width:768px)": {},
+    },
     selectedCategoryStyles: {
         color: colors.red,
     },
@@ -157,7 +159,20 @@ const useStyles = makeStyles({
         "@media (max-width:1024px)": {
             paddingLeft: "0!important",
             paddingRight: "0!important",
+            paddingTop: "5.5rem",
+        },
+        "@media(max-width:767px)": {
             paddingTop: "3.5rem",
+        },
+    },
+    itemWrapper: {
+        "@media (max-width:767px)": {
+            paddingLeft: "0!important",
+            paddingRight: "0!important",
+            paddingBottom: "1rem!important",
+            "&:last-child": {
+                paddingBottom: "0!important",
+            },
         },
     },
 })
@@ -337,6 +352,7 @@ const Profile = () => {
                                         hideText="Hide"
                                         showMoreButton
                                         handleHide={() => handleHide(i)}
+                                        className={classes.itemWrapper}
                                     />
                                 </Grid>
                             )

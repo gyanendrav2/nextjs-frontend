@@ -4,6 +4,7 @@ import classnames from "classnames"
 import CustomButton from "../../../components/buttons/customButton"
 import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
 import { colors } from "../../../theme/colors"
+import CancelConfirm from "../../../components/cards/cancelConfirm"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -36,14 +37,10 @@ const useStyles = makeStyles({
         },
     },
     modaltitle: {
-        fontFamily: "Helvetica",
-        fontSize: "1.375rem",
-        lineHeight: "2.1rem",
-        textAlign: "center",
         color: colors.lighterGray,
-        marginBottom: "2rem",
         "@media (max-width: 767px)": {
-            marginBottom: "0.5rem",
+            marginBottom: "0rem",
+            textAlign: "center",
         },
     },
     textStyles: {
@@ -128,6 +125,7 @@ export const ConvertVideoOrPhoto = () => {
                     </Grid>
                 </Grid>
             </Box>
+            <CancelConfirm onClose={() => {}} onConfirm={() => {}} />
         </>
     )
 }

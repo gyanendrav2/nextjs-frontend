@@ -31,6 +31,11 @@ const useStyles = makeStyles({
     seenText: {
         color: colors.black,
     },
+    seenIcon: {
+        "@media(max-width:767px)": {
+            marginBottom: "1rem",
+        },
+    },
 })
 
 const Feed = () => {
@@ -66,7 +71,7 @@ const Feed = () => {
                         ))}
 
                         <Box className={classes.seenContainer}>
-                            <SeenIcon />
+                            <SeenIcon className={classes.seenIcon} />
                             <Typography className={classes.seenText}> You’ve seen the most recent posts</Typography>
                         </Box>
                         {feedOldData.map((item, i) => (

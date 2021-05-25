@@ -21,26 +21,14 @@ export const NotificationBellIcon = (props) => {
                 fill="url(#paint0_linear)"
                 mask="url(#path-1-inside-1)"
             />
-            <circle cx={19} cy={4} r={4} fill={props.activecolor} />
-            <defs>
-                <linearGradient
-                    id="paint0_linear"
-                    x1="12.0023"
-                    y1="1.5"
-                    x2="12.0023"
-                    y2="22.5"
-                    gradientUnits="userSpaceOnUse">
-                    <stop stopColor="white" />
-                    <stop offset={1} stopColor="white" stopOpacity={0} />
-                </linearGradient>
-            </defs>
+            <circle cx={19} cy={4} r={4} fill="#FF8DA1" />
         </svg>
     )
 }
 
 NotificationBellIcon.defaultProps = {
-    width: 22,
-    height: 22,
+    width: 24,
+    height: 24,
     activecolor: "none",
 }
 

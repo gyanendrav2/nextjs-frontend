@@ -62,9 +62,13 @@ const useStyles = makeStyles({
 
     button: {
         height: "1.5rem",
+        marginRight: "2.5rem",
         "&:hover": {
             color: colors.white,
             backgroundColor: colors.black,
+        },
+        "@media(max-width:1024px)": {
+            marginRight: "0rem",
         },
         "@media(max-width:767px)": {
             minWidth: "1rem!important",
@@ -128,14 +132,14 @@ const useStyles = makeStyles({
         },
     },
     dialogreportcontent: {
-        padding: "1rem 1rem 1rem 1.75rem ",
+        padding: "0rem 1rem 0rem 1.75rem ",
         "@media(max-width:767px)": {
-            padding: "1rem  1rem 1rem 2rem",
+            padding: "0rem  1rem 0rem 2rem",
         },
     },
     reportSpamProp: {
         "@media(max-width:767px)": {
-            padding: "1rem 0.35rem",
+            padding: "1rem 0.35rem 1rem 0.35rem",
         },
     },
 
@@ -166,7 +170,7 @@ const useStyles = makeStyles({
         width: "100%",
         "@media (max-width:767px)": {
             fontSize: "1rem",
-            marginBottom: "1rem",
+            // marginBottom: "1rem",
         },
     },
     position: {
@@ -197,7 +201,9 @@ export const QuickViewDailog = ({ closeModal }) => {
                         </Box>
                     </Grid>
                     <Grid item className={classes.headingTextWrapper}>
-                        <Typography>Brandon Landing</Typography>
+                        <Typography style={{ cursor: "pointer" }} onClick={() => routes.push("/user")}>
+                            Brandon Landing
+                        </Typography>
                         <Typography className={classes.position}>2nd AD</Typography>
                     </Grid>
                 </Grid>
@@ -254,8 +260,8 @@ export const QuickViewDailog = ({ closeModal }) => {
                 </Grid>
             </Grid>
             <ReportContentWrapper
-                dialogcontentStyle={classes.dialogreportcontent}
                 externalclass={classes.reportSpamProp}
+                dialogcontentStyle={classes.dialogreportcontent}
             />
         </Box>
     )

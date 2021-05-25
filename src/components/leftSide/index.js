@@ -132,7 +132,7 @@ const LeftSide = () => {
                     </Box>
                 </Box>
                 <Typography className={classes.projectAuthor}>
-                    Work by: <span className={classes.projectAuthorTitle}>Jason Peterson</span>
+                    Work by:&nbsp;<span className={classes.projectAuthorTitle}>Jason Peterson</span>
                 </Typography>
             </Box>
         </Grid>

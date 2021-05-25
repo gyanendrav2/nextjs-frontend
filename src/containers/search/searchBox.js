@@ -32,14 +32,13 @@ const useStyles = makeStyles({
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: colors.lighterPrimary,
-        padding: "1.5rem",
+        padding: "1.5rem 2rem",
         position: "relative",
         "@media (max-width: 767px)": {
             padding: "1rem",
         },
     },
     filterWrapper: {
-        // padding: "2rem",
         backgroundColor: colors.lighterPrimary,
         paddingLeft: "2.5rem",
         paddingRight: "2.5rem",
@@ -73,8 +72,8 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "flex-end",
         position: "absolute",
-        right: "2rem",
-        "@media (max-width: 1025px)": {
+        right: "2.5rem",
+        "@media (max-width: 1024px)": {
             display: "none",
         },
     },

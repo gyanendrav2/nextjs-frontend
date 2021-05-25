@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         flexDirection: "column",
         backgroundColor: colors.white,
         "@media (max-width:767px)": {
-            padding: "auto 1rem 2rem 1rem",
+            padding: "7rem 1rem 2rem 1rem",
         },
     },
     title: {
@@ -24,12 +24,12 @@ const useStyles = makeStyles({
         color: colors.black,
         fontSize: "3.125rem",
         animation: "fadeIn 1s",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            marginBottom: "1rem",
+        },
         "@media (max-width:767px)": {
             fontSize: "2.5rem",
-            lineHeight: "3rem",
-        },
-        "@media(max-width:432px)": {
-            lineHeight: "4.75rem",
+            marginBottom: "1.625rem",
         },
     },
     subTitle: {
