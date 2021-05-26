@@ -1,5 +1,6 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
+import classnames from "classnames"
 import React, { useEffect, useState } from "react"
 import { colors } from "../../theme/colors"
 import CustomButton from "../../components/buttons/customButton"
@@ -165,17 +166,30 @@ const useStyles = makeStyles({
             borderTop: "none",
         },
     },
+    active: {
+        backgroundColor: colors.lighterPrimary,
+    },
 })
 
 export const SearchBox = ({ onFilter, getProjects, getPeople }) => {
     const classes = useStyles()
 
     const [showFilter, setShowFilter] = useState(false)
+    const [currentActive, setCurrentActive] = useState("work")
 
     useEffect(() => {
         onFilter(showFilter)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [showFilter])
+
+    const handleSearch = () => {
+        if (currentActive === "work") {
+            getProjects()
+        }
+        if (currentActive === "people") {
+            getPeople()
+        }
+    }
 
     return (
         <>
@@ -192,20 +206,24 @@ export const SearchBox = ({ onFilter, getProjects, getPeople }) => {
                         <Grid item className={classes.inputCol2}>
                             <Grid container alignItems="center" justifycontent="flex-start" wrap="nowrap">
                                 <CustomButton
-                                    externalclass={classes.buttonGroupItem}
+                                    externalclass={classnames(classes.buttonGroupItem, {
+                                        [classes.active]: currentActive === "work",
+                                    })}
                                     label="Work"
-                                    onClick={getProjects}
+                                    onClick={() => setCurrentActive("work")}
                                 />
                                 <CustomButton
-                                    externalclass={classes.buttonGroupItem}
+                                    externalclass={classnames(classes.buttonGroupItem, {
+                                        [classes.active]: currentActive === "people",
+                                    })}
                                     label="People"
-                                    onClick={getPeople}
+                                    onClick={() => setCurrentActive("people")}
                                 />
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid container className={classes.col2}>
-                        <CustomButton label="Search" type="submit" externalclass={classes.confirmButton} />
+                        <CustomButton label="Search" onClick={handleSearch} externalclass={classes.confirmButton} />
                     </Grid>
                 </Grid>
                 {/* </Grid> */}

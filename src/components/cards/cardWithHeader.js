@@ -1,10 +1,9 @@
-import React, { useState } from "react"
+import React from "react"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { colors } from "../../theme/colors"
 import { LazyloadImage } from "../lazyloadImage/lazyloadImage"
-import CustomButton from "../buttons/customButton"
-import { ArrowDownIcon } from "../icons/arrowDownIcon"
+import FollowButton from "../buttons/followButton"
 
 const useStyles = makeStyles({
     CuratorCard: {
@@ -46,16 +45,6 @@ const useStyles = makeStyles({
         color: colors.lighterGray,
         margin: "0.187rem 0 0.5rem 0",
     },
-    CreatorsButton: {
-        background: colors.lighterPrimary,
-        fontSize: "1rem",
-        color: colors.blackPrimary,
-        border: " none",
-        outline: "none",
-        minWidth: "4.937rem",
-        height: "2rem",
-        width: (props) => props.followBtnWith,
-    },
     image_container: {
         width: "100%",
         height: "100%",
@@ -67,15 +56,6 @@ const useStyles = makeStyles({
     },
     dropdownWrapper: {
         position: "relative",
-    },
-    dropdownOption: {
-        position: "absolute",
-        backgroundColor: colors.white,
-        boxShadow: "0px 10px 60px rgba(0, 0, 0, 0.4)",
-        color: colors.darkRed,
-        padding: "0.312rem 1.75rem",
-        zIndex: 1,
-        cursor: "pointer",
     },
 })
 
@@ -89,25 +69,7 @@ export const CardWithHeader = ({
     followBtnWith,
     showfollowbtndrowdown,
 }) => {
-    const classes = useStyles({ followBtnWith })
-    const [showDropdown, setShowDropdown] = useState(false)
-    const [followBtnText, setFollowBtnText] = useState(buttonText)
-    const [isDropdown, setIsDropdown] = useState(creationCard)
-
-    const handleDropdown = () => {
-        if (showfollowbtndrowdown && followBtnText === buttonText) {
-            setShowDropdown(!showDropdown)
-        } else {
-            setFollowBtnText(buttonText)
-            setIsDropdown(false)
-        }
-    }
-
-    const handlefollow = () => {
-        setShowDropdown(false)
-        setFollowBtnText("Follow")
-        setIsDropdown(true)
-    }
+    const classes = useStyles()
 
     return (
         <Box className={classes.Container}>
@@ -118,18 +80,12 @@ export const CardWithHeader = ({
                 <Box className={classes.dropdownWrapper}>
                     <Typography className={classes.CreatorsAuthorName}>{title}</Typography>
                     <Typography className={classes.CreatorsAuthorJobTitle}>{subTitle}</Typography>
-                    <CustomButton
-                        variant="dropdownButton"
-                        icon={isDropdown ? "" : <ArrowDownIcon />}
-                        label={followBtnText}
-                        externalclass={classes.CreatorsButton}
-                        onClick={handleDropdown}
+                    <FollowButton
+                        showDropdownIcon={creationCard}
+                        buttonText={buttonText}
+                        showfollowbtndrowdown={showfollowbtndrowdown}
+                        buttonWidth={followBtnWith}
                     />
-                    {showDropdown && (
-                        <Box className={classes.dropdownOption}>
-                            <Typography onClick={handlefollow}>Unfollow</Typography>
-                        </Box>
-                    )}
                 </Box>
             </Box>
             {isProjectPage ? null : (

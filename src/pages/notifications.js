@@ -10,7 +10,7 @@ import { images } from "../assets/images"
 
 const useStyles = makeStyles({
     wrapper: {
-        padding: "8rem 9.687rem 2rem 9.687rem",
+        padding: "8rem 9.062rem 2rem 9.062rem",
         "@media (max-width:1024px)": {
             padding: "8rem 0rem 1rem 2rem",
         },

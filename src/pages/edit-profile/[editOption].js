@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     wrapper: {
         backgroundColor: colors.lighterPrimary,
         minHeight: "100vh",
-        padding: "8rem 9.687rem 2rem 9.687rem",
+        padding: "8rem 9.062rem 2rem 9.062rem",
         "@media (min-width:1025px) and (max-width:1350px)": {
             padding: "8rem 2rem 2rem 2.5rem",
         },

@@ -2,12 +2,12 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
-import { icons } from "../../assets/icons"
 import { colors } from "../../theme/colors"
 import CustomButton from "../../components/buttons/customButton"
 import { images } from "../../assets/images"
 import { MoreVertIcon } from "../../components/icons/moreVertIcon"
 import { ShareIcon } from "../../components/icons/shareIcon"
+import FollowButton from "../../components/buttons/followButton"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -158,11 +158,11 @@ export const FeedUserProfileCard = ({
                         </Grid>
                     </Grid>
                     <Grid item className={classes.followBtnContainer}>
-                        <CustomButton
-                            variant="dropdownButton"
-                            icon={<img src={icons.arrowDropdown} alt="" />}
-                            label="Following"
-                            externalclass={classes.smallBtn}
+                        <FollowButton
+                            buttonWidth="7.375rem"
+                            buttonHeight="2.5rem"
+                            buttonText="Following"
+                            showfollowbtndrowdown
                         />
                     </Grid>
                 </Grid>
