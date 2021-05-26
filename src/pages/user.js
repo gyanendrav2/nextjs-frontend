@@ -255,7 +255,7 @@ const Profile = () => {
                                     className={classes.itemWrapper}>
                                     <CardWithFooter
                                         image="https://source.unsplash.com/random?fp=0"
-                                        title="dummy data"
+                                        title="Nike “Beginnings” commercial about key moments in James’ path  2020"
                                         hideFooter
                                         showMoreButton
                                         anonymous

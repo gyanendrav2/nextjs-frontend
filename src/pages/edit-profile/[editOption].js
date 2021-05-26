@@ -28,6 +28,10 @@ const useStyles = makeStyles({
     },
     mainTitle: {
         marginBottom: "1.5rem",
+        paddingLeft: "0.625rem",
+        "@media (max-width:1024px)": {
+            paddingLeft: "0",
+        },
         "@media (max-width:767px)": {
             marginBottom: "1.5rem",
         },

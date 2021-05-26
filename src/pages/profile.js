@@ -306,7 +306,7 @@ const Profile = () => {
                             following="20"
                             position="Director assistant, producer"
                             location="USA, Ohio"
-                            bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
+                            bio="I’m this awesome and cool as hell director from the states. Producing is my other passion. This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text. "
                             externalclass={classes.userProfilecardStyles}
                             ownProfile
                         />

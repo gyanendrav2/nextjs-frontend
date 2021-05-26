@@ -92,6 +92,7 @@ const useStyles = makeStyles({
         cursor: "pointer",
         display: "inline-block",
         textDecoration: "underline",
+        marginLeft: "3px",
     },
     username: {
         color: colors.lighterGray,

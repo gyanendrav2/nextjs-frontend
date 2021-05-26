@@ -8,7 +8,7 @@ import { SearchIcon } from "../components/icons/searchIcon"
 export const NavItemOptions = [
     {
         id: 1,
-        name: "discover",
+        name: "Discover",
         icon: <DisocoveryIcon />,
         pathname: "/",
     },
@@ -77,7 +77,7 @@ export const feedUserNav = [
     },
     {
         id: 1,
-        name: "discover",
+        name: "Discover",
         icon: <DisocoveryIcon />,
         pathname: "/categories",
     },

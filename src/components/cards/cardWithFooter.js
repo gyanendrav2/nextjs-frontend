@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { makeStyles } from "@material-ui/core/styles"
 import { Box, Typography } from "@material-ui/core"
 import PropTypes from "prop-types"
@@ -110,6 +110,15 @@ const CardWithFooter = ({
     const classes = useStyles({ isHovering })
     const [showCopyBox, setShowCopyBox] = useState(false)
     const [showNotification, setShowNotification] = useState(false)
+    const [screenSize, setScreenSize] = useState()
+
+    useEffect(() => {
+        const resizeWindow = () => {
+            setScreenSize(window.innerWidth)
+        }
+        window.addEventListener("resize", resizeWindow)
+        return () => window.removeEventListener("resize", resizeWindow)
+    }, [])
 
     const handleMouseHover = () => {
         setisHovering(true)
@@ -131,6 +140,7 @@ const CardWithFooter = ({
         handleHide()
         handleShowCopyBox()
     }
+
     return (
         <Box className={classes.cardWrapper}>
             <NotificationCard
@@ -148,7 +158,7 @@ const CardWithFooter = ({
                 {showMoreButton && (
                     <Box
                         className={classnames(classes.moreVertContainer, {
-                            [classes.moreVertContainerShow]: isHovering,
+                            [classes.moreVertContainerShow]: screenSize > 1024 ? isHovering : true,
                         })}>
                         <CustomButton
                             variant="iconButton"
