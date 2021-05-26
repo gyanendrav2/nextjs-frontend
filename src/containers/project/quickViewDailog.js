@@ -170,7 +170,6 @@ const useStyles = makeStyles({
         width: "100%",
         "@media (max-width:767px)": {
             fontSize: "1rem",
-            // marginBottom: "1rem",
         },
     },
     position: {

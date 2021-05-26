@@ -86,6 +86,7 @@ const Feed = () => {
                                 year={item.year}
                                 time={item.time}
                                 description={item.description}
+                                showfollowbtndrowdown
                             />
                         ))}
                     </Grid>

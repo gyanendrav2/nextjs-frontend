@@ -26,9 +26,7 @@ const EyeOpenIcon = dynamic(() => import("../components/icons/eyeOpenIcon"))
 const ReactPlayer = dynamic(() => import("react-player"))
 
 const useStyles = makeStyles({
-    wrapper: {
-        overflow: "hidden",
-    },
+    wrapper: {},
     profileHeader: {
         marginBottom: "3.5rem",
         "@media (max-width:1024px)": {
@@ -45,10 +43,14 @@ const useStyles = makeStyles({
         },
     },
     category: {
-        padding: "2rem 0",
-        paddingTop: 0,
-        "@media (max-width:1024px)": {
-            paddingTop: "2rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        padding: "0rem 0 1rem 0",
+        "@media (min-width:768px) and (max-width:1024px)": {
+            paddingTop: "1.375rem",
+            justifyContent: "space-between",
+            paddingBottom: "0rem",
         },
         "@media (max-width:767px)": {
             display: "none",
@@ -64,15 +66,18 @@ const useStyles = makeStyles({
         "& svg": {
             transform: "translateY(0.625rem)",
         },
-        "@media(max-width:890px)": {
-            marginRight: "2rem",
+        "@media(max-width:1024px)": {
+            marginRight: "0rem",
+        },
+        "@media(max-width:767px)": {
+            fontSize: "1.75rem",
         },
     },
     activeCategory: {
         color: colors.pink,
     },
     report: {
-        marginTop: "3.5rem",
+        // marginTop: "3.5rem",
         backgroundColor: `${colors.lighterPrimary}!important`,
         paddingTop: "1.812rem",
         paddingBottom: "1.812rem",
@@ -86,7 +91,7 @@ const useStyles = makeStyles({
     },
 
     selectCategories: {
-        paddingTop: "1.1rem",
+        paddingTop: "0.625rem",
         "@media (min-width:768px)": {
             display: "none",
         },
@@ -99,16 +104,18 @@ const useStyles = makeStyles({
     },
     selectCategoryText: {
         display: "none",
-        marginBottom: "1.25rem",
+        "@media (max-width:767px)": {
+            marginBottom: "1.25rem",
+            marginTop: "0.5rem",
+            display: "block",
+        },
     },
     userProfilecardStyles: {
-        "@media (max-width:767px)": {
-            padding: "1rem!important",
-        },
         "@media (min-width:768px) and (max-width:1024px)": {
-            marginLeft: "2rem",
-            marginRight: "2rem",
-            marginTop: "1rem",
+            margin: "0.75rem 2rem auto 2rem",
+        },
+        "@media (max-width:767px)": {
+            padding: "1rem 1rem 1.4rem 1rem !important",
         },
     },
     addCategoryButton: {
@@ -117,26 +124,32 @@ const useStyles = makeStyles({
         textAlign: "right",
         userSelect: "none",
         cursor: "pointer",
-        fontWeight: 900,
+        fontWeight: 700,
         marginBottom: "1.5rem",
         "&:hover": {
             color: colors.pink,
         },
-        "@media (max-width:890px)": {
+        "@media (max-width:1024px)": {
             textAlign: "left",
+            marginBottom: "2.5rem",
         },
         "@media (max-width:767px)": {
             textAlign: "left",
+            marginBottom: "2rem",
+        },
+    },
+    hiddenCategoryContainer: {
+        margin: (props) => (props.hiddenCategory ? "2.5rem auto 3.375rem auto" : "1.875rem auto 2.875rem auto"),
+        "@media (min-width:768px) and (max-width:1024px)": {
+            margin: (props) => (props.hiddenCategory ? "2.5rem auto 3.5rem auto" : "2.5rem auto 3rem auto"),
         },
     },
     hiddenCategory: {
         userSelect: "none",
         cursor: "pointer",
         fontSize: "1rem",
-        textDecoration: "underline",
         fontWeight: 400,
-        marginBottom: "3.625rem",
-        marginTop: "2.5rem",
+        marginBottom: "1.75rem",
         "& svg": {
             transform: "translateY(0.3rem)",
         },
@@ -178,13 +191,13 @@ const useStyles = makeStyles({
 })
 
 const Profile = () => {
-    const classes = useStyles()
+    const [hiddenCategory, setHiddenCategory] = useState(false)
+    const classes = useStyles({ hiddenCategory })
     const { query } = useRouter()
     const { showNotification } = query
     const [openInfo, setOpenInfo] = useState(false)
     const [openMsg, setOpenMsg] = useState(false)
     const [selectedCategory, setSelectedCategory] = useState("All (6)")
-    const [hiddenCategory, setHiddenCategory] = useState(false)
     const [notification, setNotification] = useState(true)
     const [hideNotification, setHideNotification] = useState(false)
     const [categories, setCategories] = useState([
@@ -311,7 +324,7 @@ const Profile = () => {
             </ContentWrapper>
             <ContentWrapper externalclass={classes.wrapper}>
                 <>
-                    <Grid container alignItems="center" justify="flex-start" className={classes.category}>
+                    <Grid container className={classes.category}>
                         {categories.map((item, i) => (
                             <Typography
                                 key={i}
@@ -339,12 +352,12 @@ const Profile = () => {
                         Add category section +
                     </Typography>
                     <Grid container spacing={2} className={classes.cardContainer}>
-                        <Grid item xs={12} sm={12} md={6} lg={3} xl={3} className={classes.adderContainer}>
+                        <Grid item xs={12} sm={12} md={6} lg={4} xl={3} className={classes.adderContainer}>
                             <Adder onAddClick={() => {}} />
                         </Grid>
                         {data.map((item, i) => {
                             return (
-                                <Grid item xs={12} sm={12} md={6} lg={3} key={i}>
+                                <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={i}>
                                     <CardWithFooter
                                         image={item.image}
                                         title={item.title}
@@ -358,26 +371,33 @@ const Profile = () => {
                             )
                         })}
                     </Grid>
-                    <Typography className={classes.hiddenCategory} onClick={() => setHiddenCategory(!hiddenCategory)}>
-                        {hiddenCategory ? <EyeOpenIcon /> : <EyeClosedIcon />} You have {hideData.length} hidden project
-                    </Typography>
-                    <Grid container spacing={2} className={classes.cardContainer}>
-                        {hiddenCategory &&
-                            hideData.map((item, i) => {
-                                return (
-                                    <Grid item xs={12} sm={12} md={6} lg={3} key={i}>
-                                        <CardWithFooter
-                                            image={item.image}
-                                            title={item.title}
-                                            hideFooter
-                                            categoryHidden
-                                            showMoreButton
-                                            handleHide={() => handleUnhide(i)}
-                                        />
-                                    </Grid>
-                                )
-                            })}
-                    </Grid>
+                    <Box className={classes.hiddenCategoryContainer}>
+                        <Typography
+                            className={classes.hiddenCategory}
+                            onClick={() => setHiddenCategory(!hiddenCategory)}>
+                            {hiddenCategory ? <EyeOpenIcon /> : <EyeClosedIcon />}
+                            <span style={{ textDecoration: "underline" }}>
+                                You have {hideData.length} hidden project
+                            </span>
+                        </Typography>
+                        <Grid container spacing={2} className={classes.cardContainer}>
+                            {hiddenCategory &&
+                                hideData.map((item, i) => {
+                                    return (
+                                        <Grid item xs={12} sm={12} md={6} lg={4} xl={3} key={i}>
+                                            <CardWithFooter
+                                                image={item.image}
+                                                title={item.title}
+                                                hideFooter
+                                                categoryHidden
+                                                showMoreButton
+                                                handleHide={() => handleUnhide(i)}
+                                            />
+                                        </Grid>
+                                    )
+                                })}
+                        </Grid>
+                    </Box>
                 </>
             </ContentWrapper>
             <ContentWrapper externalclass={classes.report}>

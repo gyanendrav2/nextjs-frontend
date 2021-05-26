@@ -123,7 +123,7 @@ const ReportContentWrapper = ({ externalclass, dialogcontentStyle }) => {
                         </>
                     </Grid>
                 </Grid>
-                <Grid item xs={12} sm={5} md={5} lg={4} className={classes.requestwrapper}>
+                <Grid item xs={12} sm={5} md={5} lg={3} className={classes.requestwrapper}>
                     <Box className={classes.reqspamwrapper}>
                         <RequestPartIcon />
                         <Typography className={classes.spamText} onClick={() => setShowParticipantModal(true)}>

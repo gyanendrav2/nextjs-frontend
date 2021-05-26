@@ -77,10 +77,10 @@ const useStyles = makeStyles({
     },
 })
 const secondlevelCategoryItems = [
-    { value: "1", label: "category-1" },
-    { value: "2", label: "category-2" },
-    { value: "3", label: "category-3" },
-    { value: "4", label: "category-4" },
+    { value: "1", label: "Category-1" },
+    { value: "2", label: "Category-2" },
+    { value: "3", label: "Category-3" },
+    { value: "4", label: "Category-4" },
 ]
 const years = [
     { value: "1", label: "2020" },

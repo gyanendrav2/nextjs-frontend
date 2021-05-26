@@ -120,14 +120,14 @@ const Network = () => {
                     </Grid>
                     <Grid container spacing={2} style={{ marginTop: "2rem" }}>
                         {network.map((item, i) => (
-                            <Grid key={i} item xs={12} sm={12} md={6} lg={3} xl={3}>
+                            <Grid key={i} item xs={12} sm={12} md={6} lg={4} xl={3}>
                                 <CardWithHeader
                                     image={item.image}
                                     title={item.name}
                                     buttonText={item.buttonText}
                                     subTitle={item.position}
                                     followBtnWith="7.375rem"
-                                    showFollowBtnDrowdown
+                                    showfollowbtndrowdown
                                 />
                             </Grid>
                         ))}

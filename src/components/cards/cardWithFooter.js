@@ -62,7 +62,7 @@ const useStyles = makeStyles({
     cardFooter: {
         border: `1px solid ${colors.lightGray}`,
         display: "flex",
-        padding: "0.75rem",
+        padding: "0.75rem 0.75rem 0.75rem 1rem",
         flex: "1",
         height: "100%",
     },

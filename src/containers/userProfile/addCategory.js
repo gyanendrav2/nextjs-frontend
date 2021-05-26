@@ -13,9 +13,11 @@ const useStyles = makeStyles({
     },
     inputWrapper: {
         maxWidth: "37.75rem",
-        margin: "2rem auto",
+        margin: "3.5rem auto auto auto",
+        padding: "0 0.55rem",
         "@media(max-width:767px)": {
-            width: "95%",
+            width: "100%",
+            padding: "0 1rem",
         },
     },
     heading: {
@@ -31,11 +33,11 @@ const AddCategory = ({ onAddCategory, closeAddcategory }) => {
     const [category, setCategory] = useState({ label: "", value: "" })
     const secondlevelCategoryItems = [
         { value: "Lighting", label: "Lighting" },
-        { value: "category-1", label: "category-1" },
-        { value: "category-2", label: "category-2" },
-        { value: "category-3", label: "category-3" },
-        { value: "category-4", label: "category-4" },
-        { value: "category-5", label: "category-5" },
+        { value: "category (1)", label: "category (1)" },
+        { value: "category (2)", label: "category (2)" },
+        { value: "category (3)", label: "category (3)" },
+        { value: "category (4)", label: "category (4)" },
+        { value: "category (5)", label: "category (5)" },
     ]
     return (
         <Box container className={classes.wrapper}>

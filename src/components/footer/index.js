@@ -21,11 +21,13 @@ export const useStyles = makeStyles({
         flexWrap: "wrap",
         "@media (min-width:768px) and (max-width:1024px)": {
             height: "9.5rem",
+            marginTop: "3rem",
             width: "100%",
             alignItems: "center!important",
         },
         "@media(max-width:767px)": {
             display: "none!important",
+            marginTop: " 2.5rem",
         },
     },
     titles: {

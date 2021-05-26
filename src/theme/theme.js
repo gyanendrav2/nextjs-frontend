@@ -52,6 +52,7 @@ const theme = createMuiTheme({
             xl: 1440,
         },
     },
+    spacing: 10,
 })
 
 export default theme

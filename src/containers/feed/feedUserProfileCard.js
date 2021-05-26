@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { Avatar, Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
@@ -12,10 +12,13 @@ import { ShareIcon } from "../../components/icons/shareIcon"
 const useStyles = makeStyles({
     wrapper: {
         border: `1px solid ${colors.lightGray}`,
-        padding: "1.5rem",
+        padding: "1.5rem 1.5rem 2rem 1.5rem",
         background: colors.white,
         marginBottom: "1rem",
         position: "relative",
+        "&:last-child": {
+            marginBottom: "0rem",
+        },
         "@media(max-width:767px)": {
             padding: "0.5rem 1rem",
         },
@@ -30,6 +33,7 @@ const useStyles = makeStyles({
     },
     profilePicContainer: {
         width: "6rem",
+        // height: "6rem",
         marginBottom: "0.5rem",
     },
     profileInfoContainer: {
@@ -37,7 +41,7 @@ const useStyles = makeStyles({
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        padding: "0.2rem 0.5rem 0.2rem 0.5rem",
+        padding: "0.2rem 0.5rem 0.2rem 0rem",
         "@media(max-width:767px)": {
             padding: "0.5rem 0rem 1.5rem 0.2rem",
         },
@@ -87,7 +91,7 @@ const useStyles = makeStyles({
         minWidth: "12rem",
     },
     time: {
-        color: colors.lightGray,
+        color: colors.lighterGray,
     },
     moreVertIcon: {
         display: "none",
@@ -130,12 +134,6 @@ export const FeedUserProfileCard = ({
 }) => {
     const classes = useStyles({ externalclass })
 
-    const [showUnfollow, setShowUnfollow] = useState(false)
-
-    const handleFollow = () => {
-        setShowUnfollow(true)
-    }
-
     return (
         <Box className={classnames(classes.wrapper, externalclass)}>
             <MoreVertIcon className={classes.moreVertIcon} />
@@ -160,24 +158,12 @@ export const FeedUserProfileCard = ({
                         </Grid>
                     </Grid>
                     <Grid item className={classes.followBtnContainer}>
-                        {/* {!showUnfollow && ( */}
                         <CustomButton
                             variant="dropdownButton"
                             icon={<img src={icons.arrowDropdown} alt="" />}
                             label="Following"
                             externalclass={classes.smallBtn}
-                            // onClick={handleFollow}
                         />
-                        {/* )} */}
-                        {showUnfollow && (
-                            <CustomButton
-                                variant="dropdownButton"
-                                icon={<img src={icons.arrowDropdown} alt="" />}
-                                label="Follow"
-                                externalclass={classes.smallBtn}
-                                onClick={handleFollow}
-                            />
-                        )}
                     </Grid>
                 </Grid>
                 <CustomButton
@@ -201,7 +187,7 @@ export const FeedUserProfileCard = ({
                     alt="dummy"
                     style={{ width: "100%", height: "23rem", objectFit: "cover", marginTop: "1rem" }}
                 />
-                <Typography variant="subtitle1" style={{ lineHeight: "1.375rem", marginTop: "0.5rem" }}>
+                <Typography variant="subtitle1" style={{ lineHeight: "2rem", marginTop: "1rem", fontSize: "1.375rem" }}>
                     {description}
                 </Typography>
             </Box>

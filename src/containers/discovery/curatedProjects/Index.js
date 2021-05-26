@@ -67,7 +67,7 @@ const CreationCard = ({ curatedCreators }) => {
                 {curatedCreators &&
                     curatedCreators.map((data, i) => {
                         return (
-                            <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                            <Grid item xs={12} sm={6} md={4} lg={4} xl={3} key={i}>
                                 <CardWithHeader
                                     image={data.image}
                                     title={data.name}

@@ -1,9 +1,9 @@
 import React from "react"
+import classnames from "classnames"
 import { Box, makeStyles, Typography } from "@material-ui/core"
 import HeaderWrapper from "../components/header/headerWrapper"
 import { colors } from "../theme/colors"
 import Footer from "../components/footer"
-import classnames from "classnames"
 
 const useStyles = makeStyles({
     wrapper: {

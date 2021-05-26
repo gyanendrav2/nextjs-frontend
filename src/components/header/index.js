@@ -43,9 +43,8 @@ const useStyles = makeStyles({
     },
     logo: {
         height: "3.271rem",
-        marginTop: "1.4rem",
         cursor: "pointer",
-        margin: "1.4rem auto 1rem 0",
+        margin: "1.2rem auto 1rem 0",
     },
     rightPart: {
         width: "auto",

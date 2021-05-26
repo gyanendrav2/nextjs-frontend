@@ -132,7 +132,7 @@ const useStyles = makeStyles({
     },
     userCardstyle: {
         "@media(min-width:768px) and (max-width:1024px)": {
-            padding: "1rem 2rem",
+            padding: "0.75rem 2rem 0.75 2rem",
         },
     },
     itemWrapper: {

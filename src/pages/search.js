@@ -4,9 +4,9 @@ import dynamic from "next/dynamic"
 import classnames from "classnames"
 import { colors } from "../theme/colors"
 import { SearchBox } from "../containers/search/searchBox"
-// import { CardWithHeader } from "../components/cards/cardWithHeader"
 import { images } from "../assets/images"
 import ContentWrapper from "../components/contentWrapper/contentWrapper"
+import { CardWithHeader } from "../components/cards/cardWithHeader"
 
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const CardWithFooter = dynamic(() => import("../components/cards/cardWithFooter"))
@@ -20,6 +20,9 @@ const useStyles = makeStyles({
         alignItems: "center",
         flexDirection: "column",
         backgroundColor: colors.white,
+        "@media(max-width:1024px)": {
+            padding: "5rem 2rem 0rem 2rem",
+        },
         "@media(max-width:767px)": {
             padding: "4.5rem 2rem 0rem 2rem",
         },
@@ -42,7 +45,6 @@ const useStyles = makeStyles({
     },
     resultsContainer: {
         maxWidth: "100%",
-        height: "4rem",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -51,8 +53,14 @@ const useStyles = makeStyles({
     results: {
         fontFamily: "Helvetica",
         fontSize: "0.9rem",
-        lineHeight: "1rem",
+        margin: "2rem 0",
         color: colors.lighterGray,
+        "@media (min-width:768px) and (max-width:1024px)": {
+            margin: "1.5rem 0 2.5rem 0",
+        },
+        "@media (max-width:767px)": {
+            margin: "2rem 0",
+        },
     },
     search: {
         transform: "none",
@@ -64,11 +72,27 @@ const useStyles = makeStyles({
             position: "absolute",
         },
     },
+    footer: {
+        "@media (min-width: 768px) and (max-width: 1024px)": {
+            marginTop: "3.625rem!important",
+        },
+        "@media (max-width: 767px)": {
+            marginTop: "3.125rem!important",
+        },
+    },
 })
 
 const Search = () => {
     const classes = useStyles()
     const [isFilterOpened, setIsFilterOpened] = useState(false)
+    const [showPeople, setShowPeople] = useState(false)
+
+    const getProjects = () => {
+        setShowPeople(false)
+    }
+    const getPeople = () => {
+        setShowPeople(true)
+    }
 
     return (
         <Box>
@@ -76,28 +100,52 @@ const Search = () => {
             <Box className={classes.searchWrapper}>
                 <Typography className={classes.title}> Search the markets </Typography>
             </Box>
-            <SearchBox externalclass={classes.search} onFilter={(value) => setIsFilterOpened(value)} />
+            <SearchBox
+                externalclass={classes.search}
+                onFilter={(value) => setIsFilterOpened(value)}
+                getProjects={getProjects}
+                getPeople={getPeople}
+            />
             <Box
                 className={classnames(classes.resultsContainer, {
                     [classes.mobileViewResult]: !isFilterOpened,
                 })}>
-                <Typography className={classes.results}> 8 results </Typography>
+                <Box className={classes.results}>
+                    <Typography> 8 results </Typography>
+                </Box>
             </Box>
             <ContentWrapper>
-                <Grid container spacing={2}>
-                    {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, i) => (
-                        <Grid key={i} item xs={12} sm={6} md={6} lg={3} xl={3}>
-                            <CardWithFooter
-                                image={images.brandon}
-                                footerTitle="Brandon Landing"
-                                footerSubitle="Director assistant"
-                                title="SiR - Hair Down (Official Video) ft. Kendrick Lamar"
-                            />
-                        </Grid>
-                    ))}
-                </Grid>
+                <>
+                    <Grid container spacing={2}>
+                        {!showPeople &&
+                            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((item, i) => (
+                                <Grid key={i} item xs={12} sm={6} md={6} lg={4} xl={3}>
+                                    <CardWithFooter
+                                        image={images.brandon}
+                                        footerTitle="Brandon Landing"
+                                        footerSubitle="Director assistant"
+                                        title="SiR - Hair Down (Official Video) ft. Kendrick Lamar"
+                                    />
+                                </Grid>
+                            ))}
+                    </Grid>
+                    <Grid container spacing={2}>
+                        {showPeople &&
+                            [1, 1, 1, 1, 1, 1].map((item, i) => (
+                                <Grid key={i} item xs={12} sm={6} md={6} lg={4} xl={3}>
+                                    <CardWithHeader
+                                        image={images.brandon}
+                                        title="Brandon Landing"
+                                        subTitle="Director assistant"
+                                        buttonText="Follow"
+                                        creationCard
+                                    />
+                                </Grid>
+                            ))}
+                    </Grid>
+                </>
             </ContentWrapper>
-            <Footer />
+            <Footer externalclass={classes.footer} />
         </Box>
     )
 }

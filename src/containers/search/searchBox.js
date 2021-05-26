@@ -51,7 +51,7 @@ const useStyles = makeStyles({
         // width: "10rem",
     },
     mobileFilterWrapper: {
-        padding: "2rem 0",
+        padding: "1.5rem 0 1rem 0",
         backgroundColor: colors.white,
         "@media (min-width: 1025px)": {
             display: "none",
@@ -167,7 +167,7 @@ const useStyles = makeStyles({
     },
 })
 
-export const SearchBox = ({ onFilter }) => {
+export const SearchBox = ({ onFilter, getProjects, getPeople }) => {
     const classes = useStyles()
 
     const [showFilter, setShowFilter] = useState(false)
@@ -180,12 +180,7 @@ export const SearchBox = ({ onFilter }) => {
     return (
         <>
             <Grid container alignItems="center" justifycontent="center" className={classes.searchContainer}>
-                <Grid
-                    container
-                    alignItems="center"
-                    // justifycontent="flex-start"
-                    wrap="nowrap"
-                    className={classes.inputBoxSize}>
+                <Grid container alignItems="center" wrap="nowrap" className={classes.inputBoxSize}>
                     <Grid container className={classes.col1}>
                         <Grid item className={classes.inputCol1}>
                             <input
@@ -196,8 +191,16 @@ export const SearchBox = ({ onFilter }) => {
                         </Grid>
                         <Grid item className={classes.inputCol2}>
                             <Grid container alignItems="center" justifycontent="flex-start" wrap="nowrap">
-                                <CustomButton externalclass={classes.buttonGroupItem} label="Work" />
-                                <CustomButton externalclass={classes.buttonGroupItem} label="People" />
+                                <CustomButton
+                                    externalclass={classes.buttonGroupItem}
+                                    label="Work"
+                                    onClick={getProjects}
+                                />
+                                <CustomButton
+                                    externalclass={classes.buttonGroupItem}
+                                    label="People"
+                                    onClick={getPeople}
+                                />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -235,8 +238,12 @@ export const SearchBox = ({ onFilter }) => {
 
 SearchBox.defaultProps = {
     onFilter: () => {},
+    getProjects: () => {},
+    getPeople: () => {},
 }
 
 SearchBox.propTypes = {
     onFilter: PropTypes.func,
+    getProjects: PropTypes.func,
+    getPeople: PropTypes.func,
 }

@@ -87,7 +87,7 @@ export const CardWithHeader = ({
     isProjectPage,
     creationCard,
     followBtnWith,
-    showFollowBtnDrowdown,
+    showfollowbtndrowdown,
 }) => {
     const classes = useStyles({ followBtnWith })
     const [showDropdown, setShowDropdown] = useState(false)
@@ -95,7 +95,7 @@ export const CardWithHeader = ({
     const [isDropdown, setIsDropdown] = useState(creationCard)
 
     const handleDropdown = () => {
-        if (showFollowBtnDrowdown && followBtnText === buttonText) {
+        if (showfollowbtndrowdown && followBtnText === buttonText) {
             setShowDropdown(!showDropdown)
         } else {
             setFollowBtnText(buttonText)
@@ -147,7 +147,7 @@ CardWithHeader.defaultProps = {
     subTitle: "",
     creationCard: false,
     followBtnWith: "auto",
-    showFollowBtnDrowdown: false,
+    showfollowbtndrowdown: false,
 }
 
 CardWithHeader.propTypes = {
@@ -158,5 +158,5 @@ CardWithHeader.propTypes = {
     isProjectPage: PropTypes.bool,
     creationCard: PropTypes.bool,
     followBtnWith: PropTypes.string,
-    showFollowBtnDrowdown: PropTypes.bool,
+    showfollowbtndrowdown: PropTypes.bool,
 }
