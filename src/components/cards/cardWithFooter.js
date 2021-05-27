@@ -113,6 +113,7 @@ const CardWithFooter = ({
     const [screenSize, setScreenSize] = useState()
 
     useEffect(() => {
+        setScreenSize(window.innerWidth)
         const resizeWindow = () => {
             setScreenSize(window.innerWidth)
         }
@@ -158,7 +159,7 @@ const CardWithFooter = ({
                 {showMoreButton && (
                     <Box
                         className={classnames(classes.moreVertContainer, {
-                            [classes.moreVertContainerShow]: screenSize > 1024 ? isHovering : true,
+                            [classes.moreVertContainerShow]: screenSize > 767 ? isHovering : true,
                         })}>
                         <CustomButton
                             variant="iconButton"
@@ -166,27 +167,27 @@ const CardWithFooter = ({
                             icon={<MoreVertIcon />}
                             onClick={handleShowCopyBox}
                         />
-                        {anonymous
-                            ? showCopyBox && (
-                                  <ShareCard
-                                      onLinkCopied={() => {
-                                          handleNotification()
-                                          setShowCopyBox(!showCopyBox)
-                                      }}
-                                  />
-                              )
-                            : showCopyBox && (
-                                  <CardMenuOptions
-                                      onHide={handleOnHide}
-                                      hiddenCategory={categoryHidden}
-                                      onLinkCopied={() => {
-                                          handleNotification()
-                                          setShowCopyBox(!showCopyBox)
-                                      }}
-                                  />
-                              )}
                     </Box>
                 )}
+                {anonymous
+                    ? showCopyBox && (
+                          <ShareCard
+                              onLinkCopied={() => {
+                                  handleNotification()
+                                  setShowCopyBox(!showCopyBox)
+                              }}
+                          />
+                      )
+                    : showCopyBox && (
+                          <CardMenuOptions
+                              onHide={handleOnHide}
+                              hiddenCategory={categoryHidden}
+                              onLinkCopied={() => {
+                                  handleNotification()
+                                  setShowCopyBox(!showCopyBox)
+                              }}
+                          />
+                      )}
                 <Box className={classes.projectImage}>
                     <Box className={classes.imageContainer}>
                         <LazyloadImage image={image} externalclass={classes.image} />

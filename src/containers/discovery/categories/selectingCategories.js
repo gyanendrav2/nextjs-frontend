@@ -43,10 +43,6 @@ const useStyles = makeStyles({
             marginBottom: "1.187rem",
             maxWidth: "100%",
             width: "calc(25% - 0.75rem)",
-            // display: "flow-root",
-            // "&:last-child": {
-            //     marginRight: 0,
-            // },
             "&:nth-child(4n)": {
                 marginRight: 0,
             },
@@ -66,18 +62,6 @@ const useStyles = makeStyles({
                 marginRight: 0,
             },
         },
-        // "@media (min-width:476px) and (max-width:767px)": {
-        //     width: "calc(25% - 0.5rem)",
-        //     display: "flow-root",
-        //     marginBottom: "1rem",
-        //     marginRight: "0.5rem",
-
-        //     "& span": {
-        //         whiteSpace: "nowrap",
-        //         overflow: "hidden",
-        //         textOverflow: "ellipsis",
-        //     },
-        // },
     },
     moreButton: {
         height: "2.5rem",

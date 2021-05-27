@@ -11,9 +11,10 @@ import { InputWithLabelIcon } from "../inputs/inputWithLabelIcon"
 const useStyles = makeStyles({
     heading: {
         marginTop: "4rem",
+        marginBottom: "2rem",
         textAlign: "center",
         "@media(max-width:1024px)": {
-            marginTop: "4rem",
+            marginTop: "3rem",
             marginBottom: "1.5rem",
         },
         "@media(max-width:767px)": {
@@ -30,6 +31,8 @@ const useStyles = makeStyles({
         paddingBottom: "7.5rem",
         paddingTop: "2.5rem",
         position: "relative",
+        maxWidth: "56.25rem",
+        margin: "auto",
         "& textarea": {
             height: "7.5rem",
             resize: "vertical",
@@ -56,9 +59,13 @@ const useStyles = makeStyles({
     },
     charCount: {
         position: "absolute",
-        top: "3rem",
-        right: "2rem",
-        color: colors.lightGray,
+        top: "4rem",
+        right: "1rem",
+        color: colors.lighterGray,
+        "@media (min-width: 768px) and (max-width: 1024px)": {
+            top: "3rem",
+            right: "2rem",
+        },
         "@media(max-width:767px)": {
             top: "83%",
             right: "1rem",
@@ -75,6 +82,7 @@ const useStyles = makeStyles({
             width: "100%",
             margin: "0",
             padding: "2rem 1rem",
+            marginTop: "0.75rem",
             "& button": {
                 marginLeft: 0,
                 marginRight: 0,
@@ -92,7 +100,7 @@ const useStyles = makeStyles({
     },
     modalTitle: {
         fontFamily: "Helvetica",
-        fontSize: "1rem",
+        fontSize: "1.375rem",
         color: colors.lighterGray,
         "@media (min-width: 768px) and (max-width: 1024px)": {
             fontSize: "1.375rem",

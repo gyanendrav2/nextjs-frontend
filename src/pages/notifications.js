@@ -30,6 +30,7 @@ const useStyles = makeStyles({
     },
     modaltitle: {
         color: colors.lighterGray,
+        fontSize: "1.375rem",
         "@media (max-width:767px)": {
             marginTop: "0",
             textAlign: "center",

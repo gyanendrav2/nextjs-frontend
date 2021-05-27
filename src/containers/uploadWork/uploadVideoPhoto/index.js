@@ -31,11 +31,6 @@ const useStyles = makeStyles({
             padding: "2.5rem 0",
         },
     },
-    whiteBg: {
-        backgroundColor: colors.white,
-        marginBottom: "1.125rem",
-        padding: "2rem",
-    },
     icon: {
         margin: "0 1rem",
         "@media(max-width:575px)": {
@@ -110,18 +105,12 @@ const useStyles = makeStyles({
         color: colors.black,
         border: `2px solid ${colors.black}`,
         maxHeight: "3.125rem",
-        "@media (max-width:1024px)": {
-            // width: "10.187rem",
-        },
     },
     confirmButton: {
         backgroundColor: `${colors.black}!important`,
         color: colors.white,
         border: `2px solid ${colors.black}`,
         maxHeight: "3.125rem",
-        "@media (max-width:1024px)": {
-            // width: "10.187rem",
-        },
     },
     cancelBtn: {
         "@media(max-width:767px)": {

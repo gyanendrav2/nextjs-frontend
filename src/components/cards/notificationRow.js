@@ -15,9 +15,12 @@ const useStyles = makeStyles({
         marginRight: "auto",
         marginLeft: "1.5rem",
         lineHeight: "1.375rem",
+        "@media (max-width: 767px)": {
+            marginLeft: "0.875rem",
+        },
     },
     notificationWrapper: {
-        padding: "2rem",
+        padding: "2rem 2rem 2rem 0",
         flexWrap: "nowrap",
         borderBottom: `1px solid ${colors.lightGray}`,
         "@media (max-width: 1024px)": {
@@ -35,10 +38,13 @@ const useStyles = makeStyles({
         maxWidth: "15rem",
         marginRight: "4.125rem",
         marginLeft: "4.125rem",
-        "@media (max-width: 575px)": {
-            marginLeft: "2.25rem",
+        "@media (min-width : 768px) and (max-width: 1024px)": {
+            marginLeft: "0rem",
+        },
+        "@media (max-width: 767px)": {
+            marginLeft: "2rem",
             marginRight: "0rem",
-            marginTop: "1rem",
+            marginTop: "0.5rem",
         },
     },
     declineButton: {
@@ -56,11 +62,11 @@ const useStyles = makeStyles({
     },
     acceptButton: {
         backgroundColor: colors.lightGray,
-        padding: "0.562rem 2.125rem",
+        padding: "0.562rem 1rem",
         color: colors.black,
         height: "2.5rem",
         marginLeft: "auto",
-        width: "9rem",
+        width: "7.312rem",
         textTransform: "none",
         "@media (max-width: 1025px)": {
             width: "auto",
@@ -72,16 +78,17 @@ const useStyles = makeStyles({
     },
     mobileDate: {
         display: "none",
-        marginLeft: "5rem",
+        marginLeft: "4.5rem",
         marginTop: "0.6rem",
-        color: colors.lightGray,
+        color: colors.lighterGray,
         "@media (max-width: 575px)": {
             display: "block",
         },
     },
+
     desktopDate: {
         display: "block",
-        color: colors.lightGray,
+        color: colors.lighterGray,
         "@media (max-width: 575px)": {
             display: "none",
         },

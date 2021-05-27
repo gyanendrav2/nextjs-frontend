@@ -67,7 +67,7 @@ const useStyles = makeStyles({
         width: "100%",
     },
     mobileViewResult: {
-        "@media (max-width: 575px)": {
+        "@media (max-width: 767px)": {
             transform: "translate(24px,-79px)",
             position: "absolute",
         },

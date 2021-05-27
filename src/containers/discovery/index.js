@@ -162,8 +162,8 @@ const useStyles = makeStyles({
         },
     },
     mobileViewResultContainer: {
-        "@media (max-width: 575px)": {
-            transform: "translateY(-36px)",
+        "@media (max-width: 767px)": {
+            transform: "translateY(-46px)",
             position: "absolute",
             display: "block",
             maxWidth: "10rem",
@@ -172,7 +172,6 @@ const useStyles = makeStyles({
     results: {
         fontFamily: "Helvetica",
         fontSize: "0.9rem",
-        lineHeight: "1rem",
         color: colors.lighterGray,
     },
     mobileShow: {
@@ -216,6 +215,11 @@ const useStyles = makeStyles({
     },
     projectAuthorTitleMobile: {
         textDecoration: "underline",
+    },
+    marginFilterOpen: {
+        "@media (max-width:767px)": {
+            margin: "1.5rem 0",
+        },
     },
 })
 
@@ -357,7 +361,12 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed, hideC
                                 className={classnames(classes.resultsContainer, {
                                     [classes.mobileViewResultContainer]: !isFilterOpened,
                                 })}>
-                                <Typography className={classes.results}>8 results </Typography>
+                                <Typography
+                                    className={classnames(classes.results, {
+                                        [classes.marginFilterOpen]: isFilterOpened,
+                                    })}>
+                                    8 results{" "}
+                                </Typography>
                             </Box>
                         ) : (
                             " "

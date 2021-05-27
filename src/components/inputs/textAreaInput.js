@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     wrapper: {
         "& textarea": {
             width: "100%",
-            padding: "8px",
+            padding: "1.5rem",
             outline: "none",
             margin: 0,
             fontSize: "1rem",
@@ -21,6 +21,9 @@ const useStyles = makeStyles({
                 color: (props) => (props.error ? `${colors.red}` : `${colors.lighterGray}`),
                 fontSize: "1rem",
                 marginRight: "2rem",
+            },
+            "@media(max-width:1024px)": {
+                padding: "1rem",
             },
         },
     },

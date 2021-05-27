@@ -43,6 +43,9 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary,
         paddingLeft: "2.5rem",
         paddingRight: "2.5rem",
+        "@media (max-width: 767px)": {
+            padding: "0",
+        },
     },
 
     searchInput: {

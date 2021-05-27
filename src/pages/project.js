@@ -188,19 +188,6 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         // height: "37.187rem",
     },
-    // reportContentwrapper: {
-    //     marginTop: "9.5rem",
-    //     padding: "1rem 2rem 1rem 1rem",
-    //     "& div": {
-    //         margin: 0,
-    //     },
-    //     "@media (max-width:1024px)": {
-    //         padding: "1rem 1rem",
-    //     },
-    //     "@media (max-width:767px)": {
-    //         padding: "1rem 0",
-    //     },
-    // },
     footer: {
         marginTop: "0rem!important",
     },

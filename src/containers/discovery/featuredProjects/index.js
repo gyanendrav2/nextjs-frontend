@@ -139,7 +139,6 @@ export const SelectingCategories = ({ changeTab, category, categories }) => {
     const handleActiveButton = (eachBtn) => {
         changeTab(eachBtn)
         setActiveCategory(eachBtn)
-        // setShowOtherCategories(false);
     }
 
     return (

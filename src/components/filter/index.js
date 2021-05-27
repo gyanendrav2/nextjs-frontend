@@ -8,7 +8,6 @@ import SelectWithLabelIcon from "../inputs/selectWithLabelIcon"
 
 const useStyles = makeStyles({
     wrapper: {
-        width: "105%",
         backgroundColor: colors.lighterPrimary,
         display: "flex",
         justifyContent: "flex-start",
@@ -18,9 +17,12 @@ const useStyles = makeStyles({
         color: colors.black,
         padding: (props) => props.padding,
         paddingBottom: "1rem!important",
-        transform: "translateX(-2%)",
+        width: "calc(100% + 5rem)",
+        marginLeft: "-2.5rem",
         "@media (min-width:768px) and (max-width:1024px)": {
             display: "block",
+            width: "calc(100% + 4rem)",
+            marginLeft: "-2rem",
         },
         "@media (max-width:767px)": {
             padding: "2rem 1rem!important",
@@ -28,6 +30,8 @@ const useStyles = makeStyles({
             justifyContent: "flex-start",
             alignItems: "center",
             flexDirection: "column",
+            width: "calc(100% + 2rem)",
+            marginLeft: "-1rem",
         },
     },
     col1: {
@@ -66,13 +70,12 @@ const useStyles = makeStyles({
         },
     },
     sortByInput: {
-        "@media (min-width: 768px) and (max-width: 1024px)": {
-            paddingLeft: "7.5rem",
-        },
-
         "@media (min-width:1025px)": {
             maxWidth: "13.125rem",
             marginLeft: "auto",
+        },
+        "@media (min-width: 768px) and (max-width: 1024px)": {
+            paddingLeft: "7.5rem",
         },
     },
 })

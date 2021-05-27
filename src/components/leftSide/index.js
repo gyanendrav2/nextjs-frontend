@@ -100,6 +100,7 @@ const LeftSide = () => {
                 <Box className={classes.radioboxWrapper}>
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
+                            checked
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<i className="icon-square" />}
@@ -111,6 +112,7 @@ const LeftSide = () => {
                     </Box>
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
+                            checked
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}
@@ -122,7 +124,8 @@ const LeftSide = () => {
                     </Box>
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
-                            color="default"
+                            checked
+                            // color="default"
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}

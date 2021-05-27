@@ -7,14 +7,14 @@ import { ShareInfo } from "./shareInfo"
 const useStyles = makeStyles({
     wrapper: {
         position: "absolute",
-        top: "3rem",
-        right: 0,
+        top: "3.812rem",
+        right: "1.031rem",
         backgroundColor: colors.white,
         width: "18.312rem",
         padding: "1rem",
         background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
         boxShadow: "0px 4px 100px rgba(0, 0, 0, 0.25)",
-        zIndex: 3,
+        zIndex: 21,
         "@media(max-width:1024px)": {
             width: "19.375rem",
         },
