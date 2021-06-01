@@ -116,16 +116,13 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
         e.stopPropagation()
         setDraged(false)
         if (files.length > 0) {
-            // console.log(e.dataTransfer.files)
             setFiles([...files, ...e.dataTransfer.files])
-            // console.log(e.dataTransfer.files)
             e.dataTransfer.clearData()
             setDragCounter(0)
         } else {
             setFiles([...e.dataTransfer.files])
         }
     }
-    console.log("files", files)
     useEffect(() => {
         const div = dropRef.current
         if (div) {
@@ -144,11 +141,12 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
             }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [reassign])
+    }, [reassign, files])
 
     const handleFile = (i) => {
         const newFiles = [...files]
         newFiles.splice(i, 1)
+        console.log(newFiles)
         setFiles(newFiles)
     }
 
