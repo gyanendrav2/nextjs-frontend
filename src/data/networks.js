@@ -27,13 +27,13 @@ export const networkData = [
     },
     {
         image: images.masorny1,
-        name: "christ",
+        name: "Mike Magic",
         position: "senior manager",
         buttonText: "Following",
     },
     {
         image: images.masorny1,
-        name: "eva",
+        name: "Mike Magic",
         position: "photographer",
         buttonText: "Following",
     },

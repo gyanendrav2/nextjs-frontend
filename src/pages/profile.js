@@ -1,11 +1,14 @@
 /* eslint-disable max-lines */
 import React, { useState } from "react"
 import { useRouter } from "next/router"
+import CheckIcon from "@material-ui/icons/Check"
+import CloseIcon from "@material-ui/icons/Close"
 import dynamic from "next/dynamic"
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
 import classnames from "classnames"
 import { images } from "../assets/images"
 import { colors } from "../theme/colors"
+import { InputWithLabelIcon } from "../components/inputs/inputWithLabelIcon"
 
 const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
 const UserProfileCard = dynamic(() => import("../components/cards/userProfileCard"))
@@ -77,7 +80,6 @@ const useStyles = makeStyles({
         color: colors.pink,
     },
     report: {
-        // marginTop: "3.5rem",
         backgroundColor: `${colors.lighterPrimary}!important`,
         paddingTop: "1.812rem",
         paddingBottom: "1.812rem",
@@ -188,6 +190,22 @@ const useStyles = makeStyles({
             },
         },
     },
+    inputWrapper: {
+        maxWidth: "14rem",
+        marginRight: "4rem",
+    },
+    checkIcon: {
+        fontSize: "1.5rem",
+        color: colors.pink,
+        margin: "0.7rem",
+        cursor: "pointer",
+    },
+    closeIcon: {
+        fontSize: "1.5rem",
+        color: colors.black,
+        margin: "0.7rem",
+        cursor: "pointer",
+    },
 })
 
 const Profile = () => {
@@ -201,11 +219,11 @@ const Profile = () => {
     const [notification, setNotification] = useState(true)
     const [hideNotification, setHideNotification] = useState(false)
     const [categories, setCategories] = useState([
-        { value: "All (6)", label: "All (6)", active: true },
-        { value: "Directing (3)", label: "Directing (3)", active: false },
-        { value: "Production (3)", label: "Production (3)", active: false },
+        { value: "All (6)", label: "All (6)", active: true, editable: false },
+        { value: "Directing (3)", label: "Directing (3)", active: false, editable: false },
+        { value: "Production (3)", label: "Production (3)", active: false, editable: false },
     ])
-
+    const [editCategory, setEditCategory] = useState("")
     const [data, setData] = useState([
         { id: 0, image: "https://source.unsplash.com/random?fp=0", title: "dummy data" },
         { id: 1, image: "https://source.unsplash.com/random?fp=1", title: "dummy data" },
@@ -261,6 +279,26 @@ const Profile = () => {
         newCategory.push(category)
         setCategories(newCategory)
         handleAddCategory()
+    }
+    const ChangeCategoryTitle = (i) => {
+        const result = [...categories]
+        result[i].editable = true
+        setCategories(result)
+        setEditCategory(result[i].label)
+    }
+
+    const handleEditCategory = (i) => {
+        const result = [...categories]
+        result[i].value = editCategory
+        result[i].label = editCategory
+        result[i].editable = false
+        setCategories(result)
+    }
+
+    const handleRevertEditCategroy = (i) => {
+        const result = [...categories]
+        result[i].editable = false
+        setCategories(result)
     }
 
     return (
@@ -325,17 +363,31 @@ const Profile = () => {
             <ContentWrapper externalclass={classes.wrapper}>
                 <>
                     <Grid container className={classes.category}>
-                        {categories.map((item, i) => (
-                            <Typography
-                                key={i}
-                                style={{ marginBottom: "1.5rem" }}
-                                className={classnames(classes.boldText, {
-                                    [classes.activeCategory]: item.active,
-                                })}
-                                onClick={() => handleCategory(i)}>
-                                {item.label} <PenIcon />
-                            </Typography>
-                        ))}
+                        {categories.map((item, i) =>
+                            !item.editable ? (
+                                <Typography
+                                    key={i}
+                                    style={{ marginBottom: "1.5rem" }}
+                                    className={classnames(classes.boldText, {
+                                        [classes.activeCategory]: item.active,
+                                    })}
+                                    onClick={() => handleCategory(i)}>
+                                    {item.label} <PenIcon onClick={() => ChangeCategoryTitle(i)} />
+                                </Typography>
+                            ) : (
+                                <Grid container alignItem="center" wrap="nowrap" className={classes.inputWrapper}>
+                                    <InputWithLabelIcon
+                                        value={editCategory}
+                                        onChange={(e) => setEditCategory(e.target.value)}
+                                    />
+                                    <CheckIcon className={classes.checkIcon} onClick={() => handleEditCategory(i)} />
+                                    <CloseIcon
+                                        className={classes.closeIcon}
+                                        onClick={() => handleRevertEditCategroy(i)}
+                                    />
+                                </Grid>
+                            )
+                        )}
                     </Grid>
                     <Box className={classes.selectCategories}>
                         <SelectWithLabelIcon

@@ -57,8 +57,8 @@ const useStyles = makeStyles({
         height: "2.5rem",
     },
     LastName: {
-        marginLeft: "8px",
-        width: "calc(100% - 8px)",
+        marginLeft: "1rem",
+        width: "calc(100% - 1rem)",
         "@media (max-width:767px)": {
             marginLeft: "0",
             width: "100%",
@@ -149,7 +149,7 @@ const AccountInformation = () => {
                                     label="Last Name"
                                     externalclass={classnames(classes.inputHeight, classes.LastName)}
                                     placeholder="Landing"
-                                    labelMargin="0.6rem"
+                                    labelMargin="1rem"
                                     onChange={() => {}}
                                 />
                             </Grid>
@@ -200,7 +200,12 @@ const AccountInformation = () => {
                                 </Grid>
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
-                                <TextArea placeholder="Describe yourself" label="Choose city" height="7.687rem" />
+                                <TextArea
+                                    placeholder="Describe yourself"
+                                    label="Choose city"
+                                    height="7.687rem"
+                                    placeholderPadding="1rem"
+                                />
                             </Grid>
                             <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
                                 <Typography variant="h5" className={classes.accountsTitle}>

@@ -15,7 +15,6 @@ const useStyles = makeStyles({
         },
     },
     title: {
-        paddingTop: "1rem",
         "@media(max-width:1024px)": {
             padding: "0",
         },

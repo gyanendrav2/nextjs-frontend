@@ -104,9 +104,7 @@ export const InputWithLabelIcon = ({
 InputWithLabelIcon.defaultProps = {
     disabled: false,
     error: false,
-    // onChange: () => {},
     placeholder: "",
-    // value: "",
     type: "text",
     label: "",
     icon: "",
@@ -126,9 +124,7 @@ InputWithLabelIcon.defaultProps = {
 InputWithLabelIcon.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    // value: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),

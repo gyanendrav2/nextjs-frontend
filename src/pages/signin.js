@@ -1,34 +1,41 @@
 import React from "react"
-import dynamic from "next/dynamic"
+// import dynamic from "next/dynamic"
 import { Box, makeStyles } from "@material-ui/core"
-import { images } from "../assets/images"
 import { colors } from "../theme/colors"
+import HeaderWrapper from "../components/header/headerWrapper"
+import LeftSide from "../components/leftSide"
+import SigninForm from "../containers/signin/signinForm"
+import Footer from "../components/footer"
 
-const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
-const LeftSide = dynamic(() => import("../components/leftSide"))
-const SigninForm = dynamic(() => import("../containers/signin/signinForm"))
-const Footer = dynamic(() => import("../components/footer"))
+// const HeaderWrapper = dynamic(() => import("../components/header/headerWrapper"))
+// const LeftSide = dynamic(() => import("../components/leftSide"))
+// const SigninForm = dynamic(() => import("../containers/signin/signinForm"))
+// const Footer = dynamic(() => import("../components/footer"))
 
 const useStyles = makeStyles({
+    mainWrapper: {
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+    },
     wrapper: {
         width: "100%",
         display: "flex",
         backgroundColor: colors.white,
+        flexGrow: "1",
+        "@media (max-width:1200px)": {
+            height: "100%",
+        },
     },
     left: {
         width: "50%",
-        height: "100vh",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundImage: images.SigninWall,
-        "@media (max-width:1072px)": {
+        "@media (max-width:1200px)": {
             display: "none",
-            visibility: "hiiden",
         },
     },
     right: {
         width: "50%",
-        "@media (max-width:1072px)": {
+        "@media (max-width:1200px)": {
             width: "100%",
         },
     },
@@ -40,9 +47,9 @@ const useStyles = makeStyles({
 const SignIn = () => {
     const classes = useStyles()
     return (
-        <>
+        <Box className={classes.mainWrapper}>
+            <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
             <Box className={classes.wrapper}>
-                <HeaderWrapper isScrollDetect mobileMenuIconColor={colors.black} />
                 <Box className={classes.left}>
                     <LeftSide />
                 </Box>
@@ -51,7 +58,7 @@ const SignIn = () => {
                 </Box>
             </Box>
             <Footer externalclass={classes.footer} />
-        </>
+        </Box>
     )
 }
 

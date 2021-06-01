@@ -13,7 +13,7 @@ import Footer from "../components/footer"
 
 const useStyles = makeStyles({
     wrapper: {
-        paddingTop: "9.687rem",
+        paddingTop: "8rem",
         "@media(max-width:1024px)": {
             paddingTop: "7rem",
         },
@@ -30,7 +30,7 @@ const useStyles = makeStyles({
     buttonGroup: {
         border: `1px solid ${colors.lightGray}`,
         // maxWidth: "19.125rem",
-        "@media(max-width:767px)": {
+        "@media(max-width:1024px)": {
             marginBottom: "2rem",
         },
     },
@@ -39,16 +39,28 @@ const useStyles = makeStyles({
         backgroundColor: colors.white,
         color: colors.black,
         minWidth: "9.375rem",
+        "@media(max-width:360px)": {
+            minWidth: "8.75rem",
+        },
     },
     borderRight: {
         borderRight: `1px solid ${colors.lightGray}`,
     },
     searchBtn: {
         width: "6.187rem",
+        "@media(max-width:767px)": {
+            height: "2.75rem",
+        },
     },
     searchContainer: {
         width: "27.375rem",
         border: `1px solid ${colors.lightGray}`,
+        "@media(max-width:1024px)": {
+            width: "100%",
+        },
+        "@media(max-width:767px)": {
+            width: "100%",
+        },
     },
     searchInput: {
         border: "none!important",

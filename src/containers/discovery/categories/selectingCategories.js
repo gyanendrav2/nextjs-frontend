@@ -65,18 +65,12 @@ const useStyles = makeStyles({
     },
     moreButton: {
         height: "2.5rem",
-        // marginBottom: "0.5rem",
         marginRight: "0.5rem",
         marginLeft: 0,
         "@media  (max-width:767px)": {
-            //  width: "calc(25% - 0.5rem)",
             width: "100%",
             marginRight: 0,
         },
-        // "@media (max-width:475px)": {
-        //     width: "100%",
-        //     marginRight: 0,
-        // },
     },
     activeButton: {
         backgroundColor: colors.pink,
@@ -97,7 +91,7 @@ const useStyles = makeStyles({
             position: "relative",
             padding: "1rem 0",
         },
-        "@media (max-width: 1094px)": {
+        "@media (max-width: 1200px)": {
             position: "relative",
             maxWidth: "6rem",
             marginLeft: "auto",
@@ -114,10 +108,11 @@ const useStyles = makeStyles({
             paddingRight: 0,
             width: "100%",
         },
-        "@media (min-width: 476px) and (max-width:1024px)": {
+        "@media (min-width: 476px) and (max-width:1200px)": {
             width: "100%",
             paddingRight: "0.5rem",
-            marginTop: "1.5rem",
+            marginTop: "0.5rem",
+            marginBottom: "2rem",
         },
     },
     disableButton: {

@@ -40,12 +40,27 @@ const useStyles = makeStyles({
     },
 })
 
-export const TextArea = ({ label, inputRegister, error, iscompulsory, errorMsg, height, ...props }) => {
+export const TextArea = ({
+    label,
+    inputRegister,
+    error,
+    iscompulsory,
+    errorMsg,
+    height,
+    placeholderPadding,
+    ...props
+}) => {
     const classes = useStyles({ height })
     return (
         <Box className={classes.rootWrapper}>
             <Typography className={classes.label}>{label}</Typography>
-            <TextAreaInput className={classes.input} error={error} inputRegister={inputRegister} {...props} />
+            <TextAreaInput
+                className={classes.input}
+                error={error}
+                placeholderPadding={placeholderPadding}
+                inputRegister={inputRegister}
+                {...props}
+            />
             {iscompulsory === true ? <ErrorMessage errorMsg={errorMsg} /> : null}
         </Box>
     )
@@ -61,8 +76,8 @@ TextArea.defaultProps = {
     type: "text",
     name: "",
     placeholder: "",
-    // value: "",
     height: "17rem",
+    placeholderPadding: "1.5rem",
 }
 
 TextArea.propTypes = {
@@ -74,8 +89,7 @@ TextArea.propTypes = {
     label: PropTypes.string,
     type: PropTypes.string,
     name: PropTypes.string,
-    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    // value: PropTypes.string,
     height: PropTypes.string,
+    placeholderPadding: PropTypes.string,
 }

@@ -40,7 +40,7 @@ const useStyles = makeStyles({
 const TwoColGrid = ({ col1Children, col2Children, externalclass }) => {
     const classes = useStyles()
     return (
-        <Grid container display="flex" spacing={2} xs={12} className={classnames(classes.wrapper, externalclass)}>
+        <Grid container display="flex" spacing={2} className={classnames(classes.wrapper, externalclass)}>
             <Grid item className={classnames(classes.col1, externalclass)}>
                 {col1Children}
             </Grid>

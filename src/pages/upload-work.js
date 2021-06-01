@@ -27,10 +27,10 @@ const useStyles = makeStyles({
         marginTop: "8rem",
         "@media(max-width:1024px)": {
             width: "100%",
-            marginTop: "2rem",
+            marginTop: "1.5rem",
         },
         "@media(max-width:767px)": {
-            marginTop: "0rem",
+            marginTop: "0.5rem",
         },
     },
     col2: {

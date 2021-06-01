@@ -71,10 +71,6 @@ const useStyles = makeStyles({
             marginLeft: "0.5rem",
         },
     },
-    // icon: {
-    //     fontSize: "2rem",
-    //     color: colors.white,
-    // },
     show: {
         transform: "translateX(0)",
         transition: "all 1s",

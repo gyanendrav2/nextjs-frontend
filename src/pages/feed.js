@@ -19,6 +19,9 @@ const useStyles = makeStyles({
         paddingTop: "8rem",
         margin: "auto",
         backgroundColor: colors.lighterPrimary,
+        "@media(max-width:1024px)": {
+            paddingTop: "7.5rem",
+        },
         "@media(max-width:767px)": {
             paddingTop: "5.812rem",
         },

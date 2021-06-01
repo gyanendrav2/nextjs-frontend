@@ -365,7 +365,7 @@ const Discovery = ({ details, category, showSlider, isAuthenticated, feed, hideC
                                     className={classnames(classes.results, {
                                         [classes.marginFilterOpen]: isFilterOpened,
                                     })}>
-                                    8 results{" "}
+                                    8 results
                                 </Typography>
                             </Box>
                         ) : (

@@ -25,12 +25,21 @@ const useStyles = makeStyles({
         height: 0,
         visibility: "hidden",
     },
-    image: {},
+    blurHash: {
+        position: "absolute!important",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    },
 })
 
 export const LazyloadImage = ({ image, externalclass, blurhashHeight }) => {
     const classes = useStyles()
     const [isLoaded, setIsLoaded] = useState(false)
+
     return (
         <Box className={classes.container}>
             <img className={classes.imageLoadDetect} onLoad={() => setIsLoaded(true)} src={image} alt={image} />
@@ -42,6 +51,7 @@ export const LazyloadImage = ({ image, externalclass, blurhashHeight }) => {
                     width="100%"
                     height={blurhashHeight}
                     punch={1}
+                    className={classes.blurHash}
                 />
             ) : (
                 <LazyLoadImage

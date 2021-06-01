@@ -128,8 +128,6 @@ const Footer = ({ externalclass }) => {
             <ContentWrapper contaier externalclass={classnames(classes.footer, externalclass)}>
                 <>
                     <Grid item sm={10} md={10} lg={10} container className={classes.copyRightcontainer}>
-                        {/* <Grid container> */}
-
                         <Grid item sm={3} md={3} lg={3}>
                             <Link href="/">
                                 <Box className={classes.copyright}>
@@ -149,7 +147,6 @@ const Footer = ({ externalclass }) => {
                                 <Typography className={classes.spec}>Privacy and cookie policy</Typography>
                             </Link>
                         </Grid>
-                        {/* </Grid> */}
                     </Grid>
 
                     <Grid item sm={2} md={2} lg={2} className={classes.titles}>

@@ -7,15 +7,20 @@ import { CheckBoxIcon } from "../icons/checkBoxIcon"
 const useStyles = makeStyles({
     wrapper: {
         height: "100%",
-        paddingLeft: "2.4rem",
         backgroundImage: `url(${images.signinWall})`,
-        backgroundSize: "100% 100%",
+        backgroundSize: "cover",
+        backgroundPosition: "bottom",
+        backgroundRepeat: "no-repeat",
         position: "relative",
         zIndex: "0",
-        width: "100%",
     },
     titleWrapper: {
-        marginTop: "5.5rem",
+        paddingTop: "6rem",
+        paddingLeft: "2.5rem",
+        display: "flex",
+        alignItems: "flex-start",
+        justifyContent: "center",
+        flexDirection: "column",
     },
     title: {
         backgroundColor: colors.black,
@@ -63,8 +68,7 @@ const useStyles = makeStyles({
         marginLeft: "1rem",
     },
     projectAuthor: {
-        paddingTop: "7.5rem",
-        paddingBottom: "2.5rem",
+        marginTop: "6.5rem",
         fontFamily: "Helvetica",
         fontSize: "1rem",
         lineHeight: "1.375rem",
@@ -76,6 +80,7 @@ const useStyles = makeStyles({
     },
     projectAuthorTitle: {
         textDecoration: "underline",
+        cursor: "pointer",
     },
 })
 
@@ -125,7 +130,6 @@ const LeftSide = () => {
                     <Box className={classes.radioboxContainer}>
                         <Checkbox
                             checked
-                            // color="default"
                             className={classes.checkBoxStyles}
                             checkedIcon={<CheckBoxIcon />}
                             icon={<span className="icon-square" />}

@@ -17,9 +17,6 @@ const useStyles = makeStyles({
         padding: "5rem 7.187rem 7.5rem 7.187rem",
         border: `5px dashed ${colors.lightGray}`,
         borderColor: colors.lighterGray,
-        // backgroundImage: `url(
-        //     "data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23333' stroke-width='4' stroke-dasharray='15%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e"
-        // )`,
         backgroundColor: colors.lighterPrimary,
         marginTop: "2rem",
         display: "flex",
@@ -38,7 +35,6 @@ const useStyles = makeStyles({
             width: "10.375rem",
         },
     },
-    fullWidth: {},
     modelWrapper: {
         width: "100%",
         maxHeight: "90vh",
@@ -47,7 +43,6 @@ const useStyles = makeStyles({
     subTitle: {
         color: colors.lighterGray,
         fontSize: "1.375rem",
-        // lineHeight: "2.125rem",
     },
     subTitleTwo: {
         color: colors.lighterGray,
@@ -94,7 +89,7 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
     const [files, setFiles] = useState([])
     const [reassign, setReassign] = useState(false)
 
-    const dropRef = createRef(null)
+    const dropRef = createRef()
 
     const handleDrag = (e) => {
         e.preventDefault()
@@ -104,7 +99,7 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
         e.preventDefault()
         e.stopPropagation()
         setDragCounter(dragCounter + 1)
-        if (e.dataTransfer.items && e.dataTransfer.items.length > 0) {
+        if (e.dataTransfer.items && e.dataTransfer.items.length >= 0) {
             setDraged(true)
         }
     }
@@ -120,22 +115,24 @@ export const UploadMediaModal = ({ modalName, isOpen, onClose, onConfirm }) => {
         e.preventDefault()
         e.stopPropagation()
         setDraged(false)
-        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-            console.log(e.dataTransfer.files)
+        if (files.length > 0) {
+            // console.log(e.dataTransfer.files)
             setFiles([...files, ...e.dataTransfer.files])
-            console.log(e.dataTransfer.files)
+            // console.log(e.dataTransfer.files)
             e.dataTransfer.clearData()
             setDragCounter(0)
+        } else {
+            setFiles([...e.dataTransfer.files])
         }
     }
-
+    console.log("files", files)
     useEffect(() => {
         const div = dropRef.current
         if (div) {
-            div.addEventListener("dragenter", handleDragIn)
-            div.addEventListener("dragleave", handleDragOut)
             div.addEventListener("dragover", handleDrag)
             div.addEventListener("drop", handleDrop)
+            div.addEventListener("dragenter", handleDragIn)
+            div.addEventListener("dragleave", handleDragOut)
         }
 
         return () => {

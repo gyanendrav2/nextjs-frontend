@@ -15,7 +15,6 @@ const useStyles = makeStyles({
     },
     title: {
         marginBottom: "2rem",
-        // marginLeft: "-1.5rem",
     },
     inputLabel: {
         fontWeight: "bold",
@@ -48,13 +47,13 @@ const ProfileContent = () => {
                 <InputWithLabelIcon
                     placeholder="Email"
                     // name="email"
-                    placeholderColor={colors.lightGray}
+                    placeholderColor={colors.lighterGray}
                     externalclass={classes.inputStyles}
                 />
                 <Typography className={classnames(classes.inputLabel, classes.changeTypo)}>Change Password</Typography>
                 <InputWithLabelIcon
                     placeholder="Insert current password"
-                    placeholderColor={colors.lightGray}
+                    placeholderColor={colors.lighterGray}
                     // name="username"
                     // inputRegister={register}
                     // errorMsg={errors.username}
@@ -62,7 +61,7 @@ const ProfileContent = () => {
                 />
                 <InputWithLabelIcon
                     placeholder="Insert new password"
-                    placeholderColor={colors.lightGray}
+                    placeholderColor={colors.lighterGray}
                     // name="username"
                     // inputRegister={register}
                     // errorMsg={errors.username}
@@ -70,7 +69,7 @@ const ProfileContent = () => {
                 />
                 <InputWithLabelIcon
                     placeholder="Repeat new password"
-                    placeholderColor={colors.lightGray}
+                    placeholderColor={colors.lighterGray}
                     // name="username"
                     // inputRegister={register}
                     // errorMsg={errors.username}

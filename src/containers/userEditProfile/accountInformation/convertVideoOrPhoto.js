@@ -4,7 +4,6 @@ import classnames from "classnames"
 import CustomButton from "../../../components/buttons/customButton"
 import { SendDetailsModal } from "../../../components/modal/sendDetailsModal"
 import { colors } from "../../../theme/colors"
-import CancelConfirm from "../../../components/cards/cancelConfirm"
 
 const useStyles = makeStyles({
     wrapper: {
@@ -15,20 +14,14 @@ const useStyles = makeStyles({
         },
     },
     button: {
-        backgroundColor: colors.lightGray,
+        backgroundColor: colors.lighterPrimary,
         height: "3.5rem",
         padding: "0.625rem 3rem",
         color: colors.black,
-        // minWidth: "10rem",
     },
     title: { marginBottom: "2rem" },
     wrap: {
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        // "& button": {
-        //     width: "100%",
-        // },
+        width: "100%",
         flexWrap: "nowrap",
         "@media (max-width:767px)": {
             display: "block",
@@ -44,43 +37,26 @@ const useStyles = makeStyles({
         },
     },
     textStyles: {
+        width: "6%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        color: colors.lighterGray,
         "@media (max-width: 767px)": {
-            margin: "1rem auto",
+            margin: "0.625rem auto",
+            width: "100%",
         },
     },
     copyEmbed: {
-        width: "calc(100% + 32px)",
-        marginRight: "-2rem",
-        "@media (min-width:1025px) and (max-width: 1250px)": {
-            width: "calc(100% + 16px)",
-            marginRight: "-1rem",
-        },
-        "@media (min-width:768px) and (max-width: 1024px)": {
-            width: "calc(100% + 32px)",
-            marginRight: "-2rem",
-        },
+        width: "47%",
         "@media (max-width: 767px)": {
             width: "100%",
-            marginRight: "0",
         },
     },
     upload: {
-        width: "calc(100% + 32px)",
-        marginLeft: "-2rem",
-        "@media (min-width:1025) and (max-width: 1250px)": {
-            width: "calc(100% + 16px)",
-            marginLeft: "-1rem",
-        },
-        "@media (min-width:768px) and (max-width: 767px)": {
-            width: "calc(100% + 32px)",
-            marginLeft: "-2rem",
-        },
+        width: "47%",
         "@media (max-width: 767px)": {
             width: "100%",
-            marginLeft: "0",
         },
     },
 })
@@ -106,26 +82,20 @@ export const ConvertVideoOrPhoto = () => {
                     COVER VIDEO OR PHOTO
                 </Typography>
                 <Grid container className={classes.wrap}>
-                    <Grid item sm={12} md={5} lg={5} xl={5}>
-                        <CustomButton
-                            label="Copy embed video"
-                            externalclass={classnames(classes.button, classes.copyEmbed)}
-                            onClick={() => setCodeCopyModal(true)}
-                        />
-                    </Grid>
-                    <Grid item sm={12} md={2} lg={2} xl={2}>
-                        <Typography className={classes.textStyles}>or</Typography>
-                    </Grid>
-                    <Grid item sm={12} md={5} lg={5} xl={5}>
-                        <CustomButton
-                            label="Upload a photo"
-                            wantFile
-                            externalclass={classnames(classes.button, classes.upload)}
-                        />
-                    </Grid>
+                    <CustomButton
+                        label="Copy embed video"
+                        externalclass={classnames(classes.button, classes.copyEmbed)}
+                        onClick={() => setCodeCopyModal(true)}
+                    />
+
+                    <Typography className={classes.textStyles}>or</Typography>
+                    <CustomButton
+                        label="Upload a photo"
+                        wantFile
+                        externalclass={classnames(classes.button, classes.upload)}
+                    />
                 </Grid>
             </Box>
-            <CancelConfirm onClose={() => {}} onConfirm={() => {}} />
         </>
     )
 }

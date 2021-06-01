@@ -113,14 +113,6 @@ const useStyles = makeStyles({
             paddingRight: "1.25rem",
         },
     },
-    userProfilecardStyles: {
-        // "@media (max-width:575px)": {
-        //     padding: "1rem",
-        // },
-        // messageBoxStyles: {
-        //     marginRight: "1rem",
-        // },
-    },
     player: {
         height: "100%",
         "@media(min-width:768px) and (max-width:1024px)": {
@@ -202,8 +194,7 @@ const Profile = () => {
                                     following="20"
                                     position="Director assistant, producer"
                                     location="USA, Ohio"
-                                    bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text "
-                                    externalclass={classes.userProfilecardStyles}
+                                    bio="I’m this awesome and cool as hell director from the states. Producing is my other passion.This is additional text, this is additional text,this is additional text,this is additional text,this is additional text,this is additional text. "
                                 />
                             </Box>
                         </Grid>

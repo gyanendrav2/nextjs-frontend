@@ -315,9 +315,7 @@ const SelectWithLabelIcon = ({
 SelectWithLabelIcon.defaultProps = {
     disabled: false,
     error: false,
-    // onChange: () => {},
     placeholder: "",
-    // value: "",
     type: "",
     label: "",
     icon: undefined,

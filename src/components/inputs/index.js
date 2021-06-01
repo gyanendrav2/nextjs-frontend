@@ -45,7 +45,6 @@ Input.defaultProps = {
     disabled: false,
     error: false,
     placeholder: "",
-    // value: "",
     type: "text",
     inputRegister: () => {},
     inputName: "",
@@ -56,9 +55,7 @@ Input.defaultProps = {
 Input.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    // value: PropTypes.string,
     type: PropTypes.string,
     inputRegister: PropTypes.func,
     inputName: PropTypes.string,

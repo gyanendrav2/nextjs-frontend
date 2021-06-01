@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     wrapper: {
         "& textarea": {
             width: "100%",
-            padding: "1.5rem",
+            padding: (props) => (props.placeholderPadding ? props.placeholderPadding : "1.5rem"),
             outline: "none",
             margin: 0,
             fontSize: "1rem",
@@ -29,8 +29,8 @@ const useStyles = makeStyles({
     },
 })
 
-export const TextAreaInput = ({ inputRegister, error, name, placeholder, ...rest }) => {
-    const classes = useStyles({ error })
+export const TextAreaInput = ({ inputRegister, error, name, placeholder, placeholderPadding, ...rest }) => {
+    const classes = useStyles({ error, placeholderPadding })
     return (
         <Box className={classes.wrapper}>
             <textarea className={classes.input} name={name} placeholder={placeholder} ref={inputRegister} {...rest} />
@@ -41,21 +41,19 @@ export const TextAreaInput = ({ inputRegister, error, name, placeholder, ...rest
 TextAreaInput.defaultProps = {
     disabled: false,
     error: false,
-    // onChange: () => {},
     placeholder: "",
-    // value: "",
     type: "",
     inputRegister: () => {},
     name: "",
+    placeholderPadding: "1.5rem",
 }
 
 TextAreaInput.propTypes = {
     disabled: PropTypes.bool,
     error: PropTypes.bool,
-    // onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    // value: PropTypes.string,
     type: PropTypes.string,
     inputRegister: PropTypes.func,
     name: PropTypes.string,
+    placeholderPadding: PropTypes.string,
 }

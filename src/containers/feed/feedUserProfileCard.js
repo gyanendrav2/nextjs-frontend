@@ -104,6 +104,14 @@ const useStyles = makeStyles({
             display: "block",
         },
     },
+    subTitle1: {
+        lineHeight: "2rem",
+        marginTop: "1rem",
+        fontSize: "1.375rem",
+        "@media(max-width:767px)": {
+            fontSize: "1rem",
+        },
+    },
     shareButton: {
         minWidth: "2.5rem",
         minHeight: "2.5rem",
@@ -187,7 +195,7 @@ export const FeedUserProfileCard = ({
                     alt="dummy"
                     style={{ width: "100%", height: "23rem", objectFit: "cover", marginTop: "1rem" }}
                 />
-                <Typography variant="subtitle1" style={{ lineHeight: "2rem", marginTop: "1rem", fontSize: "1.375rem" }}>
+                <Typography variant="subtitle1" className={classes.subTitle1}>
                     {description}
                 </Typography>
             </Box>

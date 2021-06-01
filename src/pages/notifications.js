@@ -9,8 +9,14 @@ import { SendDetailsModal } from "../components/modal/sendDetailsModal"
 import { images } from "../assets/images"
 
 const useStyles = makeStyles({
+    mainWapper: {
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+    },
     wrapper: {
         padding: "8rem 9.062rem 2rem 9.062rem",
+        flexGrow: "1",
         "@media (max-width:1024px)": {
             padding: "8rem 0rem 1rem 2rem",
         },
@@ -46,7 +52,7 @@ const UserNotifications = () => {
     const classes = useStyles()
     const [showDeclineModal, setShowDeclineModal] = useState(false)
     return (
-        <>
+        <Box className={classes.mainWapper}>
             <SendDetailsModal
                 modalName="Decline request"
                 title="Decline the participation request with a message"
@@ -118,8 +124,8 @@ const UserNotifications = () => {
                 />
             </Box>
 
-            <Footer externalclass={classes.footer} />
-        </>
+            <Footer />
+        </Box>
     )
 }
 

@@ -88,7 +88,7 @@ const useStyles = makeStyles({
             marginLeft: "auto",
             position: "relative",
         },
-        "@media (max-width: 1094px)": {
+        "@media (max-width: 1200px)": {
             position: "relative",
             maxWidth: "6rem",
             marginLeft: "auto",

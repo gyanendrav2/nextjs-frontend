@@ -14,7 +14,7 @@ const useStyles = makeStyles({
         width: "100%",
         display: "flex",
         flexDirection: "column",
-        padding: "8.97rem",
+        padding: "0 0 0 8.75rem",
         justifyContent: "center",
         alignItems: "flex-start",
         height: "100vh",
@@ -28,17 +28,15 @@ const useStyles = makeStyles({
         },
     },
     formWrapper: {
-        width: "100%!important",
         marginTop: "7rem",
-        paddingTop: "4rem",
         "@media(max-width:767px)": {
             padding: "1rem",
             marginTop: "3rem",
+            width: "100%",
         },
     },
     title: {
-        fontFamily: "Helvetica",
-        fontStyle: "normal",
+        fontFamily: "Forno-Trial",
         fontWeight: "900",
         fontSize: "2rem",
         lineHeight: "2.5rem",
@@ -49,8 +47,11 @@ const useStyles = makeStyles({
     inputStyles: {
         background: "linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF",
         height: "3.5rem",
-        "@media(max-width:567px)": {
+        width: "27.625rem",
+        fontFamily: "Helvetica",
+        "@media(max-width:767px)": {
             minWidth: "initial",
+            width: "100%",
         },
     },
     submitContainer: {

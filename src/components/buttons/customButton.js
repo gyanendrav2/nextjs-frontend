@@ -42,7 +42,7 @@ const useStyles = makeStyles({
             fontSize: "1rem",
         },
         "&:hover": {
-            color: colors.black,
+            color: colors.white,
             backgroundColor: colors.pink,
         },
     },

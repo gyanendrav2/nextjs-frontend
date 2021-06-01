@@ -48,12 +48,6 @@ const useStyles = makeStyles({
         },
     },
 
-    searchInput: {
-        // width: "calc(100%-10rem)",
-    },
-    confirmButton: {
-        // width: "10rem",
-    },
     mobileFilterWrapper: {
         padding: "1.5rem 0 1rem 0",
         backgroundColor: colors.white,

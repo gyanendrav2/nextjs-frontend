@@ -1,4 +1,5 @@
 import { Box, Grid, makeStyles, Typography } from "@material-ui/core"
+import PropTypes from "prop-types"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
 import React from "react"
@@ -13,10 +14,15 @@ const NotificationContent = dynamic(() => import("../../containers/settings/noti
 const DeleteContent = dynamic(() => import("../../containers/settings/deleteContent"))
 
 const useStyles = makeStyles({
+    rootWrapper: {
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+    },
     wrapper: {
         backgroundColor: colors.lighterPrimary,
-        minHeight: "100vh",
         padding: "8rem 9.062rem 2rem 9.062rem",
+        flexGrow: 1,
         "@media (min-width:1024px) and (max-width:1350px)": {
             padding: "8rem 2rem 2rem 2.5rem",
         },
@@ -94,10 +100,12 @@ const useStyles = makeStyles({
         marginTop: "0rem!important",
     },
 })
-const Settings = () => {
+const Settings = ({ params }) => {
     const classes = useStyles()
     const { query, push } = useRouter()
     const { editOption } = query
+
+    const activeOption = editOption || params.editOption
 
     const renderOption = () => {
         if (editOption === "profile") {
@@ -112,7 +120,7 @@ const Settings = () => {
     }
 
     return (
-        <>
+        <Box className={classes.rootWrapper}>
             <HeaderWrapper isAuthenticated isScrollDetect={false} />
             <Box className={classes.wrapper}>
                 <Typography variant="h4" className={classes.mainTitle}>
@@ -124,17 +132,17 @@ const Settings = () => {
                         <Grid container direction="column" display="flex" className={classes.col1}>
                             <EditOptions
                                 optionName="Profile"
-                                isActive={editOption === "profile"}
+                                isActive={activeOption === "profile"}
                                 onClick={() => push("/settings/profile")}
                             />
                             <EditOptions
                                 optionName="Notifications"
-                                isActive={editOption === "notifications"}
+                                isActive={activeOption === "notifications"}
                                 onClick={() => push("/settings/notifications")}
                             />
                             <EditOptions
                                 optionName="Delete or Deactivate account"
-                                isActive={editOption === "delete-deactivate"}
+                                isActive={activeOption === "delete-deactivate"}
                                 onClick={() => push("/settings/delete-deactivate")}
                             />
                         </Grid>
@@ -148,8 +156,17 @@ const Settings = () => {
             </Box>
 
             <Footer externalclass={classes.footer} />
-        </>
+        </Box>
     )
+}
+
+export const getServerSideProps = (context) => {
+    return {
+        props: { params: context.params },
+    }
+}
+Settings.propTypes = {
+    params: PropTypes.shape({ editOption: PropTypes.string }).isRequired,
 }
 
 export default Settings

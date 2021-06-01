@@ -2,7 +2,6 @@ import React from "react"
 import { Box, makeStyles } from "@material-ui/core"
 import dynamic from "next/dynamic"
 import HeaderWrapper from "../components/header/headerWrapper"
-import { images } from "../assets/images"
 import { colors } from "../theme/colors"
 import Footer from "../components/footer"
 
@@ -14,21 +13,20 @@ const useStyles = makeStyles({
         width: "100%",
         display: "flex",
         backgroundColor: colors.white,
+        height: "100%",
+        "@media (max-width:1200px)": {
+            height: "100%",
+        },
     },
     left: {
         width: "50%",
-        height: "100vh",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundImage: images.SigninWall,
-        "@media (max-width:1072px)": {
+        "@media (max-width:1200px)": {
             display: "none",
-            visibility: "hiiden",
         },
     },
     right: {
         width: "50%",
-        "@media (max-width:1072px)": {
+        "@media (max-width:1200px)": {
             width: "100%",
         },
     },

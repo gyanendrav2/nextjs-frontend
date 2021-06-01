@@ -9,6 +9,9 @@ const useStyles = makeStyles({
         backgroundColor: colors.lighterPrimary,
         padding: "2rem",
         margin: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
         "@media (max-width:767px)": {
             flexDirection: "column-reverse",
             width: "100%",
@@ -35,7 +38,7 @@ const useStyles = makeStyles({
 const CancelConfirm = ({ onClose, onConfirm }) => {
     const classes = useStyles()
     return (
-        <Grid container spacing={2} md={12} alignItems="center" justify="center" className={classes.buttonWrapper}>
+        <Grid item container spacing={2} md={12} className={classes.buttonWrapper}>
             <CustomButton variant="cancel" label="Cancel" externalclass={classes.button} onClick={onClose} />
             <CustomButton label="Confirm" externalclass={classes.button} onClick={onConfirm} />
         </Grid>

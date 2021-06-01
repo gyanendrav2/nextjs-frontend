@@ -114,7 +114,7 @@ const useStyles = makeStyles({
     },
     cancelBtn: {
         "@media(max-width:767px)": {
-            marginTop: "2rem",
+            marginTop: "1rem",
         },
     },
 })

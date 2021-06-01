@@ -128,7 +128,6 @@ HeaderWrapper.defaultProps = {
     mobileMenuIconColor: "",
     mobileLogoType: undefined,
     isAuthenticated: false,
-    // feed: false,
 }
 
 HeaderWrapper.propTypes = {

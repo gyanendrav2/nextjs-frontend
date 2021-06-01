@@ -26,7 +26,6 @@ const useStyles = makeStyles({
         "@media (max-width: 1024px)": {
             padding: "2rem 2rem 2rem 0",
             marginBottom: "0",
-            //    flexWrap: "wrap",
         },
         "@media (max-width:767px)": {
             flexWrap: "wrap",
@@ -44,7 +43,6 @@ const useStyles = makeStyles({
         "@media (max-width: 767px)": {
             marginLeft: "2rem",
             marginRight: "0rem",
-            marginTop: "0.5rem",
         },
     },
     declineButton: {
@@ -54,9 +52,7 @@ const useStyles = makeStyles({
             backgroundColor: "transparent",
         },
         "@media (max-width: 767px)": {
-            marginLeft: "1rem",
-        },
-        "@media (max-width: 576px)": {
+            marginLeft: "0.75rem",
             marginRight: "-1.5rem",
         },
     },
@@ -78,10 +74,10 @@ const useStyles = makeStyles({
     },
     mobileDate: {
         display: "none",
-        marginLeft: "4.5rem",
+        paddingLeft: "4.5rem",
         marginTop: "0.6rem",
         color: colors.lighterGray,
-        "@media (max-width: 575px)": {
+        "@media (max-width: 767px)": {
             display: "block",
         },
     },
@@ -89,7 +85,7 @@ const useStyles = makeStyles({
     desktopDate: {
         display: "block",
         color: colors.lighterGray,
-        "@media (max-width: 575px)": {
+        "@media (max-width: 767px)": {
             display: "none",
         },
     },
